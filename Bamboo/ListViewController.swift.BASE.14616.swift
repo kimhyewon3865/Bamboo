@@ -31,7 +31,7 @@ class ListViewController: UIViewController ,UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = listTableView.dequeueReusableCellWithIdentifier("ListCell", forIndexPath: indexPath) as! ListTableViewCell
         
-        cell.codeLabel.text = generalBoards[indexPath.row].code // generalBoards[indexPath.row].__
+        cell.codeLabel.text = generalBoards[indexPath.row].code
         return cell
     }
     
