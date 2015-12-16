@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        //기기 고유값을 가져옴
+        let uuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
         
         //앱 최초실행인지 판단하는 코드
         if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
@@ -28,6 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
             NSUserDefaults.standardUserDefaults().synchronize()
+        } else {
+            Alamofire
+                .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Get_MyInfo.php", parameters:["uuid" : uuid])
+                .responseObject { (response: Response<User, NSError>) in
+                    if response.result.isSuccess {
+                        User.sharedInstance().uuid = (response.result.value?.uuid)!
+                        User.sharedInstance().point = (response.result.value?.point)!
+                        User.sharedInstance().univ = (response.result.value?.univ)!
+                    }
+            }
         }
         
         return true
