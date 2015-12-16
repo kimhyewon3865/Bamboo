@@ -31,7 +31,7 @@ class ListViewController: UIViewController ,UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = listTableView.dequeueReusableCellWithIdentifier("ListCell", forIndexPath: indexPath) as! ListTableViewCell
         
-        cell.codeLabel.text = generalBoards[indexPath.row].code
+        cell.codeLabel.text = generalBoards[indexPath.row].keywords
         return cell
     }
     
@@ -43,7 +43,7 @@ class ListViewController: UIViewController ,UITableViewDataSource, UITableViewDe
     
     func initGeneralBoards() {
         Alamofire
-            .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Get_List.php", parameters:["type" : "T01", "page" : "1", "university" : "가천대학교"])
+            .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Get_List.php", parameters:["type" : "T01", "page" : "1", "university" : User.sharedInstance().univ])
             .responseCollection { (response: Response<[GeneralBoard], NSError>) in
                 if response.result.isSuccess {
                     self.generalBoards = response.result.value!
