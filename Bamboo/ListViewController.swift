@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class ListViewController: UIViewController {
     
     let alamofireManager = Manager()
     let uuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
