@@ -13,9 +13,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //앱 최초실행인지 판단하는 코드
+        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
+            print("Log : FirstRunVC loaded")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let rootView = storyboard.instantiateViewControllerWithIdentifier("FirstRunViewController") as UIViewController
+            if let window = self.window {
+                window.rootViewController = rootView
+            }
+            
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        
         return true
     }
 
