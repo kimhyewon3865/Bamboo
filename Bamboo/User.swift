@@ -11,6 +11,7 @@ import Foundation
 final class User: ResponseObjectSerializable {
     
     static var instance: User!
+    
     var uuid: String
     var point: String
     var univ : String
