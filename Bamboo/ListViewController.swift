@@ -18,6 +18,7 @@ class ListViewController: UIViewController ,UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(User.sharedInstance().univ)
         initSetting()
         initGeneralBoards()
     }

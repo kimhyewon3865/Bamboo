@@ -7,16 +7,18 @@
 //
 
 import UIKit
+import Alamofire
 
-class UnivSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
+class UnivSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    @IBOutlet weak var topView: UIView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
     var searchController = UISearchController(searchResultsController: nil)
     var isSearching = false
     let data = ["aaa","baa","caa","cwa","aqweaa","faa","powaa","eraa","laa","qweqwrdaa"]
-    var filteredData = Set<String>()
+    var filtered: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,7 @@ class UnivSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching == true {
-            return filteredData.count
+            return filtered.count
         } else {
             return data.count
         }
@@ -39,66 +41,73 @@ class UnivSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCellWithIdentifier("UnivCell", forIndexPath: indexPath)
-        print(isSearching)
         if isSearching == true {
-            let filteredDataArray = Array(filteredData)
-            cell.textLabel?.text = filteredDataArray[indexPath.row]
+            cell.textLabel?.text = filtered[indexPath.row]
         } else {
             cell.textLabel?.text = data[indexPath.row]
         }
         
         return cell
     }
-    // MARK: - UITableView Delegate Function
     
-    // MARK: - UISearchController Delegate Function
+    // MARK: - UISearchBar Delegate Function
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
-        isSearching = true;
+        isSearching = true
         return true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        isSearching = false
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         isSearching = false
     }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        let searchString = self.searchController.searchBar.text
-        
-        if searchString == "" {
-            filteredData.removeAll(keepCapacity: true)
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        filtered = data.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        if (filtered.count == 0) {
+            isSearching = false
         } else {
-            for eachWords in data {
-                if eachWords.hasPrefix(searchString!) {
-                    filteredData.insert(eachWords)
-                } else {
-                    filteredData.remove(eachWords)
-                }
-            }
+            isSearching = true
         }
         self.searchTableView.reloadData()
     }
     
     // MARK: - General custom Function
     func initSetting() {
-        //self.topView.backgroundColor = nil
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        
-        self.topView.addSubview(self.searchController.searchBar)
-        
-        self.definesPresentationContext = true
-        self.searchController.searchBar.sizeToFit()
+        self.searchBar.delegate = self
     }
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SelectUniv" {
+            let uuid = UIDevice.currentDevice().identifierForVendor?.UUIDString
+            let cell = sender as! UITableViewCell
+            let indexPath = self.searchTableView.indexPathForCell(cell)!
+            
+            User.sharedInstance().uuid = uuid!
+            User.sharedInstance().point = "0"
+            
+            if isSearching == true {
+                Alamofire
+                    .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Default.php", parameters:["uuid" : uuid!, "university" : filtered[indexPath.row]])
+                    .responseString{ response in
+                        print(response.result.value)
+                }
+                User.sharedInstance().univ = filtered[indexPath.row]
+            } else {
+                Alamofire
+                    .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Default.php", parameters:["uuid" : uuid!, "university" : data[indexPath.row]])
+                    .responseString{response in
+                        print(response.result.value)
+                }
+                User.sharedInstance().univ = data[indexPath.row]
+            }
+        }
     }
-    */
-
 }
