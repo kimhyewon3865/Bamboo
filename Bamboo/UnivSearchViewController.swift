@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class UnivSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class UnivSearchViewController: UIViewController {
 
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -17,7 +17,7 @@ class UnivSearchViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var searchController = UISearchController(searchResultsController: nil)
     var isSearching = false
-    let data = ["aaa","baa","caa","cwa","aqweaa","faa","powaa","eraa","laa","qweqwrdaa"]
+    var data = [String]()
     var filtered: [String] = []
     
     override func viewDidLoad() {
@@ -26,61 +26,11 @@ class UnivSearchViewController: UIViewController, UITableViewDelegate, UITableVi
         initSetting()
     }
     
-    // MARK: - UITableView DataSource Function
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isSearching == true {
-            return filtered.count
-        } else {
-            return data.count
-        }
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = searchTableView.dequeueReusableCellWithIdentifier("UnivCell", forIndexPath: indexPath)
-        if isSearching == true {
-            cell.textLabel?.text = filtered[indexPath.row]
-        } else {
-            cell.textLabel?.text = data[indexPath.row]
-        }
-        
-        return cell
-    }
-    
-    // MARK: - UISearchBar Delegate Function
-    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
-        isSearching = true
-        return true;
-    }
-    
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        isSearching = false
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        isSearching = false
-    }
-    
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        filtered = data.filter({ (text) -> Bool in
-            let tmp: NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-            return range.location != NSNotFound
-        })
-        if (filtered.count == 0) {
-            isSearching = false
-        } else {
-            isSearching = true
-        }
-        self.searchTableView.reloadData()
-    }
-    
     // MARK: - General custom Function
     func initSetting() {
         self.searchBar.delegate = self
+        
+        self.data = LibraryAPI().getNameFromUniversities()
     }
     
     // MARK: - Navigation
@@ -109,5 +59,59 @@ class UnivSearchViewController: UIViewController, UITableViewDelegate, UITableVi
                 User.sharedInstance().univ = data[indexPath.row]
             }
         }
+    }
+}
+
+extension UnivSearchViewController: UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isSearching == true {
+            return filtered.count
+        } else {
+            return data.count
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = searchTableView.dequeueReusableCellWithIdentifier("UnivCell", forIndexPath: indexPath)
+        if isSearching == true {
+            cell.textLabel?.text = filtered[indexPath.row]
+        } else {
+            cell.textLabel?.text = data[indexPath.row]
+        }
+        
+        return cell
+    }
+}
+
+extension UnivSearchViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        isSearching = true
+        return true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        isSearching = false
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        isSearching = false
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        filtered = data.filter({ (text) -> Bool in
+            let tmp: NSString = text
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        if (filtered.count == 0) {
+            isSearching = false
+        } else {
+            isSearching = true
+        }
+        self.searchTableView.reloadData()
     }
 }
