@@ -41,7 +41,7 @@ class UniversityManager: NSObject {
         
         if (!(fileManager.fileExistsAtPath(path)))
         {
-            let bundle : NSString = NSBundle.mainBundle().pathForResource("UniversityList", ofType: "plist")!
+            let bundle: NSString = NSBundle.mainBundle().pathForResource("UniversityList", ofType: "plist")!
             do {
                 try fileManager.copyItemAtPath(bundle as String, toPath: path)
             } catch _ {

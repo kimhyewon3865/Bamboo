@@ -16,6 +16,7 @@
 		E872E48C1C299A0100AB69F7 /* UniversityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E872E48B1C299A0100AB69F7 /* UniversityManager.swift */; };
 		E872E48E1C299AC000AB69F7 /* UniversityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = E872E48D1C299AC000AB69F7 /* UniversityList.plist */; };
 		E872E4901C29A32F00AB69F7 /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E872E48F1C29A32F00AB69F7 /* LibraryAPI.swift */; };
+		E872E4921C2A2E9D00AB69F7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E872E4911C2A2E9D00AB69F7 /* NetworkManager.swift */; };
 		E874BBCA1C21209A00E091A4 /* GeneralBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874BBC91C21209A00E091A4 /* GeneralBoard.swift */; };
 		E874BBCC1C2120A900E091A4 /* UnivBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874BBCB1C2120A900E091A4 /* UnivBoard.swift */; };
 		E874BBCE1C21211E00E091A4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874BBCD1C21211E00E091A4 /* Comment.swift */; };
@@ -61,6 +62,7 @@
 		E872E48B1C299A0100AB69F7 /* UniversityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversityManager.swift; sourceTree = "<group>"; };
 		E872E48D1C299AC000AB69F7 /* UniversityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UniversityList.plist; sourceTree = "<group>"; };
 		E872E48F1C29A32F00AB69F7 /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
+		E872E4911C2A2E9D00AB69F7 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E874BBC91C21209A00E091A4 /* GeneralBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralBoard.swift; sourceTree = "<group>"; };
 		E874BBCB1C2120A900E091A4 /* UnivBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivBoard.swift; sourceTree = "<group>"; };
 		E874BBCD1C21211E00E091A4 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				E874BBDB1C23D3F000E091A4 /* SimpleJsonParser.swift */,
 				E872E48B1C299A0100AB69F7 /* UniversityManager.swift */,
+				E872E4911C2A2E9D00AB69F7 /* NetworkManager.swift */,
 				E872E48F1C29A32F00AB69F7 /* LibraryAPI.swift */,
 			);
 			name = API;
@@ -459,6 +462,7 @@
 				E8937F0B1C1E7D6C0056C5FD /* ListViewController.swift in Sources */,
 				E872E48C1C299A0100AB69F7 /* UniversityManager.swift in Sources */,
 				E874BBCC1C2120A900E091A4 /* UnivBoard.swift in Sources */,
+				E872E4921C2A2E9D00AB69F7 /* NetworkManager.swift in Sources */,
 				E872E4901C29A32F00AB69F7 /* LibraryAPI.swift in Sources */,
 				E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */,
 				E8937F091C1E7D6C0056C5FD /* AppDelegate.swift in Sources */,

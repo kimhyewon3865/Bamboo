@@ -11,7 +11,6 @@ import Alamofire
 
 class UnivSearchViewController: UIViewController {
 
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
