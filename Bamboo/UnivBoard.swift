@@ -23,7 +23,6 @@ final class UnivBoard : ResponseObjectSerializable,  ResponseCollectionSerializa
     var notice_yn : Bool
     var notice_date : String
     
-    var m_univ = User.instance.univ
     init?(response: NSHTTPURLResponse, representation: AnyObject) {
         self.code = representation.valueForKeyPath("b_code") as! String
         self.contents = representation.valueForKeyPath("b_contents") as! String
@@ -38,7 +37,8 @@ final class UnivBoard : ResponseObjectSerializable,  ResponseCollectionSerializa
             let tmpKeywordArray = keywords.characters.split{$0 == ","}.map(String.init)
             keywordArray = tmpKeywordArray
         }
-        self.univ = representation.valueForKeyPath("university") as! String
+        self.univ = User.instance.univ
+        //self.univ = representation.valueForKeyPath("university") as! String
         self.notice_yn = false
         self.notice_date = ""
         
