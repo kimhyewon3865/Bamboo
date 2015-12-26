@@ -21,14 +21,6 @@ class UnivSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initSetting()
-    }
-    
-    // MARK: - General custom Function
-    func initSetting() {
-        self.searchBar.delegate = self
-        
         self.data = LibraryAPI().getNameFromUniversities()
     }
     
@@ -46,14 +38,14 @@ class UnivSearchViewController: UIViewController {
                 Alamofire
                     .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Default.php", parameters:["uuid" : uuid!, "university" : filtered[indexPath.row]])
                     .responseString{ response in
-                        print(response.result.value)
+                        //print(response.result.value)
                 }
                 User.sharedInstance().univ = filtered[indexPath.row]
             } else {
                 Alamofire
                     .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Default.php", parameters:["uuid" : uuid!, "university" : data[indexPath.row]])
                     .responseString{response in
-                        print(response.result.value)
+                        //print(response.result.value)
                 }
                 User.sharedInstance().univ = data[indexPath.row]
             }

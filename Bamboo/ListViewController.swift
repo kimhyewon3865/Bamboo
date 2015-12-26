@@ -9,50 +9,31 @@
 import UIKit
 import Alamofire
 
-class ListViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate{
+class ListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     
-    var generalBoards: [GeneralBoard] = []
+    var generalBoards = [GeneralBoard]()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        print(User.sharedInstance().univ)
-        initSetting()
-        initGeneralBoards()
+        super.viewDidLoad()        
     }
-    
-    // MARK: - TableView DataSource
+}
+
+extension ListViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.generalBoards.count
     }
     
-    // MARK: - TableView Delegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = listTableView.dequeueReusableCellWithIdentifier("ListCell", forIndexPath: indexPath) as! ListTableViewCell
         
-        cell.codeLabel.text = generalBoards[indexPath.row].contents // generalBoards[indexPath.row].__
+        cell.codeLabel.text = generalBoards[indexPath.row].contents
         return cell
     }
+}
+
+extension ListViewController: UITableViewDelegate {
     
-    // MARK: - General Function
-    func initSetting() {
-        self.listTableView.delegate = self
-        self.listTableView.dataSource = self
-    }
-    
-    func initGeneralBoards() {
-        Alamofire
-            .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Get_List.php", parameters:["type" : "T01", "page" : "1", "university" : User.instance.univ])
-            .responseCollection { (response: Response<[GeneralBoard], NSError>) in
-                if response.result.isSuccess {
-                    self.generalBoards = response.result.value!
-                }
-                
-                self.listTableView.reloadData()
-        }
-        
-    }
 }
 

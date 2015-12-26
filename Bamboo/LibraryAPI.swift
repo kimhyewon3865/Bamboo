@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import Alamofire
 
 class LibraryAPI: NSObject {
     private let universityManager: UniversityManager
-    private let networkManager: NetworkManager
     
     class var sharedInstance: LibraryAPI {
         struct Singleton {
@@ -21,7 +21,6 @@ class LibraryAPI: NSObject {
     
     override init() {
         universityManager = UniversityManager()
-        networkManager = NetworkManager()
         
         super.init()
     }
@@ -32,9 +31,5 @@ class LibraryAPI: NSObject {
     
     func getNameFromUniversities() -> [String] {
         return self.universityManager.getNameFromUniversities()
-    }
-    
-    func getList(type: ListRequestType, page: String, univName: String) -> [GeneralBoard] {
-        return self.networkManager.getList(type, page: page, univName: univName)
     }
 }
