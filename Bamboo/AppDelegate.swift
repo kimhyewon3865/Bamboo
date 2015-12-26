@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.whiteColor()], forState: .Normal)
+
         //앱 최초실행인지 판단하는 코드
         if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
             print("Log : FirstRunVC loaded")

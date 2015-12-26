@@ -10,8 +10,6 @@
 		B39B918345FA1F4553D42405 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A787F9EC4ED2DB4BE4D7AD /* Pods.framework */; };
 		C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */; };
 		C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */; };
-		C9B8E6FE1C2A41F900128132 /* KeywordCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6FD1C2A41F900128132 /* KeywordCollectionViewController.swift */; };
-		C9B8E7001C2A421400128132 /* KeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6FF1C2A421400128132 /* KeywordCollectionViewCell.swift */; };
 		E82015011C20267B00F7DD5D /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */; };
 		E82015041C2026C900F7DD5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015031C2026C900F7DD5D /* User.swift */; };
 		E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */; };
@@ -36,6 +34,10 @@
 		E8937F1E1C1E7D6C0056C5FD /* BambooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8937F1D1C1E7D6C0056C5FD /* BambooTests.swift */; };
 		E8937F291C1E7D6C0056C5FD /* BambooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8937F281C1E7D6C0056C5FD /* BambooUITests.swift */; };
 		E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C39E531C203C8D0027F3FD /* FirstRunViewController.swift */; };
+		E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9C231C2E6EA0002A7FA3 /* MainTabBarController.swift */; };
+		E8EC9C261C2E78A5002A7FA3 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9C251C2E78A5002A7FA3 /* MypageViewController.swift */; };
+		E8EC9C281C2E9157002A7FA3 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9C271C2E9157002A7FA3 /* MyPageTableViewCell.swift */; };
+		E8EC9C2A1C2E9E5A002A7FA3 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9C291C2E9E5A002A7FA3 /* MyPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +63,6 @@
 		A65F5D664BA4E2A273558401 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListViewController.swift; sourceTree = "<group>"; };
 		C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListCollectionViewCell.swift; sourceTree = "<group>"; };
-		C9B8E6FD1C2A41F900128132 /* KeywordCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCollectionViewController.swift; sourceTree = "<group>"; };
-		C9B8E6FF1C2A421400128132 /* KeywordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCollectionViewCell.swift; sourceTree = "<group>"; };
 		E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
 		E82015031C2026C900F7DD5D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
@@ -93,6 +93,10 @@
 		E8937F281C1E7D6C0056C5FD /* BambooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambooUITests.swift; sourceTree = "<group>"; };
 		E8937F2A1C1E7D6C0056C5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8C39E531C203C8D0027F3FD /* FirstRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRunViewController.swift; sourceTree = "<group>"; };
+		E8EC9C231C2E6EA0002A7FA3 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E8EC9C251C2E78A5002A7FA3 /* MypageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		E8EC9C271C2E9157002A7FA3 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
+		E8EC9C291C2E9E5A002A7FA3 /* MyPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,9 +147,10 @@
 			children = (
 				E8C39E531C203C8D0027F3FD /* FirstRunViewController.swift */,
 				E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */,
+				E8EC9C231C2E6EA0002A7FA3 /* MainTabBarController.swift */,
 				E8937F0A1C1E7D6C0056C5FD /* ListViewController.swift */,
 				C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */,
-				C9B8E6FD1C2A41F900128132 /* KeywordCollectionViewController.swift */,
+				E8EC9C251C2E78A5002A7FA3 /* MypageViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				E874BBCD1C21211E00E091A4 /* Comment.swift */,
 				E874BBCF1C21214A00E091A4 /* Keyword.swift */,
 				E872E4891C29995A00AB69F7 /* University.swift */,
+				E8EC9C291C2E9E5A002A7FA3 /* MyPage.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -223,7 +229,7 @@
 			children = (
 				E874BBD21C213AB100E091A4 /* ListTableViewCell.swift */,
 				C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */,
-				C9B8E6FF1C2A421400128132 /* KeywordCollectionViewCell.swift */,
+				E8EC9C271C2E9157002A7FA3 /* MyPageTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -469,23 +475,25 @@
 			files = (
 				E872E49D1C2BFDF800AB69F7 /* Router.swift in Sources */,
 				E874BBD31C213AB100E091A4 /* ListTableViewCell.swift in Sources */,
+				E8EC9C2A1C2E9E5A002A7FA3 /* MyPage.swift in Sources */,
 				E872E4981C2AA34E00AB69F7 /* BBActivityIndicatorView.swift in Sources */,
 				E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */,
-				C9B8E7001C2A421400128132 /* KeywordCollectionViewCell.swift in Sources */,
 				C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */,
+				E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */,
 				E874BBDC1C23D3F000E091A4 /* SimpleJsonParser.swift in Sources */,
-				C9B8E6FE1C2A41F900128132 /* KeywordCollectionViewController.swift in Sources */,
 				E874BBD01C21214A00E091A4 /* Keyword.swift in Sources */,
 				E874BBCA1C21209A00E091A4 /* GeneralBoard.swift in Sources */,
 				E841A6801C250F6400F5450D /* UnivSearchViewController.swift in Sources */,
 				E82015041C2026C900F7DD5D /* User.swift in Sources */,
 				E8937F0B1C1E7D6C0056C5FD /* ListViewController.swift in Sources */,
 				E872E48C1C299A0100AB69F7 /* UniversityManager.swift in Sources */,
+				E8EC9C261C2E78A5002A7FA3 /* MypageViewController.swift in Sources */,
 				E874BBCC1C2120A900E091A4 /* UnivBoard.swift in Sources */,
 				E872E4901C29A32F00AB69F7 /* LibraryAPI.swift in Sources */,
 				C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */,
 				E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */,
 				E8937F091C1E7D6C0056C5FD /* AppDelegate.swift in Sources */,
+				E8EC9C281C2E9157002A7FA3 /* MyPageTableViewCell.swift in Sources */,
 				E874BBCE1C21211E00E091A4 /* Comment.swift in Sources */,
 				E82015011C20267B00F7DD5D /* ResponseObjectSerializable.swift in Sources */,
 				E872E48A1C29995A00AB69F7 /* University.swift in Sources */,
