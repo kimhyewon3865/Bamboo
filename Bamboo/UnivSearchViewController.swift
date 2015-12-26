@@ -15,9 +15,9 @@ class UnivSearchViewController: UIViewController {
     @IBOutlet weak var searchTableView: UITableView!
     
     var searchController = UISearchController(searchResultsController: nil)
-    var isSearching = false
-    var data = [String]()
-    var filtered: [String] = []
+    var isSearching = false         //검색중인지 여부
+    var data = [String]()           //필터 안된 초기 데이터
+    var filtered: [String] = []     //검색으로 필터된 데이터
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +36,26 @@ class UnivSearchViewController: UIViewController {
             
             if isSearching == true {
                 Alamofire
-                    .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Default.php", parameters:["uuid" : uuid!, "university" : filtered[indexPath.row]])
+                    .request(Router.SetDefault(uuid: uuid!, university: filtered[indexPath.row]))
                     .responseString{ response in
-                        print((response.result.value)!)
+                        if response.result.isSuccess {
+                            print("SetDefault Success")
+                            print((response.result.value)!)
+                        } else {
+                            print("SetDefault Falied")
+                        }
                 }
                 User.sharedInstance().univ = filtered[indexPath.row]
             } else {
                 Alamofire
-                    .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Default.php", parameters:["uuid" : uuid!, "university" : data[indexPath.row]])
+                    .request(Router.SetDefault(uuid: uuid!, university: data[indexPath.row]))
                     .responseString{response in
-                        print((response.result.value)!)
+                        if response.result.isSuccess {
+                            print("SetDefault Success")
+                            print((response.result.value)!)
+                        } else {
+                            print("SetDefault Falied")
+                        }
                 }
                 User.sharedInstance().univ = data[indexPath.row]
             }

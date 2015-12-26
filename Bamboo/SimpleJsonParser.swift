@@ -1,8 +1,8 @@
 //
 //  SimpleJsonParser.swift
-//  Seminar_AWS
+//  Bamboo
 //
-//  Created by 박태현 on 2015. 11. 28..
+//  Created by 박태현 on 2015. 12. 22..
 //  Copyright © 2015년 ParkTaeHyun. All rights reserved.
 //
 
