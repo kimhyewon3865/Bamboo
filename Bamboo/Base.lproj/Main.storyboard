@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="-148"/>
+            <point key="canvasLocation" x="845" y="-370"/>
         </scene>
         <!--First Run View Controller-->
         <scene sceneID="Tyy-bC-Ug4">
@@ -100,6 +100,9 @@
                                         <rect key="frame" x="62" y="272" width="116" height="40"/>
                                         <animations/>
                                         <state key="normal" image="btn"/>
+                                        <connections>
+                                            <segue destination="Lww-et-uF7" kind="modal" id="0iU-72-oYM"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="대학교를 설정하세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6l-44-XJf">
                                         <rect key="frame" x="0.0" y="204" width="232" height="28"/>
@@ -134,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="-525" y="1017"/>
         </scene>
-        <!--Univ Search View Controller-->
+        <!--대학교 설정-->
         <scene sceneID="nOr-fT-LuP">
             <objects>
                 <viewController id="ht2-gS-BIh" customClass="UnivSearchViewController" customModule="Bamboo" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,13 +149,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="대학교를 찾아보세요." translatesAutoresizingMaskIntoConstraints="NO" id="Yau-19-BNr">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <animations/>
+                                <color key="barTintColor" red="0.72156862745098038" green="0.58039215686274515" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ht2-gS-BIh" id="npO-Ob-ri0"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wZV-na-lfS">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UnivCell" id="jxY-a8-dcp">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jxY-a8-dcp" id="upe-cF-qql">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -160,6 +172,7 @@
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <color key="backgroundColor" red="0.94117647058823528" green="0.8901960784313725" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="cKJ-UH-UAh" kind="modal" identifier="SelectUniv" id="wAS-cO-rZo"/>
                                         </connections>
@@ -170,27 +183,20 @@
                                     <outlet property="delegate" destination="ht2-gS-BIh" id="KRu-K4-3F5"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Yau-19-BNr">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <animations/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ht2-gS-BIh" id="npO-Ob-ri0"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Yau-19-BNr" firstAttribute="leading" secondItem="wZV-na-lfS" secondAttribute="leading" id="3MT-RB-fSQ"/>
-                            <constraint firstItem="wZV-na-lfS" firstAttribute="bottom" secondItem="WeP-bG-Sfe" secondAttribute="top" id="Akp-Dk-o24"/>
-                            <constraint firstItem="Yau-19-BNr" firstAttribute="leading" secondItem="vtd-YK-iSw" secondAttribute="leading" id="Ngy-MM-r0g"/>
-                            <constraint firstItem="Yau-19-BNr" firstAttribute="top" secondItem="CVQ-5Y-Mxk" secondAttribute="bottom" id="WQo-fL-83p"/>
-                            <constraint firstAttribute="trailing" secondItem="Yau-19-BNr" secondAttribute="trailing" id="a8K-T5-Ja2"/>
-                            <constraint firstItem="Yau-19-BNr" firstAttribute="bottom" secondItem="wZV-na-lfS" secondAttribute="top" id="kqx-ry-3Tt"/>
-                            <constraint firstItem="Yau-19-BNr" firstAttribute="trailing" secondItem="wZV-na-lfS" secondAttribute="trailing" id="pIt-Tk-8tY"/>
+                            <constraint firstItem="wZV-na-lfS" firstAttribute="top" secondItem="Yau-19-BNr" secondAttribute="bottom" id="80X-Js-DOD"/>
+                            <constraint firstItem="wZV-na-lfS" firstAttribute="trailing" secondItem="Yau-19-BNr" secondAttribute="trailing" id="9Fr-rh-KCT"/>
+                            <constraint firstItem="wZV-na-lfS" firstAttribute="bottom" secondItem="WeP-bG-Sfe" secondAttribute="top" id="Bp2-4q-PAB"/>
+                            <constraint firstAttribute="trailing" secondItem="Yau-19-BNr" secondAttribute="trailing" id="Ifz-4c-ZOx"/>
+                            <constraint firstItem="Yau-19-BNr" firstAttribute="leading" secondItem="vtd-YK-iSw" secondAttribute="leading" id="fRm-Ud-And"/>
+                            <constraint firstItem="Yau-19-BNr" firstAttribute="top" secondItem="CVQ-5Y-Mxk" secondAttribute="bottom" id="iWg-c6-mkg"/>
+                            <constraint firstItem="wZV-na-lfS" firstAttribute="leading" secondItem="Yau-19-BNr" secondAttribute="leading" id="t9j-wJ-SKg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="대학교 설정" id="vVz-Yn-fDb"/>
                     <connections>
                         <outlet property="searchBar" destination="Yau-19-BNr" id="5tD-sE-zf2"/>
                         <outlet property="searchDisplayController" destination="34M-sg-7Sc" id="gba-r5-bpH"/>
@@ -207,7 +213,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="153" y="1017"/>
+            <point key="canvasLocation" x="255" y="1017"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hwK-4p-Tyk">
@@ -227,7 +233,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ue-Oa-xAj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="153" y="267"/>
+            <point key="canvasLocation" x="-144" y="307"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YkD-43-i6n">
@@ -248,7 +254,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2G-8P-lLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565" y="267"/>
+            <point key="canvasLocation" x="255" y="307"/>
         </scene>
         <!--대학-->
         <scene sceneID="Acn-S3-WSK">
@@ -359,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCs-Sw-Ul8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="485"/>
+            <point key="canvasLocation" x="845" y="307"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="IDG-n9-WjF">
@@ -379,7 +385,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ST1-jc-FmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="1136"/>
+            <point key="canvasLocation" x="845" y="1017"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jXh-Gk-qfc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lww-et-uF7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eqd-SW-ADl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="barTintColor" red="0.82352941176470584" green="0.66274509803921566" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ht2-gS-BIh" kind="relationship" relationship="rootViewController" id="lrN-g8-ykU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hyr-Pb-Fka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-144" y="1017"/>
         </scene>
     </scenes>
     <resources>

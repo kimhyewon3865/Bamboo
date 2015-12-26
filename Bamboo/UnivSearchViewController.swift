@@ -38,14 +38,14 @@ class UnivSearchViewController: UIViewController {
                 Alamofire
                     .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Default.php", parameters:["uuid" : uuid!, "university" : filtered[indexPath.row]])
                     .responseString{ response in
-                        //print(response.result.value)
+                        print((response.result.value)!)
                 }
                 User.sharedInstance().univ = filtered[indexPath.row]
             } else {
                 Alamofire
                     .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Default.php", parameters:["uuid" : uuid!, "university" : data[indexPath.row]])
                     .responseString{response in
-                        //print(response.result.value)
+                        print((response.result.value)!)
                 }
                 User.sharedInstance().univ = data[indexPath.row]
             }
@@ -68,6 +68,9 @@ extension UnivSearchViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCellWithIdentifier("UnivCell", forIndexPath: indexPath)
+        cell.textLabel?.textColor = UIColor.brownColor()
+        cell.textLabel?.font = UIFont(name: "AppleGothic", size: 17.0)
+        
         if isSearching == true {
             cell.textLabel?.text = filtered[indexPath.row]
         } else {
