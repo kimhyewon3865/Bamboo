@@ -37,7 +37,7 @@ final class UnivBoard : ResponseObjectSerializable,  ResponseCollectionSerializa
             let tmpKeywordArray = keywords.characters.split{$0 == ","}.map(String.init)
             keywordArray = tmpKeywordArray
         }
-        self.univ = User.instance.univ
+        self.univ = User.sharedInstance().univ
         //self.univ = representation.valueForKeyPath("university") as! String
         self.notice_yn = false
         self.notice_date = ""

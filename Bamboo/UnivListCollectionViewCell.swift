@@ -14,4 +14,12 @@ class UnivListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeNum: UILabel!
     
     @IBOutlet weak var commentNum: UILabel!
+    
+    @IBOutlet weak var keywordFirst: UIButton!
+
+    @IBOutlet weak var keywordSecond: UIButton!
+    @IBOutlet weak var keywordThird: UIButton!
+    
+    @IBOutlet weak var likeImage: UIImageView!
+    
 }
