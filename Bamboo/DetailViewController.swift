@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var content: UILabel!
 
     /*
     // MARK: - Navigation
