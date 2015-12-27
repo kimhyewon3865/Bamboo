@@ -33,8 +33,9 @@ class MypageViewController: UIViewController {
         Alamofire
             .request(Router.GetMyPage(uuid: "\(User.sharedInstance().uuid)", type: "T01"))
             .responseCollection { (response: Response<[MyPage], NSError>) in
+                //BBActivityIndicatorView.show("데이터를 불러오는 중입니다.")
                 if response.result.isSuccess {
-                    BBActivityIndicatorView.show("AAA")
+                    //BBActivityIndicatorView.hide()
                     self.myPages = (response.result.value)!
                     self.myPageTableView.reloadData()
                 } else {}

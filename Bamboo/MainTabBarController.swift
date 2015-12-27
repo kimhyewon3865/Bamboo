@@ -17,6 +17,10 @@ class MainTabBarController: UITabBarController {
         mainTabBar.tintColor = UIColor(red: 74/255, green: 135/255, blue: 69/255, alpha: 1)
 
         let tabItems = self.tabBar.items! as [UITabBarItem]
+        tabItems[0].image = (UIImage(named: "tab_main_unselected"))?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        tabItems[0].selectedImage = (UIImage(named: "tab_main_selected"))?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        tabItems[1].image = (UIImage(named: "tab_univ_unselected"))?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        tabItems[1].selectedImage = (UIImage(named: "tab_univ_selected"))?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         tabItems[2].image = (UIImage(named: "tab_mypage_unselected"))?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         tabItems[2].selectedImage = (UIImage(named: "tab_mypage_selected"))?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
     }
