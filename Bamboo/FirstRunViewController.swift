@@ -12,6 +12,7 @@ class FirstRunViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UIDevice.currentDevice().identifierForVendor?.UUIDString)
         // Do any additional setup after loading the view.
     }
 

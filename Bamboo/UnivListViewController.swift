@@ -51,17 +51,17 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
             if(univBoards[indexPath.row].keywordArray.count == 0){
                 cell.keywordFirst.setTitle(" ", forState: .Normal)
                 cell.keywordSecond.setTitle(" ", forState: .Normal)
-                cell.keywordSecond.setTitle(" ", forState: .Normal)
+                cell.keywordThird.setTitle(" ", forState: .Normal)
             }
             else if(univBoards[indexPath.row].keywordArray.count == 1){
                 cell.keywordFirst.setTitle(self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
                 cell.keywordSecond.setTitle("", forState: .Normal)
-                cell.keywordSecond.setTitle("", forState: .Normal)
+                cell.keywordThird.setTitle("", forState: .Normal)
             }
             else if(univBoards[indexPath.row].keywordArray.count == 2){
                 cell.keywordFirst.setTitle(self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
                 cell.keywordSecond.setTitle(self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
-                cell.keywordSecond.setTitle("", forState: .Normal)
+                cell.keywordThird.setTitle("", forState: .Normal)
             }
             else {
                 cell.keywordFirst.setTitle(self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
