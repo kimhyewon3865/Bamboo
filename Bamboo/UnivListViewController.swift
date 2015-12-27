@@ -29,19 +29,50 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
     
 
     // MARK: - TableView DataSource
-    public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return self.univBoards.count
     }
     
 
     // MARK: - TableView DataSource
-    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("univListCell", forIndexPath: indexPath) as! UnivListCollectionViewCell
+        
         cell.contents.setTitle(self.univBoards[indexPath.row].contents, forState: .Normal)
+        
         cell.likeNum.text = String(self.univBoards[indexPath.row].numberOfLike)
+        
         cell.commentNum.text = String(self.univBoards[indexPath.row].numberOfComment)
         
+        print(indexPath.row)
+        
+        if univBoards[indexPath.row].keywords != ""{
+            if(univBoards[indexPath.row].keywordArray.count == 0){
+                cell.keywordFirst.setTitle(" ", forState: .Normal)
+                cell.keywordSecond.setTitle(" ", forState: .Normal)
+                cell.keywordSecond.setTitle(" ", forState: .Normal)
+            }
+            else if(univBoards[indexPath.row].keywordArray.count == 1){
+                cell.keywordFirst.setTitle(self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
+                cell.keywordSecond.setTitle("", forState: .Normal)
+                cell.keywordSecond.setTitle("", forState: .Normal)
+            }
+            else if(univBoards[indexPath.row].keywordArray.count == 2){
+                cell.keywordFirst.setTitle(self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
+                cell.keywordSecond.setTitle(self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
+                cell.keywordSecond.setTitle("", forState: .Normal)
+            }
+            else {
+                cell.keywordFirst.setTitle(self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
+                cell.keywordSecond.setTitle(self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
+                cell.keywordThird.setTitle(self.univBoards[indexPath.row].keywordArray[2], forState: .Normal)
+            }
+            
+            
+        }
+        print(univBoards[indexPath.row].keywordArray.count)
+
         
         return cell
     }
