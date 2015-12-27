@@ -34,6 +34,7 @@ class MypageViewController: UIViewController {
             .request(Router.GetMyPage(uuid: "\(User.sharedInstance().uuid)", type: "T01"))
             .responseCollection { (response: Response<[MyPage], NSError>) in
                 if response.result.isSuccess {
+                    BBActivityIndicatorView.show("AAA")
                     self.myPages = (response.result.value)!
                     self.myPageTableView.reloadData()
                 } else {}

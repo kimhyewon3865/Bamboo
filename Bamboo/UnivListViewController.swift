@@ -84,7 +84,7 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func initUnivBoard() {
         Alamofire
-            .request(.GET, "http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Get_List.php", parameters:["type" : "T01", "page" : "1", "university" : "가천대학교"])
+            .request(Router.GetList(type: "T03", page: "1", university: "가천대학교"))
             .responseCollection { (response: Response<[UnivBoard], NSError>) in
                 if response.result.isSuccess {
                     self.univBoards = response.result.value!
