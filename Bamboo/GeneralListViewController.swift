@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ListViewController: UIViewController {
+class GeneralListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     
@@ -20,7 +20,7 @@ class ListViewController: UIViewController {
     }
 }
 
-extension ListViewController: UITableViewDataSource {
+extension GeneralListViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.generalBoards.count
     }
@@ -33,7 +33,7 @@ extension ListViewController: UITableViewDataSource {
     }
 }
 
-extension ListViewController: UITableViewDelegate {
+extension GeneralListViewController: UITableViewDelegate {
     
 }
 
