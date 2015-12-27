@@ -16,8 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        //기본 탭바 틴트를 흰샛으로 변경
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.whiteColor()], forState: .Normal)
-
+        
         //앱 최초실행인지 판단하는 코드
         if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
             print("Log : FirstRunVC loaded")

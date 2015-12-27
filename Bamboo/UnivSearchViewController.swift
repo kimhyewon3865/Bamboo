@@ -78,7 +78,7 @@ extension UnivSearchViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCellWithIdentifier("UnivCell", forIndexPath: indexPath)
-        cell.textLabel?.textColor = UIColor.brownColor()
+        cell.textLabel?.textColor = UIColor(red: 73/255, green: 73/255, blue: 73/255, alpha: 1)
         cell.textLabel?.font = UIFont(name: "AppleGothic", size: 17.0)
         
         if isSearching == true {
