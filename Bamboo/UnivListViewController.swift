@@ -49,27 +49,30 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
         
         if univBoards[indexPath.row].keywords != ""{
             if(univBoards[indexPath.row].keywordArray.count == 0){
-                cell.keywordFirst.setTitle(" ", forState: .Normal)
-                cell.keywordSecond.setTitle(" ", forState: .Normal)
-                cell.keywordThird.setTitle(" ", forState: .Normal)
+                cell.keywordFirst.hidden = true
+                cell.keywordSecond.hidden = true
+                cell.keywordThird.hidden = true
+//                cell.keywordFirst.setTitle(" ", forState: .Normal)
+//                cell.keywordSecond.setTitle(" ", forState: .Normal)
+//                cell.keywordThird.setTitle(" ", forState: .Normal)
             }
             else if(univBoards[indexPath.row].keywordArray.count == 1){
-                cell.keywordFirst.setTitle(self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
-                cell.keywordSecond.setTitle("", forState: .Normal)
-                cell.keywordThird.setTitle("", forState: .Normal)
+                cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
+                cell.keywordSecond.hidden = true
+                cell.keywordThird.hidden = true
+//                cell.keywordSecond.setTitle("", forState: .Normal)
+//                cell.keywordThird.setTitle("", forState: .Normal)
             }
             else if(univBoards[indexPath.row].keywordArray.count == 2){
-                cell.keywordFirst.setTitle(self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
-                cell.keywordSecond.setTitle(self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
+                cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
+                cell.keywordSecond.setTitle("#"+self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
                 cell.keywordThird.setTitle("", forState: .Normal)
             }
             else {
-                cell.keywordFirst.setTitle(self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
-                cell.keywordSecond.setTitle(self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
-                cell.keywordThird.setTitle(self.univBoards[indexPath.row].keywordArray[2], forState: .Normal)
+                cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
+                cell.keywordSecond.setTitle("#"+self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
+                cell.keywordThird.setTitle("#"+self.univBoards[indexPath.row].keywordArray[2], forState: .Normal)
             }
-            
-            
         }
         print(univBoards[indexPath.row].keywordArray.count)
 
@@ -93,6 +96,12 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
                 self.univListTableView.reloadData()
         }
 
+    }
+    
+
+    
+    @IBAction func cancelToListVC(segue : UIStoryboardSegue) {
+        
     }
     /*
     // MARK: - Navigation

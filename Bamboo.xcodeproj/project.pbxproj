@@ -10,6 +10,8 @@
 		B39B918345FA1F4553D42405 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A787F9EC4ED2DB4BE4D7AD /* Pods.framework */; };
 		C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */; };
 		C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */; };
+		C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
+		C9B8E7041C2FC17B00128132 /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */; };
 		E82015011C20267B00F7DD5D /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */; };
 		E82015041C2026C900F7DD5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015031C2026C900F7DD5D /* User.swift */; };
 		E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */; };
@@ -63,6 +65,8 @@
 		A65F5D664BA4E2A273558401 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListViewController.swift; sourceTree = "<group>"; };
 		C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListCollectionViewCell.swift; sourceTree = "<group>"; };
+		C9B8E7011C2FC15700128132 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
 		E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
 		E82015031C2026C900F7DD5D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				E8937F0A1C1E7D6C0056C5FD /* GeneralListViewController.swift */,
 				C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */,
 				E8EC9C251C2E78A5002A7FA3 /* MypageViewController.swift */,
+				C9B8E7011C2FC15700128132 /* DetailViewController.swift */,
+				C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -475,9 +481,11 @@
 			files = (
 				E872E49D1C2BFDF800AB69F7 /* Router.swift in Sources */,
 				E874BBD31C213AB100E091A4 /* ListTableViewCell.swift in Sources */,
+				C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */,
 				E8EC9C2A1C2E9E5A002A7FA3 /* MyPage.swift in Sources */,
 				E872E4981C2AA34E00AB69F7 /* BBActivityIndicatorView.swift in Sources */,
 				E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */,
+				C9B8E7041C2FC17B00128132 /* KeywordViewController.swift in Sources */,
 				C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */,
 				E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */,
 				E874BBDC1C23D3F000E091A4 /* SimpleJsonParser.swift in Sources */,
