@@ -11,7 +11,7 @@ import Alamofire
 
 class DetailViewController: UIViewController {
     
-    var univBoard : UnivBoard?
+    var univBoards : [UnivBoard] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,9 @@ class DetailViewController: UIViewController {
 //        self.commentNum.text = commentNumTxt
         
         // Do any additional setup after loading the view.
+        if !univBoards.isEmpty {
+        self.content.text = self.univBoards[0].contents
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +51,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var keyword6: UIButton!
     
     var code : String = ""
-//    var contentTxt : String = ""
+    //var contentTxt : String
+
 //    var contentLiketNumTxt : String = ""
 //    var commentNumTxt : String = ""
     //keyword 변수
@@ -59,12 +63,19 @@ class DetailViewController: UIViewController {
         Alamofire
             .request(Router.GetDetail(bCode: code))
         //print(code)
-            .responseObject { (response: Response<UnivBoard, NSError>) in
-                //debugPrint(response)
-                //if response.result.isSuccess {
-                    //self.univBoard = response.result.value!
-                //}
-            }
+            .responseCollection { (response: Response<[UnivBoard], NSError>) in
+                if response.result.isSuccess {
+                    self.univBoards = response.result.value!
+                    print(response.result)
+                    print(response.result.value)
+                }
+                if self.univBoards.isEmpty {
+                    print(1)
+                    //self.content.text = self.univBoards[0].contents
+                }
+                self.view.reloadInputViews()
+                //self.univListTableView.reloadData()
+        }
     }
 
     
