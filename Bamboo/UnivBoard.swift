@@ -44,6 +44,8 @@ final class UnivBoard : ResponseObjectSerializable,  ResponseCollectionSerializa
         
     }
     
+    
+    
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [UnivBoard]{
         var univBoards : [UnivBoard] = []
         
@@ -57,4 +59,5 @@ final class UnivBoard : ResponseObjectSerializable,  ResponseCollectionSerializa
 
         return univBoards
     }
+    
 }

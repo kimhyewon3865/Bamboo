@@ -245,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F7Z-KS-ULe">
-                                <rect key="frame" x="0.0" y="64" width="320" height="447"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="511"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UiG-Yd-r0O">
                                     <size key="itemSize" width="311" height="130"/>
@@ -315,7 +315,7 @@
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="WVB-30-5OG" kind="modal" id="hwh-zv-gwD"/>
+                                                        <segue destination="WVB-30-5OG" kind="modal" identifier="showDetail" id="oFx-Ow-8X3"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -503,10 +503,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-z7-6Qg">
-                                <rect key="frame" x="251" y="267" width="68" height="30"/>
-                                <state key="normal" image="send"/>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ux8-yv-1Rk">
                                 <rect key="frame" x="0.0" y="305" width="320" height="263"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -554,6 +550,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVV-N5-WmZ">
                                 <rect key="frame" x="165" y="229" width="29" height="22"/>
                                 <state key="normal" image="unlike"/>
+                                <connections>
+                                    <action selector="contentLike:" destination="WVB-30-5OG" eventType="touchUpInside" id="43T-yq-gnu"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-Jl-9hZ">
                                 <rect key="frame" x="197" y="227" width="36" height="24"/>
@@ -562,7 +561,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Blo-zz-Zwh">
-                                <rect key="frame" x="20" y="267" width="223" height="30"/>
+                                <rect key="frame" x="20" y="267" width="213" height="30"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -605,12 +604,27 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-z7-6Qg">
+                                <rect key="frame" x="241" y="267" width="68" height="30"/>
+                                <state key="normal" image="send"/>
+                                <connections>
+                                    <action selector="sendBtn:" destination="WVB-30-5OG" eventType="touchUpInside" id="G09-pK-Hs0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="속닥" id="nqb-LS-cYX"/>
                     <connections>
+                        <outlet property="commentNum" destination="ptY-b6-uEr" id="GSG-ft-vOG"/>
                         <outlet property="content" destination="IBY-Pp-9gF" id="Apu-mi-qVH"/>
+                        <outlet property="contentLikeNum" destination="qKC-Jl-9hZ" id="rVN-pg-8Kk"/>
+                        <outlet property="keyword1" destination="t40-iE-2L2" id="RjZ-ie-78Q"/>
+                        <outlet property="keyword2" destination="2qK-39-aTA" id="NcM-5r-SUh"/>
+                        <outlet property="keyword3" destination="exH-Xf-C2G" id="gsH-G2-css"/>
+                        <outlet property="keyword4" destination="5ZU-Ha-bkQ" id="spd-3N-3A5"/>
+                        <outlet property="keyword5" destination="DLU-Aj-zqY" id="j5Q-AH-hZS"/>
+                        <outlet property="keyword6" destination="YfH-gB-qvA" id="Swn-uC-ELs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lzs-aP-dGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -645,7 +659,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4O-pj-5wZ">
-                                        <rect key="frame" x="168" y="78" width="30" height="30"/>
+                                        <rect key="frame" x="168" y="78" width="54" height="30"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
                                         <color key="textColor" red="0.84313725490000002" green="0.67450980390000004" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
