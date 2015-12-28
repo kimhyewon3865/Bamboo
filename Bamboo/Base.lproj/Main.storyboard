@@ -560,13 +560,6 @@
                                 <rect key="frame" x="241" y="228" width="21" height="24"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="과제도 못하고 오늘도 역시 잉여..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBY-Pp-9gF">
-                                <rect key="frame" x="40" y="83" width="241" height="102"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#학교" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7K-yi-ry7">
                                 <rect key="frame" x="22" y="188" width="40" height="21"/>
                                 <animations/>
@@ -666,6 +659,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="과제도 못하고 오늘도 역시 잉여..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBY-Pp-9gF">
+                                <rect key="frame" x="40" y="83" width="241" height="102"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -690,12 +690,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vjG-WY-0gR">
-                                <rect key="frame" x="0.0" y="139" width="320" height="380"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="447"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPageCell" rowHeight="74" id="do9-L7-S6k" customClass="MyPageTableViewCell" customModule="Bamboo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="74"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="do9-L7-S6k" id="B9D-Px-dwl">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
@@ -881,12 +881,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="kjt-OZ-5QX" secondAttribute="trailing" constant="-20" id="1WM-pH-NF4"/>
-                            <constraint firstAttribute="trailing" secondItem="vjG-WY-0gR" secondAttribute="trailing" id="Iet-Tl-DjT"/>
+                            <constraint firstItem="vjG-WY-0gR" firstAttribute="leading" secondItem="kjt-OZ-5QX" secondAttribute="leading" id="GLJ-Xh-iaF"/>
+                            <constraint firstItem="vjG-WY-0gR" firstAttribute="top" secondItem="8P3-r9-Tbf" secondAttribute="bottom" constant="8" symbolic="YES" id="IsR-aR-Ju4"/>
                             <constraint firstItem="kjt-OZ-5QX" firstAttribute="top" secondItem="8P3-r9-Tbf" secondAttribute="bottom" id="NxY-Cx-JfA"/>
                             <constraint firstItem="kjt-OZ-5QX" firstAttribute="leading" secondItem="IWm-9i-wzc" secondAttribute="leading" id="OwP-MA-7A5"/>
-                            <constraint firstItem="kjt-OZ-5QX" firstAttribute="leading" secondItem="vjG-WY-0gR" secondAttribute="leading" id="Vcn-fw-1bE"/>
-                            <constraint firstItem="vjG-WY-0gR" firstAttribute="bottom" secondItem="ea7-qG-RlO" secondAttribute="top" id="W9j-y8-41l"/>
-                            <constraint firstItem="vjG-WY-0gR" firstAttribute="top" secondItem="kjt-OZ-5QX" secondAttribute="bottom" id="grw-gJ-nv2"/>
+                            <constraint firstItem="vjG-WY-0gR" firstAttribute="bottom" secondItem="ea7-qG-RlO" secondAttribute="top" id="pL7-As-drD"/>
+                            <constraint firstAttribute="trailing" secondItem="vjG-WY-0gR" secondAttribute="trailing" id="sOw-we-zKJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="마이페이지" id="Pt4-vZ-9Ic"/>
