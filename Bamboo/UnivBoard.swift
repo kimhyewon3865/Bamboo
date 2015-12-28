@@ -31,6 +31,7 @@ final class UnivBoard : ResponseObjectSerializable,  ResponseCollectionSerializa
         self.movURL = representation.valueForKeyPath("mov_url") as! String
         self.numberOfComment = Int(representation.valueForKeyPath("comment_cnt") as! String)!
         self.numberOfLike = Int(representation.valueForKeyPath("like_cnt") as! String)!
+        //self.numberOfLike = Int(representation.valueForKeyPath("board_like_cnt") as! String)!
         self.keywords = representation.valueForKeyPath("keyword") as! String
         
         if self.keywords != "" {

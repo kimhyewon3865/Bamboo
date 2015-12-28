@@ -59,12 +59,12 @@ class DetailViewController: UIViewController {
         Alamofire
             .request(Router.GetDetail(bCode: code))
         //print(code)
-//            .responseObject { (response: Response<UnivBoard, NSError>) in
-//                debugPrint(response)
-//                if response.result.isSuccess {
-//                    self.univBoard = response.result.value!
-//                }
-//            }
+            .responseObject { (response: Response<UnivBoard, NSError>) in
+                //debugPrint(response)
+                //if response.result.isSuccess {
+                    //self.univBoard = response.result.value!
+                //}
+            }
     }
 
     
