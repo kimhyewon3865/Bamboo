@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mVZ-cE-5QQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -264,7 +264,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F7Z-KS-ULe">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="511"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="447"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UiG-Yd-r0O">
@@ -671,9 +671,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="속닥" id="nqb-LS-cYX"/>
-                    <connections>
-                        <outlet property="content" destination="IBY-Pp-9gF" id="9Ox-iN-Dry"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lzs-aP-dGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DSU-vR-KGC" userLabel="Exit" sceneMemberID="exit"/>
@@ -693,12 +690,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vjG-WY-0gR">
-                                <rect key="frame" x="0.0" y="72" width="320" height="447"/>
+                                <rect key="frame" x="0.0" y="139" width="320" height="380"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPageCell" rowHeight="74" id="do9-L7-S6k" customClass="MyPageTableViewCell" customModule="Bamboo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="74"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="do9-L7-S6k" id="B9D-Px-dwl">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
@@ -884,12 +881,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="kjt-OZ-5QX" secondAttribute="trailing" constant="-20" id="1WM-pH-NF4"/>
-                            <constraint firstItem="vjG-WY-0gR" firstAttribute="leading" secondItem="kjt-OZ-5QX" secondAttribute="leading" id="756-QY-A56"/>
-                            <constraint firstAttribute="trailing" secondItem="vjG-WY-0gR" secondAttribute="trailing" id="8tX-VS-ybm"/>
+                            <constraint firstAttribute="trailing" secondItem="vjG-WY-0gR" secondAttribute="trailing" id="Iet-Tl-DjT"/>
                             <constraint firstItem="kjt-OZ-5QX" firstAttribute="top" secondItem="8P3-r9-Tbf" secondAttribute="bottom" id="NxY-Cx-JfA"/>
                             <constraint firstItem="kjt-OZ-5QX" firstAttribute="leading" secondItem="IWm-9i-wzc" secondAttribute="leading" id="OwP-MA-7A5"/>
-                            <constraint firstItem="vjG-WY-0gR" firstAttribute="top" secondItem="8P3-r9-Tbf" secondAttribute="bottom" constant="8" symbolic="YES" id="Viv-GQ-9B8"/>
-                            <constraint firstItem="vjG-WY-0gR" firstAttribute="bottom" secondItem="ea7-qG-RlO" secondAttribute="top" id="s0w-86-FBq"/>
+                            <constraint firstItem="kjt-OZ-5QX" firstAttribute="leading" secondItem="vjG-WY-0gR" secondAttribute="leading" id="Vcn-fw-1bE"/>
+                            <constraint firstItem="vjG-WY-0gR" firstAttribute="bottom" secondItem="ea7-qG-RlO" secondAttribute="top" id="W9j-y8-41l"/>
+                            <constraint firstItem="vjG-WY-0gR" firstAttribute="top" secondItem="kjt-OZ-5QX" secondAttribute="bottom" id="grw-gJ-nv2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="마이페이지" id="Pt4-vZ-9Ic"/>
