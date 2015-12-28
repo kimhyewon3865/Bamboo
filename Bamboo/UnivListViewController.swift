@@ -98,6 +98,18 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
 
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            let DetailVC = segue.destinationViewController as! DetailViewController
+            
+            let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
+            let indexPath = univListTableView.indexPathForItemAtPoint(point)
+
+            DetailVC.code = univBoards[indexPath!.row].code
+            
+        }
+        
+    }
 
     
     @IBAction func cancelToListVC(segue : UIStoryboardSegue) {
