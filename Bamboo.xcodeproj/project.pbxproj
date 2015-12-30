@@ -36,6 +36,7 @@
 		E8937F1E1C1E7D6C0056C5FD /* BambooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8937F1D1C1E7D6C0056C5FD /* BambooTests.swift */; };
 		E8937F291C1E7D6C0056C5FD /* BambooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8937F281C1E7D6C0056C5FD /* BambooUITests.swift */; };
 		E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C39E531C203C8D0027F3FD /* FirstRunViewController.swift */; };
+		E8CE04C71C31273900983B7A /* PostBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CE04C61C31273900983B7A /* PostBoardViewController.swift */; };
 		E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9C231C2E6EA0002A7FA3 /* MainTabBarController.swift */; };
 		E8EC9C261C2E78A5002A7FA3 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9C251C2E78A5002A7FA3 /* MypageViewController.swift */; };
 		E8EC9C281C2E9157002A7FA3 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9C271C2E9157002A7FA3 /* MyPageTableViewCell.swift */; };
@@ -67,6 +68,7 @@
 		C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9B8E7011C2FC15700128132 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
+		E80EA30D1C327EAE00B76E9A /* Bamboo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bamboo-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
 		E82015031C2026C900F7DD5D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		E8937F281C1E7D6C0056C5FD /* BambooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambooUITests.swift; sourceTree = "<group>"; };
 		E8937F2A1C1E7D6C0056C5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8C39E531C203C8D0027F3FD /* FirstRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRunViewController.swift; sourceTree = "<group>"; };
+		E8CE04C61C31273900983B7A /* PostBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBoardViewController.swift; sourceTree = "<group>"; };
 		E8EC9C231C2E6EA0002A7FA3 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E8EC9C251C2E78A5002A7FA3 /* MypageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		E8EC9C271C2E9157002A7FA3 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 				E8EC9C251C2E78A5002A7FA3 /* MypageViewController.swift */,
 				C9B8E7011C2FC15700128132 /* DetailViewController.swift */,
 				C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */,
+				E8CE04C61C31273900983B7A /* PostBoardViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -270,6 +274,7 @@
 				E82014FD1C1E9AD600F7DD5D /* Model */,
 				E872E4871C29979D00AB69F7 /* View */,
 				E8937F081C1E7D6C0056C5FD /* AppDelegate.swift */,
+				E80EA30D1C327EAE00B76E9A /* Bamboo-Bridging-Header.h */,
 				E8937F0C1C1E7D6C0056C5FD /* Main.storyboard */,
 				E8937F111C1E7D6C0056C5FD /* LaunchScreen.storyboard */,
 				E874BBD11C213A8600E091A4 /* Cell */,
@@ -493,6 +498,7 @@
 				E874BBCA1C21209A00E091A4 /* GeneralBoard.swift in Sources */,
 				E841A6801C250F6400F5450D /* UnivSearchViewController.swift in Sources */,
 				E82015041C2026C900F7DD5D /* User.swift in Sources */,
+				E8CE04C71C31273900983B7A /* PostBoardViewController.swift in Sources */,
 				E8937F0B1C1E7D6C0056C5FD /* GeneralListViewController.swift in Sources */,
 				E872E48C1C299A0100AB69F7 /* UniversityManager.swift in Sources */,
 				E8EC9C261C2E78A5002A7FA3 /* MypageViewController.swift in Sources */,
@@ -650,6 +656,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -663,6 +670,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Release;
 		};
