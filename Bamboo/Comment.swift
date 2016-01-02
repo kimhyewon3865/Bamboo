@@ -9,15 +9,15 @@
 import Foundation
 
 final class Comment : ResponseObjectSerializable,  ResponseCollectionSerializable{
-    let index : Int
-    let code : String
+    //let index : Int
+    //let code : String
     var regdt: String
     var comment : String
     let numberOfLike: Int
     
     init?(response: NSHTTPURLResponse, representation: AnyObject){
-        self.index = representation.valueForKeyPath("comment_cnt") as! Int
-        self.code = representation.valueForKeyPath("b_code") as! String
+        //self.index = representation.valueForKeyPath("comment_cnt") as! Int
+        //self.code = representation.valueForKeyPath("b_code") as! String
         self.regdt = representation.valueForKeyPath("regdt") as! String
         self.comment = representation.valueForKeyPath("comment") as! String
         self.numberOfLike = Int(representation.valueForKeyPath("comment_like_cnt") as! String)!

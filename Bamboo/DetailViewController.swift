@@ -11,10 +11,13 @@ import Alamofire
 
 class DetailViewController: UIViewController {
     
-    var univBoards : [UnivBoard] = []
+    //var details : Detail?
+    
+    var details : [Detail] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //print(code)
         initDetailView()
         
 //        self.content.text = contentTxt
@@ -22,9 +25,6 @@ class DetailViewController: UIViewController {
 //        self.commentNum.text = commentNumTxt
         
         // Do any additional setup after loading the view.
-        if !univBoards.isEmpty {
-        self.content.text = self.univBoards[0].contents
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,19 +63,24 @@ class DetailViewController: UIViewController {
         Alamofire
             .request(Router.GetDetail(bCode: code))
         //print(code)
-            .responseCollection { (response: Response<[UnivBoard], NSError>) in
+            .responseCollection { (response: Response<[Detail], NSError>) in
                 if response.result.isSuccess {
-                    self.univBoards = response.result.value!
-                    print(response.result)
+                    self.details = response.result.value!
+                    print(response)
                     print(response.result.value)
                 }
-                if self.univBoards.isEmpty {
+                if self.details.isEmpty {
                     print(1)
                     //self.content.text = self.univBoards[0].contents
                 }
                 self.view.reloadInputViews()
                 //self.univListTableView.reloadData()
         }
+        
+//            .responseObject { (response: Response<Detail, NSError>) in
+//                //debugPrint(response)
+//        }
+
     }
 
     

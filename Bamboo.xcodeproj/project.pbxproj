@@ -12,6 +12,8 @@
 		C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */; };
 		C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
 		C9B8E7041C2FC17B00128132 /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */; };
+		C9B8E7061C31352400128132 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7051C31352400128132 /* Detail.swift */; };
+		C9B8E7081C32C1AC00128132 /* KeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7071C32C1AC00128132 /* KeywordCollectionViewCell.swift */; };
 		E82015011C20267B00F7DD5D /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */; };
 		E82015041C2026C900F7DD5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015031C2026C900F7DD5D /* User.swift */; };
 		E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */; };
@@ -67,6 +69,8 @@
 		C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9B8E7011C2FC15700128132 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
+		C9B8E7051C31352400128132 /* Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
+		C9B8E7071C32C1AC00128132 /* KeywordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCollectionViewCell.swift; sourceTree = "<group>"; };
 		E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
 		E82015031C2026C900F7DD5D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				E874BBCF1C21214A00E091A4 /* Keyword.swift */,
 				E872E4891C29995A00AB69F7 /* University.swift */,
 				E8EC9C291C2E9E5A002A7FA3 /* MyPage.swift */,
+				C9B8E7051C31352400128132 /* Detail.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 				E874BBD21C213AB100E091A4 /* ListTableViewCell.swift */,
 				C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */,
 				E8EC9C271C2E9157002A7FA3 /* MyPageTableViewCell.swift */,
+				C9B8E7071C32C1AC00128132 /* KeywordCollectionViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -481,6 +487,8 @@
 			files = (
 				E872E49D1C2BFDF800AB69F7 /* Router.swift in Sources */,
 				E874BBD31C213AB100E091A4 /* ListTableViewCell.swift in Sources */,
+				C9B8E7081C32C1AC00128132 /* KeywordCollectionViewCell.swift in Sources */,
+				C9B8E7061C31352400128132 /* Detail.swift in Sources */,
 				C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */,
 				E8EC9C2A1C2E9E5A002A7FA3 /* MyPage.swift in Sources */,
 				E872E4981C2AA34E00AB69F7 /* BBActivityIndicatorView.swift in Sources */,
