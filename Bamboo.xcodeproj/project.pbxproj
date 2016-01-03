@@ -16,6 +16,11 @@
 		C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */; };
 		C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
 		C9B8E7041C2FC17B00128132 /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */; };
+		E8162F511C38CD3E00D491D3 /* PostBoardAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8162F4E1C38CD3E00D491D3 /* PostBoardAlbumViewController.swift */; };
+		E8162F521C38CD3E00D491D3 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8162F4F1C38CD3E00D491D3 /* PhotoCollectionViewCell.swift */; };
+		E8162F531C38CD3E00D491D3 /* PostBoardTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8162F501C38CD3E00D491D3 /* PostBoardTabBarViewController.swift */; };
+		E8162F561C38CD4900D491D3 /* PostBoardVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8162F541C38CD4900D491D3 /* PostBoardVideoViewController.swift */; };
+		E8162F571C38CD4900D491D3 /* PostBoardCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8162F551C38CD4900D491D3 /* PostBoardCameraViewController.swift */; };
 		E82015011C20267B00F7DD5D /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */; };
 		E82015041C2026C900F7DD5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015031C2026C900F7DD5D /* User.swift */; };
 		E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */; };
@@ -76,6 +81,11 @@
 		C9B8E7011C2FC15700128132 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
 		E80EA30D1C327EAE00B76E9A /* Bamboo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bamboo-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		E8162F4E1C38CD3E00D491D3 /* PostBoardAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBoardAlbumViewController.swift; sourceTree = "<group>"; };
+		E8162F4F1C38CD3E00D491D3 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		E8162F501C38CD3E00D491D3 /* PostBoardTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBoardTabBarViewController.swift; sourceTree = "<group>"; };
+		E8162F541C38CD4900D491D3 /* PostBoardVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBoardVideoViewController.swift; sourceTree = "<group>"; };
+		E8162F551C38CD4900D491D3 /* PostBoardCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBoardCameraViewController.swift; sourceTree = "<group>"; };
 		E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
 		E82015031C2026C900F7DD5D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
@@ -167,6 +177,10 @@
 				C9B8E7011C2FC15700128132 /* DetailViewController.swift */,
 				C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */,
 				E8CE04C61C31273900983B7A /* PostBoardViewController.swift */,
+				E8162F541C38CD4900D491D3 /* PostBoardVideoViewController.swift */,
+				E8162F551C38CD4900D491D3 /* PostBoardCameraViewController.swift */,
+				E8162F4E1C38CD3E00D491D3 /* PostBoardAlbumViewController.swift */,
+				E8162F501C38CD3E00D491D3 /* PostBoardTabBarViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -249,6 +263,7 @@
 				E8EC9C271C2E9157002A7FA3 /* MyPageTableViewCell.swift */,
 				C90ACF541C37733A0038238E /* GeneralCollectionViewCell.swift */,
 				C90ACF5A1C379C680038238E /* CommentTableViewCell.swift */,
+				E8162F4F1C38CD3E00D491D3 /* PhotoCollectionViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -497,11 +512,13 @@
 				C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */,
 				E8EC9C2A1C2E9E5A002A7FA3 /* MyPage.swift in Sources */,
 				E872E4981C2AA34E00AB69F7 /* BBActivityIndicatorView.swift in Sources */,
+				E8162F531C38CD3E00D491D3 /* PostBoardTabBarViewController.swift in Sources */,
 				E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */,
 				C90ACF571C3778F90038238E /* Detail.swift in Sources */,
 				C9B8E7041C2FC17B00128132 /* KeywordViewController.swift in Sources */,
 				C90ACF5B1C379C680038238E /* CommentTableViewCell.swift in Sources */,
 				C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */,
+				E8162F521C38CD3E00D491D3 /* PhotoCollectionViewCell.swift in Sources */,
 				E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */,
 				E874BBDC1C23D3F000E091A4 /* SimpleJsonParser.swift in Sources */,
 				E874BBD01C21214A00E091A4 /* Keyword.swift in Sources */,
@@ -516,6 +533,8 @@
 				E874BBCC1C2120A900E091A4 /* UnivBoard.swift in Sources */,
 				E872E4901C29A32F00AB69F7 /* LibraryAPI.swift in Sources */,
 				C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */,
+				E8162F571C38CD4900D491D3 /* PostBoardCameraViewController.swift in Sources */,
+				E8162F511C38CD3E00D491D3 /* PostBoardAlbumViewController.swift in Sources */,
 				E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */,
 				E8937F091C1E7D6C0056C5FD /* AppDelegate.swift in Sources */,
 				E8EC9C281C2E9157002A7FA3 /* MyPageTableViewCell.swift in Sources */,
@@ -523,6 +542,7 @@
 				E82015011C20267B00F7DD5D /* ResponseObjectSerializable.swift in Sources */,
 				E872E48A1C29995A00AB69F7 /* University.swift in Sources */,
 				C90ACF551C37733A0038238E /* GeneralCollectionViewCell.swift in Sources */,
+				E8162F561C38CD4900D491D3 /* PostBoardVideoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,7 +688,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -682,7 +702,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Release;
 		};
