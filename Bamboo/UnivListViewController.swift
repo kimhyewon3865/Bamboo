@@ -11,6 +11,7 @@ import Alamofire
 
 class UnivListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    
     @IBOutlet weak var univListTableView: UICollectionView!
     
     var univBoards : [UnivBoard] = []
@@ -45,7 +46,7 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
         
         cell.commentNum.text = String(self.univBoards[indexPath.row].numberOfComment)
         
-        print(indexPath.row)
+        //print(indexPath.row)
         
         if univBoards[indexPath.row].keywords != ""{
             if(univBoards[indexPath.row].keywordArray.count == 0){
@@ -74,7 +75,7 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
                 cell.keywordThird.setTitle("#"+self.univBoards[indexPath.row].keywordArray[2], forState: .Normal)
             }
         }
-        print(univBoards[indexPath.row].keywordArray.count)
+       // print(univBoards[indexPath.row].keywordArray.count)
 
         
         return cell
@@ -91,6 +92,8 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
             .responseCollection { (response: Response<[UnivBoard], NSError>) in
                 if response.result.isSuccess {
                     self.univBoards = response.result.value!
+                    print(response)
+                    print(response.result.value)
                 }
                 
                 self.univListTableView.reloadData()
@@ -99,16 +102,39 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
+        if segue.identifier == "showUnivDetail" {
             let DetailVC = segue.destinationViewController as! DetailViewController
             
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
             let indexPath = univListTableView.indexPathForItemAtPoint(point)
 
             DetailVC.code = univBoards[indexPath!.row].code
+            print(DetailVC.code)
+        }
+        else if segue.identifier == "keywordUnivFirstSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
+            let indexPath = univListTableView.indexPathForItemAtPoint(point)
             
+            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[0]
         }
         
+        else if segue.identifier == "keywordUnivSecondSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
+            let indexPath = univListTableView.indexPathForItemAtPoint(point)
+            
+            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[1]
+        }
+        else if segue.identifier == "keywordUnivThirdSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
+            let indexPath = univListTableView.indexPathForItemAtPoint(point)
+            
+            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[2]
+        }
+
+
     }
 
     

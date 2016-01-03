@@ -8,11 +8,22 @@
 
 import UIKit
 
-class KeywordViewController: UIViewController {
+class KeywordViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var keywordView: UICollectionView!
+    
+    var titleName = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.title = "#" + titleName
+        self.keywordView.delegate = self
+        self.keywordView.dataSource = self
+        self.btnBest.hidden = true
+        self.btnNew.hidden = true
+        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
+        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
+btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +32,53 @@ class KeywordViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 1
+    }
+    
+    // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("keywordCell", forIndexPath: indexPath) as! KeywordCollectionViewCell
+        
+        return cell
+    }
+    
+    @IBOutlet weak var btnWrite: UIButton!
+    
+    func btnWriteFunc() {
+        self.btnBest.hidden = false
+        self.btnNew.hidden = false
+        let image  = UIImage(named: "btn_write_unselected")
+        btnWrite.setImage(image, forState: .Normal)
+    }
 
+    @IBOutlet weak var btnBest: UIButton!
+    
+    
+    
+    func btnBestFunc() {
+        print(123)
+        self.btnBest.hidden = true
+        self.btnNew.hidden = true
+        let image  = UIImage(named: "btn_best_selected")
+        let image2  = UIImage(named: "btn_new_unselected")
+        btnWrite.setImage(image, forState: .Normal)
+        btnBest.setImage(image, forState: .Normal)
+        btnNew.setImage(image2, forState: .Normal)
+    }
+    
+    @IBOutlet weak var btnNew: UIButton!
+
+    func btnNewFunc() {
+        self.btnBest.hidden = true
+        self.btnNew.hidden = true
+        let image  = UIImage(named: "btn_new_selected")
+        let image2  = UIImage(named: "btn_best_unselected")
+        btnWrite.setImage(image, forState: .Normal)
+        btnNew.setImage(image, forState: .Normal)
+        btnBest.setImage(image2, forState: .Normal)
+    }
     /*
     // MARK: - Navigation
 

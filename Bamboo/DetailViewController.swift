@@ -9,22 +9,25 @@
 import UIKit
 import Alamofire
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var univBoards : [UnivBoard] = []
+    var details : Detail?
+    
+    //var details : [Detail] = []
+    
+    @IBOutlet weak var commentTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(code)
         initDetailView()
-        
+        self.commentTableView.delegate = self
+        self.commentTableView.dataSource = self
 //        self.content.text = contentTxt
 //        self.contentLikeNum.text = contentLiketNumTxt
 //        self.commentNum.text = commentNumTxt
         
         // Do any additional setup after loading the view.
-        if !univBoards.isEmpty {
-        self.content.text = self.univBoards[0].contents
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,21 +66,43 @@ class DetailViewController: UIViewController {
         Alamofire
             .request(Router.GetDetail(bCode: code))
         //print(code)
-            .responseCollection { (response: Response<[UnivBoard], NSError>) in
-                if response.result.isSuccess {
-                    self.univBoards = response.result.value!
-                    print(response.result)
-                    print(response.result.value)
-                }
-                if self.univBoards.isEmpty {
-                    print(1)
-                    //self.content.text = self.univBoards[0].contents
-                }
-                self.view.reloadInputViews()
-                //self.univListTableView.reloadData()
-        }
+        
+//            .responseCollection { (response: Response<[Detail], NSError>) in
+//                if response.result.isSuccess {
+//                    self.details = response.result.value!
+//                    print(response)
+//                    print(response.result.value)
+//                }
+//                if self.details.isEmpty {
+//                    print(1)
+//                    //self.content.text = self.univBoards[0].contents
+//                }
+//                self.view.reloadInputViews()
+//                //self.univListTableView.reloadData()
+//        }
+        
+//            .responseObject { (response: Response<Detail, NSError>) in
+//                //debugPrint(response)
+//        }
+
     }
 
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 3
+        //return (details?.comment.count)!
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentTableViewCell
+        cell.time.text = details?.comment[indexPath.row].regdt
+        cell.commentContent.text = details?.comment[indexPath.row].comment
+        cell.commnetLikeNum.text = String(details?.comment[indexPath.row].numberOfLike)
+        
+        
+        
+        return cell
+    }
     
     /*
     // MARK: - Navigation
