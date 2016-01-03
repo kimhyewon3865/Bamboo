@@ -11,6 +11,7 @@ import Alamofire
 
 class UnivListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    
     @IBOutlet weak var univListTableView: UICollectionView!
     
     var univBoards : [UnivBoard] = []
@@ -101,7 +102,7 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
+        if segue.identifier == "showUnivDetail" {
             let DetailVC = segue.destinationViewController as! DetailViewController
             
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
@@ -110,7 +111,30 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
             DetailVC.code = univBoards[indexPath!.row].code
             print(DetailVC.code)
         }
+        else if segue.identifier == "keywordUnivFirstSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
+            let indexPath = univListTableView.indexPathForItemAtPoint(point)
+            
+            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[0]
+        }
         
+        else if segue.identifier == "keywordUnivSecondSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
+            let indexPath = univListTableView.indexPathForItemAtPoint(point)
+            
+            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[1]
+        }
+        else if segue.identifier == "keywordUnivThirdSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
+            let indexPath = univListTableView.indexPathForItemAtPoint(point)
+            
+            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[2]
+        }
+
+
     }
 
     

@@ -2,8 +2,8 @@
 //  Detail.swift
 //  Bamboo
 //
-//  Created by 김혜원 on 2015. 12. 28..
-//  Copyright © 2015년 ParkTaeHyun. All rights reserved.
+//  Created by 김혜원 on 2016. 1. 2..
+//  Copyright © 2016년 ParkTaeHyun. All rights reserved.
 //
 
 import Foundation
@@ -18,10 +18,10 @@ final class Detail : ResponseObjectSerializable,ResponseCollectionSerializable {
     let numberOfComment: Int
     let numberOfLike: Int
     //let keyword: [Keyword]
-    //let comment: [Comment]
+    let comment: [Comment]
     
     init?(response: NSHTTPURLResponse, representation: AnyObject) {
-
+        
         self.code = representation.valueForKeyPath("b_code") as! String
         self.contents = representation.valueForKeyPath("b_contents") as! String
         self.regdt = representation.valueForKeyPath("regdt") as! String
@@ -30,11 +30,9 @@ final class Detail : ResponseObjectSerializable,ResponseCollectionSerializable {
         self.numberOfComment = Int(representation.valueForKeyPath("comment_cnt") as! String)!
         self.numberOfLike = Int(representation.valueForKeyPath("board_like_cnt") as! String)!
         //self.keyword = Keyword.collection(response: response, representation: representation.valueForKeyPath("")!)
-        //self.comment = Comment.collection(response: response, representation: representation.valueForKeyPath("")!)
-                
+        self.comment = Comment.collection(response: response, representation: representation.valueForKeyPath("")!)
+        
     }
-    
-    
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Detail]{
         var details : [Detail] = []
