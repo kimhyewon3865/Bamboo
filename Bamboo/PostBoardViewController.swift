@@ -10,6 +10,8 @@ import UIKit
 
 class PostBoardViewController: UIViewController {
     
+    //사진 imageView
+    @IBOutlet weak var photoImageView: UIImageView!
     //게시글 TextView
     @IBOutlet weak var contentsTextView: UITextView!
     //"속마음을 표현해보세요" 레이블
@@ -18,13 +20,22 @@ class PostBoardViewController: UIViewController {
     @IBOutlet weak var toolBoxView: UIView!
     //툴박스 확성기 버튼
     @IBOutlet weak var toolBoxNoticeButton: UIButton!
+    //네비게이션 아이템
+    @IBOutlet weak var postNavigationItem: UINavigationItem!
+    @IBOutlet weak var containerImageView: UIImageView!
+    @IBOutlet weak var smileImageView: UIImageView!
     
     //게시글 내용
     var contents: String = ""
+    //페이지가 처음 로드되는지 판단
     var isFirstLoaded = true
+    //일반글또는 대학글에서 누루는지 판단
     var type = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingNavigationItem()
+        settingToolBoxNoticeButton()
         settingContentsTextView()
     }
     
@@ -37,6 +48,16 @@ class PostBoardViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyWillShow:"), name: UIKeyboardDidShowNotification, object: nil)
         contentsTextView.becomeFirstResponder()
         contentsTextView.autocorrectionType = .No
+    }
+    
+    func settingNavigationItem() {
+        self.postNavigationItem.title = self.type
+    }
+    
+    func settingToolBoxNoticeButton() {
+        if self.type == "일반" {
+            self.toolBoxNoticeButton.hidden = true
+        }
     }
     
     func keyWillShow(notification: NSNotification) {
@@ -60,7 +81,12 @@ class PostBoardViewController: UIViewController {
     }
     
     @IBAction func toolBoxPostButtonClicked(sender: UIButton) {
-        
+    }
+    @IBAction func savePhotoFromPostBoardAlbumVC(segue: UIStoryboardSegue) {
+        let postBoardAlbumVC = segue.sourceViewController as! PostBoardAlbumViewController
+        self.containerImageView.hidden = true
+        self.smileImageView.hidden = true
+        self.photoImageView.image = postBoardAlbumVC.selectedPhoto
     }
 }
 

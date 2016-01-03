@@ -44,33 +44,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fph-nW-sax">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contents_write" translatesAutoresizingMaskIntoConstraints="NO" id="fm1-Ah-viZ">
-                                        <rect key="frame" x="21" y="23" width="277" height="217"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="217" id="buO-Bh-Foj"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="Rya-4V-rVj">
-                                        <rect key="frame" x="115" y="55" width="90" height="50"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nka-gV-s26">
-                                        <rect key="frame" x="40" y="112" width="240" height="117"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="117" id="gm1-xw-Uqd"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="b4q-zv-vyd" id="IXr-aD-pZn"/>
-                                        </connections>
-                                    </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="속마음을 표현하세요^^" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FO-Kv-5mz">
-                                        <rect key="frame" x="83" y="121" width="155" height="21"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="14"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPG-Ce-OA0">
                                         <rect key="frame" x="-1" y="459" width="320" height="45"/>
                                         <subviews>
@@ -123,10 +96,46 @@
                                             <constraint firstItem="oxp-nF-U14" firstAttribute="top" secondItem="GPG-Ce-OA0" secondAttribute="top" constant="12" id="uyQ-sU-3jh"/>
                                         </constraints>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XAh-Ze-QCD">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="291"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="291" id="kRa-E6-0gw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contents_write" translatesAutoresizingMaskIntoConstraints="NO" id="fm1-Ah-viZ">
+                                        <rect key="frame" x="21" y="23" width="277" height="217"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="217" id="buO-Bh-Foj"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="Rya-4V-rVj">
+                                        <rect key="frame" x="115" y="55" width="90" height="50"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nka-gV-s26">
+                                        <rect key="frame" x="40" y="112" width="240" height="117"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="117" id="gm1-xw-Uqd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="b4q-zv-vyd" id="IXr-aD-pZn"/>
+                                        </connections>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="속마음을 표현하세요^^" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FO-Kv-5mz">
+                                        <rect key="frame" x="83" y="121" width="155" height="21"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95686274509803926" green="0.90588235294117647" blue="0.89411764705882357" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="XAh-Ze-QCD" firstAttribute="leading" secondItem="fph-nW-sax" secondAttribute="leading" id="1pU-Pw-aZs"/>
+                                    <constraint firstItem="XAh-Ze-QCD" firstAttribute="top" secondItem="fph-nW-sax" secondAttribute="top" id="37z-IQ-iVi"/>
                                     <constraint firstItem="7FO-Kv-5mz" firstAttribute="top" secondItem="Rya-4V-rVj" secondAttribute="bottom" constant="16" id="A43-DN-IUx"/>
+                                    <constraint firstItem="XAh-Ze-QCD" firstAttribute="centerX" secondItem="Rya-4V-rVj" secondAttribute="centerX" id="D5v-SW-BTE"/>
                                     <constraint firstItem="nka-gV-s26" firstAttribute="top" secondItem="fph-nW-sax" secondAttribute="top" constant="112" id="HpI-3q-oGN"/>
                                     <constraint firstItem="nka-gV-s26" firstAttribute="leading" secondItem="fph-nW-sax" secondAttribute="leading" constant="40" id="I4q-4G-jDa"/>
                                     <constraint firstAttribute="trailing" secondItem="GPG-Ce-OA0" secondAttribute="trailing" constant="1" id="Ich-a9-HW0"/>
@@ -157,8 +166,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerImageView" destination="fm1-Ah-viZ" id="Qdw-hu-ggk"/>
                         <outlet property="contentsTextView" destination="nka-gV-s26" id="91v-XS-Wev"/>
+                        <outlet property="photoImageView" destination="XAh-Ze-QCD" id="sqe-PU-IRc"/>
                         <outlet property="placeHolderLabel" destination="7FO-Kv-5mz" id="R0j-F1-lee"/>
+                        <outlet property="postNavigationItem" destination="NFT-hs-5oq" id="Khw-ds-NCt"/>
+                        <outlet property="smileImageView" destination="Rya-4V-rVj" id="ddt-VK-BNd"/>
                         <outlet property="toolBoxNoticeButton" destination="oxp-nF-U14" id="g78-Vs-Nm7"/>
                         <outlet property="toolBoxView" destination="GPG-Ce-OA0" id="w7l-HR-3XZ"/>
                     </connections>
@@ -195,6 +208,9 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="next" id="xde-M0-LjN">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <segue destination="1b6-B3-32x" kind="unwind" identifier="SavePhoto" unwindAction="savePhotoFromPostBoardAlbumVC:" id="jbI-yC-AxF"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -303,6 +319,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afu-Gr-ekM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1b6-B3-32x" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2790" y="-1732"/>
         </scene>

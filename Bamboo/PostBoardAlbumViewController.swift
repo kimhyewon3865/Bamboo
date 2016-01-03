@@ -18,6 +18,7 @@ class PostBoardAlbumViewController: UIViewController {
     
     var photos = [UIImage]()
     let totalImageCountNeeded = 100
+    var selectedPhoto : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,18 @@ class PostBoardAlbumViewController: UIViewController {
     @IBAction func backButtonClicked(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "SavePhoto" {
+            if selectedPhoto == nil {
+                print("선택된 사진 없음, 얼럴트창 구현해야함")
+                return false
+            }else {
+                return true
+            }
+        }
+        return false
+    }
 }
 
 extension PostBoardAlbumViewController: UICollectionViewDataSource {
@@ -75,5 +88,6 @@ extension PostBoardAlbumViewController: UICollectionViewDelegate {
         self.smileImageView.hidden = true
         self.placeHolderLabel.hidden = true
         self.photoImageView.image = photos[indexPath.item]
+        self.selectedPhoto = photos[indexPath.item]
     }
 }

@@ -12,24 +12,21 @@ class PostBoardCameraViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let navigationController = TGCameraNavigationController.newWithCameraDelegate(self)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension PostBoardCameraViewController: TGCameraDelegate {
+    func cameraDidCancel() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func cameraDidTakePhoto(image: UIImage!) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    */
-
+    
+    func cameraDidSelectAlbumPhoto(image: UIImage!) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }

@@ -6,4 +6,4 @@
 //  Copyright © 2015년 ParkTaeHyun. All rights reserved.
 //
 
-#import <TGCameraViewController/TGCameraViewController.h>
+#import "TGCameraViewController.h"
