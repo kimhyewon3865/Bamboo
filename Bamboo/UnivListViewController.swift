@@ -75,7 +75,12 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
                 cell.keywordThird.setTitle("#"+self.univBoards[indexPath.row].keywordArray[2], forState: .Normal)
             }
         }
-       // print(univBoards[indexPath.row].keywordArray.count)
+        //print(univBoards[indexPath.row].keywordArray.count)
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.whiteColor()
+        } else {
+            cell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
+        }
 
         
         return cell
@@ -132,6 +137,11 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
             let indexPath = univListTableView.indexPathForItemAtPoint(point)
             
             KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[2]
+        }
+        else if segue.identifier == "univPost" {
+            let PostBoardVC = segue.destinationViewController as! PostBoardViewController
+            PostBoardVC.type = User.sharedInstance().univ
+        
         }
 
 

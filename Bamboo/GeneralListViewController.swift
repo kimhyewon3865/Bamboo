@@ -68,7 +68,12 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         //}
         // print(univBoards[indexPath.row].keywordArray.count)
-        
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.whiteColor()
+        } else {
+            cell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
+        }
+
         
         return cell
     }
@@ -121,7 +126,12 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
             
             KeywordVC.titleName = generalBoards[indexPath!.row].keywordArray[2]
         }
-
+        else if segue.identifier == "generalPost" {
+            let PostBoardVC = segue.destinationViewController as! PostBoardViewController
+            PostBoardVC.type = "일반"
+            
+        }
+        
         
     }
 }

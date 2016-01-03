@@ -22,7 +22,7 @@ class PostBoardViewController: UIViewController {
     //게시글 내용
     var contents: String = ""
     var isFirstLoaded = true
-    
+    var type = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         settingContentsTextView()
