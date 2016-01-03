@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //앱 최초실행인지 판단하는 코드
         if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
-            print("Log : FirstRunVC loaded")
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             let rootView = storyboard.instantiateViewControllerWithIdentifier("FirstRunViewController") as UIViewController
@@ -33,14 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
             NSUserDefaults.standardUserDefaults().synchronize()
         } else {
-            
             let uuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
             let jsonParser = SimpleJsonParser()
             
             jsonParser.HTTPGetJson("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Get_MyInfo.php?uuid=\(uuid)") {
                 (data : Dictionary<String, AnyObject>, error : String?) -> Void in
                 if error != nil {
-                    print(error)
+                    print("\(error) : AppDelegate")
                 } else {
                     if let uuid = data["m_uuid"] as? String,
                         let point = data["m_point"] as? String,
@@ -49,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             User.sharedInstance().point = point
                             User.sharedInstance().univ = univ
                     } else {
-                        print("User객체 SimpleJsonParser인스턴스 failed")
+                        //print("User객체 SimpleJsonParser인스턴스 failed")
                     }
                 }
             }

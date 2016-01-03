@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WlH-yF-sjT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aAF-GG-H2f">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -81,7 +81,7 @@
                                                 </constraints>
                                                 <state key="normal" image="keyboard_camera"/>
                                                 <connections>
-                                                    <action selector="toolBoxCameraButtonClicked:" destination="b4q-zv-vyd" eventType="touchUpInside" id="1Hh-zI-LMa"/>
+                                                    <action selector="toolBoxCameraButtonClicked:" destination="b4q-zv-vyd" eventType="touchUpInside" id="mEq-Vr-SBl"/>
                                                     <segue destination="Y1z-Ge-CZv" kind="modal" id="Vaj-dd-DCO"/>
                                                 </connections>
                                             </button>
@@ -167,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="1790" y="-1038"/>
         </scene>
-        <!--View Controller-->
+        <!--앨범-->
         <scene sceneID="1Vd-cf-tzh">
             <objects>
-                <viewController id="1OC-8w-pjw" sceneMemberID="viewController">
+                <viewController id="1OC-8w-pjw" customClass="PostBoardAlbumViewController" customModule="Bamboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="djA-4E-PII"/>
                         <viewControllerLayoutGuide type="bottom" id="9ee-Lf-UE1"/>
@@ -179,13 +179,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rUq-Kp-Cuj">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUq-Kp-Cuj">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Cpg-Yd-Oa9"/>
+                                </constraints>
                                 <color key="barTintColor" red="0.82352941180000006" green="0.66274509800000003" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="VFe-gT-ClI">
                                         <barButtonItem key="leftBarButtonItem" image="back" id="2OX-xh-Vef">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="backButtonClicked:" destination="1OC-8w-pjw" id="bnC-P8-LO8"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="next" id="xde-M0-LjN">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -193,68 +199,117 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lLE-NR-A4H">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLE-NR-A4H">
                                 <rect key="frame" x="0.0" y="411" width="320" height="108"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxa-9M-N5H">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxa-9M-N5H">
                                         <rect key="frame" x="298" y="43" width="12" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="12" id="Ae1-zE-QiG"/>
+                                            <constraint firstAttribute="height" constant="22" id="Ok8-jX-zkE"/>
+                                        </constraints>
                                         <state key="normal" image="next"/>
                                     </button>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-CC-7jr">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kAi-CC-7jr">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="108"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nUO-eR-7Lp">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nUO-eR-7Lp">
                                             <size key="itemSize" width="88" height="109"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="6fi-Sm-B0E">
-                                                <rect key="frame" x="0.0" y="0.0" width="88" height="109"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="6fi-Sm-B0E" customClass="PhotoCollectionViewCell" customModule="Bamboo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="87" height="108"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="88" height="109"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="87" height="108"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U53-xk-OuD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="88" height="109"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="87" height="108"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <size key="customSize" width="87" height="108"/>
+                                                <connections>
+                                                    <outlet property="photoImageViewCell" destination="U53-xk-OuD" id="9bT-WQ-leX"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="1OC-8w-pjw" id="CAx-tj-ZIm"/>
+                                            <outlet property="delegate" destination="1OC-8w-pjw" id="5nU-pz-Uyq"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.12156862745098039" green="0.10980392156862745" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="rxa-9M-N5H" firstAttribute="top" secondItem="lLE-NR-A4H" secondAttribute="top" constant="43" id="6Ph-4i-1PD"/>
+                                    <constraint firstAttribute="trailing" secondItem="rxa-9M-N5H" secondAttribute="trailing" constant="10" id="7DU-4I-4cA"/>
+                                    <constraint firstAttribute="bottom" secondItem="rxa-9M-N5H" secondAttribute="bottom" constant="43" id="BWi-RB-sgx"/>
+                                    <constraint firstItem="kAi-CC-7jr" firstAttribute="leading" secondItem="lLE-NR-A4H" secondAttribute="leading" id="QXn-Yg-m3e"/>
+                                    <constraint firstAttribute="height" constant="108" id="Tvd-YS-Q00"/>
+                                    <constraint firstItem="kAi-CC-7jr" firstAttribute="centerY" secondItem="rxa-9M-N5H" secondAttribute="centerY" id="hmo-ed-qsb"/>
+                                    <constraint firstItem="kAi-CC-7jr" firstAttribute="top" secondItem="lLE-NR-A4H" secondAttribute="top" id="kzG-64-E0s"/>
+                                    <constraint firstItem="rxa-9M-N5H" firstAttribute="leading" secondItem="kAi-CC-7jr" secondAttribute="trailing" constant="8" id="svW-x8-WGk"/>
+                                </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdv-bn-Dxl">
-                                <rect key="frame" x="0.0" y="64" width="320" height="349"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kdv-bn-Dxl">
+                                <rect key="frame" x="0.0" y="64" width="320" height="339"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="o1T-nT-gr5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="o1T-nT-gr5">
                                 <rect key="frame" x="115" y="146" width="90" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="flU-IY-obj"/>
+                                    <constraint firstAttribute="height" constant="50" id="usm-hr-Nd9"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="사진을 선택해주세요~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MQ-Lh-soO">
-                                <rect key="frame" x="84" y="228" width="153" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진을 선택해주세요~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MQ-Lh-soO">
+                                <rect key="frame" x="84" y="228" width="153" height="18"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.82352941180000006" green="0.66274509800000003" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.48627450979999998" green="0.36470588240000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lLE-NR-A4H" firstAttribute="leading" secondItem="rUq-Kp-Cuj" secondAttribute="leading" id="2fP-jy-878"/>
+                            <constraint firstItem="7MQ-Lh-soO" firstAttribute="top" secondItem="o1T-nT-gr5" secondAttribute="bottom" constant="32" id="Fdj-0a-y1U"/>
+                            <constraint firstItem="rUq-Kp-Cuj" firstAttribute="top" secondItem="djA-4E-PII" secondAttribute="bottom" id="Gtc-Kc-e2L"/>
+                            <constraint firstItem="7MQ-Lh-soO" firstAttribute="leading" secondItem="yr7-eb-EEB" secondAttribute="leadingMargin" constant="68" id="LhF-s8-gNK"/>
+                            <constraint firstAttribute="trailing" secondItem="lLE-NR-A4H" secondAttribute="trailing" id="OQU-j7-Nvc"/>
+                            <constraint firstItem="kdv-bn-Dxl" firstAttribute="centerX" secondItem="o1T-nT-gr5" secondAttribute="centerX" id="Q4L-St-bpc"/>
+                            <constraint firstItem="o1T-nT-gr5" firstAttribute="top" secondItem="yr7-eb-EEB" secondAttribute="top" constant="146" id="R8X-dk-Eea"/>
+                            <constraint firstItem="lLE-NR-A4H" firstAttribute="leading" secondItem="yr7-eb-EEB" secondAttribute="leading" id="Yb7-DF-iOH"/>
+                            <constraint firstItem="lLE-NR-A4H" firstAttribute="trailing" secondItem="kdv-bn-Dxl" secondAttribute="trailing" id="Yu1-If-Uag"/>
+                            <constraint firstItem="7MQ-Lh-soO" firstAttribute="centerX" secondItem="o1T-nT-gr5" secondAttribute="centerX" id="b53-oU-tfZ"/>
+                            <constraint firstItem="9ee-Lf-UE1" firstAttribute="top" secondItem="lLE-NR-A4H" secondAttribute="bottom" id="idx-fd-fpR"/>
+                            <constraint firstItem="9ee-Lf-UE1" firstAttribute="top" secondItem="kdv-bn-Dxl" secondAttribute="bottom" constant="116" id="qUD-Ys-Pvi"/>
+                            <constraint firstItem="kdv-bn-Dxl" firstAttribute="top" secondItem="rUq-Kp-Cuj" secondAttribute="bottom" id="rJW-ya-NKq"/>
+                            <constraint firstItem="lLE-NR-A4H" firstAttribute="leading" secondItem="kdv-bn-Dxl" secondAttribute="leading" id="zEj-TR-AAR"/>
+                            <constraint firstItem="lLE-NR-A4H" firstAttribute="trailing" secondItem="rUq-Kp-Cuj" secondAttribute="trailing" id="zxP-iI-7Bz"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_album_unselected" id="Mg4-JB-cPf"/>
+                    <tabBarItem key="tabBarItem" title="앨범" image="tab_album_unselected" id="Mg4-JB-cPf"/>
+                    <connections>
+                        <outlet property="photoCollectionView" destination="kAi-CC-7jr" id="xH1-jg-x63"/>
+                        <outlet property="photoImageView" destination="kdv-bn-Dxl" id="qRj-bb-EML"/>
+                        <outlet property="placeHolderLabel" destination="7MQ-Lh-soO" id="VYh-s0-2Vf"/>
+                        <outlet property="smileImageView" destination="o1T-nT-gr5" id="Enk-SJ-TkS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afu-Gr-ekM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2790" y="-1732"/>
         </scene>
-        <!--View Controller-->
+        <!--사진-->
         <scene sceneID="24K-qs-ziP">
             <objects>
-                <viewController id="SEf-hh-p9T" sceneMemberID="viewController">
+                <viewController id="SEf-hh-p9T" customClass="PostBoardCameraViewController" customModule="Bamboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6r9-Qq-cFX"/>
                         <viewControllerLayoutGuide type="bottom" id="TMY-OT-M74"/>
@@ -264,16 +319,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_photo_unselected" id="KLg-Is-wzx"/>
+                    <tabBarItem key="tabBarItem" title="사진" image="tab_photo_unselected" id="KLg-Is-wzx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uc3-H8-UMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2790" y="-1038"/>
         </scene>
-        <!--View Controller-->
+        <!--동영상-->
         <scene sceneID="D3I-iE-0L5">
             <objects>
-                <viewController id="b0o-BP-mY3" sceneMemberID="viewController">
+                <viewController id="b0o-BP-mY3" customClass="PostBoardVideoViewController" customModule="Bamboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uMM-Ee-Yyg"/>
                         <viewControllerLayoutGuide type="bottom" id="ahr-dN-u6k"/>
@@ -283,7 +338,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_video_unselected" id="csS-0F-Eng"/>
+                    <tabBarItem key="tabBarItem" title="동영상" image="tab_video_unselected" id="csS-0F-Eng"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcH-Nh-FRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1190,10 +1245,10 @@
             </objects>
             <point key="canvasLocation" x="845" y="1017"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Post Board Tab Bar View Controller-->
         <scene sceneID="rpU-Fg-69v">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Y1z-Ge-CZv" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Y1z-Ge-CZv" customClass="PostBoardTabBarViewController" customModule="Bamboo" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Yht-vx-bma">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1201,6 +1256,7 @@
                         <color key="barTintColor" red="0.82352941180000006" green="0.66274509800000003" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
+                        <outlet property="postBoardTapBar" destination="Yht-vx-bma" id="c2D-dh-Kob"/>
                         <segue destination="1OC-8w-pjw" kind="relationship" relationship="viewControllers" id="uYn-4p-Lf1"/>
                         <segue destination="SEf-hh-p9T" kind="relationship" relationship="viewControllers" id="OpZ-1C-SP2"/>
                         <segue destination="b0o-BP-mY3" kind="relationship" relationship="viewControllers" id="ai6-hy-Fl3"/>

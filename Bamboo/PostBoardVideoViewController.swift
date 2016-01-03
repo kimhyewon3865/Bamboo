@@ -1,17 +1,18 @@
 //
-//  TestViewController.swift
+//  PostBoardVideoViewController.swift
 //  Bamboo
 //
-//  Created by 박태현 on 2015. 12. 15..
+//  Created by 박태현 on 2015. 12. 30..
 //  Copyright © 2015년 ParkTaeHyun. All rights reserved.
 //
 
 import UIKit
 
-class FirstRunViewController: UIViewController {
-    
+class PostBoardVideoViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
@@ -20,7 +21,7 @@ class FirstRunViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+
     /*
     // MARK: - Navigation
 
@@ -30,4 +31,5 @@ class FirstRunViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 }

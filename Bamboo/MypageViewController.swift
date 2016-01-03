@@ -51,12 +51,6 @@ extension MypageViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = myPageTableView.dequeueReusableCellWithIdentifier("MyPageCell", forIndexPath: indexPath) as! MyPageTableViewCell
         
-//        if indexPath.row % 2 == 0 {
-//            cell.backgroundColor = UIColor.whiteColor()
-//        } else {
-//            cell.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
-//        }
-        
         cell.dateLabel.text = self.myPages[indexPath.row].date
         cell.dayLabel.text = self.myPages[indexPath.row].day
         cell.timeLabel.text = self.myPages[indexPath.row].time

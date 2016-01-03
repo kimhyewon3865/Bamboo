@@ -21,10 +21,15 @@ class PostBoardViewController: UIViewController {
     
     //게시글 내용
     var contents: String = ""
+    var isFirstLoaded = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         settingContentsTextView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        contentsTextView.becomeFirstResponder()
     }
 
     // MARK: - Custom function
@@ -46,8 +51,9 @@ class PostBoardViewController: UIViewController {
     @IBAction func closeButtonClicked(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
     @IBAction func toolBoxCameraButtonClicked(sender: UIButton) {
+        self.isFirstLoaded = false
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     @IBAction func toolBoxNoticeButtonClicked(sender: UIButton) {
