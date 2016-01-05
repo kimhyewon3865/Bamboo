@@ -1163,7 +1163,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vjG-WY-0gR">
-                                <rect key="frame" x="0.0" y="72" width="320" height="447"/>
+                                <rect key="frame" x="0.0" y="75" width="320" height="447"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPageCell" rowHeight="74" id="do9-L7-S6k" customClass="MyPageTableViewCell" customModule="Bamboo" customModuleProvider="target">
@@ -1295,6 +1295,33 @@
                                     <outlet property="delegate" destination="DYe-yT-Vec" id="4Rh-ov-0Id"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-dT-oEc">
+                                <rect key="frame" x="0.0" y="138" width="320" height="381"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="7VE-Ej-y0m">
+                                        <rect key="frame" x="130" y="72" width="61" height="61"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="61" id="2B0-Vr-hIT"/>
+                                            <constraint firstAttribute="width" constant="61" id="2dI-8N-30L"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="게시글이 없습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znY-gX-qq1">
+                                        <rect key="frame" x="104" y="141" width="112" height="18"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7VE-Ej-y0m" firstAttribute="centerX" secondItem="1Cw-dT-oEc" secondAttribute="centerX" id="Iyy-qu-Jvi"/>
+                                    <constraint firstAttribute="trailing" secondItem="znY-gX-qq1" secondAttribute="trailing" constant="104" id="R4i-QC-TOV"/>
+                                    <constraint firstItem="znY-gX-qq1" firstAttribute="top" secondItem="7VE-Ej-y0m" secondAttribute="bottom" constant="8" id="b7r-nQ-j20"/>
+                                    <constraint firstItem="znY-gX-qq1" firstAttribute="leading" secondItem="1Cw-dT-oEc" secondAttribute="leading" constant="104" id="d6D-ue-i7s"/>
+                                    <constraint firstItem="znY-gX-qq1" firstAttribute="centerX" secondItem="1Cw-dT-oEc" secondAttribute="centerX" id="jr3-KF-3kp"/>
+                                    <constraint firstAttribute="bottom" secondItem="znY-gX-qq1" secondAttribute="bottom" constant="222" id="obc-DN-wYf"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjt-OZ-5QX">
                                 <rect key="frame" x="0.0" y="64" width="324" height="75"/>
                                 <subviews>
@@ -1337,12 +1364,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="kjt-OZ-5QX" secondAttribute="trailing" constant="-20" id="1WM-pH-NF4"/>
-                            <constraint firstItem="vjG-WY-0gR" firstAttribute="leading" secondItem="kjt-OZ-5QX" secondAttribute="leading" id="756-QY-A56"/>
-                            <constraint firstAttribute="trailing" secondItem="vjG-WY-0gR" secondAttribute="trailing" id="8tX-VS-ybm"/>
+                            <constraint firstItem="vjG-WY-0gR" firstAttribute="trailing" secondItem="1Cw-dT-oEc" secondAttribute="trailing" id="9ej-eH-p5d"/>
                             <constraint firstItem="kjt-OZ-5QX" firstAttribute="top" secondItem="8P3-r9-Tbf" secondAttribute="bottom" id="NxY-Cx-JfA"/>
+                            <constraint firstItem="1Cw-dT-oEc" firstAttribute="bottom" secondItem="ea7-qG-RlO" secondAttribute="top" id="O5d-uh-H30"/>
                             <constraint firstItem="kjt-OZ-5QX" firstAttribute="leading" secondItem="IWm-9i-wzc" secondAttribute="leading" id="OwP-MA-7A5"/>
-                            <constraint firstItem="vjG-WY-0gR" firstAttribute="top" secondItem="8P3-r9-Tbf" secondAttribute="bottom" constant="8" symbolic="YES" id="Viv-GQ-9B8"/>
-                            <constraint firstItem="vjG-WY-0gR" firstAttribute="bottom" secondItem="ea7-qG-RlO" secondAttribute="top" id="s0w-86-FBq"/>
+                            <constraint firstAttribute="trailing" secondItem="1Cw-dT-oEc" secondAttribute="trailing" id="TuQ-Ay-TAp"/>
+                            <constraint firstItem="vjG-WY-0gR" firstAttribute="leading" secondItem="1Cw-dT-oEc" secondAttribute="leading" id="Vhr-eG-uu9"/>
+                            <constraint firstItem="1Cw-dT-oEc" firstAttribute="leading" secondItem="kjt-OZ-5QX" secondAttribute="leading" id="VxD-uF-8F0"/>
+                            <constraint firstItem="vjG-WY-0gR" firstAttribute="top" secondItem="8P3-r9-Tbf" secondAttribute="bottom" constant="11" id="imf-mY-l56"/>
+                            <constraint firstItem="1Cw-dT-oEc" firstAttribute="top" secondItem="8P3-r9-Tbf" secondAttribute="bottom" constant="74" id="no6-y7-3zI"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="vjG-WY-0gR" secondAttribute="bottom" constant="-3" id="oiw-ci-LC9"/>
+                            <constraint firstItem="1Cw-dT-oEc" firstAttribute="centerX" secondItem="IWm-9i-wzc" secondAttribute="centerX" id="xgO-hj-14d"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="마이페이지" id="Pt4-vZ-9Ic">
@@ -1354,6 +1386,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="hiddenView" destination="1Cw-dT-oEc" id="G55-F7-wpz"/>
                         <outlet property="myPageTableView" destination="vjG-WY-0gR" id="uB5-2r-l6A"/>
                         <outlet property="pointLabel" destination="W4O-pj-5wZ" id="UUL-IP-fHf"/>
                         <outlet property="univLabel" destination="Rgz-md-DHq" id="b25-b6-eQL"/>
@@ -1514,6 +1547,7 @@
         <image name="next" width="12" height="21"/>
         <image name="notice" width="40" height="31"/>
         <image name="roll" width="108" height="108"/>
+        <image name="sad" width="90" height="91"/>
         <image name="search" width="16" height="17"/>
         <image name="send" width="105" height="43"/>
         <image name="smile" width="90" height="91"/>

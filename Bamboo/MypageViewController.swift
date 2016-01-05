@@ -14,18 +14,21 @@ class MypageViewController: UIViewController {
     @IBOutlet weak var myPageTableView: UITableView!
     @IBOutlet weak var univLabel: UILabel!
     @IBOutlet weak var pointLabel: UILabel!
+    @IBOutlet weak var hiddenView: UIView!
     
     var myPages = [MyPage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setMypageVC()
+        hiddenView.hidden = true
         setDisplayData()
     }
     
     override func viewWillAppear(animated: Bool) {
         setMypageVC()
+        hiddenView.hidden = true
         setDisplayData()
     }
     
@@ -42,6 +45,10 @@ class MypageViewController: UIViewController {
                 if response.result.isSuccess {
                     //BBActivityIndicatorView.hide()
                     self.myPages = (response.result.value)!
+                    if self.myPages.isEmpty {
+                        self.hiddenView.backgroundColor = UIColor.whiteColor()
+                        self.hiddenView.hidden = false
+                    }
                     self.myPageTableView.reloadData()
                 } else {}
         }

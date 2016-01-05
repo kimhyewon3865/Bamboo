@@ -51,7 +51,6 @@ class UnivSearchViewController: UIViewController {
                         }
                 }
                 User.sharedInstance().univ = filtered[indexPath.row]
-                alertSuccessMessage(filtered[indexPath.row])
             } else {
                 Alamofire
                     .request(Router.SetDefault(uuid: uuid!, university: data[indexPath.row]))
@@ -64,7 +63,6 @@ class UnivSearchViewController: UIViewController {
                         }
                 }
                 User.sharedInstance().univ = data[indexPath.row]
-                alertSuccessMessage(filtered[indexPath.row])
             }
         }
     }
