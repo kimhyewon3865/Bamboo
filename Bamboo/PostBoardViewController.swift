@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PostBoardViewController: UIViewController {
     
@@ -31,6 +32,8 @@ class PostBoardViewController: UIViewController {
     var isFirstLoaded = true
     //일반글또는 대학글에서 누루는지 판단
     var type = ""
+    //확성기 활성화 여부
+    var isNotiveActivate = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +71,43 @@ class PostBoardViewController: UIViewController {
         }
     }
     
+    func setImageToPhotoImageView(image: UIImage) {
+        self.containerImageView.hidden = true
+        self.smileImageView.hidden = true
+        self.photoImageView.image = image
+    }
+    
+    func setPoint() {
+        Alamofire
+            .request(Router.SetPoint(uuid: User.sharedInstance().uuid))
+    }
+    
+    func setPointReturn() {
+        Alamofire
+            .request(Router.SetPointReturn(uuid: User.sharedInstance().uuid))
+    }
+    
+    func setUser() {
+        let jsonParser = SimpleJsonParser()
+        jsonParser.HTTPGetJson("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Get_MyInfo.php?uuid=\(User.sharedInstance().uuid)") {
+            (data : Dictionary<String, AnyObject>, error : String?) -> Void in
+            if error != nil {
+                print("\(error) : PostBoardVC")
+            } else {
+                if let uuid = data["m_uuid"] as? String,
+                    let point = data["m_point"] as? String,
+                    let univ = data["m_univ"] as? String {
+                        User.sharedInstance().uuid = uuid
+                        User.sharedInstance().point = point
+                        User.sharedInstance().univ = univ
+                } else {
+                    //print("User객체 SimpleJsonParser인스턴스 failed")
+                }
+            }
+        }
+        sleep(1)
+    }
+    
     // MARK: - IBAction function
     @IBAction func closeButtonClicked(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -78,21 +118,49 @@ class PostBoardViewController: UIViewController {
     }
     
     @IBAction func toolBoxNoticeButtonClicked(sender: UIButton) {
+        if isNotiveActivate == false {
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+            let descriptions = LibraryAPI.sharedInstance.clickNoticeButton(point: User.sharedInstance().point)
+            BBAlertView.alert(descriptions.title, message: descriptions.message, buttons: descriptions.buttons, tapBlock: {(alertAction, position) -> Void in
+                if position == 1 {
+                    if Int(User.sharedInstance().point) < 10 {
+                        let descriptions = LibraryAPI.sharedInstance.ifLessPointThan10()
+                        BBAlertView.alert(descriptions.title, message: descriptions.message)
+                    } else {
+                        self.isNotiveActivate = true
+                        self.toolBoxNoticeButton.setImage(UIImage(named: "notive_active"), forState: UIControlState.Normal)
+                        self.setPoint()
+                        self.setUser()
+                    }
+                }
+            })
+        } else {
+            self.isNotiveActivate = false
+            self.toolBoxNoticeButton.setImage(UIImage(named: "keyboard_notice"), forState: UIControlState.Normal)
+            self.setPointReturn()
+            self.setUser()
+        }
     }
     
     @IBAction func toolBoxPostButtonClicked(sender: UIButton) {
     }
+    
     @IBAction func savePhotoFromPostBoardAlbumVC(segue: UIStoryboardSegue) {
         let postBoardAlbumVC = segue.sourceViewController as! PostBoardAlbumViewController
-        self.containerImageView.hidden = true
-        self.smileImageView.hidden = true
-        self.photoImageView.image = postBoardAlbumVC.selectedPhoto
+        setImageToPhotoImageView(postBoardAlbumVC.selectedPhoto!)
+    }
+    
+    @IBAction func savePhotoFromPostBoardCameraVC(segue: UIStoryboardSegue) {
+        let postBoardCameraVC = segue.sourceViewController as! PostBoardCameraViewController
+        
+        if let photoImage = postBoardCameraVC.capturedPhoto {
+            setImageToPhotoImageView(photoImage)
+        }
     }
 }
 
 extension PostBoardViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-
         return true
     }
     

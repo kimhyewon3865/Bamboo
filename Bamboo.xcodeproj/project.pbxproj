@@ -16,6 +16,8 @@
 		C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */; };
 		C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
 		C9B8E7041C2FC17B00128132 /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */; };
+		E805E4BF1C3B48FB0001134A /* BBAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805E4BE1C3B48FB0001134A /* BBAlertView.swift */; };
+		E805E4C11C3B5FB40001134A /* AlertMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805E4C01C3B5FB40001134A /* AlertMessageManager.swift */; };
 		E8162F511C38CD3E00D491D3 /* PostBoardAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8162F4E1C38CD3E00D491D3 /* PostBoardAlbumViewController.swift */; };
 		E8162F521C38CD3E00D491D3 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8162F4F1C38CD3E00D491D3 /* PhotoCollectionViewCell.swift */; };
 		E8162F531C38CD3E00D491D3 /* PostBoardTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8162F501C38CD3E00D491D3 /* PostBoardTabBarViewController.swift */; };
@@ -108,6 +110,8 @@
 		C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9B8E7011C2FC15700128132 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
+		E805E4BE1C3B48FB0001134A /* BBAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBAlertView.swift; sourceTree = "<group>"; };
+		E805E4C01C3B5FB40001134A /* AlertMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessageManager.swift; sourceTree = "<group>"; };
 		E80EA30D1C327EAE00B76E9A /* Bamboo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bamboo-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		E8162F4E1C38CD3E00D491D3 /* PostBoardAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBoardAlbumViewController.swift; sourceTree = "<group>"; };
 		E8162F4F1C38CD3E00D491D3 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 		E8F161CC1C38E33500814311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TGPhotoViewController.xib; sourceTree = "<group>"; };
 		E8F161CE1C38E33500814311 /* TGCameraViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TGCameraViewController.bundle; sourceTree = "<group>"; };
 		E8F161CF1C38E33500814311 /* TGCameraViewController.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TGCameraViewController.xcassets; sourceTree = "<group>"; };
+		E8F161EC1C38FA8100814311 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		E8F161EE1C38FA8600814311 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +237,8 @@
 		1F116050AA161F91BE1F59A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8F161EE1C38FA8600814311 /* AVFoundation.framework */,
+				E8F161EC1C38FA8100814311 /* Alamofire.framework */,
 				64A787F9EC4ED2DB4BE4D7AD /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -321,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				E872E4971C2AA34E00AB69F7 /* BBActivityIndicatorView.swift */,
+				E805E4BE1C3B48FB0001134A /* BBAlertView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 			children = (
 				E874BBDB1C23D3F000E091A4 /* SimpleJsonParser.swift */,
 				E872E48B1C299A0100AB69F7 /* UniversityManager.swift */,
+				E805E4C01C3B5FB40001134A /* AlertMessageManager.swift */,
 				E872E48F1C29A32F00AB69F7 /* LibraryAPI.swift */,
 				E872E49C1C2BFDF800AB69F7 /* Router.swift */,
 			);
@@ -725,6 +735,7 @@
 				E8F161D21C38E33500814311 /* TGCameraNavigationController.m in Sources */,
 				E872E4981C2AA34E00AB69F7 /* BBActivityIndicatorView.swift in Sources */,
 				E8162F531C38CD3E00D491D3 /* PostBoardTabBarViewController.swift in Sources */,
+				E805E4C11C3B5FB40001134A /* AlertMessageManager.swift in Sources */,
 				E8F161DB1C38E33500814311 /* TGCameraGrid.m in Sources */,
 				E8F161D41C38E33500814311 /* TGPhotoViewController.m in Sources */,
 				E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */,
@@ -755,6 +766,7 @@
 				E874BBCC1C2120A900E091A4 /* UnivBoard.swift in Sources */,
 				E872E4901C29A32F00AB69F7 /* LibraryAPI.swift in Sources */,
 				C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */,
+				E805E4BF1C3B48FB0001134A /* BBAlertView.swift in Sources */,
 				E8162F571C38CD4900D491D3 /* PostBoardCameraViewController.swift in Sources */,
 				E8F161E41C38E33500814311 /* TGCameraSlideView.m in Sources */,
 				E8F161E51C38E33500814311 /* TGTintedButton.m in Sources */,
@@ -889,7 +901,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -927,7 +939,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -939,9 +951,11 @@
 			baseConfigurationReference = A65F5D664BA4E2A273558401 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Bamboo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
@@ -953,9 +967,12 @@
 			baseConfigurationReference = 1CC90F97DA37C72BFB7C4E8B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
 				INFOPLIST_FILE = Bamboo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";

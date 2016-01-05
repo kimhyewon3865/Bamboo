@@ -17,14 +17,14 @@ class PostBoardAlbumViewController: UIViewController {
     @IBOutlet weak var placeHolderLabel: UILabel!
     
     var photos = [UIImage]()
-    let totalImageCountNeeded = 100
     var selectedPhoto : UIImage?
+    var totalPhotoCount = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
         settingPhotos()
     }
-    
+
     func settingPhotos() {
         photos = []
         fetchPhotoAtIndexFromEnd(0)
@@ -44,7 +44,7 @@ class PostBoardAlbumViewController: UIViewController {
         if fetchResult.count > 0 {
             imgManager.requestImageForAsset(fetchResult.objectAtIndex(fetchResult.count - 1 - index) as! PHAsset, targetSize: view.frame.size, contentMode: PHImageContentMode.AspectFill, options: requestOptions, resultHandler: { (image, _) in
                 self.photos.append(image!)
-                if index + 1 < fetchResult.count && self.photos.count < self.totalImageCountNeeded {
+                if index + 1 < fetchResult.count && index < self.totalPhotoCount {
                     self.fetchPhotoAtIndexFromEnd(index + 1)
                 } else {
                 }
@@ -59,7 +59,8 @@ class PostBoardAlbumViewController: UIViewController {
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "SavePhoto" {
             if selectedPhoto == nil {
-                print("선택된 사진 없음, 얼럴트창 구현해야함")
+                let description = LibraryAPI.sharedInstance.ifNoSelectedPhoto()
+                BBAlertView.alert(description.title, message: description.message)
                 return false
             }else {
                 return true

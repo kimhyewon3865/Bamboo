@@ -24,6 +24,11 @@ class UnivSearchViewController: UIViewController {
         self.data = LibraryAPI().getNameFromUniversities()
     }
     
+    func alertSuccessMessage(univName: String) {
+        let descriptions = LibraryAPI.sharedInstance.clickCellFromUnivSearchVC(univName)
+        BBAlertView.alert(descriptions.title, message: descriptions.message)
+    }
+    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SelectUniv" {
@@ -46,6 +51,7 @@ class UnivSearchViewController: UIViewController {
                         }
                 }
                 User.sharedInstance().univ = filtered[indexPath.row]
+                alertSuccessMessage(filtered[indexPath.row])
             } else {
                 Alamofire
                     .request(Router.SetDefault(uuid: uuid!, university: data[indexPath.row]))
@@ -58,6 +64,7 @@ class UnivSearchViewController: UIViewController {
                         }
                 }
                 User.sharedInstance().univ = data[indexPath.row]
+                alertSuccessMessage(filtered[indexPath.row])
             }
         }
     }

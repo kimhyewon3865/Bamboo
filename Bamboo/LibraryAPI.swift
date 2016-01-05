@@ -11,6 +11,7 @@ import Alamofire
 
 class LibraryAPI: NSObject {
     private let universityManager: UniversityManager
+    private let alertMessageManager: AlertMessageManager
     
     class var sharedInstance: LibraryAPI {
         struct Singleton {
@@ -21,7 +22,7 @@ class LibraryAPI: NSObject {
     
     override init() {
         universityManager = UniversityManager()
-        
+        alertMessageManager = AlertMessageManager()
         super.init()
     }
     
@@ -31,5 +32,21 @@ class LibraryAPI: NSObject {
     
     func getNameFromUniversities() -> [String] {
         return self.universityManager.getNameFromUniversities()
+    }
+    
+    func clickNoticeButton(point point: String) -> (title: String, message: String, buttons: [String]) {
+        return self.alertMessageManager.clickNoticeButton(point)
+    }
+    
+    func ifLessPointThan10() -> (title: String, message: String) {
+        return self.alertMessageManager.ifLessPointThan10()
+    }
+    
+    func clickCellFromUnivSearchVC(univ: String) -> (title: String, message: String) {
+        return self.alertMessageManager.clickCellFromUnivSearchVC(univ)
+    }
+    
+    func ifNoSelectedPhoto() -> (title: String, message: String) {
+        return self.alertMessageManager.ifNoSelectedPhoto()
     }
 }
