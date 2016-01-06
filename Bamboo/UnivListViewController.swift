@@ -15,19 +15,35 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var univListTableView: UICollectionView!
     
     var univBoards : [UnivBoard] = []
-    
+    var plusUnivBoards : [UnivBoard] = []
+    var refreshControl:UIRefreshControl!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initSetting()
         initUnivBoard()
-        self.btnBest.hidden = true
-        self.btnNew.hidden = true
-        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
-        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
-        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
+        
+//        self.btnBest.hidden = true
+//        self.btnNew.hidden = true
+//        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
+//        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
+//        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
+//        self.refreshControl = UIRefreshControl()
+//        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+//        self.univListTableView.addSubview(refreshControl)
         // Do any additional setup after loading the view.
     }
 
+    func refresh(sender:AnyObject)
+    {
+        initUnivBoard()
+        pageInt = 1
+        print("refresh")
+        self.refreshControl?.endRefreshing()
+        // Code to refresh table view
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -91,9 +107,30 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.item > 4 {
+        if indexPath.item == (univBoards.count-1) {
+            pageInt = pageInt + 1
+            print(pageInt)
+            plusInitUnivBoard()
+        }
+        }
+    }
+    
+    var pageInt = 1
+
     func initSetting() {
         self.univListTableView.delegate = self
         self.univListTableView.dataSource = self
+        self.btnBest.hidden = true
+        self.btnNew.hidden = true
+        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
+        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
+        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.univListTableView.addSubview(refreshControl)
     }
     
     func initUnivBoard() {
@@ -108,9 +145,25 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
                 
                 self.univListTableView.reloadData()
         }
-
     }
     
+    func plusInitUnivBoard() {
+        Alamofire
+            .request(Router.GetList(type: "T03", page: "\(pageInt)", university: "가천대학교"))
+            .responseCollection { (response: Response<[UnivBoard], NSError>) in
+                if response.result.isSuccess {
+                    self.univBoards = response.result.value!
+                    print(response)
+                    print(response.result.value)
+                    self.univBoards = self.univBoards + self.plusUnivBoards
+
+                }
+                
+                self.univListTableView.reloadData()
+        }
+        
+    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showUnivDetail" {
             let DetailVC = segue.destinationViewController as! DetailViewController

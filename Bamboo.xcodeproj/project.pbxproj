@@ -960,7 +960,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -977,7 +977,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Release;
 		};

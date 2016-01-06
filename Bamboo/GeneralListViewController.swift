@@ -14,7 +14,10 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var generalListTableView: UICollectionView!
     
     var generalBoards = [GeneralBoard]()
+    var plusGeneralBoards = [GeneralBoard]()
     
+    var refreshControl:UIRefreshControl!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.generalListTableView.delegate = self
@@ -26,6 +29,20 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
         btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
         btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
         btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.generalListTableView.addSubview(refreshControl)
+    }
+    
+    func refresh(sender:AnyObject)
+    {
+        initGeneralBoard()
+        pageInt = 1
+        print("refresh")
+        self.refreshControl?.endRefreshing()
+        // Code to refresh table view
     }
     
     // MARK: - CollectionView DataSource
@@ -79,11 +96,24 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
         } else {
             cell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
         }
-
+        
         
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.item > 4 {
+        if indexPath.item == (generalBoards.count-1) {
+            print("last")
+            pageInt = pageInt + 1
+            print(pageInt)
+            plusInitGeneralBoard()
+        }
+        }
+    }
+    
+    var pageInt = 1
+
     func initGeneralBoard() {
         Alamofire
             .request(Router.GetList(type: "T01", page: "1", university: "가천대학교"))
@@ -99,6 +129,23 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
         
     }
     
+    func plusInitGeneralBoard() {
+        Alamofire
+            .request(Router.GetList(type: "T01", page: "\(pageInt)", university: "가천대학교"))
+            .responseCollection { (response: Response<[GeneralBoard], NSError>) in
+                if response.result.isSuccess {
+                    self.plusGeneralBoards = response.result.value!
+                    print(response)
+                    print(response.result.value)
+                    
+                    self.generalBoards = self.generalBoards + self.plusGeneralBoards
+                }
+                
+                self.generalListTableView.reloadData()
+        }
+        
+    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showGeneralDetail" {
             let DetailVC = segue.destinationViewController as! DetailViewController

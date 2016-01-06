@@ -203,14 +203,50 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "keywordDetailFirstSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[0]
+        }
+        else if segue.identifier == "keywordDetailSecondSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[1]
+
+        }
+        else if segue.identifier == "keywordDetailThirdSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[2]
+            
+        }
+        else if segue.identifier == "keywordDetailFourthSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[3]
+            
+        }
+        else if segue.identifier == "keywordDetailFifthSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[4]
+            
+        }
+        else if segue.identifier == "keywordDetailSixthSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[5]
+            
+        }
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }
