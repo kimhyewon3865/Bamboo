@@ -17,13 +17,14 @@ class PostBoardAlbumViewController: UIViewController {
     @IBOutlet weak var placeHolderLabel: UILabel!
     
     var photos = [UIImage]()
-    let totalImageCountNeeded = 100
+    var selectedPhoto : UIImage?
+    var totalPhotoCount = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
         settingPhotos()
     }
-    
+
     func settingPhotos() {
         photos = []
         fetchPhotoAtIndexFromEnd(0)
@@ -43,7 +44,7 @@ class PostBoardAlbumViewController: UIViewController {
         if fetchResult.count > 0 {
             imgManager.requestImageForAsset(fetchResult.objectAtIndex(fetchResult.count - 1 - index) as! PHAsset, targetSize: view.frame.size, contentMode: PHImageContentMode.AspectFill, options: requestOptions, resultHandler: { (image, _) in
                 self.photos.append(image!)
-                if index + 1 < fetchResult.count && self.photos.count < self.totalImageCountNeeded {
+                if index + 1 < fetchResult.count && index < self.totalPhotoCount {
                     self.fetchPhotoAtIndexFromEnd(index + 1)
                 } else {
                 }
@@ -53,6 +54,19 @@ class PostBoardAlbumViewController: UIViewController {
     
     @IBAction func backButtonClicked(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "SavePhoto" {
+            if selectedPhoto == nil {
+                let description = LibraryAPI.sharedInstance.ifNoSelectedPhoto()
+                BBAlertView.alert(description.title, message: description.message)
+                return false
+            }else {
+                return true
+            }
+        }
+        return false
     }
 }
 
@@ -75,5 +89,6 @@ extension PostBoardAlbumViewController: UICollectionViewDelegate {
         self.smileImageView.hidden = true
         self.placeHolderLabel.hidden = true
         self.photoImageView.image = photos[indexPath.item]
+        self.selectedPhoto = photos[indexPath.item]
     }
 }

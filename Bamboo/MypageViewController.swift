@@ -24,6 +24,11 @@ class MypageViewController: UIViewController {
         setDisplayData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        setMypageVC()
+        setDisplayData()
+    }
+    
     func setMypageVC() {
         self.pointLabel.text = "\(User.sharedInstance().point)"
         self.univLabel.text = "\(User.sharedInstance().univ)"

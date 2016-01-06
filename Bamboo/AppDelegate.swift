@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().synchronize()
         } else {
             let uuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
+            print(uuid)
             let jsonParser = SimpleJsonParser()
             
             jsonParser.HTTPGetJson("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Get_MyInfo.php?uuid=\(uuid)") {
