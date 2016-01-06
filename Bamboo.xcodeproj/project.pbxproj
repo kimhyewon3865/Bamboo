@@ -12,6 +12,7 @@
 		C90ACF571C3778F90038238E /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ACF561C3778F90038238E /* Detail.swift */; };
 		C90ACF591C377B170038238E /* KeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ACF581C377B170038238E /* KeywordCollectionViewCell.swift */; };
 		C90ACF5B1C379C680038238E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ACF5A1C379C680038238E /* CommentTableViewCell.swift */; };
+		C9585F1E1C38E7D000E80138 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
 		C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */; };
 		C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */; };
 		C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
@@ -539,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8937F291C1E7D6C0056C5FD /* BambooUITests.swift in Sources */,
+				C9585F1E1C38E7D000E80138 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

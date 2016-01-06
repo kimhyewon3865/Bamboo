@@ -20,6 +20,11 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
         initSetting()
         initUnivBoard()
+        self.btnBest.hidden = true
+        self.btnNew.hidden = true
+        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
+        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
+        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
         // Do any additional setup after loading the view.
     }
 
@@ -112,6 +117,11 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
             
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
             let indexPath = univListTableView.indexPathForItemAtPoint(point)
+            
+            DetailVC.contentT = univBoards[indexPath!.row].contents
+            DetailVC.keywords = univBoards[indexPath!.row].keywords
+            DetailVC.contentlikeNumT = String(univBoards[indexPath!.row].numberOfLike)
+            DetailVC.commentNumT = String(univBoards[indexPath!.row].numberOfComment)
 
             DetailVC.code = univBoards[indexPath!.row].code
             print(DetailVC.code)
@@ -150,6 +160,41 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
     
     @IBAction func cancelToListVC(segue : UIStoryboardSegue) {
         
+    }
+    @IBOutlet weak var btnWrite: UIButton!
+    
+    func btnWriteFunc() {
+        self.btnBest.hidden = false
+        self.btnNew.hidden = false
+        let image  = UIImage(named: "btn_write_unselected")
+        btnWrite.setImage(image, forState: .Normal)
+    }
+    
+    @IBOutlet weak var btnBest: UIButton!
+    
+    
+    
+    func btnBestFunc() {
+        print(123)
+        self.btnBest.hidden = true
+        self.btnNew.hidden = true
+        let image  = UIImage(named: "btn_best_selected")
+        let image2  = UIImage(named: "btn_new_unselected")
+        btnWrite.setImage(image, forState: .Normal)
+        btnBest.setImage(image, forState: .Normal)
+        btnNew.setImage(image2, forState: .Normal)
+    }
+    
+    @IBOutlet weak var btnNew: UIButton!
+    
+    func btnNewFunc() {
+        self.btnBest.hidden = true
+        self.btnNew.hidden = true
+        let image  = UIImage(named: "btn_new_selected")
+        let image2  = UIImage(named: "btn_best_unselected")
+        btnWrite.setImage(image, forState: .Normal)
+        btnNew.setImage(image, forState: .Normal)
+        btnBest.setImage(image2, forState: .Normal)
     }
     /*
     // MARK: - Navigation
