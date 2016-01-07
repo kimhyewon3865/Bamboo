@@ -11,10 +11,19 @@ import Alamofire
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBAction func backBtnClicked(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
     var details : Detail?
     
     //var details : [Detail] = []
-    
+    var contentT = ""
+    var keywords = ""
+    var contentlikeNumT = ""
+    var commentNumT = ""
+    var code : String = ""
+    var keywordArray: [String] = []
+
     @IBOutlet weak var commentTableView: UITableView!
     
     override func viewDidLoad() {
@@ -23,7 +32,87 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         initDetailView()
         self.commentTableView.delegate = self
         self.commentTableView.dataSource = self
-//        self.content.text = contentTxt
+        self.content.text = contentT
+        self.contentLikeNum.text = contentlikeNumT
+        self.commentNum.text = commentNumT
+        if self.keywords != "" {
+            let tmpKeywordArray = keywords.characters.split{$0 == ","}.map(String.init)
+            keywordArray = tmpKeywordArray
+        }
+        
+        if(keywordArray.count == 0){
+            keyword1.hidden = true
+            keyword2.hidden = true
+            keyword3.hidden = true
+            keyword4.hidden = true
+            keyword5.hidden = true
+            keyword6.hidden = true
+        }
+        else if(keywordArray.count == 1){
+            keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
+            keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
+            keyword3.hidden = true
+            keyword4.hidden = true
+            keyword5.hidden = true
+            keyword6.hidden = true
+        }
+        else if(keywordArray.count == 2){
+            keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
+            keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
+            keyword3.hidden = true
+            keyword4.hidden = true
+            keyword5.hidden = true
+            keyword6.hidden = true
+        }
+
+        else if(keywordArray.count == 3){
+            keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
+            keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
+            keyword3.setTitle("#" + keywordArray[2], forState: .Normal)
+            keyword3.hidden = true
+            keyword4.hidden = true
+            keyword5.hidden = true
+            keyword6.hidden = true
+        }
+
+        else if(keywordArray.count == 4){
+            keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
+            keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
+            keyword3.setTitle("#" + keywordArray[2], forState: .Normal)
+            keyword4.setTitle("#" + keywordArray[3], forState: .Normal)
+            keyword5.hidden = true
+            keyword6.hidden = true
+        }
+
+        else if(keywordArray.count == 5){
+            keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
+            keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
+            keyword3.setTitle("#" + keywordArray[2], forState: .Normal)
+            keyword4.setTitle("#" + keywordArray[3], forState: .Normal)
+            keyword5.setTitle("#" + keywordArray[4], forState: .Normal)
+            keyword6.hidden = true
+        }
+
+        else if(keywordArray.count == 6){
+            keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
+            keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
+            keyword3.setTitle("#" + keywordArray[2], forState: .Normal)
+            keyword4.setTitle("#" + keywordArray[3], forState: .Normal)
+            keyword5.setTitle("#" + keywordArray[4], forState: .Normal)
+            keyword6.setTitle("#" + keywordArray[5], forState: .Normal)
+        }
+
+//        else if(generalBoards[indexPath.row].keywordArray.count == 2){
+//            cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
+//            cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
+//            cell.keywordThird.setTitle("", forState: .Normal)
+//        }
+//        else {
+//            cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
+//            cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
+//            cell.keywordThird.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[2], forState: .Normal)
+//        }
+        //        self.content.text = contentTxt
 //        self.contentLikeNum.text = contentLiketNumTxt
 //        self.commentNum.text = commentNumTxt
         
@@ -52,8 +141,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var keyword5: UIButton!
     @IBOutlet weak var keyword6: UIButton!
+
     
-    var code : String = ""
     //var contentTxt : String
 
 //    var contentLiketNumTxt : String = ""
@@ -65,6 +154,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     func initDetailView() {
         Alamofire
             .request(Router.GetDetail(bCode: code))
+            .responseJSON { response in
+                //print(response.request)  // original URL request
+                //print(response.response) // URL response
+                print(response.data)     // server data
+                //print(response.result)   // result of response serialization
+                
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                }
+        }
         //print(code)
         
 //            .responseCollection { (response: Response<[Detail], NSError>) in
@@ -104,14 +203,50 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "keywordDetailFirstSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[0]
+        }
+        else if segue.identifier == "keywordDetailSecondSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[1]
+
+        }
+        else if segue.identifier == "keywordDetailThirdSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[2]
+            
+        }
+        else if segue.identifier == "keywordDetailFourthSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[3]
+            
+        }
+        else if segue.identifier == "keywordDetailFifthSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[4]
+            
+        }
+        else if segue.identifier == "keywordDetailSixthSegue" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            
+            KeywordVC.titleName = keywordArray[5]
+            
+        }
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

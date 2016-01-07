@@ -34,7 +34,7 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 1
+        return 5
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -79,6 +79,11 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
         btnNew.setImage(image, forState: .Normal)
         btnBest.setImage(image2, forState: .Normal)
     }
+    @IBAction func backBtnClicked(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+
+    }
+ 
     /*
     // MARK: - Navigation
 
