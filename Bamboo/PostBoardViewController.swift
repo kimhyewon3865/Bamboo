@@ -108,6 +108,55 @@ class PostBoardViewController: UIViewController {
         sleep(1)
     }
     
+    func urlRequestWithComponents(urlString:String, parameters:Dictionary<String, String>, imageData:NSData) -> (URLRequestConvertible, NSData) {
+        // create url request to send
+        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        mutableURLRequest.HTTPMethod = Alamofire.Method.POST.rawValue
+        let boundaryConstant = "myRandomBoundary12345";
+        let contentType = "multipart/form-data;boundary="+boundaryConstant
+        mutableURLRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
+        
+        // create upload data to send
+        let uploadData = NSMutableData()
+        
+        // add image
+        uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        uploadData.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"file.png\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        uploadData.appendData("Content-Type: image/png\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        uploadData.appendData(imageData)
+        
+        // add parameters
+        for (key, value) in parameters {
+            uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+            uploadData.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".dataUsingEncoding(NSUTF8StringEncoding)!)
+        }
+        uploadData.appendData("\r\n--\(boundaryConstant)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+        // return URLRequestConvertible and NSData
+        return (Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: nil).0, uploadData)
+    }
+    
+    func requestWithImage(parameters: Dictionary<String, String>, imageData: NSData, isNotice: Bool) {
+        let urlRequest = urlRequestWithComponents("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Post.php", parameters: parameters, imageData: imageData)
+        
+        Alamofire.upload(urlRequest.0, data: urlRequest.1)
+            .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
+                print("\(totalBytesWritten) / \(totalBytesExpectedToWrite)")
+            }
+            .responseString { response in
+                debugPrint(response)
+                if response.result.isSuccess {
+                    let descriptions = LibraryAPI.sharedInstance.isSuccessPost()
+                    BBAlertView.alert(descriptions.title, message: descriptions.message, buttons: descriptions.buttons, tapBlock: {(alertAction, position) -> Void in
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    })
+                } else {
+                    let descriptions = LibraryAPI.sharedInstance.isFailToPost()
+                    BBAlertView.alert(descriptions.title, message: descriptions.message)
+                }
+        }
+    }
+    
     // MARK: - IBAction function
     @IBAction func closeButtonClicked(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -143,6 +192,38 @@ class PostBoardViewController: UIViewController {
     }
     
     @IBAction func toolBoxPostButtonClicked(sender: UIButton) {
+        print(self.type)
+        if self.type == "일반" {  //일반쪽 개시
+            if let image = self.photoImageView.image {
+                let parameters: Dictionary<String, String> = [
+                    "type" : "T01",
+                    "uuid" : User.sharedInstance().uuid,
+                    "contents" : self.contentsTextView.text
+                ]
+                let imageData = UIImagePNGRepresentation(image)
+                requestWithImage(parameters, imageData: imageData!, isNotice: false)
+            } else {
+                // 사진없을때 구현해야함
+            }
+        } else {        //대학쪽 개시
+            if let image = self.photoImageView.image {
+                var notice = ""
+                if isNotiveActivate {
+                    notice = "Y"
+                } else {notice = "N"}
+                let parameters: Dictionary<String, String> = [
+                    "type" : "T02",
+                    "uuid" : User.sharedInstance().uuid,
+                    "contents" : self.contentsTextView.text,
+                    "notice": notice,
+                    "univ" : User.sharedInstance().univ
+                ]
+                let imageData = UIImagePNGRepresentation(image)
+                requestWithImage(parameters, imageData: imageData!, isNotice: false)
+            } else {
+                // 사진없을때 구현해야함
+            }
+        }
     }
     
     @IBAction func savePhotoFromPostBoardAlbumVC(segue: UIStoryboardSegue) {

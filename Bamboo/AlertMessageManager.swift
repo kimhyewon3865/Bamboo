@@ -30,6 +30,14 @@ class AlertMessageManager {
         return ("알림", "사진을 선택해주세요 :-)")
     }
     
+    func isSuccessPost() -> (title: String, message: String, buttons: [String]) {
+        return ("알림", "속닥등록에 성공하셨습니다 :-)", ["확인"])
+    }
+    
+    func isFailToPost() -> (title: String, message: String) {
+        return ("알림", "다시 시도해주시길 바랍니다 :(")
+    }
+    
     init() {
         
     }

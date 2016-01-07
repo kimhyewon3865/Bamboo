@@ -49,4 +49,12 @@ class LibraryAPI: NSObject {
     func ifNoSelectedPhoto() -> (title: String, message: String) {
         return self.alertMessageManager.ifNoSelectedPhoto()
     }
+    
+    func isSuccessPost() -> (title: String, message: String, buttons: [String]) {
+        return self.alertMessageManager.isSuccessPost()
+    }
+    
+    func isFailToPost() -> (title: String, message: String) {
+        return self.alertMessageManager.isFailToPost()
+    }
 }
