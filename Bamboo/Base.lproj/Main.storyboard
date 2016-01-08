@@ -1469,7 +1469,7 @@
             </objects>
             <point key="canvasLocation" x="1377" y="1017"/>
         </scene>
-        <!--View Controller-->
+        <!--대학교 설정-->
         <scene sceneID="HpF-OQ-dWJ">
             <objects>
                 <viewController id="Ibn-Ll-OOz" sceneMemberID="viewController">
@@ -1490,7 +1490,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ND5-Bc-Nwo"/>
+                    <navigationItem key="navigationItem" title="대학교 설정" id="ND5-Bc-Nwo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKR-xw-Gu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
