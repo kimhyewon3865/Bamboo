@@ -157,6 +157,25 @@ class PostBoardViewController: UIViewController {
         }
     }
     
+    func requestWithNoImage(type: String) {
+        var notice = ""
+        if self.isNotiveActivate {notice = "Y"} else {notice = "N"}
+        Alamofire
+            .request(Router.SetPost2(type: type, uuid: User.sharedInstance().uuid, contents: self.contentsTextView.text, univ: User.sharedInstance().univ, notice: notice))
+            .responseString { response in
+                debugPrint(response)
+                if response.result.isSuccess {
+                    let descriptions = LibraryAPI.sharedInstance.isSuccessPost()
+                    BBAlertView.alert(descriptions.title, message: descriptions.message, buttons: descriptions.buttons, tapBlock: {(alertAction, position) -> Void in
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    })
+                } else {
+                    let descriptions = LibraryAPI.sharedInstance.isFailToPost()
+                    BBAlertView.alert(descriptions.title, message: descriptions.message)
+                }
+        }
+    }
+    
     // MARK: - IBAction function
     @IBAction func closeButtonClicked(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -193,7 +212,10 @@ class PostBoardViewController: UIViewController {
     
     @IBAction func toolBoxPostButtonClicked(sender: UIButton) {
         print(self.type)
-        if self.type == "일반" {  //일반쪽 개시
+        
+        // General board post
+        if self.type == "일반" {
+            // 이미지가 있을때
             if let image = self.photoImageView.image {
                 let parameters: Dictionary<String, String> = [
                     "type" : "T01",
@@ -202,14 +224,19 @@ class PostBoardViewController: UIViewController {
                 ]
                 let imageData = UIImagePNGRepresentation(image)
                 requestWithImage(parameters, imageData: imageData!, isNotice: false)
+            // 이미지가 없을때
             } else {
-                // 사진없을때 구현해야함
+                requestWithNoImage("T01")
             }
-        } else {        //대학쪽 개시
+        // Univ board post
+        } else {
+            // 이미지가 있을때
             if let image = self.photoImageView.image {
                 var notice = ""
+                // 확성기 활성화시
                 if isNotiveActivate {
                     notice = "Y"
+                // 활성기 비활성화시
                 } else {notice = "N"}
                 let parameters: Dictionary<String, String> = [
                     "type" : "T02",
@@ -220,8 +247,9 @@ class PostBoardViewController: UIViewController {
                 ]
                 let imageData = UIImagePNGRepresentation(image)
                 requestWithImage(parameters, imageData: imageData!, isNotice: false)
+            // 이미지가 없을때
             } else {
-                // 사진없을때 구현해야함
+                requestWithNoImage("T02")
             }
         }
     }

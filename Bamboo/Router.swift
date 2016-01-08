@@ -22,6 +22,7 @@ enum Router: URLRequestConvertible {
     case SetLike(uuid: String, bCode: String)
     case SetPoint(uuid: String)
     case SetPointReturn(uuid: String)
+    case SetPost2(type: String, uuid: String, contents: String, univ: String, notice: String)
 
     var URL: NSURL {
         return Router.baseURL.URLByAppendingPathComponent(route.path)
@@ -49,6 +50,8 @@ enum Router: URLRequestConvertible {
             return ("/Bamboo_Set_Point.php", ["uuid": "\(uuid)"])
         case .SetPointReturn(let uuid):
             return ("/Bamboo_Set_Point_Return.php", ["uuid": "\(uuid)"])
+        case .SetPost2(let type, let uuid, let contents, let univ, let notice):
+            return ("/Bamboo_Set_Post2.php", ["type": "\(type)", "uuid":"\(uuid)", "contents": "\(contents)","univ": "\(univ)", "notice": "\(notice)"])
         }
     }
     

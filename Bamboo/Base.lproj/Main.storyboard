@@ -1454,7 +1454,7 @@
                                             <color key="titleColor" red="0.28235294117647058" green="0.2627450980392157" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="JEC-g7-zGw" kind="modal" id="a3v-a3-Dut"/>
+                                            <segue destination="Ibn-Ll-OOz" kind="push" id="cUD-pb-ZTf"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="Cj4-y2-qPf">
@@ -1502,24 +1502,32 @@
             </objects>
             <point key="canvasLocation" x="1377" y="1017"/>
         </scene>
-        <!--대학교설정-->
-        <scene sceneID="Ss0-o1-2At">
+        <!--View Controller-->
+        <scene sceneID="HpF-OQ-dWJ">
             <objects>
-                <viewController id="JEC-g7-zGw" sceneMemberID="viewController">
+                <viewController id="Ibn-Ll-OOz" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="73b-eV-uS1"/>
-                        <viewControllerLayoutGuide type="bottom" id="n4X-VP-LhN"/>
+                        <viewControllerLayoutGuide type="top" id="k7T-FN-9yl"/>
+                        <viewControllerLayoutGuide type="bottom" id="dne-Yy-KI7"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0AM-eD-sgy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <view key="view" contentMode="scaleToFill" id="9yD-Mg-SNj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4I-Zq-kVs">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="bRb-9O-pET"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="대학교설정" id="v7u-gU-Eec"/>
+                    <navigationItem key="navigationItem" id="ND5-Bc-Nwo"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qJb-eM-H7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKR-xw-Gu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="1728"/>
+            <point key="canvasLocation" x="1377" y="1699"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jXh-Gk-qfc">
@@ -1669,6 +1677,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="et4-5W-NPl"/>
         <segue reference="vgV-0C-xsv"/>
-        <segue reference="4Bz-X3-dWO"/>
+        <segue reference="m3B-rv-FvK"/>
     </inferredMetricsTieBreakers>
 </document>

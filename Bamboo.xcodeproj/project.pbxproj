@@ -28,6 +28,7 @@
 		E82015041C2026C900F7DD5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015031C2026C900F7DD5D /* User.swift */; };
 		E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */; };
 		E841A6801C250F6400F5450D /* UnivSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */; };
+		E86D7EB71C3F77F30043D3FD /* MypageChangeUniversityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */; };
 		E872E48A1C29995A00AB69F7 /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = E872E4891C29995A00AB69F7 /* University.swift */; };
 		E872E48C1C299A0100AB69F7 /* UniversityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E872E48B1C299A0100AB69F7 /* UniversityManager.swift */; };
 		E872E48E1C299AC000AB69F7 /* UniversityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = E872E48D1C299AC000AB69F7 /* UniversityList.plist */; };
@@ -123,6 +124,7 @@
 		E82015031C2026C900F7DD5D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
 		E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivSearchViewController.swift; sourceTree = "<group>"; };
+		E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageChangeUniversityViewController.swift; sourceTree = "<group>"; };
 		E872E4891C29995A00AB69F7 /* University.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = University.swift; sourceTree = "<group>"; };
 		E872E48B1C299A0100AB69F7 /* UniversityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversityManager.swift; sourceTree = "<group>"; };
 		E872E48D1C299AC000AB69F7 /* UniversityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UniversityList.plist; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				E8937F0A1C1E7D6C0056C5FD /* GeneralListViewController.swift */,
 				C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */,
 				E8EC9C251C2E78A5002A7FA3 /* MypageViewController.swift */,
+				E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */,
 				C9B8E7011C2FC15700128132 /* DetailViewController.swift */,
 				C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */,
 				E8CE04C61C31273900983B7A /* PostBoardViewController.swift */,
@@ -749,6 +752,7 @@
 				E8F161D71C38E33500814311 /* TGCamera.m in Sources */,
 				E8162F521C38CD3E00D491D3 /* PhotoCollectionViewCell.swift in Sources */,
 				E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */,
+				E86D7EB71C3F77F30043D3FD /* MypageChangeUniversityViewController.swift in Sources */,
 				E874BBDC1C23D3F000E091A4 /* SimpleJsonParser.swift in Sources */,
 				E8F161D11C38E33500814311 /* TGCameraAuthorizationViewController.m in Sources */,
 				E8F161E31C38E33500814311 /* TGCameraSlideUpView.m in Sources */,
