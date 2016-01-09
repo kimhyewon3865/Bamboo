@@ -118,7 +118,7 @@
                                             <constraint firstAttribute="height" constant="117" id="gm1-xw-Uqd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
                                         <connections>
                                             <outlet property="delegate" destination="b4q-zv-vyd" id="IXr-aD-pZn"/>
                                         </connections>
@@ -1316,36 +1316,36 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="Bsz-pQ-2Li" secondAttribute="bottom" constant="17" id="2Es-Qq-Jud"/>
                                                 <constraint firstItem="gDX-F6-L9c" firstAttribute="centerX" secondItem="mFd-Ld-VaT" secondAttribute="centerX" id="5zx-jD-IV1"/>
                                                 <constraint firstItem="2aD-c5-fMM" firstAttribute="baseline" secondItem="gDX-F6-L9c" secondAttribute="baseline" id="9a2-Px-G88"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YwI-eR-L5k" secondAttribute="bottom" constant="7" id="FPr-aq-TOI"/>
+                                                <constraint firstItem="YwI-eR-L5k" firstAttribute="top" secondItem="d3t-ml-8nW" secondAttribute="bottom" constant="4" id="Cpz-o1-sAk"/>
+                                                <constraint firstItem="YwI-eR-L5k" firstAttribute="centerY" secondItem="hAW-cF-R90" secondAttribute="centerY" id="ER2-mw-txT"/>
                                                 <constraint firstItem="mFd-Ld-VaT" firstAttribute="top" secondItem="gDX-F6-L9c" secondAttribute="bottom" constant="4" id="FrE-Ft-79K"/>
                                                 <constraint firstItem="cls-af-4BW" firstAttribute="leading" secondItem="gDX-F6-L9c" secondAttribute="trailing" constant="8" symbolic="YES" id="G30-3Q-VcO"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="d3t-ml-8nW" secondAttribute="trailing" constant="-4" id="HDv-dJ-vWc"/>
                                                 <constraint firstItem="2aD-c5-fMM" firstAttribute="top" secondItem="B9D-Px-dwl" secondAttribute="topMargin" constant="4" id="Hq8-59-eRO"/>
                                                 <constraint firstItem="2aD-c5-fMM" firstAttribute="leading" secondItem="Bsz-pQ-2Li" secondAttribute="leading" id="IG7-Bc-2tW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YwI-eR-L5k" secondAttribute="trailing" constant="-4" id="Iet-fi-GWT"/>
+                                                <constraint firstItem="YwI-eR-L5k" firstAttribute="leading" secondItem="d3t-ml-8nW" secondAttribute="leading" id="MYY-gO-MoE"/>
                                                 <constraint firstItem="hAW-cF-R90" firstAttribute="bottom" secondItem="mFd-Ld-VaT" secondAttribute="bottom" id="OLC-EQ-o5N"/>
                                                 <constraint firstItem="d3t-ml-8nW" firstAttribute="leading" secondItem="mrQ-fY-Q5d" secondAttribute="trailing" constant="7" id="QAg-Us-kjZ"/>
                                                 <constraint firstItem="mrQ-fY-Q5d" firstAttribute="top" secondItem="B9D-Px-dwl" secondAttribute="topMargin" constant="9" id="R8X-Y3-Ak3"/>
                                                 <constraint firstItem="Bsz-pQ-2Li" firstAttribute="leading" secondItem="WJC-Tr-znP" secondAttribute="leading" id="Re0-rx-Om2"/>
-                                                <constraint firstItem="d3t-ml-8nW" firstAttribute="trailing" secondItem="YwI-eR-L5k" secondAttribute="trailing" id="V9k-1T-zjU"/>
                                                 <constraint firstItem="Bsz-pQ-2Li" firstAttribute="top" secondItem="B9D-Px-dwl" secondAttribute="topMargin" constant="20" id="WKQ-Z1-933"/>
-                                                <constraint firstItem="hAW-cF-R90" firstAttribute="centerY" secondItem="YwI-eR-L5k" secondAttribute="centerY" id="WaC-OX-BGi"/>
+                                                <constraint firstItem="YwI-eR-L5k" firstAttribute="baseline" secondItem="WJC-Tr-znP" secondAttribute="firstBaseline" id="XGs-eb-zoa"/>
                                                 <constraint firstItem="cls-af-4BW" firstAttribute="leading" secondItem="mFd-Ld-VaT" secondAttribute="trailing" constant="12" id="Zi1-0Q-jGY"/>
-                                                <constraint firstItem="YwI-eR-L5k" firstAttribute="leading" secondItem="d3t-ml-8nW" secondAttribute="leading" id="a4S-Tw-ZdO"/>
                                                 <constraint firstItem="2aD-c5-fMM" firstAttribute="leading" secondItem="B9D-Px-dwl" secondAttribute="leadingMargin" constant="8" id="bf4-ZB-cMO"/>
                                                 <constraint firstItem="gDX-F6-L9c" firstAttribute="leading" secondItem="Bsz-pQ-2Li" secondAttribute="trailing" constant="32" id="e5T-g6-Fuw"/>
                                                 <constraint firstItem="gDX-F6-L9c" firstAttribute="firstBaseline" secondItem="2aD-c5-fMM" secondAttribute="firstBaseline" id="eJ2-OT-Tal"/>
                                                 <constraint firstItem="mrQ-fY-Q5d" firstAttribute="leading" secondItem="cls-af-4BW" secondAttribute="trailing" constant="8" symbolic="YES" id="fsb-SQ-ig1"/>
-                                                <constraint firstItem="YwI-eR-L5k" firstAttribute="baseline" secondItem="WJC-Tr-znP" secondAttribute="firstBaseline" id="gz3-lk-2WG"/>
                                                 <constraint firstItem="cls-af-4BW" firstAttribute="top" secondItem="B9D-Px-dwl" secondAttribute="topMargin" constant="18" id="hT5-rn-kxO"/>
                                                 <constraint firstItem="hAW-cF-R90" firstAttribute="leading" secondItem="mrQ-fY-Q5d" secondAttribute="leading" id="i0O-x1-mL4"/>
                                                 <constraint firstItem="mFd-Ld-VaT" firstAttribute="leading" secondItem="WJC-Tr-znP" secondAttribute="trailing" constant="9" id="kcd-d6-EBC"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="WJC-Tr-znP" secondAttribute="bottom" constant="2" id="kmG-ik-F0g"/>
-                                                <constraint firstItem="YwI-eR-L5k" firstAttribute="top" secondItem="d3t-ml-8nW" secondAttribute="bottom" constant="4" id="lrz-W5-A6H"/>
                                                 <constraint firstItem="mrQ-fY-Q5d" firstAttribute="centerY" secondItem="d3t-ml-8nW" secondAttribute="centerY" id="m9c-xw-zq5"/>
                                                 <constraint firstItem="d3t-ml-8nW" firstAttribute="top" secondItem="B9D-Px-dwl" secondAttribute="topMargin" constant="6" id="o3z-jz-4lq"/>
                                                 <constraint firstItem="WJC-Tr-znP" firstAttribute="top" secondItem="2aD-c5-fMM" secondAttribute="bottom" constant="11" id="pan-gb-96q"/>
                                                 <constraint firstItem="hAW-cF-R90" firstAttribute="top" secondItem="mrQ-fY-Q5d" secondAttribute="bottom" constant="10" id="qfD-RN-Fc1"/>
                                                 <constraint firstItem="mrQ-fY-Q5d" firstAttribute="trailing" secondItem="hAW-cF-R90" secondAttribute="trailing" id="sPq-VK-lm7"/>
+                                                <constraint firstItem="YwI-eR-L5k" firstAttribute="trailing" secondItem="d3t-ml-8nW" secondAttribute="trailing" id="ui2-ol-znd"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YwI-eR-L5k" secondAttribute="bottom" constant="7" id="vDP-63-oy4"/>
                                                 <constraint firstItem="cls-af-4BW" firstAttribute="centerY" secondItem="B9D-Px-dwl" secondAttribute="centerY" id="x0p-wq-nMv"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1360,6 +1360,7 @@
                                             <outlet property="noticeButton" destination="mFd-Ld-VaT" id="uLz-sV-ZXi"/>
                                             <outlet property="timeLabel" destination="WJC-Tr-znP" id="jUt-yQ-yBA"/>
                                             <outlet property="typeLabel" destination="gDX-F6-L9c" id="lbW-nk-QHt"/>
+                                            <segue destination="WVB-30-5OG" kind="push" identifier="SelectMyPageCell" id="GlD-u9-Dkg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1472,7 +1473,7 @@
         <!--대학교 설정-->
         <scene sceneID="HpF-OQ-dWJ">
             <objects>
-                <viewController id="Ibn-Ll-OOz" sceneMemberID="viewController">
+                <viewController id="Ibn-Ll-OOz" customClass="MypageChangeUniversityViewController" customModule="Bamboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k7T-FN-9yl"/>
                         <viewControllerLayoutGuide type="bottom" id="dne-Yy-KI7"/>
@@ -1481,16 +1482,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4I-Zq-kVs">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4I-Zq-kVs">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="bRb-9O-pET"/>
                                 </items>
                             </navigationBar>
+                            <searchBar contentMode="redraw" placeholder="대학교를 찾아보세요." translatesAutoresizingMaskIntoConstraints="NO" id="Dqd-UA-GMS">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <color key="barTintColor" red="0.72156862745098038" green="0.58039215686274503" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ibn-Ll-OOz" id="2h0-04-k3E"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="anD-vI-dhR">
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UnivCell" id="Bs9-tE-2Fd">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bs9-tE-2Fd" id="0sS-kH-VOw">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.94117647058823528" green="0.8901960784313725" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ibn-Ll-OOz" id="ZLU-cn-jaR"/>
+                                    <outlet property="delegate" destination="Ibn-Ll-OOz" id="enC-ll-P3H"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dqd-UA-GMS" firstAttribute="trailing" secondItem="a4I-Zq-kVs" secondAttribute="trailing" id="AVA-Pi-eeN"/>
+                            <constraint firstItem="anD-vI-dhR" firstAttribute="trailing" secondItem="a4I-Zq-kVs" secondAttribute="trailing" id="HbZ-vG-zut"/>
+                            <constraint firstItem="Dqd-UA-GMS" firstAttribute="leading" secondItem="a4I-Zq-kVs" secondAttribute="leading" id="T1A-ff-bYp"/>
+                            <constraint firstItem="anD-vI-dhR" firstAttribute="bottom" secondItem="dne-Yy-KI7" secondAttribute="top" id="bDq-t5-kuG"/>
+                            <constraint firstItem="Dqd-UA-GMS" firstAttribute="top" secondItem="k7T-FN-9yl" secondAttribute="bottom" id="fB0-Am-9ev"/>
+                            <constraint firstItem="Dqd-UA-GMS" firstAttribute="top" secondItem="a4I-Zq-kVs" secondAttribute="bottom" id="nFt-yK-X66"/>
+                            <constraint firstAttribute="trailing" secondItem="Dqd-UA-GMS" secondAttribute="trailing" id="pZi-EN-mz6"/>
+                            <constraint firstItem="Dqd-UA-GMS" firstAttribute="bottom" secondItem="anD-vI-dhR" secondAttribute="top" id="wHf-Ga-RMX"/>
+                            <constraint firstItem="Dqd-UA-GMS" firstAttribute="leading" secondItem="9yD-Mg-SNj" secondAttribute="leading" id="xSa-1n-gL0"/>
+                            <constraint firstItem="anD-vI-dhR" firstAttribute="leading" secondItem="a4I-Zq-kVs" secondAttribute="leading" id="y2b-7h-K1m"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="대학교 설정" id="ND5-Bc-Nwo"/>
+                    <navigationItem key="navigationItem" title="대학교 설정" id="ND5-Bc-Nwo">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="fQ9-J3-i6g">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backButtonClicked:" destination="Ibn-Ll-OOz" id="zeh-ml-D9E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="Dqd-UA-GMS" id="Jbr-RV-jUO"/>
+                        <outlet property="searchTableView" destination="anD-vI-dhR" id="ifM-xx-ETS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKR-xw-Gu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1642,8 +1693,8 @@
         <image name="write" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="GlD-u9-Dkg"/>
         <segue reference="jwS-1A-vdE"/>
         <segue reference="miI-TN-1nM"/>
-        <segue reference="qB7-AD-zpk"/>
     </inferredMetricsTieBreakers>
 </document>

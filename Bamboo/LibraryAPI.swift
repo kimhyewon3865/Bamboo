@@ -12,6 +12,7 @@ import Alamofire
 class LibraryAPI: NSObject {
     private let universityManager: UniversityManager
     private let alertMessageManager: AlertMessageManager
+    private let keywordManager: KeywordManager
     
     class var sharedInstance: LibraryAPI {
         struct Singleton {
@@ -23,6 +24,7 @@ class LibraryAPI: NSObject {
     override init() {
         universityManager = UniversityManager()
         alertMessageManager = AlertMessageManager()
+        keywordManager = KeywordManager()
         super.init()
     }
     
@@ -56,5 +58,9 @@ class LibraryAPI: NSObject {
     
     func isFailToPost() -> (title: String, message: String) {
         return self.alertMessageManager.isFailToPost()
+    }
+    
+    func getKeywordAndContentsFromString(originString originString: String) -> ([String],String) {
+        return self.keywordManager.getKeywordAndContentsFromString(originString: originString)
     }
 }

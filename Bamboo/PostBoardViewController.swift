@@ -34,6 +34,7 @@ class PostBoardViewController: UIViewController {
     var type = ""
     //확성기 활성화 여부
     var isNotiveActivate = false
+    var keywords: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -53,6 +53,21 @@ class MypageViewController: UIViewController {
                 } else {}
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SelectMyPageCell" {
+            let detailVC = segue.destinationViewController as! DetailViewController
+            
+            let cell = sender as! UITableViewCell
+            let indexPath = self.myPageTableView.indexPathForCell(cell)!
+            
+            detailVC.contentT = myPages[indexPath.row].contents
+            detailVC.keywords = myPages[indexPath.row].keywords
+            detailVC.contentlikeNumT = myPages[indexPath.row].likeCnt
+            detailVC.commentNumT = myPages[indexPath.row].commentCnt
+            detailVC.code = myPages[indexPath.row].code
+        }
+    }
 }
 
 extension MypageViewController: UITableViewDataSource {
