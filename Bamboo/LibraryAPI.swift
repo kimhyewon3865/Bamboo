@@ -60,7 +60,7 @@ class LibraryAPI: NSObject {
         return self.alertMessageManager.isFailToPost()
     }
     
-    func getKeywordAndContentsFromString(originString originString: String) -> ([String],String) {
+    func getKeywordAndContentsFromString(originString originString: String) -> (String, String) {
         return self.keywordManager.getKeywordAndContentsFromString(originString: originString)
     }
 }

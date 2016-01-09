@@ -13,14 +13,19 @@ class KeywordManager {
         return originString
     }
     
-    func getKeywordAndContentsFromString(originString originString: String) -> ([String],String) {
+    func getKeywordAndContentsFromString(originString originString: String) -> (String,String) {
         var keywords: [String] = []
         var contents: String = originString
         
         keywords = extractKeywordFromContents(contents: contents)
         contents = removeKeywordFromString(contents: contents, removeStrings: keywords)
-        
-        return (keywords,contents)
+
+        var retKeyword = ""
+        for keyword in keywords {
+            retKeyword = retKeyword + keyword
+        }
+
+        return (retKeyword,contents)
     }
     
     private func extractKeywordFromContents(contents contents: String) -> [String]{
