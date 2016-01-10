@@ -17,7 +17,7 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
     var plusGeneralBoards = [GeneralBoard]()
     
     var refreshControl:UIRefreshControl!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initGeneralBoard()
@@ -51,7 +51,7 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.generalListTableView.addSubview(refreshControl)
-
+        
     }
     
     // MARK: - CollectionView DataSource
@@ -59,7 +59,7 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
         
         return self.generalBoards.count
     }
-
+    
     // MARK: - CollectionView DataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("generalCell", forIndexPath: indexPath) as! GeneralCollectionViewCell
@@ -73,31 +73,31 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
         //print(indexPath.row)
         
         //if generalBoards[indexPath.row].keywords != ""{
-            if(generalBoards[indexPath.row].keywordArray.count == 0){
-                cell.keywordFirst.hidden = true
-                cell.keywordSecond.hidden = true
-                cell.keywordThird.hidden = true
-                //                cell.keywordFirst.setTitle(" ", forState: .Normal)
-                //                cell.keywordSecond.setTitle(" ", forState: .Normal)
-                //                cell.keywordThird.setTitle(" ", forState: .Normal)
-            }
-            else if(generalBoards[indexPath.row].keywordArray.count == 1){
-                cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
-                cell.keywordSecond.hidden = true
-                cell.keywordThird.hidden = true
-                //                cell.keywordSecond.setTitle("", forState: .Normal)
-                //                cell.keywordThird.setTitle("", forState: .Normal)
-            }
-            else if(generalBoards[indexPath.row].keywordArray.count == 2){
-                cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
-                cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
-                cell.keywordThird.setTitle("", forState: .Normal)
-            }
-            else {
-                cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
-                cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
-                cell.keywordThird.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[2], forState: .Normal)
-            }
+        if(generalBoards[indexPath.row].keywordArray.count == 0){
+            cell.keywordFirst.hidden = true
+            cell.keywordSecond.hidden = true
+            cell.keywordThird.hidden = true
+            //                cell.keywordFirst.setTitle(" ", forState: .Normal)
+            //                cell.keywordSecond.setTitle(" ", forState: .Normal)
+            //                cell.keywordThird.setTitle(" ", forState: .Normal)
+        }
+        else if(generalBoards[indexPath.row].keywordArray.count == 1){
+            cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
+            cell.keywordSecond.hidden = true
+            cell.keywordThird.hidden = true
+            //                cell.keywordSecond.setTitle("", forState: .Normal)
+            //                cell.keywordThird.setTitle("", forState: .Normal)
+        }
+        else if(generalBoards[indexPath.row].keywordArray.count == 2){
+            cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
+            cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
+            cell.keywordThird.setTitle("", forState: .Normal)
+        }
+        else {
+            cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
+            cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
+            cell.keywordThird.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[2], forState: .Normal)
+        }
         //}
         // print(univBoards[indexPath.row].keywordArray.count)
         if indexPath.row % 2 == 0 {
@@ -112,17 +112,17 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if indexPath.item > 4 {
-        if indexPath.item == (generalBoards.count-1) {
-            print("last")
-            pageInt = pageInt + 1
-            print(pageInt)
-            plusInitGeneralBoard()
-        }
+            if indexPath.item == (generalBoards.count-1) {
+                print("last")
+                pageInt = pageInt + 1
+                print(pageInt)
+                plusInitGeneralBoard()
+            }
         }
     }
     
     var pageInt = 1
-
+    
     func initGeneralBoard() {
         Alamofire
             .request(Router.GetList(type: "T01", page: "1", university: "가천대학교"))
@@ -154,7 +154,7 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
     }
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showGeneralDetail" {
             let DetailVC = segue.destinationViewController as! DetailViewController
@@ -241,16 +241,16 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
 //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return self.generalBoards.count
 //    }
-//    
+//
 //    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 //        let cell = listTableView.dequeueReusableCellWithIdentifier("ListCell", forIndexPath: indexPath) as! ListTableViewCell
-//        
+//
 //        cell.codeLabel.text = generalBoards[indexPath.row].contents
 //        return cell
 //    }
 //}
 //
 //extension GeneralListViewController: UITableViewDelegate {
-//    
+//
 //}
 //

@@ -29,6 +29,7 @@
 		E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */; };
 		E841A6801C250F6400F5450D /* UnivSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */; };
 		E86D7EB71C3F77F30043D3FD /* MypageChangeUniversityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */; };
+		E86D7EB91C40A8FA0043D3FD /* KeywordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */; };
 		E872E48A1C29995A00AB69F7 /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = E872E4891C29995A00AB69F7 /* University.swift */; };
 		E872E48C1C299A0100AB69F7 /* UniversityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E872E48B1C299A0100AB69F7 /* UniversityManager.swift */; };
 		E872E48E1C299AC000AB69F7 /* UniversityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = E872E48D1C299AC000AB69F7 /* UniversityList.plist */; };
@@ -125,6 +126,7 @@
 		E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
 		E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivSearchViewController.swift; sourceTree = "<group>"; };
 		E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageChangeUniversityViewController.swift; sourceTree = "<group>"; };
+		E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordManager.swift; sourceTree = "<group>"; };
 		E872E4891C29995A00AB69F7 /* University.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = University.swift; sourceTree = "<group>"; };
 		E872E48B1C299A0100AB69F7 /* UniversityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversityManager.swift; sourceTree = "<group>"; };
 		E872E48D1C299AC000AB69F7 /* UniversityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UniversityList.plist; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				E874BBDB1C23D3F000E091A4 /* SimpleJsonParser.swift */,
 				E872E48B1C299A0100AB69F7 /* UniversityManager.swift */,
 				E805E4C01C3B5FB40001134A /* AlertMessageManager.swift */,
+				E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */,
 				E872E48F1C29A32F00AB69F7 /* LibraryAPI.swift */,
 				E872E49C1C2BFDF800AB69F7 /* Router.swift */,
 			);
@@ -614,6 +617,7 @@
 				TargetAttributes = {
 					E8937F041C1E7D6C0056C5FD = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = G8322AKRJK;
 					};
 					E8937F181C1E7D6C0056C5FD = {
 						CreatedOnToolsVersion = 7.1;
@@ -762,6 +766,7 @@
 				E841A6801C250F6400F5450D /* UnivSearchViewController.swift in Sources */,
 				E82015041C2026C900F7DD5D /* User.swift in Sources */,
 				E8CE04C71C31273900983B7A /* PostBoardViewController.swift in Sources */,
+				E86D7EB91C40A8FA0043D3FD /* KeywordManager.swift in Sources */,
 				C90ACF591C377B170038238E /* KeywordCollectionViewCell.swift in Sources */,
 				E8F161DC1C38E33500814311 /* TGCameraShot.m in Sources */,
 				E8F161DE1C38E33500814311 /* TGAssetImageFile.m in Sources */,
@@ -957,6 +962,8 @@
 			baseConfigurationReference = A65F5D664BA4E2A273558401 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Bamboo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
@@ -964,6 +971,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Debug;
@@ -973,6 +981,8 @@
 			baseConfigurationReference = 1CC90F97DA37C72BFB7C4E8B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
 				INFOPLIST_FILE = Bamboo/Info.plist;
@@ -981,6 +991,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Release;

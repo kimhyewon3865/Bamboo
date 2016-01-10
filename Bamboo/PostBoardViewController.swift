@@ -34,6 +34,7 @@ class PostBoardViewController: UIViewController {
     var type = ""
     //확성기 활성화 여부
     var isNotiveActivate = false
+    var (postKeyword, postContents): (String, String) = ("","")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,6 +140,7 @@ class PostBoardViewController: UIViewController {
     func requestWithImage(parameters: Dictionary<String, String>, imageData: NSData, isNotice: Bool) {
         let urlRequest = urlRequestWithComponents("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Post.php", parameters: parameters, imageData: imageData)
         
+        BBActivityIndicatorView.show("개시중입니다")
         Alamofire.upload(urlRequest.0, data: urlRequest.1)
             .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
                 print("\(totalBytesWritten) / \(totalBytesExpectedToWrite)")
@@ -146,6 +148,7 @@ class PostBoardViewController: UIViewController {
             .responseString { response in
                 debugPrint(response)
                 if response.result.isSuccess {
+                    BBActivityIndicatorView.hide()
                     let descriptions = LibraryAPI.sharedInstance.isSuccessPost()
                     BBAlertView.alert(descriptions.title, message: descriptions.message, buttons: descriptions.buttons, tapBlock: {(alertAction, position) -> Void in
                         self.dismissViewControllerAnimated(true, completion: nil)
@@ -161,7 +164,7 @@ class PostBoardViewController: UIViewController {
         var notice = ""
         if self.isNotiveActivate {notice = "Y"} else {notice = "N"}
         Alamofire
-            .request(Router.SetPost2(type: type, uuid: User.sharedInstance().uuid, contents: self.contentsTextView.text, univ: User.sharedInstance().univ, notice: notice))
+            .request(Router.SetPost2(type: type, uuid: User.sharedInstance().uuid,keyword: self.postKeyword, contents: self.postContents, univ: User.sharedInstance().univ, notice: notice))
             .responseString { response in
                 debugPrint(response)
                 if response.result.isSuccess {
@@ -213,6 +216,8 @@ class PostBoardViewController: UIViewController {
     @IBAction func toolBoxPostButtonClicked(sender: UIButton) {
         print(self.type)
         
+        (postKeyword, postContents) = LibraryAPI.sharedInstance.getKeywordAndContentsFromString(originString: self.contentsTextView.text)
+        
         // General board post
         if self.type == "일반" {
             // 이미지가 있을때
@@ -220,9 +225,10 @@ class PostBoardViewController: UIViewController {
                 let parameters: Dictionary<String, String> = [
                     "type" : "T01",
                     "uuid" : User.sharedInstance().uuid,
-                    "contents" : self.contentsTextView.text
+                    "keyword" : postKeyword,
+                    "contents" : postContents
                 ]
-                let imageData = UIImagePNGRepresentation(image)
+                let imageData = UIImageJPEGRepresentation(image, 0.0)
                 requestWithImage(parameters, imageData: imageData!, isNotice: false)
             // 이미지가 없을때
             } else {
@@ -241,11 +247,12 @@ class PostBoardViewController: UIViewController {
                 let parameters: Dictionary<String, String> = [
                     "type" : "T02",
                     "uuid" : User.sharedInstance().uuid,
-                    "contents" : self.contentsTextView.text,
+                    "keyword" : postKeyword,
+                    "contents" : postContents,
                     "notice": notice,
                     "univ" : User.sharedInstance().univ
                 ]
-                let imageData = UIImagePNGRepresentation(image)
+                let imageData = UIImageJPEGRepresentation(image, 0.0)
                 requestWithImage(parameters, imageData: imageData!, isNotice: false)
             // 이미지가 없을때
             } else {
