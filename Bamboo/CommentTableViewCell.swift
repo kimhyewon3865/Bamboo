@@ -16,5 +16,6 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var commnetLikeNum: UILabel!
     
     @IBAction func likeBtn(sender: AnyObject) {
+        print("clicked!!!")
     }
 }

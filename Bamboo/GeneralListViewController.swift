@@ -20,12 +20,29 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initGeneralBoard()
+        initSetting()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        initGeneralBoard()
+        initSetting()
+    }
+    func refresh(sender:AnyObject)
+    {
+        initGeneralBoard()
+        pageInt = 1
+        print("refresh")
+        self.refreshControl?.endRefreshing()
+        // Code to refresh table view
+    }
+    
+    func initSetting() {
         self.generalListTableView.delegate = self
         self.generalListTableView.dataSource = self
-        initGeneralBoard()
         self.btnBest.hidden = true
         self.btnNew.hidden = true
-
+        
         btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
         btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
         btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
@@ -34,15 +51,7 @@ class GeneralListViewController: UIViewController, UICollectionViewDelegate, UIC
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.generalListTableView.addSubview(refreshControl)
-    }
-    
-    func refresh(sender:AnyObject)
-    {
-        initGeneralBoard()
-        pageInt = 1
-        print("refresh")
-        self.refreshControl?.endRefreshing()
-        // Code to refresh table view
+
     }
     
     // MARK: - CollectionView DataSource

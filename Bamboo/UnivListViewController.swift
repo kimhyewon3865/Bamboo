@@ -135,7 +135,7 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func initUnivBoard() {
         Alamofire
-            .request(Router.GetList(type: "T03", page: "1", university: "가천대학교"))
+            .request(Router.GetList(type: "T03", page: "1", university: User.sharedInstance().univ))
             .responseCollection { (response: Response<[UnivBoard], NSError>) in
                 if response.result.isSuccess {
                     self.univBoards = response.result.value!
@@ -149,7 +149,7 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func plusInitUnivBoard() {
         Alamofire
-            .request(Router.GetList(type: "T03", page: "\(pageInt)", university: "가천대학교"))
+            .request(Router.GetList(type: "T03", page: "\(pageInt)", university: User.sharedInstance().univ))
             .responseCollection { (response: Response<[UnivBoard], NSError>) in
                 if response.result.isSuccess {
                     self.univBoards = response.result.value!

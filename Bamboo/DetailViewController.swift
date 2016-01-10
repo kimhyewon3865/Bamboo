@@ -14,22 +14,138 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func backBtnClicked(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
     }
-    var details : Detail?
     
-    //var details : [Detail] = []
     var contentT = ""
     var keywords = ""
     var contentlikeNumT = ""
     var commentNumT = ""
     var code : String = ""
     var keywordArray: [String] = []
+    var commentContent = ""
+    var contentCommentNumTmp = 0
+    var contentLikeNumTmp = 0
+    var state = ""
 
+    
     @IBOutlet weak var commentTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(code)
         initDetailView()
+        initSetting()
+        contentCommentNumTmp = Int(commentNumT)!
+        contentLikeNumTmp = Int(contentlikeNumT)!
+        
+        contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBOutlet weak var content: UILabel!
+
+//    @IBAction func contentLike(sender: AnyObject) {
+//        setLike()
+//        contentLikeNum.text = String(contentLikeNumTmp)
+//        
+//    }
+    
+    @IBOutlet weak var contentLike: UIButton!
+//    contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+    func contentLikeFunc() {
+        setLike()
+        var image = UIImage(named: "like")
+        contentLike.setImage(image, forState: .Normal)
+//        contentLikeNum.text = String(contentLikeNumTmp)
+    }
+    @IBOutlet weak var contentLikeNum: UILabel!
+
+    @IBOutlet weak var commentNum: UILabel!
+
+    @IBOutlet weak var keyword1: UIButton!
+    @IBOutlet weak var keyword2: UIButton!
+    @IBOutlet weak var keyword3: UIButton!
+    @IBOutlet weak var keyword4: UIButton!
+    
+    @IBOutlet weak var keyword5: UIButton!
+    @IBOutlet weak var keyword6: UIButton!
+
+    @IBOutlet weak var commentTF: UITextField!
+    
+    @IBAction func sendButton(sender: AnyObject) {
+        commentContent = commentTF.text!
+        let commentTmp = Comment(commentP: commentContent)
+        commentsArr.insert(commentTmp, atIndex: 0)
+        //commentsArr.append(commentTmp)
+        commentTableView.reloadData()
+        commentTF.text = ""
+        contentCommentNumTmp = contentCommentNumTmp + 1
+        commentNum.text = String(contentCommentNumTmp)
+        setComment()
+        
+    }
+    var commentsArr : [Comment] = []
+    
+    func initDetailView() {
+        Alamofire
+            .request(Router.GetComment(uuid: User.sharedInstance().uuid, bCode: code))
+            .responseCollection { (response: Response<[Comment], NSError>) in
+                if response.result.isSuccess {
+                    self.commentsArr = response.result.value!
+                }
+                
+                self.commentTableView.reloadData()
+        }
+    }
+
+    func setComment() {
+        Alamofire
+        .request(Router.SetComment(uuid: User.sharedInstance().uuid, bCode: code, comment: commentContent))
+            
+        .responseString { response in
+                print(response)
+            if response.result.isSuccess {
+            }
+            
+            self.commentTableView.reloadData()
+
+        }
+    }
+    
+    func setLike() {
+        let jsonParser = SimpleJsonParser()
+        jsonParser.HTTPGetJson("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Like.php?b_code=\(code)&uuid=\(User.sharedInstance().uuid)") {
+            (data : Dictionary<String, AnyObject>, error : String?) -> Void in
+            if error != nil {
+                print("\(error) : PostBoardVC")
+            } else {
+                if let stateT = data["state"] as? String,
+                    let message = data["message"] as? String
+                {
+                    print("succece:)")
+                    self.state = stateT
+                    print(self.state)
+                    if self.state == "1" {
+                        print("yet")
+                        self.contentLikeNumTmp = self.contentLikeNumTmp + 1
+                        print(self.contentLikeNumTmp)
+                        self.contentLikeNum.text = String(self.contentLikeNumTmp)
+
+        }
+
+                } else {
+                    //print("User객체 SimpleJsonParser인스턴스 failed")
+                }
+            }
+        }
+
+            }
+    
+    func initSetting() {
         self.commentTableView.delegate = self
         self.commentTableView.dataSource = self
         self.content.text = contentT
@@ -64,7 +180,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             keyword5.hidden = true
             keyword6.hidden = true
         }
-
+            
         else if(keywordArray.count == 3){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
@@ -74,7 +190,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             keyword5.hidden = true
             keyword6.hidden = true
         }
-
+            
         else if(keywordArray.count == 4){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
@@ -83,7 +199,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             keyword5.hidden = true
             keyword6.hidden = true
         }
-
+            
         else if(keywordArray.count == 5){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
@@ -92,7 +208,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             keyword5.setTitle("#" + keywordArray[4], forState: .Normal)
             keyword6.hidden = true
         }
-
+            
         else if(keywordArray.count == 6){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
@@ -101,104 +217,25 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             keyword5.setTitle("#" + keywordArray[4], forState: .Normal)
             keyword6.setTitle("#" + keywordArray[5], forState: .Normal)
         }
-
-//        else if(generalBoards[indexPath.row].keywordArray.count == 2){
-//            cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
-//            cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
-//            cell.keywordThird.setTitle("", forState: .Normal)
-//        }
-//        else {
-//            cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
-//            cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
-//            cell.keywordThird.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[2], forState: .Normal)
-//        }
-        //        self.content.text = contentTxt
-//        self.contentLikeNum.text = contentLiketNumTxt
-//        self.commentNum.text = commentNumTxt
-        
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBOutlet weak var content: UILabel!
-
-    @IBAction func contentLike(sender: AnyObject) {
-    }
-    @IBOutlet weak var contentLikeNum: UILabel!
-
-    @IBOutlet weak var commentNum: UILabel!
-    
-    @IBAction func sendBtn(sender: AnyObject) {
-    }
-    @IBOutlet weak var keyword1: UIButton!
-    @IBOutlet weak var keyword2: UIButton!
-    @IBOutlet weak var keyword3: UIButton!
-    @IBOutlet weak var keyword4: UIButton!
-    
-    @IBOutlet weak var keyword5: UIButton!
-    @IBOutlet weak var keyword6: UIButton!
-
-    
-    //var contentTxt : String
-
-//    var contentLiketNumTxt : String = ""
-//    var commentNumTxt : String = ""
-    //keyword 변수
-    
-    
-    
-    func initDetailView() {
-        Alamofire
-            .request(Router.GetDetail(bCode: code))
-            .responseJSON { response in
-                //print(response.request)  // original URL request
-                //print(response.response) // URL response
-                print(response.data)     // server data
-                //print(response.result)   // result of response serialization
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                }
-        }
-        //print(code)
-        
-//            .responseCollection { (response: Response<[Detail], NSError>) in
-//                if response.result.isSuccess {
-//                    self.details = response.result.value!
-//                    print(response)
-//                    print(response.result.value)
-//                }
-//                if self.details.isEmpty {
-//                    print(1)
-//                    //self.content.text = self.univBoards[0].contents
-//                }
-//                self.view.reloadInputViews()
-//                //self.univListTableView.reloadData()
-//        }
-        
-//            .responseObject { (response: Response<Detail, NSError>) in
-//                //debugPrint(response)
-//        }
-
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 3
-        //return (details?.comment.count)!
+        if !commentsArr.isEmpty {
+            return commentsArr.count
+        }
+        else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentTableViewCell
-        cell.time.text = details?.comment[indexPath.row].regdt
-        cell.commentContent.text = details?.comment[indexPath.row].comment
-        cell.commnetLikeNum.text = String(details?.comment[indexPath.row].numberOfLike)
-        
-        
+
+        if !commentsArr.isEmpty {
+            cell.time.text = commentsArr[indexPath.row].regdt
+            cell.commentContent.text = commentsArr[indexPath.row].comment
+            cell.commnetLikeNum.text = commentsArr[indexPath.row].numberOfLike
+        }
         
         return cell
     }

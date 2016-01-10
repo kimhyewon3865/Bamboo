@@ -13,14 +13,21 @@ final class Comment : ResponseObjectSerializable,  ResponseCollectionSerializabl
     //let code : String
     var regdt: String
     var comment : String
-    let numberOfLike: Int
-    
+    let numberOfLike: String
+    var isLike : String
     init?(response: NSHTTPURLResponse, representation: AnyObject){
         //self.index = representation.valueForKeyPath("comment_cnt") as! Int
         //self.code = representation.valueForKeyPath("b_code") as! String
         self.regdt = representation.valueForKeyPath("regdt") as! String
         self.comment = representation.valueForKeyPath("comment") as! String
-        self.numberOfLike = Int(representation.valueForKeyPath("comment_like_cnt") as! String)!
+        self.numberOfLike = representation.valueForKeyPath("commentLikeCnt") as! String
+        self.isLike = representation.valueForKeyPath("isLike") as! String
+    }
+    init (commentP: String) {
+        regdt = "0"
+        comment = commentP
+        numberOfLike = "0"
+        isLike = "0"
     }
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Comment]{
