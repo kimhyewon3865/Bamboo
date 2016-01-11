@@ -1364,6 +1364,7 @@
                                             <outlet property="noticeButton" destination="mFd-Ld-VaT" id="uLz-sV-ZXi"/>
                                             <outlet property="timeLabel" destination="WJC-Tr-znP" id="jUt-yQ-yBA"/>
                                             <outlet property="typeLabel" destination="gDX-F6-L9c" id="lbW-nk-QHt"/>
+                                            <segue destination="WVB-30-5OG" kind="push" identifier="SelectMyPageCell" id="Qav-N2-cby"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1695,8 +1696,8 @@
         <image name="write" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jwS-1A-vdE"/>
-        <segue reference="qB7-AD-zpk"/>
         <segue reference="miI-TN-1nM"/>
+        <segue reference="jwS-1A-vdE"/>
+        <segue reference="Qav-N2-cby"/>
     </inferredMetricsTieBreakers>
 </document>

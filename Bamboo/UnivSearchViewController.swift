@@ -40,8 +40,12 @@ class UnivSearchViewController: UIViewController {
             User.sharedInstance().point = "0"
             
             if isSearching == true {
+                var university = ""
+                if searchBar.text == "" {
+                    university = data[indexPath.row]
+                }
                 Alamofire
-                    .request(Router.SetDefault(uuid: uuid!, university: filtered[indexPath.row]))
+                    .request(Router.SetDefault(uuid: uuid!, university: university))
                     .responseString{ response in
                         if response.result.isSuccess {
                             print("SetDefault Success")
@@ -50,7 +54,7 @@ class UnivSearchViewController: UIViewController {
                             print("SetDefault Falied")
                         }
                 }
-                User.sharedInstance().univ = filtered[indexPath.row]
+                User.sharedInstance().univ = university
             } else {
                 Alamofire
                     .request(Router.SetDefault(uuid: uuid!, university: data[indexPath.row]))

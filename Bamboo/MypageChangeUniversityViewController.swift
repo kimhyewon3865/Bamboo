@@ -51,7 +51,7 @@ extension MypageChangeUniversityViewController: UITableViewDataSource {
         cell.textLabel?.textColor = UIColor(red: 73/255, green: 73/255, blue: 73/255, alpha: 1)
         cell.textLabel?.font = UIFont(name: "AppleGothic", size: 17.0)
         
-        if isSearching == true {
+        if isSearching == true && searchBar.text != "" {
             cell.textLabel?.text = filtered[indexPath.row]
         } else {
             cell.textLabel?.text = data[indexPath.row]
@@ -64,8 +64,12 @@ extension MypageChangeUniversityViewController: UITableViewDataSource {
 extension MypageChangeUniversityViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if isSearching == true {
+            var university = ""
+            if searchBar.text == "" {
+                university = data[indexPath.row]
+            }
             Alamofire
-                .request(Router.SetUniversity(uuid: User.sharedInstance().uuid, university: filtered[indexPath.row]))
+                .request(Router.SetUniversity(uuid: User.sharedInstance().uuid, university: university))
                 .responseString{ response in
                     if response.result.isSuccess {
                         print("SetDefault Success")
@@ -74,7 +78,7 @@ extension MypageChangeUniversityViewController: UITableViewDelegate {
                         print("SetDefault Falied")
                     }
             }
-            User.sharedInstance().univ = filtered[indexPath.row]
+            User.sharedInstance().univ = university
         } else {
             Alamofire
                 .request(Router.SetUniversity(uuid: User.sharedInstance().uuid, university: data[indexPath.row]))
