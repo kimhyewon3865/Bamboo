@@ -1476,7 +1476,7 @@
         <!--대학교 설정-->
         <scene sceneID="HpF-OQ-dWJ">
             <objects>
-                <viewController id="Ibn-Ll-OOz" sceneMemberID="viewController">
+                <viewController id="Ibn-Ll-OOz" customClass="MypageChangeUniversityViewController" customModule="Bamboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k7T-FN-9yl"/>
                         <viewControllerLayoutGuide type="bottom" id="dne-Yy-KI7"/>
@@ -1485,16 +1485,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4I-Zq-kVs">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4I-Zq-kVs">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="bRb-9O-pET"/>
                                 </items>
                             </navigationBar>
+                            <searchBar contentMode="redraw" placeholder="대학교를 설정해주세요" translatesAutoresizingMaskIntoConstraints="NO" id="a3W-KD-bvB">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <color key="barTintColor" red="0.72156862749999995" green="0.58039215690000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ibn-Ll-OOz" id="PGP-ga-r6E"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0sU-HO-V6o">
+                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UnivCell" id="4fi-3l-jV2">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4fi-3l-jV2" id="Njm-ZC-oP5">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ibn-Ll-OOz" id="Lwd-jD-3Ix"/>
+                                    <outlet property="delegate" destination="Ibn-Ll-OOz" id="b4K-iR-5wJ"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a3W-KD-bvB" firstAttribute="top" secondItem="k7T-FN-9yl" secondAttribute="bottom" id="7kK-5a-bKf"/>
+                            <constraint firstItem="0sU-HO-V6o" firstAttribute="bottom" secondItem="dne-Yy-KI7" secondAttribute="top" id="8bA-oj-yRO"/>
+                            <constraint firstAttribute="trailing" secondItem="a3W-KD-bvB" secondAttribute="trailing" id="B26-oZ-Fap"/>
+                            <constraint firstItem="a3W-KD-bvB" firstAttribute="trailing" secondItem="a4I-Zq-kVs" secondAttribute="trailing" id="Fwv-Ap-PSI"/>
+                            <constraint firstItem="0sU-HO-V6o" firstAttribute="top" secondItem="a3W-KD-bvB" secondAttribute="bottom" id="KVu-qE-cKU"/>
+                            <constraint firstItem="a3W-KD-bvB" firstAttribute="leading" secondItem="9yD-Mg-SNj" secondAttribute="leading" id="SuM-xO-UVC"/>
+                            <constraint firstItem="0sU-HO-V6o" firstAttribute="leading" secondItem="a4I-Zq-kVs" secondAttribute="leading" id="VKn-Re-08v"/>
+                            <constraint firstItem="0sU-HO-V6o" firstAttribute="trailing" secondItem="a4I-Zq-kVs" secondAttribute="trailing" id="YLW-ty-K3p"/>
+                            <constraint firstItem="a3W-KD-bvB" firstAttribute="leading" secondItem="a4I-Zq-kVs" secondAttribute="leading" id="d50-aS-r3A"/>
+                            <constraint firstItem="a3W-KD-bvB" firstAttribute="top" secondItem="a4I-Zq-kVs" secondAttribute="bottom" id="poa-13-jIL"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="대학교 설정" id="ND5-Bc-Nwo"/>
+                    <navigationItem key="navigationItem" title="대학교 설정" id="ND5-Bc-Nwo">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="BRo-wJ-V3l">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backButtonClicked:" destination="Ibn-Ll-OOz" id="eMl-l2-XwJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="a3W-KD-bvB" id="yPJ-4K-T4H"/>
+                        <outlet property="searchTableView" destination="0sU-HO-V6o" id="jI9-mY-7eG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKR-xw-Gu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
