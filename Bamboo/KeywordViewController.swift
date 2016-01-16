@@ -24,6 +24,8 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
         btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
         btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
 btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -40,6 +42,8 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("keywordCell", forIndexPath: indexPath) as! KeywordCollectionViewCell
+        
+//        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, heights[indexPath.row])
         
         return cell
     }

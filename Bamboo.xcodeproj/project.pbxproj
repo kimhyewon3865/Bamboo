@@ -13,6 +13,7 @@
 		C90ACF591C377B170038238E /* KeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ACF581C377B170038238E /* KeywordCollectionViewCell.swift */; };
 		C90ACF5B1C379C680038238E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ACF5A1C379C680038238E /* CommentTableViewCell.swift */; };
 		C9585F1E1C38E7D000E80138 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
+		C96BF7781C466EBC0046749F /* CountTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96BF7771C466EBC0046749F /* CountTimeManager.swift */; };
 		C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */; };
 		C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */; };
 		C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
@@ -109,6 +110,7 @@
 		C90ACF561C3778F90038238E /* Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		C90ACF581C377B170038238E /* KeywordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCollectionViewCell.swift; sourceTree = "<group>"; };
 		C90ACF5A1C379C680038238E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		C96BF7771C466EBC0046749F /* CountTimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountTimeManager.swift; sourceTree = "<group>"; };
 		C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListViewController.swift; sourceTree = "<group>"; };
 		C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9B8E7011C2FC15700128132 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */,
 				E872E48F1C29A32F00AB69F7 /* LibraryAPI.swift */,
 				E872E49C1C2BFDF800AB69F7 /* Router.swift */,
+				C96BF7771C466EBC0046749F /* CountTimeManager.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				E8F161DB1C38E33500814311 /* TGCameraGrid.m in Sources */,
 				E8F161D41C38E33500814311 /* TGPhotoViewController.m in Sources */,
 				E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */,
+				C96BF7781C466EBC0046749F /* CountTimeManager.swift in Sources */,
 				C90ACF571C3778F90038238E /* Detail.swift in Sources */,
 				E8F161D31C38E33500814311 /* TGCameraViewController.m in Sources */,
 				C9B8E7041C2FC17B00128132 /* KeywordViewController.swift in Sources */,
@@ -972,7 +976,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -992,7 +996,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -15,6 +15,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         navigationController?.popViewControllerAnimated(true)
     }
     
+    
+    //    let now = NSDate()
+    //    var dateString = "20160110232612" // change to your date formatvar
+    //    var dateFormatter = NSDateFormatter()
+    //    var str = NSObject()
+    //    var olderDate = NSDate()
+    //
     var contentT = ""
     var keywords = ""
     var contentlikeNumT = ""
@@ -25,47 +32,54 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     var contentCommentNumTmp = 0
     var contentLikeNumTmp = 0
     var state = ""
+    var timeSpace = ""
+    var dateFormatter = NSDateFormatter()
 
-    
     @IBOutlet weak var commentTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initDetailView()
         initSetting()
+        
+        //timeSpace = LibraryAPI.sharedInstance.isEqualThanDate(NSDate())
+        
         contentCommentNumTmp = Int(commentNumT)!
         contentLikeNumTmp = Int(contentlikeNumT)!
-        
-        contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+        dateFormatter.dateFormat = "yyyyMMddHHmmss"
 
+        //        contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+        //        dateFormatter.dateFormat = "yyyyMMddHHmmss"
+        //        str = dateFormatter.stringFromDate(now)
+        //
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBOutlet weak var content: UILabel!
-
-//    @IBAction func contentLike(sender: AnyObject) {
-//        setLike()
-//        contentLikeNum.text = String(contentLikeNumTmp)
-//        
-//    }
+    
+    //    @IBAction func contentLike(sender: AnyObject) {
+    //        setLike()
+    //        contentLikeNum.text = String(contentLikeNumTmp)
+    //
+    //    }
     
     @IBOutlet weak var contentLike: UIButton!
-//    contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+    //    contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
     func contentLikeFunc() {
         setLike()
         var image = UIImage(named: "like")
         contentLike.setImage(image, forState: .Normal)
-//        contentLikeNum.text = String(contentLikeNumTmp)
+        //        contentLikeNum.text = String(contentLikeNumTmp)
     }
     @IBOutlet weak var contentLikeNum: UILabel!
-
+    
     @IBOutlet weak var commentNum: UILabel!
-
+    
     @IBOutlet weak var keyword1: UIButton!
     @IBOutlet weak var keyword2: UIButton!
     @IBOutlet weak var keyword3: UIButton!
@@ -73,12 +87,23 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var keyword5: UIButton!
     @IBOutlet weak var keyword6: UIButton!
-
+    
     @IBOutlet weak var commentTF: UITextField!
     
     @IBAction func sendButton(sender: AnyObject) {
         commentContent = commentTF.text!
-        let commentTmp = Comment(commentP: commentContent)
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmmss"
+        var str = dateFormatter.stringFromDate(NSDate())
+    
+        var commentTmp = Comment(commentP: commentContent, regdtP: str)
+        //= Comment(commentP: commentContent, regdtP: dateFormatter.stringFromDate(NSDate())
+        print("str")
+        print(str)
+        print("nsdate")
+        let olderDate = dateFormatter.dateFromString(str)
+        print(olderDate)
         commentsArr.insert(commentTmp, atIndex: 0)
         //commentsArr.append(commentTmp)
         commentTableView.reloadData()
@@ -101,18 +126,18 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 self.commentTableView.reloadData()
         }
     }
-
+    
     func setComment() {
         Alamofire
-        .request(Router.SetComment(uuid: User.sharedInstance().uuid, bCode: code, comment: commentContent))
+            .request(Router.SetComment(uuid: User.sharedInstance().uuid, bCode: code, comment: commentContent))
             
-        .responseString { response in
+            .responseString { response in
                 print(response)
-            if response.result.isSuccess {
-            }
-            
-            self.commentTableView.reloadData()
-
+                if response.result.isSuccess {
+                }
+                
+                self.commentTableView.reloadData()
+                
         }
     }
     
@@ -134,15 +159,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                         self.contentLikeNumTmp = self.contentLikeNumTmp + 1
                         print(self.contentLikeNumTmp)
                         self.contentLikeNum.text = String(self.contentLikeNumTmp)
-
-        }
-
+                        
+                    }
+                    
                 } else {
                     //print("User객체 SimpleJsonParser인스턴스 failed")
                 }
             }
         }
-
             }
     
     func initSetting() {
@@ -218,7 +242,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             keyword6.setTitle("#" + keywordArray[5], forState: .Normal)
         }
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !commentsArr.isEmpty {
             return commentsArr.count
@@ -230,19 +254,24 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentTableViewCell
-
+        
         if !commentsArr.isEmpty {
-            cell.time.text = commentsArr[indexPath.row].regdt
+            let olderDate = dateFormatter.dateFromString(commentsArr[indexPath.row].regdt)
+            print("regdt")
+            print(commentsArr[indexPath.row].regdt)
+            print(commentsArr[indexPath.row].comment)
+            cell.time.text = LibraryAPI.sharedInstance.isEqualThanDate(olderDate!)
             cell.commentContent.text = commentsArr[indexPath.row].comment
             cell.commnetLikeNum.text = commentsArr[indexPath.row].numberOfLike
         }
         
+                
         return cell
     }
     
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "keywordDetailFirstSegue" {
@@ -254,7 +283,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             
             KeywordVC.titleName = keywordArray[1]
-
+            
         }
         else if segue.identifier == "keywordDetailThirdSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
@@ -284,6 +313,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-
-
+    
+    
 }

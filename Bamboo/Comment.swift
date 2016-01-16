@@ -15,6 +15,7 @@ final class Comment : ResponseObjectSerializable,  ResponseCollectionSerializabl
     var comment : String
     let numberOfLike: String
     var isLike : String
+
     init?(response: NSHTTPURLResponse, representation: AnyObject){
         //self.index = representation.valueForKeyPath("comment_cnt") as! Int
         //self.code = representation.valueForKeyPath("b_code") as! String
@@ -23,8 +24,20 @@ final class Comment : ResponseObjectSerializable,  ResponseCollectionSerializabl
         self.numberOfLike = representation.valueForKeyPath("commentLikeCnt") as! String
         self.isLike = representation.valueForKeyPath("isLike") as! String
     }
-    init (commentP: String) {
-        regdt = "0"
+    
+    init (commentP: String, regdtP: String) {
+        //let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateFormat = "yyyyMMddHHmmss"
+//        //let str = dateFormatter.stringFromDate(now)
+//        //let str = dateFormatter.stringFromDate(NSDate())
+//        let olderDate222 = dateFormatter.dateFromString(regdtP)
+//
+//        let olderDate = olderDate222!.dateByAddingTimeInterval(-NSTimeInterval(60*10))
+//        let str = dateFormatter.stringFromDate(olderDate)
+//        
+//        print("regdtP")
+//        print(str)
+        regdt = regdtP
         comment = commentP
         numberOfLike = "0"
         isLike = "0"

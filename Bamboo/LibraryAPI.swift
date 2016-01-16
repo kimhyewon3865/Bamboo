@@ -13,6 +13,7 @@ class LibraryAPI: NSObject {
     private let universityManager: UniversityManager
     private let alertMessageManager: AlertMessageManager
     private let keywordManager: KeywordManager
+    private let countTimeManager: CountTimeManager
     
     class var sharedInstance: LibraryAPI {
         struct Singleton {
@@ -25,6 +26,7 @@ class LibraryAPI: NSObject {
         universityManager = UniversityManager()
         alertMessageManager = AlertMessageManager()
         keywordManager = KeywordManager()
+        countTimeManager = CountTimeManager()
         super.init()
     }
     
@@ -63,4 +65,10 @@ class LibraryAPI: NSObject {
     func getKeywordAndContentsFromString(originString originString: String) -> (String, String) {
         return self.keywordManager.getKeywordAndContentsFromString(originString: originString)
     }
+    
+    func isEqualThanDate(dateToCompare: NSDate) -> String {
+        return self.countTimeManager.isEqualThanDate(dateToCompare)
+    }
+
+    
 }
