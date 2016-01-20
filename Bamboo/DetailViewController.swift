@@ -44,8 +44,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         //timeSpace = LibraryAPI.sharedInstance.isEqualThanDate(NSDate())
         
-        contentCommentNumTmp = Int(commentNumT)!
-        contentLikeNumTmp = Int(contentlikeNumT)!
+        //contentCommentNumTmp = Int(commentNumT)!
+        //contentLikeNumTmp = Int(contentlikeNumT)!
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
 
         //        contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)

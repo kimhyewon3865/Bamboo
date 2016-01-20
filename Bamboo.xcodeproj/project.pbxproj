@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B39B918345FA1F4553D42405 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A787F9EC4ED2DB4BE4D7AD /* Pods.framework */; };
-		C90ACF551C37733A0038238E /* GeneralCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ACF541C37733A0038238E /* GeneralCollectionViewCell.swift */; };
 		C90ACF571C3778F90038238E /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ACF561C3778F90038238E /* Detail.swift */; };
 		C90ACF591C377B170038238E /* KeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ACF581C377B170038238E /* KeywordCollectionViewCell.swift */; };
 		C90ACF5B1C379C680038238E /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90ACF5A1C379C680038238E /* CommentTableViewCell.swift */; };
+		C93045EC1C4CA4D700AB5CC4 /* KeywordSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93045EB1C4CA4D700AB5CC4 /* KeywordSearchViewController.swift */; };
+		C93045EE1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93045ED1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift */; };
+		C93045F01C4E5B7900AB5CC4 /* UnivTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93045EF1C4E5B7900AB5CC4 /* UnivTableViewCell.swift */; };
 		C9585F1E1C38E7D000E80138 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
 		C96BF7781C466EBC0046749F /* CountTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96BF7771C466EBC0046749F /* CountTimeManager.swift */; };
 		C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */; };
@@ -106,10 +108,12 @@
 		1CC90F97DA37C72BFB7C4E8B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		64A787F9EC4ED2DB4BE4D7AD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A65F5D664BA4E2A273558401 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		C90ACF541C37733A0038238E /* GeneralCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralCollectionViewCell.swift; sourceTree = "<group>"; };
 		C90ACF561C3778F90038238E /* Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		C90ACF581C377B170038238E /* KeywordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCollectionViewCell.swift; sourceTree = "<group>"; };
 		C90ACF5A1C379C680038238E /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		C93045EB1C4CA4D700AB5CC4 /* KeywordSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordSearchViewController.swift; sourceTree = "<group>"; };
+		C93045ED1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTableViewCell.swift; sourceTree = "<group>"; };
+		C93045EF1C4E5B7900AB5CC4 /* UnivTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivTableViewCell.swift; sourceTree = "<group>"; };
 		C96BF7771C466EBC0046749F /* CountTimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountTimeManager.swift; sourceTree = "<group>"; };
 		C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListViewController.swift; sourceTree = "<group>"; };
 		C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 				E8162F4E1C38CD3E00D491D3 /* PostBoardAlbumViewController.swift */,
 				E8162F551C38CD4900D491D3 /* PostBoardCameraViewController.swift */,
 				E8162F541C38CD4900D491D3 /* PostBoardVideoViewController.swift */,
+				C93045EB1C4CA4D700AB5CC4 /* KeywordSearchViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -362,9 +367,10 @@
 				C90ACF581C377B170038238E /* KeywordCollectionViewCell.swift */,
 				C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */,
 				E8EC9C271C2E9157002A7FA3 /* MyPageTableViewCell.swift */,
-				C90ACF541C37733A0038238E /* GeneralCollectionViewCell.swift */,
 				C90ACF5A1C379C680038238E /* CommentTableViewCell.swift */,
 				E8162F4F1C38CD3E00D491D3 /* PhotoCollectionViewCell.swift */,
+				C93045ED1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift */,
+				C93045EF1C4E5B7900AB5CC4 /* UnivTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -758,6 +764,7 @@
 				E8F161D81C38E33500814311 /* TGCameraColor.m in Sources */,
 				C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */,
 				E8F161D71C38E33500814311 /* TGCamera.m in Sources */,
+				C93045EE1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift in Sources */,
 				E8162F521C38CD3E00D491D3 /* PhotoCollectionViewCell.swift in Sources */,
 				E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */,
 				E86D7EB71C3F77F30043D3FD /* MypageChangeUniversityViewController.swift in Sources */,
@@ -772,11 +779,13 @@
 				E8CE04C71C31273900983B7A /* PostBoardViewController.swift in Sources */,
 				E86D7EB91C40A8FA0043D3FD /* KeywordManager.swift in Sources */,
 				C90ACF591C377B170038238E /* KeywordCollectionViewCell.swift in Sources */,
+				C93045EC1C4CA4D700AB5CC4 /* KeywordSearchViewController.swift in Sources */,
 				E8F161DC1C38E33500814311 /* TGCameraShot.m in Sources */,
 				E8F161DE1C38E33500814311 /* TGAssetImageFile.m in Sources */,
 				E8937F0B1C1E7D6C0056C5FD /* GeneralListViewController.swift in Sources */,
 				E872E48C1C299A0100AB69F7 /* UniversityManager.swift in Sources */,
 				E8EC9C261C2E78A5002A7FA3 /* MypageViewController.swift in Sources */,
+				C93045F01C4E5B7900AB5CC4 /* UnivTableViewCell.swift in Sources */,
 				E874BBCC1C2120A900E091A4 /* UnivBoard.swift in Sources */,
 				E872E4901C29A32F00AB69F7 /* LibraryAPI.swift in Sources */,
 				C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */,
@@ -797,7 +806,6 @@
 				E82015011C20267B00F7DD5D /* ResponseObjectSerializable.swift in Sources */,
 				E8F161D01C38E33500814311 /* UIImage+CameraFilters.m in Sources */,
 				E872E48A1C29995A00AB69F7 /* University.swift in Sources */,
-				C90ACF551C37733A0038238E /* GeneralCollectionViewCell.swift in Sources */,
 				E8F161DA1C38E33500814311 /* TGCameraFocus.m in Sources */,
 				E8162F561C38CD4900D491D3 /* PostBoardVideoViewController.swift in Sources */,
 				E8F161E11C38E33500814311 /* TGCameraGridView.m in Sources */,

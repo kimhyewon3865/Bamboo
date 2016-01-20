@@ -9,32 +9,36 @@
 import UIKit
 import Alamofire
 
-class UnivListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-
+class UnivListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var univListTableView: UICollectionView!
+    
+    //@IBOutlet weak var univListTableView: UICollectionView!
+    
+    @IBOutlet weak var univListTableView: UITableView!
     
     var univBoards : [UnivBoard] = []
     var plusUnivBoards : [UnivBoard] = []
     var refreshControl:UIRefreshControl!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("\(User.sharedInstance().univ)")
         initSetting()
         initUnivBoard()
         
-//        self.btnBest.hidden = true
-//        self.btnNew.hidden = true
-//        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
-//        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
-//        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
-//        self.refreshControl = UIRefreshControl()
-//        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-//        self.univListTableView.addSubview(refreshControl)
+        //        self.btnBest.hidden = true
+        //        self.btnNew.hidden = true
+        //        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
+        //        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
+        //        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
+        //        self.refreshControl = UIRefreshControl()
+        //        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        //        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        //        self.univListTableView.addSubview(refreshControl)
         // Do any additional setup after loading the view.
     }
-
+    
     func refresh(sender:AnyObject)
     {
         initUnivBoard()
@@ -49,17 +53,14 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
         // Dispose of any resources that can be recreated.
     }
     
-
-    // MARK: - TableView DataSource
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.univBoards.count
     }
     
-
-    // MARK: - TableView DataSource
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("univListCell", forIndexPath: indexPath) as! UnivListCollectionViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = univListTableView.dequeueReusableCellWithIdentifier("univCell", forIndexPath: indexPath) as! UnivTableViewCell
         
         cell.contents.setTitle(self.univBoards[indexPath.row].contents, forState: .Normal)
         
@@ -74,16 +75,16 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
                 cell.keywordFirst.hidden = true
                 cell.keywordSecond.hidden = true
                 cell.keywordThird.hidden = true
-//                cell.keywordFirst.setTitle(" ", forState: .Normal)
-//                cell.keywordSecond.setTitle(" ", forState: .Normal)
-//                cell.keywordThird.setTitle(" ", forState: .Normal)
+                //                cell.keywordFirst.setTitle(" ", forState: .Normal)
+                //                cell.keywordSecond.setTitle(" ", forState: .Normal)
+                //                cell.keywordThird.setTitle(" ", forState: .Normal)
             }
             else if(univBoards[indexPath.row].keywordArray.count == 1){
                 cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
                 cell.keywordSecond.hidden = true
                 cell.keywordThird.hidden = true
-//                cell.keywordSecond.setTitle("", forState: .Normal)
-//                cell.keywordThird.setTitle("", forState: .Normal)
+                //                cell.keywordSecond.setTitle("", forState: .Normal)
+                //                cell.keywordThird.setTitle("", forState: .Normal)
             }
             else if(univBoards[indexPath.row].keywordArray.count == 2){
                 cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
@@ -102,23 +103,91 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
         } else {
             cell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
         }
-
+        
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.item > 4 {
-        if indexPath.item == (univBoards.count-1) {
-            pageInt = pageInt + 1
-            print(pageInt)
-            plusInitUnivBoard()
-        }
+            if indexPath.item == (univBoards.count-1) {
+                pageInt = pageInt + 1
+                print(pageInt)
+                plusInitUnivBoard()
+            }
         }
     }
+    //
+    //    // MARK: - TableView DataSource
+    //    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    //
+    //        return self.univBoards.count
+    //    }
+    //
+    //
+    //
+    //    // MARK: - TableView DataSource
+    //    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    //        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("univListCell", forIndexPath: indexPath) as! UnivListCollectionViewCell
+    //
+    //        cell.contents.setTitle(self.univBoards[indexPath.row].contents, forState: .Normal)
+    //
+    //        cell.likeNum.text = String(self.univBoards[indexPath.row].numberOfLike)
+    //
+    //        cell.commentNum.text = String(self.univBoards[indexPath.row].numberOfComment)
+    //
+    //        //print(indexPath.row)
+    //
+    //        if univBoards[indexPath.row].keywords != ""{
+    //            if(univBoards[indexPath.row].keywordArray.count == 0){
+    //                cell.keywordFirst.hidden = true
+    //                cell.keywordSecond.hidden = true
+    //                cell.keywordThird.hidden = true
+    ////                cell.keywordFirst.setTitle(" ", forState: .Normal)
+    ////                cell.keywordSecond.setTitle(" ", forState: .Normal)
+    ////                cell.keywordThird.setTitle(" ", forState: .Normal)
+    //            }
+    //            else if(univBoards[indexPath.row].keywordArray.count == 1){
+    //                cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
+    //                cell.keywordSecond.hidden = true
+    //                cell.keywordThird.hidden = true
+    ////                cell.keywordSecond.setTitle("", forState: .Normal)
+    ////                cell.keywordThird.setTitle("", forState: .Normal)
+    //            }
+    //            else if(univBoards[indexPath.row].keywordArray.count == 2){
+    //                cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
+    //                cell.keywordSecond.setTitle("#"+self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
+    //                cell.keywordThird.setTitle("", forState: .Normal)
+    //            }
+    //            else {
+    //                cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
+    //                cell.keywordSecond.setTitle("#"+self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
+    //                cell.keywordThird.setTitle("#"+self.univBoards[indexPath.row].keywordArray[2], forState: .Normal)
+    //            }
+    //        }
+    //        //print(univBoards[indexPath.row].keywordArray.count)
+    //        if indexPath.row % 2 == 0 {
+    //            cell.backgroundColor = UIColor.whiteColor()
+    //        } else {
+    //            cell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
+    //        }
+    //
+    //
+    //        return cell
+    //    }
+    //
+    //    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    //        if indexPath.item > 4 {
+    //        if indexPath.item == (univBoards.count-1) {
+    //            pageInt = pageInt + 1
+    //            print(pageInt)
+    //            plusInitUnivBoard()
+    //        }
+    //        }
+    //    }
     
     var pageInt = 1
-
+    
     func initSetting() {
         self.univListTableView.delegate = self
         self.univListTableView.dataSource = self
@@ -156,60 +225,60 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
                     print(response)
                     print(response.result.value)
                     self.univBoards = self.univBoards + self.plusUnivBoards
-
+                    
                 }
                 
                 self.univListTableView.reloadData()
         }
         
     }
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showUnivDetail" {
             let DetailVC = segue.destinationViewController as! DetailViewController
             
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
-            let indexPath = univListTableView.indexPathForItemAtPoint(point)
+            let indexPath = univListTableView.indexPathForRowAtPoint(point)
             
             DetailVC.contentT = univBoards[indexPath!.row].contents
             DetailVC.keywords = univBoards[indexPath!.row].keywords
             DetailVC.contentlikeNumT = String(univBoards[indexPath!.row].numberOfLike)
             DetailVC.commentNumT = String(univBoards[indexPath!.row].numberOfComment)
-
+            
             DetailVC.code = univBoards[indexPath!.row].code
             print(DetailVC.code)
         }
         else if segue.identifier == "keywordUnivFirstSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
-            let indexPath = univListTableView.indexPathForItemAtPoint(point)
+            let indexPath = univListTableView.indexPathForRowAtPoint(point)
             
             KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[0]
         }
-        
+            
         else if segue.identifier == "keywordUnivSecondSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
-            let indexPath = univListTableView.indexPathForItemAtPoint(point)
+            let indexPath = univListTableView.indexPathForRowAtPoint(point)
             
             KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[1]
         }
         else if segue.identifier == "keywordUnivThirdSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
-            let indexPath = univListTableView.indexPathForItemAtPoint(point)
+            let indexPath = univListTableView.indexPathForRowAtPoint(point)
             
             KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[2]
         }
         else if segue.identifier == "univPost" {
             let PostBoardVC = segue.destinationViewController as! PostBoardViewController
             PostBoardVC.type = User.sharedInstance().univ
-        
+            
         }
-
-
+        
+        
     }
-
+    
     
     @IBAction func cancelToListVC(segue : UIStoryboardSegue) {
         
@@ -251,12 +320,12 @@ class UnivListViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
