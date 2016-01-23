@@ -22,6 +22,11 @@ class CountTimeManager
         
         var olderDate = dateToCompare.dateByAddingTimeInterval(-NSTimeInterval(60*10))
         var checking = olderDate.compare(dateToCompare)
+        
+        print("olderDate")
+        print(olderDate)
+        print(NSDate())
+        
         switch checking {
         case .OrderedDescending:
             print("DESCENDING123")
@@ -275,11 +280,3 @@ class CountTimeManager
     }
     
 }
-//class CountTimeManager {
-//
-//    func isEqualDate(date: NSDate) {
-//
-//        print(date.isEqual(NSDate()))
-//        //print(date.isEqualThanDate(NSDate()))
-//    }
-//}

@@ -186,10 +186,49 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             cell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
         }
         
+        cell.likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+        
         
         return cell
     }
     
+    func contentLikeFunc() {
+        print("왜왜")
+        setLike()
+//        contentLikeNum.text = String(contentLikeNumTmp)
+    }
+    
+    func setLike() {
+        let point : CGPoint = generalListTableView.convertPoint(CGPointZero, toView:generalListTableView)
+        let indexPath = generalListTableView.indexPathForRowAtPoint(point)
+        var code = generalBoards[indexPath!.row].code
+        
+        let jsonParser = SimpleJsonParser()
+        jsonParser.HTTPGetJson("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Like.php?b_code=\(code)&uuid=\(User.sharedInstance().uuid)") {
+            (data : Dictionary<String, AnyObject>, error : String?) -> Void in
+            if error != nil {
+                print("\(error) : PostBoardVC")
+            } else {
+                if let stateT = data["state"] as? String,
+                    let message = data["message"] as? String
+                {
+                    print("succece:))")
+                    //                    self.state = stateT
+                    //                    print(self.state)
+//                    if self.state == "1" {
+//                        //                        print("yet")
+//                        //                        self.contentLikeNumTmp = self.contentLikeNumTmp + 1
+//                        //                        print(self.contentLikeNumTmp)
+//                        //                        self.contentLikeNum.text = "\(self.contentLikeNumTmp)" ////
+//                        //
+//                    }
+                    
+                } else {
+                    //print("User객체 SimpleJsonParser인스턴스 failed")
+                }
+            }
+        }
+    }
     
     var pageInt = 1
     
@@ -283,8 +322,6 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBOutlet weak var btnBest: UIButton!
-    
-    
     
     func btnBestFunc() {
         print(123)

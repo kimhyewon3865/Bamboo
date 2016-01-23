@@ -36,15 +36,22 @@ class GeneralTableViewCell: UITableViewCell {
     
 
     */
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
         // Configure the view for the selected state
     }
-
+    func contentLikeFunc() {
+        print("야야")
+        var image = UIImage(named: "like")
+        likeImage.setImage(image, forState: .Normal)
+    }
 }

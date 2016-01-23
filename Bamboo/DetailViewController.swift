@@ -34,7 +34,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     var state = ""
     var timeSpace = ""
     var dateFormatter = NSDateFormatter()
-
+    
     @IBOutlet weak var commentTableView: UITableView!
     
     override func viewDidLoad() {
@@ -42,16 +42,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         initDetailView()
         initSetting()
         
-        //timeSpace = LibraryAPI.sharedInstance.isEqualThanDate(NSDate())
-        
-        //contentCommentNumTmp = Int(commentNumT)!
-        //contentLikeNumTmp = Int(contentlikeNumT)!
-        dateFormatter.dateFormat = "yyyyMMddHHmmss"
-
-        //        contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
-        //        dateFormatter.dateFormat = "yyyyMMddHHmmss"
-        //        str = dateFormatter.stringFromDate(now)
-        //
+        contentCommentNumTmp = Int(commentNumT)!
+        contentLikeNumTmp = Int(contentlikeNumT)!
+        contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
         // Do any additional setup after loading the view.
     }
     
@@ -62,19 +55,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var content: UILabel!
     
-    //    @IBAction func contentLike(sender: AnyObject) {
-    //        setLike()
-    //        contentLikeNum.text = String(contentLikeNumTmp)
-    //
-    //    }
-    
     @IBOutlet weak var contentLike: UIButton!
-    //    contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+    
     func contentLikeFunc() {
         setLike()
         var image = UIImage(named: "like")
         contentLike.setImage(image, forState: .Normal)
-        //        contentLikeNum.text = String(contentLikeNumTmp)
+        contentLikeNum.text = String(contentLikeNumTmp)
     }
     @IBOutlet weak var contentLikeNum: UILabel!
     
@@ -96,7 +83,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
         var str = dateFormatter.stringFromDate(NSDate())
-    
+        
         var commentTmp = Comment(commentP: commentContent, regdtP: str)
         //= Comment(commentP: commentContent, regdtP: dateFormatter.stringFromDate(NSDate())
         print("str")
@@ -158,7 +145,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                         print("yet")
                         self.contentLikeNumTmp = self.contentLikeNumTmp + 1
                         print(self.contentLikeNumTmp)
-                        self.contentLikeNum.text = String(self.contentLikeNumTmp)
+                        self.contentLikeNum.text = "\(self.contentLikeNumTmp)" ////
                         
                     }
                     
@@ -167,7 +154,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 }
             }
         }
-            }
+    }
     
     func initSetting() {
         self.commentTableView.delegate = self
@@ -259,13 +246,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             let olderDate = dateFormatter.dateFromString(commentsArr[indexPath.row].regdt)
             print("regdt")
             print(commentsArr[indexPath.row].regdt)
-            print(commentsArr[indexPath.row].comment)
-            cell.time.text = LibraryAPI.sharedInstance.isEqualThanDate(olderDate!)
+            //print(commentsArr[indexPath.row].comment)
+            
+            //cell.time.text = LibraryAPI.sharedInstance.isEqualThanDate(olderDate!)
             cell.commentContent.text = commentsArr[indexPath.row].comment
             cell.commnetLikeNum.text = commentsArr[indexPath.row].numberOfLike
         }
         
-                
+        
         return cell
     }
     

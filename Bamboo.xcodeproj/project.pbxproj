@@ -14,10 +14,13 @@
 		C93045EC1C4CA4D700AB5CC4 /* KeywordSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93045EB1C4CA4D700AB5CC4 /* KeywordSearchViewController.swift */; };
 		C93045EE1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93045ED1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift */; };
 		C93045F01C4E5B7900AB5CC4 /* UnivTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93045EF1C4E5B7900AB5CC4 /* UnivTableViewCell.swift */; };
+		C93045F21C4F8D1C00AB5CC4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93045F11C4F8D1C00AB5CC4 /* SettingViewController.swift */; };
 		C9585F1E1C38E7D000E80138 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
 		C96BF7781C466EBC0046749F /* CountTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96BF7771C466EBC0046749F /* CountTimeManager.swift */; };
+		C9B310811C531C5C002E7165 /* RecentKeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B310801C531C5C002E7165 /* RecentKeywordCollectionViewCell.swift */; };
+		C9B310831C531C69002E7165 /* HotKeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B310821C531C69002E7165 /* HotKeywordCollectionViewCell.swift */; };
+		C9B310851C531C76002E7165 /* UnivKeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B310841C531C76002E7165 /* UnivKeywordCollectionViewCell.swift */; };
 		C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */; };
-		C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */; };
 		C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7011C2FC15700128132 /* DetailViewController.swift */; };
 		C9B8E7041C2FC17B00128132 /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */; };
 		E805E4BF1C3B48FB0001134A /* BBAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E805E4BE1C3B48FB0001134A /* BBAlertView.swift */; };
@@ -114,9 +117,12 @@
 		C93045EB1C4CA4D700AB5CC4 /* KeywordSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordSearchViewController.swift; sourceTree = "<group>"; };
 		C93045ED1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTableViewCell.swift; sourceTree = "<group>"; };
 		C93045EF1C4E5B7900AB5CC4 /* UnivTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivTableViewCell.swift; sourceTree = "<group>"; };
+		C93045F11C4F8D1C00AB5CC4 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C96BF7771C466EBC0046749F /* CountTimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountTimeManager.swift; sourceTree = "<group>"; };
+		C9B310801C531C5C002E7165 /* RecentKeywordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentKeywordCollectionViewCell.swift; sourceTree = "<group>"; };
+		C9B310821C531C69002E7165 /* HotKeywordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeywordCollectionViewCell.swift; sourceTree = "<group>"; };
+		C9B310841C531C76002E7165 /* UnivKeywordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivKeywordCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9B8E6F91C29B8E900128132 /* UnivListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListViewController.swift; sourceTree = "<group>"; };
-		C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivListCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9B8E7011C2FC15700128132 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C9B8E7031C2FC17B00128132 /* KeywordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
 		E805E4BE1C3B48FB0001134A /* BBAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBAlertView.swift; sourceTree = "<group>"; };
@@ -282,6 +288,7 @@
 				E8162F551C38CD4900D491D3 /* PostBoardCameraViewController.swift */,
 				E8162F541C38CD4900D491D3 /* PostBoardVideoViewController.swift */,
 				C93045EB1C4CA4D700AB5CC4 /* KeywordSearchViewController.swift */,
+				C93045F11C4F8D1C00AB5CC4 /* SettingViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -365,12 +372,14 @@
 			isa = PBXGroup;
 			children = (
 				C90ACF581C377B170038238E /* KeywordCollectionViewCell.swift */,
-				C9B8E6FB1C29BBBA00128132 /* UnivListCollectionViewCell.swift */,
 				E8EC9C271C2E9157002A7FA3 /* MyPageTableViewCell.swift */,
 				C90ACF5A1C379C680038238E /* CommentTableViewCell.swift */,
 				E8162F4F1C38CD3E00D491D3 /* PhotoCollectionViewCell.swift */,
 				C93045ED1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift */,
 				C93045EF1C4E5B7900AB5CC4 /* UnivTableViewCell.swift */,
+				C9B310801C531C5C002E7165 /* RecentKeywordCollectionViewCell.swift */,
+				C9B310821C531C69002E7165 /* HotKeywordCollectionViewCell.swift */,
+				C9B310841C531C76002E7165 /* UnivKeywordCollectionViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -747,6 +756,7 @@
 				E8F161D51C38E33500814311 /* TGAlbum.m in Sources */,
 				E872E49D1C2BFDF800AB69F7 /* Router.swift in Sources */,
 				C9B8E7021C2FC15700128132 /* DetailViewController.swift in Sources */,
+				C9B310811C531C5C002E7165 /* RecentKeywordCollectionViewCell.swift in Sources */,
 				E8F161E61C38E33500814311 /* TGTintedLabel.m in Sources */,
 				E8EC9C2A1C2E9E5A002A7FA3 /* MyPage.swift in Sources */,
 				E8F161D21C38E33500814311 /* TGCameraNavigationController.m in Sources */,
@@ -757,6 +767,7 @@
 				E8F161D41C38E33500814311 /* TGPhotoViewController.m in Sources */,
 				E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */,
 				C96BF7781C466EBC0046749F /* CountTimeManager.swift in Sources */,
+				C9B310831C531C69002E7165 /* HotKeywordCollectionViewCell.swift in Sources */,
 				C90ACF571C3778F90038238E /* Detail.swift in Sources */,
 				E8F161D31C38E33500814311 /* TGCameraViewController.m in Sources */,
 				C9B8E7041C2FC17B00128132 /* KeywordViewController.swift in Sources */,
@@ -766,6 +777,7 @@
 				E8F161D71C38E33500814311 /* TGCamera.m in Sources */,
 				C93045EE1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift in Sources */,
 				E8162F521C38CD3E00D491D3 /* PhotoCollectionViewCell.swift in Sources */,
+				C9B310851C531C76002E7165 /* UnivKeywordCollectionViewCell.swift in Sources */,
 				E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */,
 				E86D7EB71C3F77F30043D3FD /* MypageChangeUniversityViewController.swift in Sources */,
 				E874BBDC1C23D3F000E091A4 /* SimpleJsonParser.swift in Sources */,
@@ -788,7 +800,6 @@
 				C93045F01C4E5B7900AB5CC4 /* UnivTableViewCell.swift in Sources */,
 				E874BBCC1C2120A900E091A4 /* UnivBoard.swift in Sources */,
 				E872E4901C29A32F00AB69F7 /* LibraryAPI.swift in Sources */,
-				C9B8E6FC1C29BBBA00128132 /* UnivListCollectionViewCell.swift in Sources */,
 				E805E4BF1C3B48FB0001134A /* BBAlertView.swift in Sources */,
 				E8162F571C38CD4900D491D3 /* PostBoardCameraViewController.swift in Sources */,
 				E8F161E41C38E33500814311 /* TGCameraSlideView.m in Sources */,
@@ -800,6 +811,7 @@
 				E8F161DF1C38E33500814311 /* TGCameraFilterView.m in Sources */,
 				E8F161E01C38E33500814311 /* TGCameraFocusView.m in Sources */,
 				E8F161D91C38E33500814311 /* TGCameraFlash.m in Sources */,
+				C93045F21C4F8D1C00AB5CC4 /* SettingViewController.swift in Sources */,
 				E8EC9C281C2E9157002A7FA3 /* MyPageTableViewCell.swift in Sources */,
 				E8F161D61C38E33500814311 /* TGAssetsLibrary.m in Sources */,
 				E874BBCE1C21211E00E091A4 /* Comment.swift in Sources */,
