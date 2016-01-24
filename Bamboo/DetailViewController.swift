@@ -241,19 +241,22 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentTableViewCell
-        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmmss"
         if !commentsArr.isEmpty {
             let olderDate = dateFormatter.dateFromString(commentsArr[indexPath.row].regdt)
             print("regdt")
+            print(olderDate)
             print(commentsArr[indexPath.row].regdt)
-            //print(commentsArr[indexPath.row].comment)
-            
-            //cell.time.text = LibraryAPI.sharedInstance.isEqualThanDate(olderDate!)
+            //print(commentsArr[indexPath.row].comment)    
+            print(LibraryAPI.sharedInstance.compareDate(NSDate()))
+            //print(LibraryAPI.sharedInstance.compareDate(olderDate!))
+            //cell.time.text = CountTimeManager.compareDate(olderDate!)
+            cell.time.text = LibraryAPI.sharedInstance.compareDate(olderDate!)
             cell.commentContent.text = commentsArr[indexPath.row].comment
             cell.commnetLikeNum.text = commentsArr[indexPath.row].numberOfLike
         }
-        
-        
+    
         return cell
     }
     
@@ -304,3 +307,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     
 }
+
+
+

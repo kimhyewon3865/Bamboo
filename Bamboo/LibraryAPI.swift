@@ -66,8 +66,8 @@ class LibraryAPI: NSObject {
         return self.keywordManager.getKeywordAndContentsFromString(originString: originString)
     }
     
-    func isEqualThanDate(dateToCompare: NSDate) -> String {
-        return self.countTimeManager.isEqualThanDate(dateToCompare)
+    func compareDate(dateToCompare: NSDate) -> String {
+        return self.countTimeManager.compareDate(dateToCompare)
     }
 
     

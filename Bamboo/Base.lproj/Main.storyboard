@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WlH-yF-sjT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aAF-GG-H2f">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -1165,7 +1165,9 @@ fdfsf
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5p0-Rd-rA2">
                                 <rect key="frame" x="258" y="400" width="66" height="22"/>
-                                <state key="normal" image="arrow_right"/>
+                                <state key="normal" image="arrow_right">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHN-Js-YXj">
                                 <rect key="frame" x="0.0" y="445" width="320" height="52"/>
@@ -1173,7 +1175,9 @@ fdfsf
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1z-JQ-m0f">
                                 <rect key="frame" x="258" y="460" width="66" height="22"/>
-                                <state key="normal" image="arrow_right"/>
+                                <state key="normal" image="arrow_right">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="About Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCS-9f-ZcV">
                                 <rect key="frame" x="20" y="460" width="104" height="24"/>
@@ -1303,12 +1307,20 @@ fdfsf
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DUS-HP-sh8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DUS-HP-sh8">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <color key="backgroundColor" red="0.81176470590000005" green="0.65098039220000004" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEx-Ha-ooz">
-                                <rect key="frame" x="278" y="27" width="46" height="30"/>
+                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0aO-ee-1tV">
+                                <rect key="frame" x="0.0" y="20" width="286" height="44"/>
+                                <color key="barTintColor" red="0.81176470590000005" green="0.65098039220000004" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>검색</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEx-Ha-ooz">
+                                <rect key="frame" x="274" y="27" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="x">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1317,11 +1329,6 @@ fdfsf
                                     <action selector="cancel:" destination="Tm5-au-9t9" eventType="touchUpInside" id="JoO-Vw-MMM"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0aO-ee-1tV">
-                                <rect key="frame" x="0.0" y="20" width="286" height="44"/>
-                                <color key="barTintColor" red="0.81176470590000005" green="0.65098039220000004" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="대학별 HOT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXE-Ts-AGf">
                                 <rect key="frame" x="20" y="390" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1365,6 +1372,12 @@ fdfsf
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.90588235294117647" blue="0.89411764705882357" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="iEx-Ha-ooz" secondAttribute="trailing" constant="-20" id="CYA-Y8-gGf"/>
+                            <constraint firstItem="0aO-ee-1tV" firstAttribute="leading" secondItem="0DV-QG-aw1" secondAttribute="leadingMargin" constant="-20" id="HvV-Nz-vhc"/>
+                            <constraint firstItem="DUS-HP-sh8" firstAttribute="width" secondItem="0DV-QG-aw1" secondAttribute="width" id="XXS-Yo-JaX"/>
+                            <constraint firstItem="iEx-Ha-ooz" firstAttribute="leading" secondItem="0aO-ee-1tV" secondAttribute="trailing" id="azT-JU-DfO"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="hotKeyword" destination="qRM-6U-SbS" id="hZ2-Jx-MHc"/>
@@ -2138,9 +2151,9 @@ fdfsf
         <image name="write" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kQV-gC-Auu"/>
         <segue reference="miI-TN-1nM"/>
-        <segue reference="Y8n-kR-FgV"/>
         <segue reference="MdN-sA-UFg"/>
+        <segue reference="Y8n-kR-FgV"/>
+        <segue reference="mHH-sY-H72"/>
     </inferredMetricsTieBreakers>
 </document>
