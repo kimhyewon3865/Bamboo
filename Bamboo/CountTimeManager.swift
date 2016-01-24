@@ -25,12 +25,12 @@ class CountTimeManager {
         else if interval < 86400 && interval >= 3600 {
             print(interval)
             print(interval/3600)
-            return "\(interval/3600)"
+            return "\(Int(interval/3600))"
         }
         else if interval < 259200  && interval >= 86400 {
             print(interval)
             print(interval/86400)
-            return "\(interval/86400)"
+            return "\(Int(interval/86400))"
         }
         else if interval < 60 {
             return "방금"
