@@ -59,7 +59,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func contentLikeFunc() {
         setLike()
-        var image = UIImage(named: "like")
+        let image = UIImage(named: "like")
         contentLike.setImage(image, forState: .Normal)
         contentLikeNum.text = String(contentLikeNumTmp)
     }
@@ -80,11 +80,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func sendButton(sender: AnyObject) {
         commentContent = commentTF.text!
         
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
-        var str = dateFormatter.stringFromDate(NSDate())
+        let str = dateFormatter.stringFromDate(NSDate())
         
-        var commentTmp = Comment(commentP: commentContent, regdtP: str)
+        let commentTmp = Comment(commentP: commentContent, regdtP: str)
         //= Comment(commentP: commentContent, regdtP: dateFormatter.stringFromDate(NSDate())
         print("str")
         print(str)
@@ -136,7 +136,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 print("\(error) : PostBoardVC")
             } else {
                 if let stateT = data["state"] as? String,
-                    let message = data["message"] as? String
+                    let _ = data["message"] as? String
                 {
                     print("succece:)")
                     self.state = stateT
@@ -241,7 +241,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath) as! CommentTableViewCell
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
         if !commentsArr.isEmpty {
             let olderDate = dateFormatter.dateFromString(commentsArr[indexPath.row].regdt)
