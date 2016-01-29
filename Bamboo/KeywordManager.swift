@@ -28,7 +28,7 @@ class KeywordManager {
         return (retKeyword,contents)
     }
     
-    private func extractKeywordFromContents(contents contents: String) -> [String]{
+    private func extractKeywordFromContents(contents contents: String) -> [String] {
         
         var newContents = contents
         var retKeywords: [String] = []
