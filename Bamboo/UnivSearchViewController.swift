@@ -43,6 +43,8 @@ class UnivSearchViewController: UIViewController {
                 var university = ""
                 if searchBar.text == "" {
                     university = data[indexPath.row]
+                } else {
+                    university = filtered[indexPath.row]
                 }
                 Alamofire
                     .request(Router.SetDefault(uuid: uuid!, university: university))

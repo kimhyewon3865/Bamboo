@@ -67,6 +67,8 @@ extension MypageChangeUniversityViewController: UITableViewDelegate {
             var university = ""
             if searchBar.text == "" {
                 university = data[indexPath.row]
+            } else {
+                university = filtered[indexPath.row]
             }
             Alamofire
                 .request(Router.SetUniversity(uuid: User.sharedInstance().uuid, university: university))
