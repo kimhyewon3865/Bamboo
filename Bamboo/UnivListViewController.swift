@@ -39,6 +39,12 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        initSetting()
+        initUnivBoard()
+    }
+
+    
     func refresh(sender:AnyObject)
     {
         initUnivBoard()

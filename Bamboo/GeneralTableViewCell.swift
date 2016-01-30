@@ -22,6 +22,8 @@ class GeneralTableViewCell: UITableViewCell {
     
     @IBOutlet weak var keywordThird: UIButton!
     @IBOutlet weak var likeImage: UIButton!
+    
+    @IBOutlet weak var backgroundImage: UIImageView!
     /*
     @IBOutlet weak var contents: UIButton!
     @IBOutlet weak var likeNum: UILabel!

@@ -17,7 +17,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     
     var generalBoards = [GeneralBoard]()
     var plusGeneralBoards = [GeneralBoard]()
-    
+
     var refreshControl:UIRefreshControl!
     
     override func viewDidLoad() {
@@ -150,6 +150,19 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell.commentNum.text = String(self.generalBoards[indexPath.row].numberOfComment)
         
+        if generalBoards[indexPath.row].imgURL != "" {
+            print("url")
+        cell.backgroundImage.downloadedFrom(link: generalBoards[indexPath.row].imgURL, contentMode: .ScaleAspectFit)
+        //cell.insertSubview(cell.backgroundImage, atIndex: indexPath.row)
+            var imageView = UIImageView(frame: CGRectMake(0, 0, 375, cell.frame.height))
+            imageView.image = cell.backgroundImage.image
+            print(cell.frame.width)
+            print(cell.backgroundImage.image?.size.width)
+            
+            
+            //cell.addSubview(cell.backgroundImage)
+        }
+        //cell.addSubview(cell.backgroundImage)
         //print(indexPath.row)
         
         //if generalBoards[indexPath.row].keywords != ""{
@@ -345,8 +358,50 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         btnNew.setImage(image, forState: .Normal)
         btnBest.setImage(image2, forState: .Normal)
     }
+    
+//    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+//        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+//            completion(data: data, response: response, error: error)
+//            }.resume()
+//    }
+//    
+//    func downloadImage(url: NSURL){
+//        print("Download Started")
+//        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
+//        getDataFromUrl(url) { (data, response, error)  in
+//            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+//                guard let data = data where error == nil else { return }
+//                print(response?.suggestedFilename ?? "")
+//                print("Download Finished")
+//                //imageView.image = UIImage(data: data)
+//            }
+//        }
+//    }
+
 }
-//
+
+extension UIImageView {
+    func downloadedFrom(link link:String, contentMode mode: UIViewContentMode) {
+        guard
+            let url = NSURL(string: link)
+            else {return}
+        contentMode = mode
+        NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
+            guard
+                let httpURLResponse = response as? NSHTTPURLResponse where httpURLResponse.statusCode == 200,
+                let mimeType = response?.MIMEType where mimeType.hasPrefix("image"),
+                let data = data where error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+//                var imageView = UIImageView(frame: CGRectMake(10, 10, 375, 150))
+//                imageView.image = image
+//                self.image = imageView.image
+                self.image = image
+            }
+        }).resume()
+    }
+}//
 //extension GeneralListViewController: UITableViewDataSource {
 //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return self.generalBoards.count
