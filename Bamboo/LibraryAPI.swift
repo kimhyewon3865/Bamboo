@@ -62,6 +62,10 @@ class LibraryAPI: NSObject {
         return self.alertMessageManager.isFailToPost()
     }
     
+    func isSuccessPointReturn() -> (title: String, message: String) {
+        return self.alertMessageManager.isSuccessPointReturn()
+    }
+    
     func getKeywordAndContentsFromString(originString originString: String) -> (String, String) {
         return self.keywordManager.getKeywordAndContentsFromString(originString: originString)
     }

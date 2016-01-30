@@ -79,13 +79,27 @@ class PostBoardViewController: UIViewController {
     }
     
     func setPoint() {
+        BBActivityIndicatorView.show("확성기를 활성화 하는 중입니다.")
         Alamofire
             .request(Router.SetPoint(uuid: User.sharedInstance().uuid))
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    self.setUser()
+                    BBActivityIndicatorView.hide()
+            }
+        }
     }
     
     func setPointReturn() {
+        BBActivityIndicatorView.show("확성기를 취소하는 중입니다.")
         Alamofire
             .request(Router.SetPointReturn(uuid: User.sharedInstance().uuid))
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    self.setUser()
+                    BBActivityIndicatorView.hide()
+                }
+        }
     }
     
     func setUser() {
@@ -107,6 +121,11 @@ class PostBoardViewController: UIViewController {
             }
         }
         sleep(1)
+        
+        if isNotiveActivate == false {
+            let description = LibraryAPI.sharedInstance.isSuccessPointReturn()
+            BBAlertView.alert(description.title, message: description.message)
+        }
     }
     
     func urlRequestWithComponents(urlString:String, parameters:Dictionary<String, String>, imageData:NSData) -> (URLRequestConvertible, NSData) {
@@ -163,11 +182,14 @@ class PostBoardViewController: UIViewController {
     func requestWithNoImage(type: String) {
         var notice = ""
         if self.isNotiveActivate {notice = "Y"} else {notice = "N"}
+        
+        BBActivityIndicatorView.show("개시중입니다")
         Alamofire
             .request(Router.SetPost2(type: type, uuid: User.sharedInstance().uuid,keyword: self.postKeyword, contents: self.postContents, univ: User.sharedInstance().univ, notice: notice))
             .responseString { response in
                 debugPrint(response)
                 if response.result.isSuccess {
+                    BBActivityIndicatorView.hide()
                     let descriptions = LibraryAPI.sharedInstance.isSuccessPost()
                     BBAlertView.alert(descriptions.title, message: descriptions.message, buttons: descriptions.buttons, tapBlock: {(alertAction, position) -> Void in
                         self.dismissViewControllerAnimated(true, completion: nil)
@@ -192,6 +214,7 @@ class PostBoardViewController: UIViewController {
         if isNotiveActivate == false {
             NSNotificationCenter.defaultCenter().removeObserver(self)
             let descriptions = LibraryAPI.sharedInstance.clickNoticeButton(point: User.sharedInstance().point)
+    
             BBAlertView.alert(descriptions.title, message: descriptions.message, buttons: descriptions.buttons, tapBlock: {(alertAction, position) -> Void in
                 if position == 1 {
                     if Int(User.sharedInstance().point) < 10 {
@@ -209,7 +232,6 @@ class PostBoardViewController: UIViewController {
             self.isNotiveActivate = false
             self.toolBoxNoticeButton.setImage(UIImage(named: "keyboard_notice"), forState: UIControlState.Normal)
             self.setPointReturn()
-            self.setUser()
         }
     }
     

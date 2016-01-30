@@ -41,9 +41,9 @@ class MypageViewController: UIViewController {
         Alamofire
             .request(Router.GetMyPage(uuid: "\(User.sharedInstance().uuid)", type: "T01"))
             .responseCollection { (response: Response<[MyPage], NSError>) in
-                //BBActivityIndicatorView.show("데이터를 불러오는 중입니다.")
+                BBActivityIndicatorView.show("데이터를 불러오는 중입니다.")
                 if response.result.isSuccess {
-                    //BBActivityIndicatorView.hide()
+                    BBActivityIndicatorView.hide()
                     self.myPages = (response.result.value)!
                     if self.myPages.isEmpty {
                         self.hiddenView.backgroundColor = UIColor.whiteColor()

@@ -38,6 +38,10 @@ class AlertMessageManager {
         return ("알림", "다시 시도해주시길 바랍니다 :(")
     }
     
+    func isSuccessPointReturn() -> (title: String, message: String) {
+        return ("알림", "확성기를 취소하였습니다.")
+    }
+    
     init() {
         
     }
