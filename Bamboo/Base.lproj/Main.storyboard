@@ -997,6 +997,24 @@ fdfsf
                                 </constraints>
                                 <state key="normal" image="btn_write_unselected"/>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BCT-8W-tre">
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="게시글이 없습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIh-7i-NCn">
+                                        <rect key="frame" x="103" y="188" width="126" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="V4L-RM-pmU">
+                                        <rect key="frame" x="130" y="92" width="61" height="61"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="V4L-RM-pmU" firstAttribute="centerX" secondItem="BCT-8W-tre" secondAttribute="centerX" id="21f-aU-wqT"/>
+                                    <constraint firstItem="gIh-7i-NCn" firstAttribute="centerX" secondItem="BCT-8W-tre" secondAttribute="centerX" id="o5Q-b5-WGn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1004,8 +1022,10 @@ fdfsf
                             <constraint firstItem="xg1-wp-5aJ" firstAttribute="top" secondItem="i1p-AI-bE5" secondAttribute="bottom" constant="8" id="8eZ-XQ-VgM"/>
                             <constraint firstItem="q3Y-bC-9NW" firstAttribute="trailing" secondItem="eMD-Vt-KfT" secondAttribute="trailing" constant="-10" id="JBb-om-aq8"/>
                             <constraint firstItem="i1p-AI-bE5" firstAttribute="trailing" secondItem="eMD-Vt-KfT" secondAttribute="trailing" constant="-10" id="R4T-Ie-B4q"/>
+                            <constraint firstItem="BCT-8W-tre" firstAttribute="height" secondItem="Gr1-xk-Pu4" secondAttribute="height" id="S6R-UU-wxc"/>
                             <constraint firstItem="i1p-AI-bE5" firstAttribute="top" secondItem="q3Y-bC-9NW" secondAttribute="bottom" constant="8" id="Vjs-aP-jW3"/>
                             <constraint firstItem="eMD-Vt-KfT" firstAttribute="width" secondItem="Gr1-xk-Pu4" secondAttribute="width" id="cF9-TW-60V"/>
+                            <constraint firstItem="BCT-8W-tre" firstAttribute="width" secondItem="Gr1-xk-Pu4" secondAttribute="width" id="dcx-Ny-PTc"/>
                             <constraint firstItem="eMD-Vt-KfT" firstAttribute="leading" secondItem="Gr1-xk-Pu4" secondAttribute="leading" id="ijY-vU-hqE"/>
                             <constraint firstItem="eMD-Vt-KfT" firstAttribute="height" secondItem="Gr1-xk-Pu4" secondAttribute="height" id="mEF-Jo-shH"/>
                             <constraint firstItem="xg1-wp-5aJ" firstAttribute="trailing" secondItem="eMD-Vt-KfT" secondAttribute="trailing" constant="-10" id="s9P-26-1Wr"/>
@@ -1037,6 +1057,7 @@ fdfsf
                         <outlet property="btnBest" destination="q3Y-bC-9NW" id="OED-4F-Pop"/>
                         <outlet property="btnNew" destination="i1p-AI-bE5" id="X0g-1c-RgK"/>
                         <outlet property="btnWrite" destination="xg1-wp-5aJ" id="Zeo-Ay-ZbD"/>
+                        <outlet property="hiddenView" destination="BCT-8W-tre" id="dP4-O1-B8l"/>
                         <outlet property="univListTableView" destination="eMD-Vt-KfT" id="ooE-ij-3AH"/>
                     </connections>
                 </viewController>
@@ -1634,7 +1655,7 @@ fdfsf
                         <viewControllerLayoutGuide type="bottom" id="p3Y-CS-44r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uGU-ci-wcg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMA-sc-fBK">
@@ -2368,7 +2389,7 @@ fdfsf
         <image name="write" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="69g-hu-B9J"/>
+        <segue reference="Qav-N2-cby"/>
         <segue reference="FXn-wn-E7A"/>
         <segue reference="et4-5W-NPl"/>
         <segue reference="UQf-QZ-zap"/>

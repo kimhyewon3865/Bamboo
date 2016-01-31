@@ -20,28 +20,21 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
     var plusUnivBoards : [UnivBoard] = []
     var refreshControl:UIRefreshControl!
     
+    @IBOutlet weak var hiddenView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hiddenView.hidden = true
         print("\(User.sharedInstance().univ)")
         initSetting()
         initUnivBoard()
-        
-        //        self.btnBest.hidden = true
-        //        self.btnNew.hidden = true
-        //        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
-        //        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
-        //        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
-        //        self.refreshControl = UIRefreshControl()
-        //        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        //        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        //        self.univListTableView.addSubview(refreshControl)
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
-        initSetting()
+        self.hiddenView.hidden = true
         initUnivBoard()
+
+        initSetting()
     }
 
     
@@ -206,6 +199,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.univListTableView.addSubview(refreshControl)
+        
     }
     
     func initUnivBoard() {
@@ -216,8 +210,11 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.univBoards = response.result.value!
                     print(response)
                     print(response.result.value)
+                    if self.univBoards.isEmpty {
+                        self.hiddenView.hidden = false
+                    }
+
                 }
-                
                 self.univListTableView.reloadData()
         }
     }
