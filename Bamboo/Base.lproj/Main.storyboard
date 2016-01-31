@@ -570,7 +570,9 @@ df
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="gYR-uI-Rxx" secondAttribute="bottom" constant="9" id="2Gj-wp-Zq2"/>
                                             <constraint firstItem="tud-EL-0QT" firstAttribute="centerY" secondItem="XJy-PE-ooY" secondAttribute="centerY" id="UEL-kI-eg0"/>
+                                            <constraint firstItem="tud-EL-0QT" firstAttribute="width" secondItem="XJy-PE-ooY" secondAttribute="height" multiplier="2:1" id="j97-Oj-Mfa"/>
                                             <constraint firstItem="tud-EL-0QT" firstAttribute="centerX" secondItem="XJy-PE-ooY" secondAttribute="centerX" id="khP-dy-aWW"/>
+                                            <constraint firstItem="tud-EL-0QT" firstAttribute="width" secondItem="XJy-PE-ooY" secondAttribute="width" id="led-cB-4Sl"/>
                                             <constraint firstAttribute="bottom" secondItem="mvq-A6-xue" secondAttribute="bottom" constant="9" id="oTe-xP-cQT"/>
                                         </constraints>
                                         <connections>
@@ -1036,6 +1038,9 @@ fdfsf
                     <navigationItem key="navigationItem" title="속닥" id="5L4-Ol-x59">
                         <barButtonItem key="leftBarButtonItem" image="setting" id="OhZ-lL-fsD">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="Gn2-yh-pdt" kind="modal" id="GDr-dO-lIO"/>
+                            </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="write" id="XIg-GK-pBF">
@@ -1074,11 +1079,11 @@ fdfsf
                         <viewControllerLayoutGuide type="bottom" id="ekl-zQ-a4H"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oyO-ZH-o6Y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-9v-Xcu">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.90588235294117647" blue="0.89411764705882357" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="6" minimumInteritemSpacing="6" id="vAT-gT-qTF">
                                     <size key="itemSize" width="146" height="176"/>
@@ -1273,7 +1278,7 @@ fdfsf
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RJT-2u-Tr6">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
-                                <color key="backgroundColor" red="0.48627450980392156" green="0.36470588235294116" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.55638415404040398" green="0.41676066224150371" blue="0.30996550738127276" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rat-JI-fss">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -2389,9 +2394,10 @@ fdfsf
         <image name="write" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qav-N2-cby"/>
-        <segue reference="FXn-wn-E7A"/>
-        <segue reference="et4-5W-NPl"/>
-        <segue reference="UQf-QZ-zap"/>
+        <segue reference="miI-TN-1nM"/>
+        <segue reference="Y8n-kR-FgV"/>
+        <segue reference="MdN-sA-UFg"/>
+        <segue reference="kQV-gC-Auu"/>
+        <segue reference="ajH-RM-cRM"/>
     </inferredMetricsTieBreakers>
 </document>
