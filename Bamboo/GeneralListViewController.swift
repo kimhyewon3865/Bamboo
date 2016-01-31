@@ -154,13 +154,12 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             print("url")
         cell.backgroundImage.downloadedFrom(link: generalBoards[indexPath.row].imgURL, contentMode: .ScaleAspectFit)
         //cell.insertSubview(cell.backgroundImage, atIndex: indexPath.row)
-            var imageView = UIImageView(frame: CGRectMake(0, 0, 375, cell.frame.height))
-            imageView.image = cell.backgroundImage.image
-            print(cell.frame.width)
-            print(cell.backgroundImage.image?.size.width)
+//            var imageView = UIImageView(frame: CGRectMake(0, 0, 375, cell.frame.height))
+//            imageView.image = cell.backgroundImage.image
+//            print(cell.frame.width)
+//            print(cell.backgroundImage.image?.size.width)
             
             
-            //cell.addSubview(cell.backgroundImage)
         }
         //cell.addSubview(cell.backgroundImage)
         //print(indexPath.row)
@@ -246,10 +245,12 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     var pageInt = 1
     
     func initGeneralBoard() {
+        BBActivityIndicatorView.show("로딩중입니다><")
         Alamofire
             .request(Router.GetList(type: "T01", page: "1", university: "가천대학교"))
             .responseCollection { (response: Response<[GeneralBoard], NSError>) in
                 if response.result.isSuccess {
+                    BBActivityIndicatorView.hide()
                     self.generalBoards = response.result.value!
                     print(response)
                     print(response.result.value)
@@ -358,26 +359,6 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         btnNew.setImage(image, forState: .Normal)
         btnBest.setImage(image2, forState: .Normal)
     }
-    
-//    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
-//        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
-//            completion(data: data, response: response, error: error)
-//            }.resume()
-//    }
-//    
-//    func downloadImage(url: NSURL){
-//        print("Download Started")
-//        print("lastPathComponent: " + (url.lastPathComponent ?? ""))
-//        getDataFromUrl(url) { (data, response, error)  in
-//            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-//                guard let data = data where error == nil else { return }
-//                print(response?.suggestedFilename ?? "")
-//                print("Download Finished")
-//                //imageView.image = UIImage(data: data)
-//            }
-//        }
-//    }
-
 }
 
 extension UIImageView {
@@ -394,9 +375,6 @@ extension UIImageView {
                 let image = UIImage(data: data)
                 else { return }
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
-//                var imageView = UIImageView(frame: CGRectMake(10, 10, 375, 150))
-//                imageView.image = image
-//                self.image = imageView.image
                 self.image = image
             }
         }).resume()

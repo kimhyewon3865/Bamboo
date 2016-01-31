@@ -203,10 +203,12 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func initUnivBoard() {
+        BBActivityIndicatorView.show("로딩중입니다><")
         Alamofire
             .request(Router.GetList(type: "T03", page: "1", university: User.sharedInstance().univ))
             .responseCollection { (response: Response<[UnivBoard], NSError>) in
                 if response.result.isSuccess {
+                    BBActivityIndicatorView.hide()
                     self.univBoards = response.result.value!
                     print(response)
                     print(response.result.value)
