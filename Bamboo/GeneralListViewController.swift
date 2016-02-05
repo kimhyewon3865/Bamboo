@@ -36,7 +36,9 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         initGeneralBoard()
         pageInt = 1
         print("refresh")
+        
         self.refreshControl?.endRefreshing()
+  
         // Code to refresh table view
     }
     
@@ -247,7 +249,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     func initGeneralBoard() {
         BBActivityIndicatorView.show("로딩중입니다><")
         Alamofire
-            .request(Router.GetList(type: "T01", page: "1", university: "가천대학교"))
+            .request(Router.GetList(type: "T01", page: "1", university: User.sharedInstance().univ , uuid: User.sharedInstance().uuid))
             .responseCollection { (response: Response<[GeneralBoard], NSError>) in
                 if response.result.isSuccess {
                     BBActivityIndicatorView.hide()
@@ -263,7 +265,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func plusInitGeneralBoard() {
         Alamofire
-            .request(Router.GetList(type: "T01", page: "\(pageInt)", university: "가천대학교"))
+            .request(Router.GetList(type: "T01", page: "\(pageInt)", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
             .responseCollection { (response: Response<[GeneralBoard], NSError>) in
                 if response.result.isSuccess {
                     self.plusGeneralBoards = response.result.value!
@@ -292,6 +294,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             DetailVC.contentlikeNumT = String(generalBoards[indexPath!.row].numberOfLike)
             DetailVC.commentNumT = String(generalBoards[indexPath!.row].numberOfComment)
             DetailVC.code = generalBoards[indexPath!.row].code
+            DetailVC.imageT = generalBoards[indexPath!.row].imgURL
             print(DetailVC.code)
         }
             

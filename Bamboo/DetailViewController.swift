@@ -34,7 +34,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     var state = ""
     var timeSpace = ""
     var dateFormatter = NSDateFormatter()
+    var imageT = ""
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var commentTableView: UITableView!
     
     override func viewDidLoad() {
@@ -166,7 +168,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             let tmpKeywordArray = keywords.characters.split{$0 == ","}.map(String.init)
             keywordArray = tmpKeywordArray
         }
-        
+        if imageT != "" {
+            backgroundImage.downloadedFrom(link: imageT, contentMode: .ScaleToFill)
+        }
         if(keywordArray.count == 0){
             keyword1.hidden = true
             keyword2.hidden = true
@@ -304,9 +308,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    
-    
 }
+
 
 
 
