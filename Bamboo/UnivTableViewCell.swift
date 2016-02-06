@@ -22,6 +22,7 @@ class UnivTableViewCell: UITableViewCell {
     
     @IBOutlet weak var keywordThird: UIButton!
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var likeImage: UIButton!
     /*
     @IBOutlet weak var contents: UIButton!

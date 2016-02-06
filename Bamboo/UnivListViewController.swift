@@ -66,7 +66,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.likeNum.text = String(self.univBoards[indexPath.row].numberOfLike)
         
         cell.commentNum.text = String(self.univBoards[indexPath.row].numberOfComment)
-        
+        cell.backgroundImage.downloadedFrom(link: univBoards[indexPath.row].imgURL, contentMode: .ScaleAspectFit)
         //print(indexPath.row)
         
         if univBoards[indexPath.row].keywords != ""{
@@ -205,7 +205,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
     func initUnivBoard() {
         BBActivityIndicatorView.show("로딩중입니다><")
         Alamofire
-            .request(Router.GetList(type: "T03", page: "1", university: User.sharedInstance().univ))
+            .request(Router.GetList(type: "T03", page: "1", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
             .responseCollection { (response: Response<[UnivBoard], NSError>) in
                 if response.result.isSuccess {
                     BBActivityIndicatorView.hide()
@@ -223,7 +223,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func plusInitUnivBoard() {
         Alamofire
-            .request(Router.GetList(type: "T03", page: "\(pageInt)", university: User.sharedInstance().univ))
+            .request(Router.GetList(type: "T03", page: "\(pageInt)", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
             .responseCollection { (response: Response<[UnivBoard], NSError>) in
                 if response.result.isSuccess {
                     self.univBoards = response.result.value!
