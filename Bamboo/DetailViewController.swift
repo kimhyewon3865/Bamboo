@@ -181,7 +181,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         }
         else if(keywordArray.count == 1){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
-            keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
+            keyword2.hidden = true
             keyword3.hidden = true
             keyword4.hidden = true
             keyword5.hidden = true

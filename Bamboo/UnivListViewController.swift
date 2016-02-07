@@ -223,6 +223,10 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
                         self.hiddenView.hidden = false
                         self.univListTableView.hidden = true
                     }
+                    else {
+                        self.hiddenView.hidden = true
+                        self.univListTableView.hidden = false
+                    }
 
                 }
                 self.univListTableView.reloadData()
