@@ -66,10 +66,11 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.likeNum.text = String(self.univBoards[indexPath.row].numberOfLike)
         
         cell.commentNum.text = String(self.univBoards[indexPath.row].numberOfComment)
+        //cell.commentNum.text = "\(indexPath.row)"
+        
         cell.backgroundImage.downloadedFrom(link: univBoards[indexPath.row].imgURL, contentMode: .ScaleAspectFit)
         //print(indexPath.row)
-        
-        if univBoards[indexPath.row].keywords != ""{
+
             if(univBoards[indexPath.row].keywordArray.count == 0){
                 cell.keywordFirst.hidden = true
                 cell.keywordSecond.hidden = true
@@ -79,6 +80,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
                 //                cell.keywordThird.setTitle(" ", forState: .Normal)
             }
             else if(univBoards[indexPath.row].keywordArray.count == 1){
+                cell.keywordFirst.hidden = false
                 cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
                 cell.keywordSecond.hidden = true
                 cell.keywordThird.hidden = true
@@ -86,16 +88,21 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
                 //                cell.keywordThird.setTitle("", forState: .Normal)
             }
             else if(univBoards[indexPath.row].keywordArray.count == 2){
+                cell.keywordFirst.hidden = false
+                cell.keywordSecond.hidden = false
                 cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
                 cell.keywordSecond.setTitle("#"+self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
-                cell.keywordThird.setTitle("", forState: .Normal)
+                cell.keywordThird.hidden = true
             }
             else {
+                cell.keywordFirst.hidden = false
+                cell.keywordSecond.hidden = false
+                cell.keywordThird.hidden = false
                 cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
                 cell.keywordSecond.setTitle("#"+self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
                 cell.keywordThird.setTitle("#"+self.univBoards[indexPath.row].keywordArray[2], forState: .Normal)
             }
-        }
+        
         //print(univBoards[indexPath.row].keywordArray.count)
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.whiteColor()
@@ -214,6 +221,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
                     print(response.result.value)
                     if self.univBoards.isEmpty {
                         self.hiddenView.hidden = false
+                        self.univListTableView.hidden = true
                     }
 
                 }

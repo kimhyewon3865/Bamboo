@@ -20,6 +20,8 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
 
     var refreshControl:UIRefreshControl!
     
+    var isAnimating = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initGeneralBoard()
@@ -33,12 +35,18 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func refresh(sender:AnyObject)
     {
-        initGeneralBoard()
         pageInt = 1
         print("refresh")
-        
-        self.refreshControl?.endRefreshing()
-  
+        if refreshControl.refreshing {
+            if isAnimating {
+            print(refreshControl.refreshing)
+            self.refreshControl?.endRefreshing()
+            isAnimating = false
+            }
+        }
+
+        initGeneralBoard()
+
         // Code to refresh table view
     }
     
@@ -51,81 +59,16 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
         btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
         btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
-        
+        if !isAnimating {
+        isAnimating = true
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.generalListTableView.addSubview(refreshControl)
-        
+        }
     }
-    
-    // MARK: - CollectionView DataSource
-    //    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //
-    //        return self.generalBoards.count
-    //    }
-    
-    // MARK: - CollectionView DataSource
-    //    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    //        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("generalCell", forIndexPath: indexPath) as! GeneralCollectionViewCell
-    //
-    //        cell.contents.setTitle(self.generalBoards[indexPath.row].contents, forState: .Normal)
-    //
-    //        cell.likeNum.text = String(self.generalBoards[indexPath.row].numberOfLike)
-    //
-    //        cell.commentNum.text = String(self.generalBoards[indexPath.row].numberOfComment)
-    //
-    //        //print(indexPath.row)
-    //
-    //        //if generalBoards[indexPath.row].keywords != ""{
-    //        if(generalBoards[indexPath.row].keywordArray.count == 0){
-    //            cell.keywordFirst.hidden = true
-    //            cell.keywordSecond.hidden = true
-    //            cell.keywordThird.hidden = true
-    //            //                cell.keywordFirst.setTitle(" ", forState: .Normal)
-    //            //                cell.keywordSecond.setTitle(" ", forState: .Normal)
-    //            //                cell.keywordThird.setTitle(" ", forState: .Normal)
-    //        }
-    //        else if(generalBoards[indexPath.row].keywordArray.count == 1){
-    //            cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
-    //            cell.keywordSecond.hidden = true
-    //            cell.keywordThird.hidden = true
-    //            //                cell.keywordSecond.setTitle("", forState: .Normal)
-    //            //                cell.keywordThird.setTitle("", forState: .Normal)
-    //        }
-    //        else if(generalBoards[indexPath.row].keywordArray.count == 2){
-    //            cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
-    //            cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
-    //            cell.keywordThird.setTitle("", forState: .Normal)
-    //        }
-    //        else {
-    //            cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
-    //            cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
-    //            cell.keywordThird.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[2], forState: .Normal)
-    //        }
-    //        //}
-    //        // print(univBoards[indexPath.row].keywordArray.count)
-    //        if indexPath.row % 2 == 0 {
-    //            cell.backgroundColor = UIColor.whiteColor()
-    //        } else {
-    //            cell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
-    //        }
-    //
-    //
-    //        return cell
-    //    }
-    //
-    //    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-    //        if indexPath.item > 4 {
-    //            if indexPath.item == (generalBoards.count-1) {
-    //                print("last")
-    //                pageInt = pageInt + 1
-    //                print(pageInt)
-    //                plusInitGeneralBoard()
-    //            }
-    //        }
-    //    }
-    //
+
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.item > 4 {
             if indexPath.item == (generalBoards.count-1) {
@@ -151,7 +94,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         cell.likeNum.text = String(self.generalBoards[indexPath.row].numberOfLike)
         
         cell.commentNum.text = String(self.generalBoards[indexPath.row].numberOfComment)
-        
+
         if generalBoards[indexPath.row].imgURL != "" {
             print("url")
         cell.backgroundImage.downloadedFrom(link: generalBoards[indexPath.row].imgURL, contentMode: .ScaleAspectFit)
@@ -167,6 +110,9 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         //print(indexPath.row)
         
         //if generalBoards[indexPath.row].keywords != ""{
+        
+        print(generalBoards[indexPath.row].contents)
+        print(generalBoards[indexPath.row].keywordArray.count)
         if(generalBoards[indexPath.row].keywordArray.count == 0){
             cell.keywordFirst.hidden = true
             cell.keywordSecond.hidden = true
@@ -176,6 +122,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             //                cell.keywordThird.setTitle(" ", forState: .Normal)
         }
         else if(generalBoards[indexPath.row].keywordArray.count == 1){
+            cell.keywordFirst.hidden = false
             cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
             cell.keywordSecond.hidden = true
             cell.keywordThird.hidden = true
@@ -183,11 +130,16 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             //                cell.keywordThird.setTitle("", forState: .Normal)
         }
         else if(generalBoards[indexPath.row].keywordArray.count == 2){
+            cell.keywordFirst.hidden = false
+            cell.keywordSecond.hidden = false
             cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
             cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
             cell.keywordThird.setTitle("", forState: .Normal)
         }
         else {
+            cell.keywordFirst.hidden = false
+            cell.keywordSecond.hidden = false
+            cell.keywordThird.hidden = false
             cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
             cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
             cell.keywordThird.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[2], forState: .Normal)
@@ -260,7 +212,6 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
                 
                 self.generalListTableView.reloadData()
         }
-        
     }
     
     func plusInitGeneralBoard() {
