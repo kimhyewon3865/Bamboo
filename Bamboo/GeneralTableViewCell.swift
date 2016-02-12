@@ -9,7 +9,7 @@
 import UIKit
 
 class GeneralTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var contents: UIButton!
     
     @IBOutlet weak var likeNum: UILabel!
@@ -36,24 +36,41 @@ class GeneralTableViewCell: UITableViewCell {
     @IBOutlet weak var keywordThird: UIButton!
     @IBOutlet weak var likeImage: UIImageView!
     
-
+    
     */
     
+    var countN = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
         // Configure the view for the selected state
     }
+    
     func contentLikeFunc() {
-        print("야야")
-        var image = UIImage(named: "like")
-        likeImage.setImage(image, forState: .Normal)
+        let image = UIImage(named: "like")
+        let image2 = UIImage(named: "unlike")
+        
+        if countN == 0 {
+            likeImage.setImage(image, forState: .Normal)
+            var tmp = Int(likeNum.text!)
+            tmp! = tmp! + 1
+            likeNum.text = "\(tmp!)"
+            countN = 1
+        }
+        else {
+            likeImage.setImage(image2, forState: .Normal)
+            var tmp = Int(likeNum.text!)
+            tmp! = tmp! - 1
+            likeNum.text = "\(tmp!)"
+            countN = 0
+            
+        }
     }
 }

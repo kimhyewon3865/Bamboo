@@ -22,6 +22,8 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     
     var isAnimating = false
     
+    var likeTempN = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initGeneralBoard()
@@ -152,6 +154,15 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             cell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
         }
         
+        if generalBoards[indexPath.row].islike == "0" {
+            let image: UIImage = UIImage(named: "unlike")!
+            cell.likeImage.setImage(image, forState: UIControlState.Normal)
+        }
+        else {
+            let image: UIImage = UIImage(named: "like")!
+            cell.likeImage.setImage(image, forState: UIControlState.Normal)
+        }
+        
         cell.likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
         
         
@@ -159,7 +170,6 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func contentLikeFunc() {
-        print("왜왜")
         setLike()
 //        contentLikeNum.text = String(contentLikeNumTmp)
     }
@@ -167,7 +177,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     func setLike() {
         let point : CGPoint = generalListTableView.convertPoint(CGPointZero, toView:generalListTableView)
         let indexPath = generalListTableView.indexPathForRowAtPoint(point)
-        var code = generalBoards[indexPath!.row].code
+        let code = generalBoards[indexPath!.row].code
         
         let jsonParser = SimpleJsonParser()
         jsonParser.HTTPGetJson("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Like.php?b_code=\(code)&uuid=\(User.sharedInstance().uuid)") {
@@ -254,7 +264,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:generalListTableView)
             let indexPath = generalListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = generalBoards[indexPath!.row].keywordArray[0]
+            KeywordVC.titleName = "#" + generalBoards[indexPath!.row].keywordArray[0]
         }
             
         else if segue.identifier == "keywordGeneralSecondSegue" {
@@ -262,14 +272,14 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:generalListTableView)
             let indexPath = generalListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = generalBoards[indexPath!.row].keywordArray[1]
+            KeywordVC.titleName = "#" + generalBoards[indexPath!.row].keywordArray[1]
         }
         else if segue.identifier == "keywordGeneralThirdSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:generalListTableView)
             let indexPath = generalListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = generalBoards[indexPath!.row].keywordArray[2]
+            KeywordVC.titleName = "#" + generalBoards[indexPath!.row].keywordArray[2]
         }
         else if segue.identifier == "generalPost" {
             let PostBoardVC = segue.destinationViewController as! PostBoardViewController
@@ -333,21 +343,4 @@ extension UIImageView {
             }
         }).resume()
     }
-}//
-//extension GeneralListViewController: UITableViewDataSource {
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.generalBoards.count
-//    }
-//
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = listTableView.dequeueReusableCellWithIdentifier("ListCell", forIndexPath: indexPath) as! ListTableViewCell
-//
-//        cell.codeLabel.text = generalBoards[indexPath.row].contents
-//        return cell
-//    }
-//}
-//
-//extension GeneralListViewController: UITableViewDelegate {
-//
-//}
-//
+}

@@ -33,7 +33,6 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(animated: Bool) {
         self.hiddenView.hidden = true
         initUnivBoard()
-
         initSetting()
     }
 
@@ -67,6 +66,16 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         cell.commentNum.text = String(self.univBoards[indexPath.row].numberOfComment)
         //cell.commentNum.text = "\(indexPath.row)"
+        
+        if univBoards[indexPath.row].islike == "0" {
+            let image: UIImage = UIImage(named: "unlike")!
+            cell.likeImage.setImage(image, forState: UIControlState.Normal)
+        }
+        else {
+            let image: UIImage = UIImage(named: "like")!
+            cell.likeImage.setImage(image, forState: UIControlState.Normal)
+        }
+        cell.likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
         
         cell.backgroundImage.downloadedFrom(link: univBoards[indexPath.row].imgURL, contentMode: .ScaleAspectFit)
         //print(indexPath.row)
@@ -110,9 +119,53 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
         }
         
-        
+        if univBoards[indexPath.row].notice_yn == "Y" {
+            cell.megaPhone.hidden = false
+        }
+        else {
+            cell.megaPhone.hidden = true
+        }
         return cell
     }
+    
+    
+    func contentLikeFunc() {
+        setLike()
+        //        contentLikeNum.text = String(contentLikeNumTmp)
+    }
+    
+    func setLike() {
+        let point : CGPoint = univListTableView.convertPoint(CGPointZero, toView:univListTableView)
+        let indexPath = univListTableView.indexPathForRowAtPoint(point)
+        let code = univBoards[indexPath!.row].code
+        
+        let jsonParser = SimpleJsonParser()
+        jsonParser.HTTPGetJson("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Like.php?b_code=\(code)&uuid=\(User.sharedInstance().uuid)") {
+            (data : Dictionary<String, AnyObject>, error : String?) -> Void in
+            if error != nil {
+                print("\(error) : PostBoardVC")
+            } else {
+                if let stateT = data["state"] as? String,
+                    let message = data["message"] as? String
+                {
+                    print("succece:))")
+                    //                    self.state = stateT
+                    //                    print(self.state)
+                    //                    if self.state == "1" {
+                    //                        //                        print("yet")
+                    //                        //                        self.contentLikeNumTmp = self.contentLikeNumTmp + 1
+                    //                        //                        print(self.contentLikeNumTmp)
+                    //                        //                        self.contentLikeNum.text = "\(self.contentLikeNumTmp)" ////
+                    //                        //
+                    //                    }
+                    
+                } else {
+                    //print("User객체 SimpleJsonParser인스턴스 failed")
+                }
+            }
+        }
+    }
+
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.item > 4 {
@@ -123,75 +176,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
     }
-    //
-    //    // MARK: - TableView DataSource
-    //    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //
-    //        return self.univBoards.count
-    //    }
-    //
-    //
-    //
-    //    // MARK: - TableView DataSource
-    //    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    //        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("univListCell", forIndexPath: indexPath) as! UnivListCollectionViewCell
-    //
-    //        cell.contents.setTitle(self.univBoards[indexPath.row].contents, forState: .Normal)
-    //
-    //        cell.likeNum.text = String(self.univBoards[indexPath.row].numberOfLike)
-    //
-    //        cell.commentNum.text = String(self.univBoards[indexPath.row].numberOfComment)
-    //
-    //        //print(indexPath.row)
-    //
-    //        if univBoards[indexPath.row].keywords != ""{
-    //            if(univBoards[indexPath.row].keywordArray.count == 0){
-    //                cell.keywordFirst.hidden = true
-    //                cell.keywordSecond.hidden = true
-    //                cell.keywordThird.hidden = true
-    ////                cell.keywordFirst.setTitle(" ", forState: .Normal)
-    ////                cell.keywordSecond.setTitle(" ", forState: .Normal)
-    ////                cell.keywordThird.setTitle(" ", forState: .Normal)
-    //            }
-    //            else if(univBoards[indexPath.row].keywordArray.count == 1){
-    //                cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
-    //                cell.keywordSecond.hidden = true
-    //                cell.keywordThird.hidden = true
-    ////                cell.keywordSecond.setTitle("", forState: .Normal)
-    ////                cell.keywordThird.setTitle("", forState: .Normal)
-    //            }
-    //            else if(univBoards[indexPath.row].keywordArray.count == 2){
-    //                cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
-    //                cell.keywordSecond.setTitle("#"+self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
-    //                cell.keywordThird.setTitle("", forState: .Normal)
-    //            }
-    //            else {
-    //                cell.keywordFirst.setTitle("#"+self.univBoards[indexPath.row].keywordArray[0], forState: .Normal)
-    //                cell.keywordSecond.setTitle("#"+self.univBoards[indexPath.row].keywordArray[1], forState: .Normal)
-    //                cell.keywordThird.setTitle("#"+self.univBoards[indexPath.row].keywordArray[2], forState: .Normal)
-    //            }
-    //        }
-    //        //print(univBoards[indexPath.row].keywordArray.count)
-    //        if indexPath.row % 2 == 0 {
-    //            cell.backgroundColor = UIColor.whiteColor()
-    //        } else {
-    //            cell.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
-    //        }
-    //
-    //
-    //        return cell
-    //    }
-    //
-    //    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-    //        if indexPath.item > 4 {
-    //        if indexPath.item == (univBoards.count-1) {
-    //            pageInt = pageInt + 1
-    //            print(pageInt)
-    //            plusInitUnivBoard()
-    //        }
-    //        }
-    //    }
-    
+
     var pageInt = 1
     
     func initSetting() {
@@ -270,7 +255,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
             let indexPath = univListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[0]
+            KeywordVC.titleName = "#" + univBoards[indexPath!.row].keywordArray[0]
         }
             
         else if segue.identifier == "keywordUnivSecondSegue" {
@@ -278,19 +263,23 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
             let indexPath = univListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[1]
+            KeywordVC.titleName = "#" + univBoards[indexPath!.row].keywordArray[1]
         }
         else if segue.identifier == "keywordUnivThirdSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
             let indexPath = univListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[2]
+            KeywordVC.titleName = "#" + univBoards[indexPath!.row].keywordArray[2]
         }
         else if segue.identifier == "univPost" {
             let PostBoardVC = segue.destinationViewController as! PostBoardViewController
             PostBoardVC.type = User.sharedInstance().univ
             
+        }
+        else if segue.identifier == "megaPhone" {
+            let KeywordVC = segue.destinationViewController as! KeywordViewController
+            KeywordVC.titleName = User.sharedInstance().univ
         }
         
         

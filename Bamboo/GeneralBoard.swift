@@ -16,9 +16,10 @@ final class GeneralBoard: ResponseObjectSerializable,  ResponseCollectionSeriali
     let imgURL: String
     let movURL: String
     let numberOfComment: Int
-    let numberOfLike: Int
+    var numberOfLike: Int
     var keywords: String
     var keywordArray: [String] = []
+    var islike: String
     
     init?(response: NSHTTPURLResponse, representation: AnyObject) {
         self.code = representation.valueForKeyPath("b_code") as! String
@@ -29,6 +30,7 @@ final class GeneralBoard: ResponseObjectSerializable,  ResponseCollectionSeriali
         self.numberOfComment = Int(representation.valueForKeyPath("comment_cnt") as! String)!
         self.numberOfLike = Int(representation.valueForKeyPath("like_cnt") as! String)!
         self.keywords = representation.valueForKeyPath("keyword") as! String
+        self.islike = representation.valueForKeyPath("is_like") as! String
         
         if self.keywords != "" {
             let tmpKeywordArray = keywords.characters.split{$0 == ","}.map(String.init)

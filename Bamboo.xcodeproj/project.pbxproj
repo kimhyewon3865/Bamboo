@@ -389,7 +389,6 @@
 			children = (
 				E8937F071C1E7D6C0056C5FD /* Bamboo */,
 				E8937F1C1C1E7D6C0056C5FD /* BambooTests */,
-				E8937F271C1E7D6C0056C5FD /* BambooUITests */,
 				E8937F061C1E7D6C0056C5FD /* Products */,
 				36E4DDAC685555EB90E58AE0 /* Pods */,
 				1F116050AA161F91BE1F59A7 /* Frameworks */,
@@ -409,6 +408,7 @@
 		E8937F071C1E7D6C0056C5FD /* Bamboo */ = {
 			isa = PBXGroup;
 			children = (
+				E8937F271C1E7D6C0056C5FD /* BambooUITests */,
 				E872E4881C29984100AB69F7 /* API */,
 				E82014FA1C1E9AB600F7DD5D /* Controller */,
 				E82014FD1C1E9AD600F7DD5D /* Model */,
@@ -439,7 +439,7 @@
 				E8937F2A1C1E7D6C0056C5FD /* Info.plist */,
 			);
 			path = BambooUITests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		E8F161901C38E33500814311 /* TGCameraViewController */ = {
 			isa = PBXGroup;
@@ -988,6 +988,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Bamboo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
@@ -996,7 +997,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -1007,6 +1008,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
 				INFOPLIST_FILE = Bamboo/Info.plist;
@@ -1016,7 +1018,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Release;
 		};

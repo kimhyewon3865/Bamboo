@@ -16,7 +16,7 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "#" + titleName
+        navigationItem.title = titleName
         self.keywordView.delegate = self
         self.keywordView.dataSource = self
         self.btnBest.hidden = true
