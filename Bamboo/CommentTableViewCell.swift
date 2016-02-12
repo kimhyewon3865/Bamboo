@@ -14,8 +14,41 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var commentContent: UILabel!
     
     @IBOutlet weak var commnetLikeNum: UILabel!
+    var countN = 0
+
+    @IBOutlet weak var likeBtn: UIButton!
     
-    @IBAction func likeBtn(sender: AnyObject) {
-        print("clicked!!!")
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
     }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        likeBtn.addTarget(self, action: "commentLikeFunc", forControlEvents: .TouchUpInside)
+        
+        // Configure the view for the selected state
+    }
+
+    func commentLikeFunc() {
+        let image = UIImage(named: "like")
+        let image2 = UIImage(named: "unlike")
+        
+        if countN == 0 {
+            likeBtn.setImage(image, forState: .Normal)
+            var tmp = Int(commnetLikeNum.text!)
+            tmp! = tmp! + 1
+            commnetLikeNum.text = "\(tmp!)"
+            countN = 1
+        }
+        else {
+            likeBtn.setImage(image2, forState: .Normal)
+            var tmp = Int(commnetLikeNum.text!)
+            tmp! = tmp! - 1
+            commnetLikeNum.text = "\(tmp!)"
+            countN = 0
+            
+        }
+    }
+
 }

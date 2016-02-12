@@ -1754,9 +1754,6 @@ fdfsf
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUp-aR-dci">
                                                     <rect key="frame" x="227" y="8" width="17" height="17"/>
                                                     <state key="normal" image="unlike"/>
-                                                    <connections>
-                                                        <action selector="likeBtn:" destination="A02-lT-cyB" eventType="touchUpInside" id="5fS-8H-HaY"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="미쳤졍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eH6-pL-3yg">
                                                     <rect key="frame" x="63" y="7" width="163" height="21"/>
@@ -1779,6 +1776,7 @@ fdfsf
                                         <connections>
                                             <outlet property="commentContent" destination="eH6-pL-3yg" id="Zu9-9p-Xo6"/>
                                             <outlet property="commnetLikeNum" destination="40J-Ud-UJ1" id="rgC-up-scJ"/>
+                                            <outlet property="likeBtn" destination="eUp-aR-dci" id="sEl-bH-bnv"/>
                                             <outlet property="time" destination="ulF-Va-u2j" id="c7s-7g-c74"/>
                                         </connections>
                                     </tableViewCell>
@@ -2454,9 +2452,9 @@ fdfsf
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="69g-hu-B9J"/>
-        <segue reference="KHw-zA-Lfe"/>
         <segue reference="GDr-dO-lIO"/>
         <segue reference="et4-5W-NPl"/>
         <segue reference="UQf-QZ-zap"/>
+        <segue reference="mHH-sY-H72"/>
     </inferredMetricsTieBreakers>
 </document>
