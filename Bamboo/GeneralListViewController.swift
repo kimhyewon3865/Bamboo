@@ -72,12 +72,17 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        print("indexPath")
+        print(indexPath.item)
+        print(generalBoards.count)
         if indexPath.item > 4 {
+            if generalBoards.count == 20 *  pageInt {
             if indexPath.item == (generalBoards.count-1) {
                 print("last")
                 pageInt = pageInt + 1
                 print(pageInt)
                 plusInitGeneralBoard()
+            }
             }
         }
         

@@ -168,12 +168,20 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
 
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        print("indexPath")
+        print(indexPath.item)
+        print(univBoards.count)
+        print(pageInt)
         if indexPath.item > 4 {
+            if univBoards.count == 20 *  pageInt {
             if indexPath.item == (univBoards.count-1) {
+                print("new")
                 pageInt = pageInt + 1
                 print(pageInt)
                 plusInitUnivBoard()
             }
+            }
+            
         }
     }
 
@@ -223,7 +231,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             .request(Router.GetList(type: "T03", page: "\(pageInt)", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
             .responseCollection { (response: Response<[UnivBoard], NSError>) in
                 if response.result.isSuccess {
-                    self.univBoards = response.result.value!
+                    self.plusUnivBoards = response.result.value!
                     print(response)
                     print(response.result.value)
                     self.univBoards = self.univBoards + self.plusUnivBoards
