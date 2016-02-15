@@ -287,6 +287,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         else if segue.identifier == "megaPhone" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
+            KeywordVC.detailOrMega = 2
             KeywordVC.titleName = User.sharedInstance().univ
         }
         
