@@ -16,6 +16,7 @@ enum Router: URLRequestConvertible {
     case GetMyPage(uuid: String, type: String)
     case GetDetail(bCode: String)
     case GetList(type: String, page: String, university: String, uuid: String)
+    case GetKeywordList(uuid: String, keyword: String)
     case GetComment(uuid: String, bCode: String)
     case SetDefault(uuid: String, university: String)
     case SetUniversity(uuid: String, university: String)
@@ -39,6 +40,8 @@ enum Router: URLRequestConvertible {
             return ("/Bamboo_Get_Detail.php", ["b_code": "\(bCode)"])
         case .GetList(let type, let page, let university, let uuid):
             return ("/Bamboo_Get_List.php", ["type": "\(type)", "page": "\(page)", "university": "\(university)", "uuid": "\(uuid)"])
+        case .GetKeywordList(let uuid, let keyword):
+            return ("/Bamboo_Get_Keyword_List.php", ["uuid": "\(uuid)", "keyword": "\(keyword)"])
         case .GetComment(let uuid, let bCode) :
             return ("/Bamboo_Get_Comment.php",["uuid": "\(uuid)", "b_code" : "\(bCode)"])
         case .SetDefault(let uuid, let university):
