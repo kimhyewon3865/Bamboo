@@ -60,8 +60,12 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
         }
         cell.likeNum.text = String(keywords[indexPath.row].numberOfLike)
         cell.commentNum.text = String(keywords[indexPath.row].numberOfComment)
-        cell.backgroundImage.downloadedFrom(link: keywords[indexPath.row].imgURL, contentMode: .ScaleAspectFit)
+        if keywords[indexPath.row].imgURL != "" {
+            cell.backgroundImage.alpha = 0.4
+            cell.backgroundImage.downloadedFrom(link: keywords[indexPath.row].imgURL, contentMode: .ScaleToFill)
+        }
 
+        
         if(keywords[indexPath.row].keywordArray.count == 0){
             cell.keywordFirst.hidden = true
             cell.keywordSecond.hidden = true
@@ -91,8 +95,6 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
             cell.keywordThird.setTitle("#"+self.keywords[indexPath.row].keywordArray[2], forState: .Normal)
         }
 
-//        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, heights[indexPath.row])
-        //cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 277)
         return cell
     }
     
@@ -171,11 +173,9 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "detail" {
             let DetailVC = segue.destinationViewController as! DetailViewController
-            
-            
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:keywordView)
             let indexPath = keywordView.indexPathForItemAtPoint(point)
-            //let indexPath = generalListTableView.indexPathForItemAtPoint(point)
+            print(keywords[indexPath!.row].contents)
             DetailVC.contentT = keywords[indexPath!.row].contents
             DetailVC.keywords = keywords[indexPath!.row].keywords
             DetailVC.contentlikeNumT = String(keywords[indexPath!.row].numberOfLike)

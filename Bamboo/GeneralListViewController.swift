@@ -104,7 +104,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
 
         if generalBoards[indexPath.row].imgURL != "" {
             print("url")
-        cell.backgroundImage.downloadedFrom(link: generalBoards[indexPath.row].imgURL, contentMode: .ScaleAspectFit)
+        cell.backgroundImage.downloadedFrom(link: generalBoards[indexPath.row].imgURL, contentMode: .ScaleToFill)
         //cell.insertSubview(cell.backgroundImage, atIndex: indexPath.row)
 //            var imageView = UIImageView(frame: CGRectMake(0, 0, 375, cell.frame.height))
 //            imageView.image = cell.backgroundImage.image

@@ -77,9 +77,8 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         cell.likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
         
-        cell.backgroundImage.downloadedFrom(link: univBoards[indexPath.row].imgURL, contentMode: .ScaleAspectFit)
-        //print(indexPath.row)
-
+        cell.backgroundImage.downloadedFrom(link: univBoards[indexPath.row].imgURL, contentMode: .ScaleToFill)
+        
             if(univBoards[indexPath.row].keywordArray.count == 0){
                 cell.keywordFirst.hidden = true
                 cell.keywordSecond.hidden = true
