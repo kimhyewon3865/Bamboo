@@ -145,8 +145,8 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             if error != nil {
                 print("\(error) : PostBoardVC")
             } else {
-                if let stateT = data["state"] as? String,
-                    let message = data["message"] as? String
+                if let _ = data["state"] as? String,
+                    let _ = data["message"] as? String
                 {
                     print("succece:))")
                     //                    self.state = stateT
@@ -263,7 +263,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
             let indexPath = univListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = "#" + univBoards[indexPath!.row].keywordArray[0]
+            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[0]
         }
             
         else if segue.identifier == "keywordUnivSecondSegue" {
@@ -271,14 +271,14 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
             let indexPath = univListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = "#" + univBoards[indexPath!.row].keywordArray[1]
+            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[1]
         }
         else if segue.identifier == "keywordUnivThirdSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:univListTableView)
             let indexPath = univListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = "#" + univBoards[indexPath!.row].keywordArray[2]
+            KeywordVC.titleName = univBoards[indexPath!.row].keywordArray[2]
         }
         else if segue.identifier == "univPost" {
             let PostBoardVC = segue.destinationViewController as! PostBoardViewController

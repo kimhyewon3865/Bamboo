@@ -15,11 +15,10 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
     
     var titleName = ""
     var detailOrMega = 1
-    var keywords : [UnivBoard] = []
+    var keywords : [GeneralBoard] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = titleName
         self.keywordView.delegate = self
         self.keywordView.dataSource = self
         self.btnBest.hidden = true
@@ -28,6 +27,11 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
         btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
 btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
         initUnivBoard()
+        if detailOrMega == 1 {
+            navigationItem.title = "#" + titleName
+        } else {
+            navigationItem.title = titleName
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -88,31 +92,35 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
         }
 
 //        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, heights[indexPath.row])
-        
+        //cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 277)
         return cell
     }
     
     func initUnivBoard() {
-        if detailOrMega == 2 {
-            BBActivityIndicatorView.show("로딩중입니다><")
+        BBActivityIndicatorView.show("로딩중입니다><")
+        
+        if detailOrMega == 1 {
             Alamofire
-                .request(Router.GetList(type: "T05", page: "1", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
-                
-                .responseCollection { (response: Response<[UnivBoard], NSError>) in
+                .request(Router.GetKeywordList(uuid: User.sharedInstance().uuid, keyword: titleName))
+                .responseCollection { (response: Response<[GeneralBoard], NSError>) in
                     if response.result.isSuccess {
                         BBActivityIndicatorView.hide()
                         self.keywords = response.result.value!
                         print(response)
                         print(response.result.value)
-                        //                    if self.keywords.isEmpty {
-                        //                        self.hiddenView.hidden = false
-                        //                        self.univListTableView.hidden = true
-                        //                    }
-                        //                    else {
-                        //                        self.hiddenView.hidden = true
-                        //                        self.univListTableView.hidden = false
-                        //                    }
-                        
+                    }
+                    self.keywordView.reloadData()
+            }
+        } else if detailOrMega == 2 {
+            Alamofire
+                .request(Router.GetList(type: "T05", page: "1", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
+                
+                .responseCollection { (response: Response<[GeneralBoard], NSError>) in
+                    if response.result.isSuccess {
+                        BBActivityIndicatorView.hide()
+                        self.keywords = response.result.value!
+                        print(response)
+                        print(response.result.value)
                     }
                     self.keywordView.reloadData()
             }
@@ -160,7 +168,23 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
         navigationController?.popViewControllerAnimated(true)
 
     }
- 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "detail" {
+            let DetailVC = segue.destinationViewController as! DetailViewController
+            
+            
+            let point : CGPoint = sender!.convertPoint(CGPointZero, toView:keywordView)
+            let indexPath = keywordView.indexPathForItemAtPoint(point)
+            //let indexPath = generalListTableView.indexPathForItemAtPoint(point)
+            DetailVC.contentT = keywords[indexPath!.row].contents
+            DetailVC.keywords = keywords[indexPath!.row].keywords
+            DetailVC.contentlikeNumT = String(keywords[indexPath!.row].numberOfLike)
+            DetailVC.commentNumT = String(keywords[indexPath!.row].numberOfComment)
+            DetailVC.code = keywords[indexPath!.row].code
+            DetailVC.imageT = keywords[indexPath!.row].imgURL
+            print(DetailVC.code)
+        }
+    }
     /*
     // MARK: - Navigation
 

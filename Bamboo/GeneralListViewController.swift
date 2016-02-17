@@ -190,8 +190,8 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             if error != nil {
                 print("\(error) : PostBoardVC")
             } else {
-                if let stateT = data["state"] as? String,
-                    let message = data["message"] as? String
+                if let _ = data["state"] as? String,
+                    let _ = data["message"] as? String
                 {
                     print("succece:))")
                     //                    self.state = stateT
@@ -269,7 +269,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:generalListTableView)
             let indexPath = generalListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = "#" + generalBoards[indexPath!.row].keywordArray[0]
+            KeywordVC.titleName = generalBoards[indexPath!.row].keywordArray[0]
         }
             
         else if segue.identifier == "keywordGeneralSecondSegue" {
@@ -277,14 +277,14 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:generalListTableView)
             let indexPath = generalListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = "#" + generalBoards[indexPath!.row].keywordArray[1]
+            KeywordVC.titleName = generalBoards[indexPath!.row].keywordArray[1]
         }
         else if segue.identifier == "keywordGeneralThirdSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             let point : CGPoint = sender!.convertPoint(CGPointZero, toView:generalListTableView)
             let indexPath = generalListTableView.indexPathForRowAtPoint(point)
             
-            KeywordVC.titleName = "#" + generalBoards[indexPath!.row].keywordArray[2]
+            KeywordVC.titleName = generalBoards[indexPath!.row].keywordArray[2]
         }
         else if segue.identifier == "generalPost" {
             let PostBoardVC = segue.destinationViewController as! PostBoardViewController
