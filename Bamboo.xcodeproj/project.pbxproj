@@ -33,6 +33,7 @@
 		E82015011C20267B00F7DD5D /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */; };
 		E82015041C2026C900F7DD5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015031C2026C900F7DD5D /* User.swift */; };
 		E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */; };
+		E82D44221C7576BC0037D83F /* SearchedDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44211C7576BC0037D83F /* SearchedDataTableViewCell.swift */; };
 		E841A6801C250F6400F5450D /* UnivSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */; };
 		E86D7EB71C3F77F30043D3FD /* MypageChangeUniversityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */; };
 		E86D7EB91C40A8FA0043D3FD /* KeywordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */; };
@@ -149,6 +150,7 @@
 		E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
 		E82015031C2026C900F7DD5D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
+		E82D44211C7576BC0037D83F /* SearchedDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedDataTableViewCell.swift; sourceTree = "<group>"; };
 		E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivSearchViewController.swift; sourceTree = "<group>"; };
 		E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageChangeUniversityViewController.swift; sourceTree = "<group>"; };
 		E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordManager.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				C9B310801C531C5C002E7165 /* RecentKeywordCollectionViewCell.swift */,
 				C9B310821C531C69002E7165 /* HotKeywordCollectionViewCell.swift */,
 				C9B310841C531C76002E7165 /* UnivKeywordCollectionViewCell.swift */,
+				E82D44211C7576BC0037D83F /* SearchedDataTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				E8937F0B1C1E7D6C0056C5FD /* GeneralListViewController.swift in Sources */,
 				E872E48C1C299A0100AB69F7 /* UniversityManager.swift in Sources */,
 				E8EC9C261C2E78A5002A7FA3 /* MypageViewController.swift in Sources */,
+				E82D44221C7576BC0037D83F /* SearchedDataTableViewCell.swift in Sources */,
 				C93045F01C4E5B7900AB5CC4 /* UnivTableViewCell.swift in Sources */,
 				E874BBCC1C2120A900E091A4 /* UnivBoard.swift in Sources */,
 				E872E4901C29A32F00AB69F7 /* LibraryAPI.swift in Sources */,
