@@ -34,6 +34,10 @@
 		E82015041C2026C900F7DD5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015031C2026C900F7DD5D /* User.swift */; };
 		E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */; };
 		E82D44221C7576BC0037D83F /* SearchedDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44211C7576BC0037D83F /* SearchedDataTableViewCell.swift */; };
+		E82D44241C7586640037D83F /* RecentKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44231C7586640037D83F /* RecentKeyword.swift */; };
+		E82D44261C760F9B0037D83F /* HotKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44251C760F9B0037D83F /* HotKeyword.swift */; };
+		E82D44281C760FA80037D83F /* UnivKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44271C760FA80037D83F /* UnivKeyword.swift */; };
+		E82D442A1C760FB30037D83F /* SearchKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44291C760FB30037D83F /* SearchKeyword.swift */; };
 		E841A6801C250F6400F5450D /* UnivSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */; };
 		E86D7EB71C3F77F30043D3FD /* MypageChangeUniversityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */; };
 		E86D7EB91C40A8FA0043D3FD /* KeywordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */; };
@@ -151,6 +155,10 @@
 		E82015031C2026C900F7DD5D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
 		E82D44211C7576BC0037D83F /* SearchedDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedDataTableViewCell.swift; sourceTree = "<group>"; };
+		E82D44231C7586640037D83F /* RecentKeyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentKeyword.swift; sourceTree = "<group>"; };
+		E82D44251C760F9B0037D83F /* HotKeyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyword.swift; sourceTree = "<group>"; };
+		E82D44271C760FA80037D83F /* UnivKeyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivKeyword.swift; sourceTree = "<group>"; };
+		E82D44291C760FB30037D83F /* SearchKeyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchKeyword.swift; sourceTree = "<group>"; };
 		E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivSearchViewController.swift; sourceTree = "<group>"; };
 		E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageChangeUniversityViewController.swift; sourceTree = "<group>"; };
 		E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordManager.swift; sourceTree = "<group>"; };
@@ -356,6 +364,10 @@
 				E872E4891C29995A00AB69F7 /* University.swift */,
 				E8EC9C291C2E9E5A002A7FA3 /* MyPage.swift */,
 				C90ACF561C3778F90038238E /* Detail.swift */,
+				E82D44231C7586640037D83F /* RecentKeyword.swift */,
+				E82D44251C760F9B0037D83F /* HotKeyword.swift */,
+				E82D44271C760FA80037D83F /* UnivKeyword.swift */,
+				E82D44291C760FB30037D83F /* SearchKeyword.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -776,10 +788,12 @@
 				C9B310811C531C5C002E7165 /* RecentKeywordCollectionViewCell.swift in Sources */,
 				E8F161E61C38E33500814311 /* TGTintedLabel.m in Sources */,
 				E8EC9C2A1C2E9E5A002A7FA3 /* MyPage.swift in Sources */,
+				E82D44261C760F9B0037D83F /* HotKeyword.swift in Sources */,
 				E8F161D21C38E33500814311 /* TGCameraNavigationController.m in Sources */,
 				E872E4981C2AA34E00AB69F7 /* BBActivityIndicatorView.swift in Sources */,
 				E8162F531C38CD3E00D491D3 /* PostBoardTabBarViewController.swift in Sources */,
 				E805E4C11C3B5FB40001134A /* AlertMessageManager.swift in Sources */,
+				E82D44281C760FA80037D83F /* UnivKeyword.swift in Sources */,
 				E8F161DB1C38E33500814311 /* TGCameraGrid.m in Sources */,
 				E8F161D41C38E33500814311 /* TGPhotoViewController.m in Sources */,
 				E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */,
@@ -793,6 +807,7 @@
 				C9B8E6FA1C29B8E900128132 /* UnivListViewController.swift in Sources */,
 				E8F161D71C38E33500814311 /* TGCamera.m in Sources */,
 				C93045EE1C4CACFB00AB5CC4 /* GeneralTableViewCell.swift in Sources */,
+				E82D442A1C760FB30037D83F /* SearchKeyword.swift in Sources */,
 				E8162F521C38CD3E00D491D3 /* PhotoCollectionViewCell.swift in Sources */,
 				C9B310851C531C76002E7165 /* UnivKeywordCollectionViewCell.swift in Sources */,
 				E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */,
@@ -826,6 +841,7 @@
 				E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */,
 				E8937F091C1E7D6C0056C5FD /* AppDelegate.swift in Sources */,
 				E8F161E21C38E33500814311 /* TGCameraSlideDownView.m in Sources */,
+				E82D44241C7586640037D83F /* RecentKeyword.swift in Sources */,
 				E8F161DF1C38E33500814311 /* TGCameraFilterView.m in Sources */,
 				E8F161E01C38E33500814311 /* TGCameraFocusView.m in Sources */,
 				E8F161D91C38E33500814311 /* TGCameraFlash.m in Sources */,

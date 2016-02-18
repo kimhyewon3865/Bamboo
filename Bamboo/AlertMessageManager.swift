@@ -42,6 +42,10 @@ class AlertMessageManager {
         return ("알림", "확성기를 취소하였습니다.")
     }
     
+    func isFailToSearch() -> (title: String, message: String) {
+        return ("알림", "검색 결과가 없습니다 :[")
+    }
+    
     init() {
         
     }

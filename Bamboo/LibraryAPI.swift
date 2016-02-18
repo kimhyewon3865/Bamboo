@@ -66,6 +66,10 @@ class LibraryAPI: NSObject {
         return self.alertMessageManager.isSuccessPointReturn()
     }
     
+    func isFailToSearch() -> (title: String, message: String) {
+        return self.alertMessageManager.isFailToSearch()
+    }
+    
     func getKeywordAndContentsFromString(originString originString: String) -> (String, String) {
         return self.keywordManager.getKeywordAndContentsFromString(originString: originString)
     }
@@ -73,6 +77,4 @@ class LibraryAPI: NSObject {
     func compareDate(dateToCompare: NSDate) -> String {
         return self.countTimeManager.compareDate(dateToCompare)
     }
-
-    
 }

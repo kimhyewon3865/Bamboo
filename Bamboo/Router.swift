@@ -25,6 +25,9 @@ enum Router: URLRequestConvertible {
     case SetPoint(uuid: String)
     case SetPointReturn(uuid: String)
     case SetPost2(type: String, uuid: String,keyword: String ,contents: String, univ: String, notice: String)
+    case GetHotKeyword()
+    case GetUnivKeyword()
+    case GetSearchKeyword(keyword: String)
 
     var URL: NSURL {
         return Router.baseURL.URLByAppendingPathComponent(route.path)
@@ -58,6 +61,12 @@ enum Router: URLRequestConvertible {
             return ("/Bamboo_Set_Point_Return.php", ["uuid": "\(uuid)"])
         case .SetPost2(let type, let uuid, let keyword, let contents, let univ, let notice):
             return ("/Bamboo_Set_Post2.php", ["type": "\(type)", "uuid":"\(uuid)","keyword":"\(keyword)" ,"contents": "\(contents)","univ": "\(univ)", "notice": "\(notice)"])
+        case .GetHotKeyword():
+            return("/Bamboo_Get_HotKeyword.php", nil)
+        case .GetUnivKeyword():
+            return("/Bamboo_Get_UnivKeyword.php", nil)
+        case .GetSearchKeyword(let keyword):
+            return("/Bamboo_Get_SearchKeyword.php", ["keyword": "\(keyword)"])
         }
     }
     
