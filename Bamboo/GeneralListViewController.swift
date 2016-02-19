@@ -51,6 +51,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
 
         // Code to refresh table view
     }
+    var countN = 0
     
     func initSetting() {
         self.generalListTableView.delegate = self
@@ -104,6 +105,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
 
         if generalBoards[indexPath.row].imgURL != "" {
             print("url")
+            cell.backgroundImage.hidden = false
         cell.backgroundImage.downloadedFrom(link: generalBoards[indexPath.row].imgURL, contentMode: .ScaleToFill)
         //cell.insertSubview(cell.backgroundImage, atIndex: indexPath.row)
 //            var imageView = UIImageView(frame: CGRectMake(0, 0, 375, cell.frame.height))
@@ -112,6 +114,9 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
 //            print(cell.backgroundImage.image?.size.width)
             
             
+        }
+        else {
+            cell.backgroundImage.hidden = true
         }
         //cell.addSubview(cell.backgroundImage)
         //print(indexPath.row)
@@ -162,21 +167,66 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         if generalBoards[indexPath.row].islike == "0" {
             let image: UIImage = UIImage(named: "unlike")!
             cell.likeImage.setImage(image, forState: UIControlState.Normal)
-        }
-        else {
+        } else {
             let image: UIImage = UIImage(named: "like")!
             cell.likeImage.setImage(image, forState: UIControlState.Normal)
         }
         
-        cell.likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+        cell.likeImage.addTarget(self, action: Selector("contentLikeFunc:"), forControlEvents: .TouchUpInside)
         
         
         return cell
     }
     
-    func contentLikeFunc() {
+    func contentLikeFunc(sender: UIButton) {
+//        let image = UIImage(named: "like")
+//        let image2 = UIImage(named: "unlike")
+//
+//        let point : CGPoint = sender.convertPoint(CGPointZero, toView:generalListTableView)
+//        let indexPath = generalListTableView.indexPathForRowAtPoint(point)
+//        let cell = generalListTableView.dequeueReusableCellWithIdentifier("generalTableCell", forIndexPath: indexPath!) as! GeneralTableViewCell
+//        print(generalBoards[indexPath!.row].numberOfLike)
+//        countN = generalBoards[indexPath!.row].numberOfLike
+//        print("islike")
+//        print(generalBoards[(indexPath?.row)!].islike)
+//        print(indexPath!.row)
+//        
+//        if generalBoards[(indexPath?.row)!].islike == "0" {
+//            cell.likeImage.setImage(image, forState: .Normal)
+//            countN = countN + 1
+//            cell.likeNum.text = "\(countN)"
+//            generalBoards[(indexPath?.row)!].islike = "1"
+//        } else {
+//            cell.likeImage.setImage(image2, forState: .Normal)
+//            countN = countN - 1
+//            cell.likeNum.text = "\(countN)"
+//            generalBoards[(indexPath?.row)!].islike = "0"
+//        }
+//        cell.likeNum.reloadInputViews()
+        //generalListTableView.reloadData()
+        /*
+        let image = UIImage(named: "like")
+        //        let image2 = UIImage(named: "unlike")
+        //
+        //        if countN == 0 {
+        //            likeImage.setImage(image, forState: .Normal)
+        //            var tmp = Int(likeNum.text!)
+        //            tmp! = tmp! + 1
+        //            likeNum.text = "\(tmp!)"
+        //            countN = 1
+        //        }
+        //        else {
+        //            likeImage.setImage(image2, forState: .Normal)
+        //            var tmp = Int(likeNum.text!)
+        //            tmp! = tmp! - 1
+        //            likeNum.text = "\(tmp!)"
+        //            countN = 0
+        //            
+        //        }
+
+        */
         setLike()
-//        contentLikeNum.text = String(contentLikeNumTmp)
+        //        contentLikeNum.text = String(contentLikeNumTmp)
     }
     
     func setLike() {

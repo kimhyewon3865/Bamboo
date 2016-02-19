@@ -76,8 +76,12 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.likeImage.setImage(image, forState: UIControlState.Normal)
         }
         cell.likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
-        
-        cell.backgroundImage.downloadedFrom(link: univBoards[indexPath.row].imgURL, contentMode: .ScaleToFill)
+        if univBoards[indexPath.row].imgURL != "" {
+            cell.backgroundImage.hidden = false
+            cell.backgroundImage.downloadedFrom(link: univBoards[indexPath.row].imgURL, contentMode: .ScaleToFill)
+        } else {
+            cell.backgroundImage.hidden = true
+        }
         
             if(univBoards[indexPath.row].keywordArray.count == 0){
                 cell.keywordFirst.hidden = true

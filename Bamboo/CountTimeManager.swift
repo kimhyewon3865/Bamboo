@@ -35,7 +35,7 @@ class CountTimeManager {
             return "방금"
         }
         else {
-            dateFormatter.dateFormat = "yyyy/MM/dd"
+            dateFormatter.dateFormat = "yy/MM/dd"
             return dateFormatter.stringFromDate(dateToCompare)
         }
     }
