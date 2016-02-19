@@ -32,6 +32,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillAppear(animated: Bool) {
         self.hiddenView.hidden = true
+        pageInt = 1
         initUnivBoard()
         initSetting()
     }

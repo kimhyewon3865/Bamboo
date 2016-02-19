@@ -31,6 +31,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillAppear(animated: Bool) {
+        pageInt = 1
         initGeneralBoard()
         initSetting()
     }
