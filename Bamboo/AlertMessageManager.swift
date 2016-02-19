@@ -46,6 +46,10 @@ class AlertMessageManager {
         return ("알림", "검색 결과가 없습니다 :[")
     }
     
+    func isNoContent() -> (title: String, message: String) {
+        return ("알림", "글이 없습니다.")
+    }
+    
     init() {
         
     }

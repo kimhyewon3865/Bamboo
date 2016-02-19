@@ -77,4 +77,9 @@ class LibraryAPI: NSObject {
     func compareDate(dateToCompare: NSDate) -> String {
         return self.countTimeManager.compareDate(dateToCompare)
     }
+    
+    func isNoContent() -> (title: String, message: String) {
+        return self.alertMessageManager.isNoContent()
+    }
+
 }
