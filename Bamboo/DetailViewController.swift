@@ -85,7 +85,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
         let str = dateFormatter.stringFromDate(NSDate())
-        
+        if commentContent != "" {
         let commentTmp = Comment(commentP: commentContent, regdtP: str)
         //= Comment(commentP: commentContent, regdtP: dateFormatter.stringFromDate(NSDate())
         print("str")
@@ -100,6 +100,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         contentCommentNumTmp = contentCommentNumTmp + 1
         commentNum.text = String(contentCommentNumTmp)
         setComment()
+        }
+        else {
+            let descriptions = LibraryAPI.sharedInstance.isNoContent()
+            BBAlertView.alert(descriptions.title, message: descriptions.message)
+
+        }
         
     }
     var commentsArr : [Comment] = []

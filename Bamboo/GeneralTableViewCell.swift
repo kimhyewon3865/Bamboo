@@ -39,7 +39,7 @@ class GeneralTableViewCell: UITableViewCell {
     
     */
     
-    var countN = 0
+    //var countN = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,28 +49,28 @@ class GeneralTableViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+        //likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
         // Configure the view for the selected state
     }
     
-    func contentLikeFunc() {
-        let image = UIImage(named: "like")
-        let image2 = UIImage(named: "unlike")
-        
-        if countN == 0 {
-            likeImage.setImage(image, forState: .Normal)
-            var tmp = Int(likeNum.text!)
-            tmp! = tmp! + 1
-            likeNum.text = "\(tmp!)"
-            countN = 1
-        }
-        else {
-            likeImage.setImage(image2, forState: .Normal)
-            var tmp = Int(likeNum.text!)
-            tmp! = tmp! - 1
-            likeNum.text = "\(tmp!)"
-            countN = 0
-            
-        }
-    }
+//    func contentLikeFunc() {
+//        let image = UIImage(named: "like")
+//        let image2 = UIImage(named: "unlike")
+//        
+//        if countN == 0 {
+//            likeImage.setImage(image, forState: .Normal)
+//            var tmp = Int(likeNum.text!)
+//            tmp! = tmp! + 1
+//            likeNum.text = "\(tmp!)"
+//            countN = 1
+//        }
+//        else {
+//            likeImage.setImage(image2, forState: .Normal)
+//            var tmp = Int(likeNum.text!)
+//            tmp! = tmp! - 1
+//            likeNum.text = "\(tmp!)"
+//            countN = 0
+//            
+//        }
+//    }
 }
