@@ -58,8 +58,10 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
             let image: UIImage = UIImage(named: "like")!
             cell.likeImage.setImage(image, forState: UIControlState.Normal)
         }
+        
         cell.likeNum.text = String(keywords[indexPath.row].numberOfLike)
         cell.commentNum.text = String(keywords[indexPath.row].numberOfComment)
+        
         if keywords[indexPath.row].imgURL != "" {
             cell.backgroundImage.alpha = 0.4
             cell.backgroundImage.downloadedFrom(link: keywords[indexPath.row].imgURL, contentMode: .ScaleToFill)
@@ -70,23 +72,18 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
             cell.keywordFirst.hidden = true
             cell.keywordSecond.hidden = true
             cell.keywordThird.hidden = true
-        }
-        else if(keywords[indexPath.row].keywordArray.count == 1){
+        } else if(keywords[indexPath.row].keywordArray.count == 1){
             cell.keywordFirst.hidden = false
             cell.keywordFirst.setTitle("#"+self.keywords[indexPath.row].keywordArray[0], forState: .Normal)
             cell.keywordSecond.hidden = true
             cell.keywordThird.hidden = true
-            //                cell.keywordSecond.setTitle("", forState: .Normal)
-            //                cell.keywordThird.setTitle("", forState: .Normal)
-        }
-        else if(keywords[indexPath.row].keywordArray.count == 2){
+        } else if(keywords[indexPath.row].keywordArray.count == 2){
             cell.keywordFirst.hidden = false
             cell.keywordSecond.hidden = false
             cell.keywordFirst.setTitle("#"+self.keywords[indexPath.row].keywordArray[0], forState: .Normal)
             cell.keywordSecond.setTitle("#"+self.keywords[indexPath.row].keywordArray[1], forState: .Normal)
             cell.keywordThird.hidden = true
-        }
-        else {
+        } else {
             cell.keywordFirst.hidden = false
             cell.keywordSecond.hidden = false
             cell.keywordThird.hidden = false
@@ -94,8 +91,20 @@ btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInsid
             cell.keywordSecond.setTitle("#"+self.keywords[indexPath.row].keywordArray[1], forState: .Normal)
             cell.keywordThird.setTitle("#"+self.keywords[indexPath.row].keywordArray[2], forState: .Normal)
         }
-
+        
+        cell.keywordFirst.addTarget(self, action: "keywordClicked:", forControlEvents: .TouchUpInside)
+        cell.keywordSecond.addTarget(self, action: "keywordClicked:", forControlEvents: .TouchUpInside)
+        cell.keywordThird.addTarget(self, action: "keywordClicked:", forControlEvents: .TouchUpInside)
+        
         return cell
+    }
+    
+    func keywordClicked(sender :UIButton) {
+        let astring = sender.titleLabel?.text
+        titleName = astring!.stringByReplacingOccurrencesOfString("#", withString: "")
+        navigationItem.title = "#" + titleName
+        detailOrMega = 1
+        initUnivBoard()
     }
     
     func initUnivBoard() {
