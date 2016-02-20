@@ -1132,10 +1132,10 @@ fdfsf
                         <viewControllerLayoutGuide type="bottom" id="ekl-zQ-a4H"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oyO-ZH-o6Y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-9v-Xcu">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-9v-Xcu">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.90588235294117647" blue="0.89411764705882357" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="6" id="vAT-gT-qTF">
@@ -1272,7 +1272,7 @@ fdfsf
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zh-7V-SLv">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zh-7V-SLv">
                                 <rect key="frame" x="225" y="260" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1zh-7V-SLv" secondAttribute="height" multiplier="1:1" id="4Tu-7J-SQc"/>
@@ -1281,7 +1281,7 @@ fdfsf
                                 </constraints>
                                 <state key="normal" image="btn_best_unselected"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5g-J2-zPj">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5g-J2-zPj">
                                 <rect key="frame" x="225" y="343" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="0HA-ks-TEO"/>
@@ -1290,7 +1290,7 @@ fdfsf
                                 </constraints>
                                 <state key="normal" image="btn_new_unselected"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-oA-x1p">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-oA-x1p">
                                 <rect key="frame" x="225" y="426" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="c7S-2z-yHP"/>
@@ -1827,7 +1827,7 @@ fdfsf
                         <viewControllerLayoutGuide type="bottom" id="p3Y-CS-44r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uGU-ci-wcg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMA-sc-fBK">
@@ -2277,7 +2277,7 @@ fdfsf
                                     <outlet property="delegate" destination="DYe-yT-Vec" id="4Rh-ov-0Id"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-dT-oEc">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-dT-oEc">
                                 <rect key="frame" x="0.0" y="138" width="320" height="381"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="7VE-Ej-y0m">
@@ -2603,10 +2603,10 @@ fdfsf
         <image name="write" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Qav-N2-cby"/>
+        <segue reference="ciI-Re-f52"/>
         <segue reference="et4-5W-NPl"/>
         <segue reference="UQf-QZ-zap"/>
-        <segue reference="69g-hu-B9J"/>
-        <segue reference="GDr-dO-lIO"/>
-        <segue reference="mHH-sY-H72"/>
+        <segue reference="ajH-RM-cRM"/>
     </inferredMetricsTieBreakers>
 </document>

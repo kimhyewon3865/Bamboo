@@ -665,6 +665,11 @@
 					E8937F041C1E7D6C0056C5FD = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = G8322AKRJK;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					E8937F181C1E7D6C0056C5FD = {
 						CreatedOnToolsVersion = 7.1;
