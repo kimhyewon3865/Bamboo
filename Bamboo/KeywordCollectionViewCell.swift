@@ -25,8 +25,6 @@ class KeywordCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var likeImage: UIButton!
     
-
-    
     /*
     @IBOutlet weak var contents: UIButton!
     

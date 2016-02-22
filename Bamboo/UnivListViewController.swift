@@ -260,6 +260,8 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             DetailVC.commentNumT = String(univBoards[indexPath!.row].numberOfComment)
             
             DetailVC.code = univBoards[indexPath!.row].code
+            DetailVC.state = univBoards[indexPath!.row].islike
+
             print(DetailVC.code)
         }
         else if segue.identifier == "keywordUnivFirstSegue" {

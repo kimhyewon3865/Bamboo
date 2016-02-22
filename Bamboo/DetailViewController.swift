@@ -14,14 +14,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func backBtnClicked(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
     }
-    
-    
-    //    let now = NSDate()
-    //    var dateString = "20160110232612" // change to your date formatvar
-    //    var dateFormatter = NSDateFormatter()
-    //    var str = NSObject()
-    //    var olderDate = NSDate()
-    //
+
     var contentT = ""
     var keywords = ""
     var contentlikeNumT = ""
@@ -36,35 +29,15 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     var dateFormatter = NSDateFormatter()
     var imageT = ""
     
+    
     @IBOutlet weak var backgroundImage: UIImageView!
+    
     @IBOutlet weak var commentTableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        initDetailView()
-        initSetting()
-        
-        contentCommentNumTmp = Int(commentNumT)!
-        contentLikeNumTmp = Int(contentlikeNumT)!
-        contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBOutlet weak var content: UILabel!
     
     @IBOutlet weak var contentLike: UIButton!
     
-    func contentLikeFunc() {
-        setLike()
-        let image = UIImage(named: "like")
-        contentLike.setImage(image, forState: .Normal)
-        contentLikeNum.text = String(contentLikeNumTmp)
-    }
     @IBOutlet weak var contentLikeNum: UILabel!
     
     @IBOutlet weak var commentNum: UILabel!
@@ -110,6 +83,43 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     var commentsArr : [Comment] = []
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initDetailView()
+        initSetting()
+        
+        contentCommentNumTmp = Int(commentNumT)!
+        contentLikeNumTmp = Int(contentlikeNumT)!
+        contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    func contentLikeFunc() {
+        setLike()
+        let image = UIImage(named: "like")
+        let image2 = UIImage(named: "unlike")!
+        
+        if contentLike.imageView?.image == image2 {
+            contentLike.setImage(image, forState: .Normal)
+            var tmp = Int(contentLikeNum.text!)
+            tmp = tmp! + 1
+            contentLikeNum.text = "\(tmp!)"
+        } else {
+            contentLike.setImage(image2, forState: .Normal)
+            var tmp = Int(contentLikeNum.text!)
+            tmp = tmp! - 1
+            contentLikeNum.text = "\(tmp!)"
+
+        }
+        
+        //contentLike.setImage(image, forState: .Normal)
+        //contentLikeNum.text = String(contentLikeNumTmp)
+    }
+    
     func initDetailView() {
         Alamofire
             .request(Router.GetComment(uuid: User.sharedInstance().uuid, bCode: code))
@@ -149,13 +159,13 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                     print("succece:)")
                     self.state = stateT
                     print(self.state)
-                    if self.state == "1" {
-                        print("yet")
-                        self.contentLikeNumTmp = self.contentLikeNumTmp + 1
-                        print(self.contentLikeNumTmp)
-                        self.contentLikeNum.text = "\(self.contentLikeNumTmp)" ////
-                        
-                    }
+//                    if self.state == "1" {
+//                        print("yet")
+//                        self.contentLikeNumTmp = self.contentLikeNumTmp + 1
+//                        print(self.contentLikeNumTmp)
+//                        self.contentLikeNum.text = "\(self.contentLikeNumTmp)" ////
+//                        
+//                    }
                     
                 } else {
                     //print("User객체 SimpleJsonParser인스턴스 failed")
@@ -170,13 +180,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         self.content.text = contentT
         self.contentLikeNum.text = contentlikeNumT
         self.commentNum.text = commentNumT
+        
         if self.keywords != "" {
             let tmpKeywordArray = keywords.characters.split{$0 == ","}.map(String.init)
             keywordArray = tmpKeywordArray
         }
+        
         if imageT != "" {
             backgroundImage.downloadedFrom(link: imageT, contentMode: .ScaleToFill)
         }
+        
         if(keywordArray.count == 0){
             keyword1.hidden = true
             keyword2.hidden = true
@@ -184,25 +197,21 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             keyword4.hidden = true
             keyword5.hidden = true
             keyword6.hidden = true
-        }
-        else if(keywordArray.count == 1){
+        } else if(keywordArray.count == 1){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.hidden = true
             keyword3.hidden = true
             keyword4.hidden = true
             keyword5.hidden = true
             keyword6.hidden = true
-        }
-        else if(keywordArray.count == 2){
+        } else if(keywordArray.count == 2){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
             keyword3.hidden = true
             keyword4.hidden = true
             keyword5.hidden = true
             keyword6.hidden = true
-        }
-            
-        else if(keywordArray.count == 3){
+        } else if(keywordArray.count == 3){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
             keyword3.setTitle("#" + keywordArray[2], forState: .Normal)
@@ -210,27 +219,21 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             keyword4.hidden = true
             keyword5.hidden = true
             keyword6.hidden = true
-        }
-            
-        else if(keywordArray.count == 4){
+        } else if(keywordArray.count == 4){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
             keyword3.setTitle("#" + keywordArray[2], forState: .Normal)
             keyword4.setTitle("#" + keywordArray[3], forState: .Normal)
             keyword5.hidden = true
             keyword6.hidden = true
-        }
-            
-        else if(keywordArray.count == 5){
+        } else if(keywordArray.count == 5){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
             keyword3.setTitle("#" + keywordArray[2], forState: .Normal)
             keyword4.setTitle("#" + keywordArray[3], forState: .Normal)
             keyword5.setTitle("#" + keywordArray[4], forState: .Normal)
             keyword6.hidden = true
-        }
-            
-        else if(keywordArray.count == 6){
+        } else if(keywordArray.count == 6){
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
             keyword3.setTitle("#" + keywordArray[2], forState: .Normal)
@@ -238,13 +241,20 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             keyword5.setTitle("#" + keywordArray[4], forState: .Normal)
             keyword6.setTitle("#" + keywordArray[5], forState: .Normal)
         }
+        
+        if state == "1" {
+            let image = UIImage(named: "like")
+            contentLike.setImage(image, forState: .Normal)
+        } else {
+            let image = UIImage(named: "unlike")!
+            contentLike.setImage(image, forState: .Normal)
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !commentsArr.isEmpty {
             return commentsArr.count
-        }
-        else {
+        } else {
             return 0
         }
     }
@@ -279,32 +289,27 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             
             KeywordVC.titleName = keywordArray[0]
-        }
-        else if segue.identifier == "keywordDetailSecondSegue" {
+        } else if segue.identifier == "keywordDetailSecondSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             
             KeywordVC.titleName = keywordArray[1]
             
-        }
-        else if segue.identifier == "keywordDetailThirdSegue" {
+        } else if segue.identifier == "keywordDetailThirdSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             
             KeywordVC.titleName = keywordArray[2]
             
-        }
-        else if segue.identifier == "keywordDetailFourthSegue" {
+        } else if segue.identifier == "keywordDetailFourthSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             
             KeywordVC.titleName = keywordArray[3]
             
-        }
-        else if segue.identifier == "keywordDetailFifthSegue" {
+        } else if segue.identifier == "keywordDetailFifthSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             
             KeywordVC.titleName = keywordArray[4]
             
-        }
-        else if segue.identifier == "keywordDetailSixthSegue" {
+        } else if segue.identifier == "keywordDetailSixthSegue" {
             let KeywordVC = segue.destinationViewController as! KeywordViewController
             
             KeywordVC.titleName = keywordArray[5]
