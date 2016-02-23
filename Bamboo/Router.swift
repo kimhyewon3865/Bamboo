@@ -28,6 +28,7 @@ enum Router: URLRequestConvertible {
     case GetHotKeyword()
     case GetUnivKeyword()
     case GetSearchKeyword(keyword: String)
+    case Apns(deviceToken: String)
 
     var URL: NSURL {
         return Router.baseURL.URLByAppendingPathComponent(route.path)
@@ -67,6 +68,8 @@ enum Router: URLRequestConvertible {
             return("/Bamboo_Get_UnivKeyword.php", nil)
         case .GetSearchKeyword(let keyword):
             return("/Bamboo_Get_SearchKeyword.php", ["keyword": "\(keyword)"])
+        case .Apns(let deviceToken) :
+            return("/apns.php", ["deviceToken": "\(deviceToken)"])
         }
     }
     

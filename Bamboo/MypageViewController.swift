@@ -24,6 +24,10 @@ class MypageViewController: UIViewController {
         setMypageVC()
         hiddenView.hidden = true
         setDisplayData()
+        
+        /*test apns*/
+        print(Apns.sharedInstance().deviceToken)
+        Alamofire.request(Router.Apns(deviceToken: "\(Apns.sharedInstance().deviceToken)"))
     }
     
     override func viewWillAppear(animated: Bool) {
