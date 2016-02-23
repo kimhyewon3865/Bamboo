@@ -45,14 +45,14 @@ class UnivTableViewCell: UITableViewCell {
         let image = UIImage(named: "like")
         let image2 = UIImage(named: "unlike")
         
-        if countN == 0 {
+        
+        if likeImage.imageView?.image == image2 {
             likeImage.setImage(image, forState: .Normal)
             var tmp = Int(likeNum.text!)
             tmp! = tmp! + 1
             likeNum.text = "\(tmp!)"
             countN = 1
-        }
-        else {
+        } else {
             likeImage.setImage(image2, forState: .Normal)
             var tmp = Int(likeNum.text!)
             tmp! = tmp! - 1
@@ -60,6 +60,23 @@ class UnivTableViewCell: UITableViewCell {
             countN = 0
             
         }
+
+//        
+//        if countN == 0 {
+//            likeImage.setImage(image, forState: .Normal)
+//            var tmp = Int(likeNum.text!)
+//            tmp! = tmp! + 1
+//            likeNum.text = "\(tmp!)"
+//            countN = 1
+//        }
+//        else {
+//            likeImage.setImage(image2, forState: .Normal)
+//            var tmp = Int(likeNum.text!)
+//            tmp! = tmp! - 1
+//            likeNum.text = "\(tmp!)"
+//            countN = 0
+//            
+//        }
     }
 
 }
