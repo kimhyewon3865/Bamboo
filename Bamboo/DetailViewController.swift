@@ -85,6 +85,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(code)
         initDetailView()
         initSetting()
         
@@ -187,6 +188,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         if imageT != "" {
+            backgroundImage.alpha = 0.5
             backgroundImage.downloadedFrom(link: imageT, contentMode: .ScaleToFill)
         }
         
@@ -275,11 +277,42 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             cell.time.text = LibraryAPI.sharedInstance.compareDate(olderDate!)
             cell.commentContent.text = commentsArr[indexPath.row].comment
             cell.commnetLikeNum.text = commentsArr[indexPath.row].numberOfLike
+ 
+            if commentsArr[indexPath.row].isLike == "1" {
+                let image = UIImage(named: "like")
+                cell.likeBtn.setImage(image, forState: .Normal)
+            } else {
+                let image = UIImage(named: "unlike")
+                cell.likeBtn.setImage(image, forState: .Normal)
+
+            }
         }
-    
+        cell.likeBtn.tag = indexPath.row
+        cell.likeBtn.addTarget(self, action: "commentLikeFunc:", forControlEvents: .TouchUpInside)
+
         return cell
     }
     
+    func commentLikeFunc(sender: UIButton) {
+        let index = sender.tag
+        let idx = commentsArr[index].idx
+        print("idx")
+        print(index)
+        print(idx)
+        //print(idx)
+        Alamofire
+            .request(Router.SetCommentLike(uuid: User.sharedInstance().uuid, idx: "\(idx)"))
+            
+            .responseString { response in
+                print(response)
+                if response.result.isSuccess {
+                }
+        
+                //self.commentTableView.reloadData()
+                
+        }
+
+    }
     
     // MARK: - Navigation
     

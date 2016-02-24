@@ -29,7 +29,8 @@ enum Router: URLRequestConvertible {
     case GetUnivKeyword()
     case GetSearchKeyword(keyword: String)
     case UpdateDeviceToken(uuid: String, deviceToken: String)
-
+    case SetCommentLike(uuid: String, idx: String)
+    
     var URL: NSURL {
         return Router.baseURL.URLByAppendingPathComponent(route.path)
     }
@@ -70,6 +71,8 @@ enum Router: URLRequestConvertible {
             return("/Bamboo_Get_SearchKeyword.php", ["keyword": "\(keyword)"])
         case .UpdateDeviceToken(let uuid, let deviceToken):
             return("/Bamboo_Update_DeviceToken.php", ["uuid": "\(uuid)", "deviceToken": "\(deviceToken)"])
+        case .SetCommentLike(let uuid, let idx):
+            return ("/Bamboo_Set_Comment_Like.php", ["uuid": "\(uuid)", "idx": "\(idx)"])
         }
     }
     

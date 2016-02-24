@@ -14,7 +14,6 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var commentContent: UILabel!
     
     @IBOutlet weak var commnetLikeNum: UILabel!
-    var countN = 0
 
     @IBOutlet weak var likeBtn: UIButton!
     
@@ -34,19 +33,16 @@ class CommentTableViewCell: UITableViewCell {
         let image = UIImage(named: "like")
         let image2 = UIImage(named: "unlike")
         
-        if countN == 0 {
+        if likeBtn.imageView?.image == image2 {
             likeBtn.setImage(image, forState: .Normal)
             var tmp = Int(commnetLikeNum.text!)
             tmp! = tmp! + 1
             commnetLikeNum.text = "\(tmp!)"
-            countN = 1
-        }
-        else {
+        } else {
             likeBtn.setImage(image2, forState: .Normal)
             var tmp = Int(commnetLikeNum.text!)
             tmp! = tmp! - 1
             commnetLikeNum.text = "\(tmp!)"
-            countN = 0
             
         }
     }
