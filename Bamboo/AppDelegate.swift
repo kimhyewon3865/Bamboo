@@ -70,6 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
         
         Apns.sharedInstance().deviceToken = deviceTokenString
+        
+        Alamofire.request(Router.UpdateDeviceToken(uuid: User.sharedInstance().uuid, deviceToken: Apns.sharedInstance().deviceToken))
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
