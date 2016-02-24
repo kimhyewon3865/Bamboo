@@ -129,19 +129,18 @@ class KeywordSearchViewController: UIViewController, UISearchControllerDelegate,
         self.inputedKeyword = searchBar.text!
         
         setSearchKeywordArray()
-
-        recentKeyword.keywordName = inputedKeyword
-        recentKeyword.searchedDate = NSDate()
         
         writeRealm()
+        self.recentKeywordCollectionView.reloadData()
     }
     
     func writeRealm() {
         let uiRealm = try! Realm()
 
         try! uiRealm.write {
+            self.recentKeyword.keywordName = inputedKeyword
+            self.recentKeyword.searchedDate = NSDate()
             uiRealm.add(recentKeyword)
-            self.recentKeywordCollectionView.reloadData()
         }
     }
     

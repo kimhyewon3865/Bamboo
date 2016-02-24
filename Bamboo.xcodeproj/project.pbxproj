@@ -35,6 +35,7 @@
 		E82015011C20267B00F7DD5D /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */; };
 		E82015041C2026C900F7DD5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015031C2026C900F7DD5D /* User.swift */; };
 		E82015061C20274A00F7DD5D /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */; };
+		E824315B1C7C28B60001FFF4 /* Apns.swift in Sources */ = {isa = PBXBuildFile; fileRef = E824315A1C7C28B60001FFF4 /* Apns.swift */; };
 		E82D44221C7576BC0037D83F /* SearchedDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44211C7576BC0037D83F /* SearchedDataTableViewCell.swift */; };
 		E82D44241C7586640037D83F /* RecentKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44231C7586640037D83F /* RecentKeyword.swift */; };
 		E82D44261C760F9B0037D83F /* HotKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44251C760F9B0037D83F /* HotKeyword.swift */; };
@@ -158,6 +159,7 @@
 		E82015001C20267B00F7DD5D /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
 		E82015031C2026C900F7DD5D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E82015051C20274A00F7DD5D /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
+		E824315A1C7C28B60001FFF4 /* Apns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apns.swift; sourceTree = "<group>"; };
 		E82D44211C7576BC0037D83F /* SearchedDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedDataTableViewCell.swift; sourceTree = "<group>"; };
 		E82D44231C7586640037D83F /* RecentKeyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentKeyword.swift; sourceTree = "<group>"; };
 		E82D44251C760F9B0037D83F /* HotKeyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyword.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				E82D44251C760F9B0037D83F /* HotKeyword.swift */,
 				E82D44271C760FA80037D83F /* UnivKeyword.swift */,
 				E82D44291C760FB30037D83F /* SearchKeyword.swift */,
+				E824315A1C7C28B60001FFF4 /* Apns.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -671,6 +674,11 @@
 					E8937F041C1E7D6C0056C5FD = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = G8322AKRJK;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					E8937F181C1E7D6C0056C5FD = {
 						CreatedOnToolsVersion = 7.1;
@@ -819,6 +827,7 @@
 				E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */,
 				E86D7EB71C3F77F30043D3FD /* MypageChangeUniversityViewController.swift in Sources */,
 				E874BBDC1C23D3F000E091A4 /* SimpleJsonParser.swift in Sources */,
+				E824315B1C7C28B60001FFF4 /* Apns.swift in Sources */,
 				E8F161D11C38E33500814311 /* TGCameraAuthorizationViewController.m in Sources */,
 				E8F161E31C38E33500814311 /* TGCameraSlideUpView.m in Sources */,
 				E874BBD01C21214A00E091A4 /* Keyword.swift in Sources */,
@@ -1039,7 +1048,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -1060,7 +1069,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kimhyewon/Desktop/Bamboo/Bamboo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -25,7 +25,7 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
         self.btnNew.hidden = true
         btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
         btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
-btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
+        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
         initUnivBoard()
         if detailOrMega == 1 {
             navigationItem.title = "#" + titleName

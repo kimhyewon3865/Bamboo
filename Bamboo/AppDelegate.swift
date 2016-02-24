@@ -53,8 +53,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             sleep(1)
         }
+        
+        let types:UIUserNotificationType = ([.Alert, .Sound, .Badge])
+        let settings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
         return true
     }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
+        
+        let deviceTokenString: String = ( deviceToken.description as NSString )
+            .stringByTrimmingCharactersInSet( characterSet )
+            .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
+        
+        Apns.sharedInstance().deviceToken = deviceTokenString
+        
+        Alamofire.request(Router.UpdateDeviceToken(uuid: User.sharedInstance().uuid, deviceToken: Apns.sharedInstance().deviceToken))
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print( "노티피케이션 APNS 등록 중 에러 발생 :  \(error.localizedDescription)" )
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print("노티피케이션을 받았습니다. : \(userInfo)")
+    }
+    
+    
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
