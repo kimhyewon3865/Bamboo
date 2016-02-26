@@ -236,49 +236,51 @@ class PostBoardViewController: UIViewController {
     }
     
     @IBAction func toolBoxPostButtonClicked(sender: UIButton) {
-        print(self.type)
-        
-        (postKeyword, postContents) = LibraryAPI.sharedInstance.getKeywordAndContentsFromString(originString: self.contentsTextView.text)
-        
-        // General board post
-        if self.type == "일반" {
-            // 이미지가 있을때
-            if let image = self.photoImageView.image {
-                let parameters: Dictionary<String, String> = [
-                    "type" : "T01",
-                    "uuid" : User.sharedInstance().uuid,
-                    "keyword" : postKeyword,
-                    "contents" : postContents
-                ]
-                let imageData = UIImageJPEGRepresentation(image, 0.0)
-                requestWithImage(parameters, imageData: imageData!, isNotice: false)
-            // 이미지가 없을때
-            } else {
-                requestWithNoImage("T01")
-            }
-        // Univ board post
+        if contentsTextView.text == "" {
+            let description = LibraryAPI.sharedInstance.isEmptyPostContentsTextFiled()
+            BBAlertView.alert(description.title, message: description.message)
         } else {
-            // 이미지가 있을때
-            if let image = self.photoImageView.image {
-                var notice = ""
-                // 확성기 활성화시
-                if isNotiveActivate {
-                    notice = "Y"
-                // 활성기 비활성화시
-                } else {notice = "N"}
-                let parameters: Dictionary<String, String> = [
-                    "type" : "T02",
-                    "uuid" : User.sharedInstance().uuid,
-                    "keyword" : postKeyword,
-                    "contents" : postContents,
-                    "notice": notice,
-                    "univ" : User.sharedInstance().univ
-                ]
-                let imageData = UIImageJPEGRepresentation(image, 0.0)
-                requestWithImage(parameters, imageData: imageData!, isNotice: false)
-            // 이미지가 없을때
+            (postKeyword, postContents) = LibraryAPI.sharedInstance.getKeywordAndContentsFromString(originString: self.contentsTextView.text)
+            // General board post
+            if self.type == "일반" {
+                // 이미지가 있을때
+                if let image = self.photoImageView.image {
+                    let parameters: Dictionary<String, String> = [
+                        "type" : "T01",
+                        "uuid" : User.sharedInstance().uuid,
+                        "keyword" : postKeyword,
+                        "contents" : postContents
+                    ]
+                    let imageData = UIImageJPEGRepresentation(image, 0.0)
+                    requestWithImage(parameters, imageData: imageData!, isNotice: false)
+                    // 이미지가 없을때
+                } else {
+                    requestWithNoImage("T01")
+                }
+                // Univ board post
             } else {
-                requestWithNoImage("T02")
+                // 이미지가 있을때
+                if let image = self.photoImageView.image {
+                    var notice = ""
+                    // 확성기 활성화시
+                    if isNotiveActivate {
+                        notice = "Y"
+                        // 활성기 비활성화시
+                    } else {notice = "N"}
+                    let parameters: Dictionary<String, String> = [
+                        "type" : "T02",
+                        "uuid" : User.sharedInstance().uuid,
+                        "keyword" : postKeyword,
+                        "contents" : postContents,
+                        "notice": notice,
+                        "univ" : User.sharedInstance().univ
+                    ]
+                    let imageData = UIImageJPEGRepresentation(image, 0.0)
+                    requestWithImage(parameters, imageData: imageData!, isNotice: false)
+                    // 이미지가 없을때
+                } else {
+                    requestWithNoImage("T02")
+                }
             }
         }
     }

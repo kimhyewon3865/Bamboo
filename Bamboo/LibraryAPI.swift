@@ -81,5 +81,8 @@ class LibraryAPI: NSObject {
     func isNoContent() -> (title: String, message: String) {
         return self.alertMessageManager.isNoContent()
     }
-
+    
+    func isEmptyPostContentsTextFiled() -> (title: String, message: String) {
+        return self.alertMessageManager.isEmptyPostContentsTextFiled()
+    }
 }

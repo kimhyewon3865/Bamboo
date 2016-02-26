@@ -50,6 +50,10 @@ class AlertMessageManager {
         return ("알림", "글이 없습니다.")
     }
     
+    func isEmptyPostContentsTextFiled() -> (title: String, message: String) {
+        return ("알림", "속마음을 적어주세요 :]")
+    }
+    
     init() {
         
     }
