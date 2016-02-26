@@ -19,6 +19,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
     var univBoards : [UnivBoard] = []
     var plusUnivBoards : [UnivBoard] = []
     var refreshControl:UIRefreshControl!
+    var type = "T03"
     
     @IBOutlet weak var hiddenView: UIView!
     
@@ -178,7 +179,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
     func initUnivBoard() {
         BBActivityIndicatorView.show("로딩중입니다><")
         Alamofire
-            .request(Router.GetList(type: "T03", page: "1", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
+            .request(Router.GetList(type: self.type, page: "1", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
             .responseCollection { (response: Response<[UnivBoard], NSError>) in
                 if response.result.isSuccess {
                     BBActivityIndicatorView.hide()
@@ -201,7 +202,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func plusInitUnivBoard() {
         Alamofire
-            .request(Router.GetList(type: "T03", page: "\(pageInt)", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
+            .request(Router.GetList(type: self.type, page: "\(pageInt)", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
             .responseCollection { (response: Response<[UnivBoard], NSError>) in
                 if response.result.isSuccess {
                     self.plusUnivBoards = response.result.value!
@@ -295,6 +296,10 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         btnWrite.setImage(image, forState: .Normal)
         btnBest.setImage(image, forState: .Normal)
         btnNew.setImage(image2, forState: .Normal)
+        
+        self.type = "T04"
+        self.pageInt = 1
+        initUnivBoard()
     }
     
     @IBOutlet weak var btnNew: UIButton!
@@ -307,6 +312,10 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         btnWrite.setImage(image, forState: .Normal)
         btnNew.setImage(image, forState: .Normal)
         btnBest.setImage(image2, forState: .Normal)
+        
+        self.type = "T03"
+        self.pageInt = 1
+        initUnivBoard()
     }
     /*
     // MARK: - Navigation
