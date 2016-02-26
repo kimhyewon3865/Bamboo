@@ -20,6 +20,7 @@ final class MyPage: ResponseObjectSerializable,  ResponseCollectionSerializable 
     var likeCnt: String
     var commentCnt: String
     var keywords: String
+    var imgURL: String
     
     init?(response: NSHTTPURLResponse, representation: AnyObject) {
         self.code = representation.valueForKeyPath("b_code") as! String
@@ -32,6 +33,7 @@ final class MyPage: ResponseObjectSerializable,  ResponseCollectionSerializable 
         self.likeCnt = representation.valueForKeyPath("like_cnt") as! String
         self.commentCnt = representation.valueForKeyPath("comment_cnt") as! String
         self.keywords = representation.valueForKeyPath("keyword") as! String
+        self.imgURL = representation.valueForKeyPath("img_url") as! String
     }
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [MyPage] {
