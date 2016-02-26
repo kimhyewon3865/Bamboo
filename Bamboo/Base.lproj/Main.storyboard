@@ -1184,10 +1184,7 @@ fdfsf
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8t3-Oc-f3R">
                                                     <rect key="frame" x="14" y="15" width="118" height="121"/>
-                                                    <state key="normal" title="f
-d
-s
-AA">
+                                                    <state key="normal" title="f d s AA">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
@@ -1279,7 +1276,7 @@ AA">
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zh-7V-SLv">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zh-7V-SLv">
                                 <rect key="frame" x="225" y="260" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1zh-7V-SLv" secondAttribute="height" multiplier="1:1" id="4Tu-7J-SQc"/>
@@ -1288,7 +1285,7 @@ AA">
                                 </constraints>
                                 <state key="normal" image="btn_best_unselected"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5g-J2-zPj">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5g-J2-zPj">
                                 <rect key="frame" x="225" y="343" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="0HA-ks-TEO"/>
@@ -1297,7 +1294,7 @@ AA">
                                 </constraints>
                                 <state key="normal" image="btn_new_unselected"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-oA-x1p">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-oA-x1p">
                                 <rect key="frame" x="225" y="426" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="c7S-2z-yHP"/>
@@ -1954,8 +1951,7 @@ AA">
                                                     </constraints>
                                                     <state key="normal" image="unlike"/>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미쳤졍
-ㄹㄹ" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eH6-pL-3yg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미쳤졍 ㄹㄹ" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eH6-pL-3yg">
                                                     <rect key="frame" x="63" y="5" width="163" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="163" id="0lP-pq-S2U"/>
@@ -2691,12 +2687,10 @@ AA">
         <image name="write" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MdN-sA-UFg"/>
-        <segue reference="Y8n-kR-FgV"/>
         <segue reference="miI-TN-1nM"/>
-        <segue reference="Qgn-sR-hDX"/>
-        <segue reference="gRj-bW-oiv"/>
+        <segue reference="kQV-gC-Auu"/>
+        <segue reference="Y8n-kR-FgV"/>
+        <segue reference="MdN-sA-UFg"/>
         <segue reference="ajH-RM-cRM"/>
-        <segue reference="ynE-eS-J9T"/>
     </inferredMetricsTieBreakers>
 </document>

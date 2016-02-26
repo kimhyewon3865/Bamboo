@@ -182,87 +182,11 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func contentLikeFunc(sender: UIButton) {
-//            let image = UIImage(named: "like")
-//            let image2 = UIImage(named: "unlike")
-//        //
-//            let point : CGPoint = sender.convertPoint(CGPointZero, toView:generalListTableView)
-//            let indexPath = generalListTableView.indexPathForRowAtPoint(point)
-//            let cell = generalListTableView.dequeueReusableCellWithIdentifier("generalTableCell", forIndexPath: indexPath!) as! GeneralTableViewCell
-//        //        print(generalBoards[indexPath!.row].numberOfLike)
-//                countN = generalBoards[indexPath!.row].numberOfLike
-//        //        print("islike")
-//        //        print(generalBoards[(indexPath?.row)!].islike)
-//        //        print(indexPath!.row)
-//        
-//                if generalBoards[(indexPath?.row)!].islike == "0" {
-//                    cell.likeImage.setImage(image, forState: .Normal)
-//                    countN = countN + 1
-//                    cell.likeNum.text = "\(countN)"
-//                    generalBoards[(indexPath?.row)!].islike = "1"
-//                } else {
-//                    cell.likeImage.setImage(image2, forState: .Normal)
-//                    countN = countN - 1
-//                    cell.likeNum.text = "\(countN)"
-//                    generalBoards[(indexPath?.row)!].islike = "0"
-//                }
-        
-        //        cell.likeNum.reloadInputViews()
-        //generalListTableView.reloadData()
-        /*
-        let image = UIImage(named: "like")
-        //        let image2 = UIImage(named: "unlike")
-        //
-        //        if countN == 0 {
-        //            likeImage.setImage(image, forState: .Normal)
-        //            var tmp = Int(likeNum.text!)
-        //            tmp! = tmp! + 1
-        //            likeNum.text = "\(tmp!)"
-        //            countN = 1
-        //        }
-        //        else {
-        //            likeImage.setImage(image2, forState: .Normal)
-        //            var tmp = Int(likeNum.text!)
-        //            tmp! = tmp! - 1
-        //            likeNum.text = "\(tmp!)"
-        //            countN = 0
-        //
-        //        }
-        
-        */
-        setLike()
-        //        contentLikeNum.text = String(contentLikeNumTmp)
-    }
-    
-    func setLike() {
-        let point : CGPoint = generalListTableView.convertPoint(CGPointZero, toView:generalListTableView)
+        let point : CGPoint = sender.convertPoint(CGPointZero, toView:generalListTableView)
         let indexPath = generalListTableView.indexPathForRowAtPoint(point)
         let code = generalBoards[indexPath!.row].code
         
-        let jsonParser = SimpleJsonParser()
-        jsonParser.HTTPGetJson("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Like.php?b_code=\(code)&uuid=\(User.sharedInstance().uuid)") {
-            (data : Dictionary<String, AnyObject>, error : String?) -> Void in
-            if error != nil {
-                print("\(error) : PostBoardVC")
-            } else {
-                if let _ = data["state"] as? String,
-                    let _ = data["message"] as? String
-                {
-                    print("succece:))")
-                    //                    self.state = stateT
-                    //                    print(self.state)
-                    //                    if self.state == "1" {
-                    //                        //                        print("yet")
-                    //                        //                        self.contentLikeNumTmp = self.contentLikeNumTmp + 1
-                    //                        //                        print(self.contentLikeNumTmp)
-                    //                        //                        self.contentLikeNum.text = "\(self.contentLikeNumTmp)" ////
-                    //                        //
-                    //                    }
-                    
-                } else {
-                    //print("User객체 SimpleJsonParser인스턴스 failed")
-                }
-            }
-        }
+        Alamofire.request(Router.SetLike(uuid: User.sharedInstance().uuid, bCode: code))
     }
     
     var pageInt = 1
