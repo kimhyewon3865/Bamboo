@@ -258,7 +258,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             DetailVC.keywords = univBoards[indexPath!.row].keywords
             DetailVC.contentlikeNumT = String(univBoards[indexPath!.row].numberOfLike)
             DetailVC.commentNumT = String(univBoards[indexPath!.row].numberOfComment)
-            
+            DetailVC.imageT = univBoards[indexPath!.row].imgURL
             DetailVC.code = univBoards[indexPath!.row].code
             DetailVC.state = univBoards[indexPath!.row].islike
 
