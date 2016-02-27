@@ -36,8 +36,12 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         pageInt = 1
         initUnivBoard()
         initSetting()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
     }
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
     func refresh(sender:AnyObject)
     {
@@ -173,7 +177,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.univListTableView.addSubview(refreshControl)
-        
+        self.navigationItem.title = User.sharedInstance().univ
     }
     
     func initUnivBoard() {
@@ -326,5 +330,4 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
     // Pass the selected object to the new view controller.
     }
     */
-    
 }

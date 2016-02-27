@@ -37,6 +37,11 @@ class KeywordSearchViewController: UIViewController, UISearchControllerDelegate,
     
     override func viewWillAppear(animated: Bool) {
         readRecentKeywordListAndUpdateUI()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     @IBOutlet weak var recentKeywordCollectionView: UICollectionView!

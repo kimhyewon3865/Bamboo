@@ -1809,21 +1809,38 @@ fdfsf
         <!--알림-->
         <scene sceneID="1al-YP-5b0">
             <objects>
-                <viewController id="f7b-Fj-Yud" customClass="NoticeViewController" customModule="Bamboo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="noticeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f7b-Fj-Yud" customClass="NoticeViewController" customModule="Bamboo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Sd-ce-MI0"/>
                         <viewControllerLayoutGuide type="bottom" id="nZ9-Hh-kO6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="az3-Qr-46o">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdh-DL-Yvg">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <color key="barTintColor" red="0.82352941176470584" green="0.66274509803921566" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Title" id="ZpL-Du-oHO">
+                                        <barButtonItem key="leftBarButtonItem" image="close" id="lNq-5P-eO5">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="closeButtonClicked:" destination="f7b-Fj-Yud" id="CTE-6x-LmP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vsj-Yg-VJp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="noticeCell" rowHeight="73" id="hr1-c1-6is" customClass="NoticeTableViewCell" customModule="Bamboo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="73"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hr1-c1-6is" id="bFx-OR-fiw">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="72"/>
@@ -1831,6 +1848,9 @@ fdfsf
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="게시물에 댓글이 달렸습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4e-Lc-cQi">
                                                     <rect key="frame" x="87" y="19" width="164" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="Ntl-MW-tks"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1844,8 +1864,8 @@ fdfsf
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notice" translatesAutoresizingMaskIntoConstraints="NO" id="tgD-Hc-lLT">
                                                     <rect key="frame" x="43" y="26" width="29" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="29" id="U5v-LF-vl2"/>
-                                                        <constraint firstAttribute="height" constant="21" id="pJZ-OG-OCb"/>
+                                                        <constraint firstAttribute="height" constant="21" id="47v-ds-kbz"/>
+                                                        <constraint firstAttribute="width" constant="29" id="qws-3w-Jmy"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대학" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TY2-nR-dyf">
@@ -1856,18 +1876,16 @@ fdfsf
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="qWE-og-F1i" firstAttribute="leading" secondItem="tgD-Hc-lLT" secondAttribute="trailing" constant="15" id="BBc-QU-He5"/>
-                                                <constraint firstItem="tgD-Hc-lLT" firstAttribute="leading" secondItem="TY2-nR-dyf" secondAttribute="trailing" constant="3" id="H1g-2L-cWq"/>
-                                                <constraint firstItem="W4e-Lc-cQi" firstAttribute="leading" secondItem="tgD-Hc-lLT" secondAttribute="trailing" constant="15" id="IAK-3d-XUM"/>
-                                                <constraint firstItem="W4e-Lc-cQi" firstAttribute="top" secondItem="TY2-nR-dyf" secondAttribute="top" constant="-7" id="bqq-oR-U4d"/>
-                                                <constraint firstItem="qWE-og-F1i" firstAttribute="bottom" secondItem="TY2-nR-dyf" secondAttribute="bottom" constant="7" id="mT6-oO-mEg"/>
+                                                <constraint firstItem="qWE-og-F1i" firstAttribute="top" secondItem="W4e-Lc-cQi" secondAttribute="bottom" constant="3" id="1SC-6L-669"/>
+                                                <constraint firstItem="tgD-Hc-lLT" firstAttribute="leading" secondItem="TY2-nR-dyf" secondAttribute="trailing" constant="3" id="6cS-aK-6gk"/>
+                                                <constraint firstItem="tgD-Hc-lLT" firstAttribute="centerY" secondItem="bFx-OR-fiw" secondAttribute="centerY" id="BwW-Q6-3IQ"/>
+                                                <constraint firstItem="tgD-Hc-lLT" firstAttribute="leading" secondItem="bFx-OR-fiw" secondAttribute="leading" constant="43" id="DhA-pZ-Ret"/>
+                                                <constraint firstItem="W4e-Lc-cQi" firstAttribute="leading" secondItem="qWE-og-F1i" secondAttribute="leading" id="RcS-d9-Dhh"/>
+                                                <constraint firstItem="tgD-Hc-lLT" firstAttribute="top" secondItem="TY2-nR-dyf" secondAttribute="top" id="V13-I8-f0b"/>
+                                                <constraint firstItem="W4e-Lc-cQi" firstAttribute="top" secondItem="bFx-OR-fiw" secondAttribute="topMargin" constant="11" id="fNZ-8U-YG9"/>
+                                                <constraint firstItem="qWE-og-F1i" firstAttribute="leading" secondItem="tgD-Hc-lLT" secondAttribute="trailing" constant="15" id="j8H-9j-Dah"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstItem="TY2-nR-dyf" firstAttribute="leading" secondItem="hr1-c1-6is" secondAttribute="leading" constant="10" id="M2K-cC-Omc"/>
-                                            <constraint firstItem="TY2-nR-dyf" firstAttribute="centerY" secondItem="hr1-c1-6is" secondAttribute="centerY" id="SRW-pO-NFp"/>
-                                            <constraint firstItem="tgD-Hc-lLT" firstAttribute="centerY" secondItem="hr1-c1-6is" secondAttribute="centerY" id="xJM-00-fh7"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="content" destination="W4e-Lc-cQi" id="ejA-aT-Qo9"/>
                                             <outlet property="generalOrUniv" destination="TY2-nR-dyf" id="iRh-Vs-9ts"/>
@@ -1879,12 +1897,15 @@ fdfsf
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.7686274509803922" green="0.60784313725490191" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Vsj-Yg-VJp" firstAttribute="height" secondItem="az3-Qr-46o" secondAttribute="height" id="0aZ-Cd-aLt"/>
-                            <constraint firstItem="Vsj-Yg-VJp" firstAttribute="centerY" secondItem="az3-Qr-46o" secondAttribute="centerY" id="1nY-pD-n5U"/>
-                            <constraint firstItem="Vsj-Yg-VJp" firstAttribute="width" secondItem="az3-Qr-46o" secondAttribute="width" id="8Ua-Yy-9Uc"/>
-                            <constraint firstItem="Vsj-Yg-VJp" firstAttribute="centerX" secondItem="az3-Qr-46o" secondAttribute="centerX" id="irM-z6-jSa"/>
+                            <constraint firstItem="Vsj-Yg-VJp" firstAttribute="top" secondItem="pdh-DL-Yvg" secondAttribute="bottom" id="5F7-kY-EXI"/>
+                            <constraint firstItem="pdh-DL-Yvg" firstAttribute="trailing" secondItem="Vsj-Yg-VJp" secondAttribute="trailing" id="BjX-wC-s75"/>
+                            <constraint firstItem="pdh-DL-Yvg" firstAttribute="leading" secondItem="az3-Qr-46o" secondAttribute="leading" id="Hou-E3-LCG"/>
+                            <constraint firstItem="Vsj-Yg-VJp" firstAttribute="bottom" secondItem="nZ9-Hh-kO6" secondAttribute="top" id="JeP-IM-YRP"/>
+                            <constraint firstAttribute="trailing" secondItem="pdh-DL-Yvg" secondAttribute="trailing" id="LD5-IC-2Tu"/>
+                            <constraint firstItem="pdh-DL-Yvg" firstAttribute="top" secondItem="3Sd-ce-MI0" secondAttribute="bottom" id="ocK-tT-XHz"/>
+                            <constraint firstItem="pdh-DL-Yvg" firstAttribute="leading" secondItem="Vsj-Yg-VJp" secondAttribute="leading" id="saG-Bl-XXZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="알림" id="0n6-DA-lsX">
@@ -1912,10 +1933,10 @@ fdfsf
                         <viewControllerLayoutGuide type="bottom" id="p3Y-CS-44r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uGU-ci-wcg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMA-sc-fBK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sMA-sc-fBK">
                                 <rect key="frame" x="0.0" y="20" width="320" height="200"/>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2000,7 +2021,7 @@ fdfsf
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptY-b6-uEr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptY-b6-uEr">
                                 <rect key="frame" x="267" y="183" width="33" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="ahh-31-c2W"/>
@@ -2009,7 +2030,7 @@ fdfsf
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVV-N5-WmZ">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVV-N5-WmZ">
                                 <rect key="frame" x="151" y="184" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="cxU-it-Nuf"/>
@@ -2017,13 +2038,13 @@ fdfsf
                                 </constraints>
                                 <state key="normal" image="unlike"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-Jl-9hZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-Jl-9hZ">
                                 <rect key="frame" x="178" y="183" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  댓글달기" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Blo-zz-Zwh">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  댓글달기" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Blo-zz-Zwh">
                                 <rect key="frame" x="19" y="237" width="229" height="20"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2032,7 +2053,7 @@ fdfsf
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQt-mT-l3J">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQt-mT-l3J">
                                 <rect key="frame" x="199" y="138" width="62" height="29"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2046,7 +2067,7 @@ fdfsf
                                     <segue destination="3T1-9W-8fQ" kind="push" identifier="keywordDetailFourthSegue" id="Z6V-G3-5EJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUI-MQ-ZyX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUI-MQ-ZyX">
                                 <rect key="frame" x="269" y="138" width="62" height="31"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2060,7 +2081,7 @@ fdfsf
                                     <segue destination="3T1-9W-8fQ" kind="push" identifier="keywordDetailFifthSegue" id="mHH-sY-H72"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-z7-6Qg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-z7-6Qg">
                                 <rect key="frame" x="261" y="237" width="40" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gGW-z7-6Qg" secondAttribute="height" multiplier="2:1" id="O5O-Wh-nmg"/>
@@ -2070,20 +2091,20 @@ fdfsf
                                     <action selector="sendButton:" destination="WVB-30-5OG" eventType="touchUpInside" id="gDU-Du-qJl"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="comment" translatesAutoresizingMaskIntoConstraints="NO" id="CMI-9N-zio">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment" translatesAutoresizingMaskIntoConstraints="NO" id="CMI-9N-zio">
                                 <rect key="frame" x="240" y="183" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="73F-iC-CTJ"/>
                                     <constraint firstAttribute="height" constant="20" id="qvw-bw-rv5"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="과제도 못하고 오늘도 역시 잉여..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBY-Pp-9gF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="과제도 못하고 오늘도 역시 잉여..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBY-Pp-9gF">
                                 <rect key="frame" x="20" y="40" width="280" height="78"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUW-ch-eXc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUW-ch-eXc">
                                 <rect key="frame" x="-11" y="138" width="62" height="27"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2097,7 +2118,7 @@ fdfsf
                                     <segue destination="3T1-9W-8fQ" kind="push" identifier="keywordDetailFirstSegue" id="mFI-a9-lEh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0a-bV-Jzo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0a-bV-Jzo">
                                 <rect key="frame" x="59" y="138" width="62" height="29"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2111,7 +2132,7 @@ fdfsf
                                     <segue destination="3T1-9W-8fQ" kind="push" identifier="keywordDetailSecondSegue" id="lK8-ys-9ij"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-Go-05c">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHe-Go-05c">
                                 <rect key="frame" x="129" y="138" width="62" height="29"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2125,7 +2146,7 @@ fdfsf
                                     <segue destination="3T1-9W-8fQ" kind="push" identifier="keywordDetailThirdSegue" id="ciI-Re-f52"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQy-lK-Qei">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQy-lK-Qei">
                                 <rect key="frame" x="-11" y="175" width="62" height="30"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2448,7 +2469,7 @@ fdfsf
                         <barButtonItem key="rightBarButtonItem" image="my_page_alarm" id="zYJ-Vy-Bpi">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="f7b-Fj-Yud" kind="push" id="YyR-Di-xdw"/>
+                                <segue destination="f7b-Fj-Yud" kind="modal" id="YyR-Di-xdw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

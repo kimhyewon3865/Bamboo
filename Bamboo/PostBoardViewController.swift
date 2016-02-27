@@ -47,6 +47,10 @@ class PostBoardViewController: UIViewController {
         contentsTextView.becomeFirstResponder()
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     // MARK: - Custom function
     func settingContentsTextView() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyWillShow:"), name: UIKeyboardDidShowNotification, object: nil)
@@ -70,6 +74,8 @@ class PostBoardViewController: UIViewController {
                 self.toolBoxView.frame = CGRectMake(toolBoxView.frame.origin.x, toolBoxView.frame.origin.y + (keyboardSize.size.height * -1), toolBoxView.frame.size.width, toolBoxView.frame.size.height)
             }
         }
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
     }
     
     func setImageToPhotoImageView(image: UIImage) {

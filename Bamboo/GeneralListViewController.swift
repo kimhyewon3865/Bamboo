@@ -35,6 +35,11 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         pageInt = 1
         initGeneralBoard()
         initSetting()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func refresh(sender:AnyObject)
@@ -303,6 +308,20 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         self.type = "T01"
         self.pageInt = 1
         initGeneralBoard()
+    }
+}
+
+extension UIViewController {
+    func catchIt(userInfo: NSNotification) {
+        let descriptions = LibraryAPI.sharedInstance.pushNotificationTriggered()
+        BBAlertView.alert(descriptions.title, message: descriptions.message, buttons: descriptions.buttons, tapBlock: {(alertAction, position) -> Void in
+            if position == 1 {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let noticeVC = storyboard.instantiateViewControllerWithIdentifier("noticeVC") as! NoticeViewController
+                //self.navigationController?.pushViewController(noticeVC, animated: true)
+                self.presentViewController(noticeVC, animated: true, completion: nil)
+            }
+        })
     }
 }
 

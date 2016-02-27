@@ -54,6 +54,10 @@ class AlertMessageManager {
         return ("알림", "속마음을 적어주세요 :]")
     }
     
+    func pushNotificationTriggered() -> (title: String, message: String, buttons: [String]) {
+        return("알림", "새로운 알림이 도착했습니다. 확인하시겠습니까?", ["취소", "확인"])
+    }
+    
     init() {
         
     }

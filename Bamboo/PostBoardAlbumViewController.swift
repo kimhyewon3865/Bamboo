@@ -24,6 +24,14 @@ class PostBoardAlbumViewController: UIViewController {
         super.viewDidLoad()
         settingPhotos()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 
     func settingPhotos() {
         photos = []
