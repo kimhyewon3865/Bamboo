@@ -47,13 +47,13 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
                 isAnimating = false
             }
         }
-        self.refreshControl?.endRefreshing()
         
-        //initSetting()
         initGeneralBoard()
-        
+        self.refreshControl?.endRefreshing()
+        self.refreshControl.hidden = true
         // Code to refresh table view
     }
+    
     var countN = 0
     
     func initSetting() {
@@ -69,7 +69,6 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             isAnimating = true
             self.refreshControl = UIRefreshControl()
             self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-            
             self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
             self.generalListTableView.addSubview(refreshControl)
         }
