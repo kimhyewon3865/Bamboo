@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CCy-XZ-f3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1776" y="-1076"/>
+            <point key="canvasLocation" x="-157" y="-2089"/>
         </scene>
         <!--앨범-->
         <scene sceneID="1Vd-cf-tzh">
@@ -322,7 +322,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afu-Gr-ekM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1b6-B3-32x" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2790" y="-1732"/>
+            <point key="canvasLocation" x="1186" y="-3600"/>
         </scene>
         <!--사진-->
         <scene sceneID="24K-qs-ziP">
@@ -405,7 +405,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uc3-H8-UMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="osL-bS-UUe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2790" y="-1038"/>
+            <point key="canvasLocation" x="1186" y="-2882"/>
         </scene>
         <!--동영상-->
         <scene sceneID="D3I-iE-0L5">
@@ -445,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcH-Nh-FRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2790" y="-361"/>
+            <point key="canvasLocation" x="1186" y="-2089"/>
         </scene>
         <!--속닥-->
         <scene sceneID="tne-QT-ifu">
@@ -681,7 +681,7 @@ df
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="-370"/>
+            <point key="canvasLocation" x="1173" y="-1270"/>
         </scene>
         <!--First Run View Controller-->
         <scene sceneID="Tyy-bC-Ug4">
@@ -747,7 +747,7 @@ df
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVb-wC-omv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-525" y="1017"/>
+            <point key="canvasLocation" x="-1253" y="1017"/>
         </scene>
         <!--대학교 설정-->
         <scene sceneID="nOr-fT-LuP">
@@ -820,7 +820,7 @@ df
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="255" y="1017"/>
+            <point key="canvasLocation" x="-157" y="1017"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="YkD-43-i6n">
@@ -843,7 +843,7 @@ df
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2G-8P-lLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="307"/>
+            <point key="canvasLocation" x="-157" y="-189"/>
         </scene>
         <!--속닥-->
         <scene sceneID="Acn-S3-WSK">
@@ -1125,7 +1125,7 @@ fdfsf
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCs-Sw-Ul8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="307"/>
+            <point key="canvasLocation" x="1173" y="-189"/>
         </scene>
         <!--#-->
         <scene sceneID="s0a-AQ-jEd">
@@ -1336,7 +1336,7 @@ fdfsf
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3X9-M1-CGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="338"/>
+            <point key="canvasLocation" x="2554" y="-189"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="ywD-l9-Ukk">
@@ -1526,7 +1526,7 @@ fdfsf
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EXD-ib-5Pq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2239" y="416"/>
+            <point key="canvasLocation" x="-157" y="-1270"/>
         </scene>
         <!--Keyword Search View Controller-->
         <scene sceneID="NOl-Vz-fLl">
@@ -1804,7 +1804,7 @@ fdfsf
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akF-v7-E8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2239" y="-351"/>
+            <point key="canvasLocation" x="2554" y="-1270"/>
         </scene>
         <!--알림-->
         <scene sceneID="1al-YP-5b0">
@@ -1922,7 +1922,7 @@ fdfsf
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2E0-rV-Ny2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930" y="1017"/>
+            <point key="canvasLocation" x="1912" y="1017"/>
         </scene>
         <!--속닥-->
         <scene sceneID="Cqd-GZ-jlX">
@@ -2235,7 +2235,7 @@ fdfsf
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lzs-aP-dGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DSU-vR-KGC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1889" y="-351"/>
+            <point key="canvasLocation" x="1912" y="271"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="IDG-n9-WjF">
@@ -2482,7 +2482,7 @@ fdfsf
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ST1-jc-FmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="1017"/>
+            <point key="canvasLocation" x="1173" y="1017"/>
         </scene>
         <!--대학교 설정-->
         <scene sceneID="HpF-OQ-dWJ">
@@ -2558,7 +2558,7 @@ fdfsf
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKR-xw-Gu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="1699"/>
+            <point key="canvasLocation" x="1173" y="1823"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jXh-Gk-qfc">
@@ -2580,7 +2580,7 @@ fdfsf
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyr-Pb-Fka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-144" y="1017"/>
+            <point key="canvasLocation" x="-628" y="1017"/>
         </scene>
         <!--일반-->
         <scene sceneID="GbN-Jh-GDn">
@@ -2603,7 +2603,7 @@ fdfsf
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQ4-Tx-b1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="845" y="-370"/>
+            <point key="canvasLocation" x="437" y="-1270"/>
         </scene>
         <!--대학-->
         <scene sceneID="duJ-nk-EyZ">
@@ -2626,7 +2626,7 @@ fdfsf
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXi-Ll-xcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="845" y="307"/>
+            <point key="canvasLocation" x="437" y="-189"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="gRf-DQ-Hs6">
@@ -2649,7 +2649,7 @@ fdfsf
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iR-Kf-WbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="845" y="1017"/>
+            <point key="canvasLocation" x="449" y="1017"/>
         </scene>
         <!--Post Board Tab Bar View Controller-->
         <scene sceneID="rpU-Fg-69v">
@@ -2670,7 +2670,7 @@ fdfsf
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hr0-Sb-PEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2239" y="-1038"/>
+            <point key="canvasLocation" x="449" y="-2089"/>
         </scene>
     </scenes>
     <resources>
