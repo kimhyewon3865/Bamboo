@@ -155,7 +155,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             cell.keywordSecond.hidden = false
             cell.keywordFirst.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[0], forState: .Normal)
             cell.keywordSecond.setTitle("#"+self.generalBoards[indexPath.row].keywordArray[1], forState: .Normal)
-            cell.keywordThird.setTitle("", forState: .Normal)
+            cell.keywordThird.hidden = true
         }
         else {
             cell.keywordFirst.hidden = false
