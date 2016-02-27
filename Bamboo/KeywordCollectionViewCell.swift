@@ -26,7 +26,16 @@ class KeywordCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var likeImage: UIButton!
 
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        likeImage.addTarget(self, action: "aa", forControlEvents: .TouchUpInside)
+        // Initialization code
+    }
 //    override var selected: Bool {
 //        
 //        get {
@@ -46,8 +55,23 @@ class KeywordCollectionViewCell: UICollectionViewCell {
 //            }
 //        }
 //    }
-//    func aa() {
-//        print("Xx")
-//    }
+    func aa() {
+        print("Xx")
+        let image = UIImage(named: "like")
+        let image2 = UIImage(named: "unlike")
+        
+        if likeImage.imageView?.image == image2 {
+            likeImage.setImage(image, forState: .Normal)
+            var tmp = Int(likeNum.text!)
+            tmp! = tmp! + 1
+            likeNum.text = "\(tmp!)"
+        } else {
+            likeImage.setImage(image2, forState: .Normal)
+            var tmp = Int(likeNum.text!)
+            tmp! = tmp! - 1
+            likeNum.text = "\(tmp!)"            
+        }
+
+    }
     
 }

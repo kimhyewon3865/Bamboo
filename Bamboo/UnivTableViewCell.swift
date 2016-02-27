@@ -27,7 +27,6 @@ class UnivTableViewCell: UITableViewCell {
 
     @IBOutlet weak var megaPhone: UIButton!
     
-    var countN = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,32 +50,13 @@ class UnivTableViewCell: UITableViewCell {
             var tmp = Int(likeNum.text!)
             tmp! = tmp! + 1
             likeNum.text = "\(tmp!)"
-            countN = 1
         } else {
             likeImage.setImage(image2, forState: .Normal)
             var tmp = Int(likeNum.text!)
             tmp! = tmp! - 1
             likeNum.text = "\(tmp!)"
-            countN = 0
             
         }
-
-//        
-//        if countN == 0 {
-//            likeImage.setImage(image, forState: .Normal)
-//            var tmp = Int(likeNum.text!)
-//            tmp! = tmp! + 1
-//            likeNum.text = "\(tmp!)"
-//            countN = 1
-//        }
-//        else {
-//            likeImage.setImage(image2, forState: .Normal)
-//            var tmp = Int(likeNum.text!)
-//            tmp! = tmp! - 1
-//            likeNum.text = "\(tmp!)"
-//            countN = 0
-//            
-//        }
     }
 
 }
