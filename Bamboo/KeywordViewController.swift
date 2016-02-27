@@ -103,32 +103,33 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
     
     func setLike(sender: AnyObject) {
         let code = keywords[sender.tag].code
-        
-        let jsonParser = SimpleJsonParser()
-        jsonParser.HTTPGetJson("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Like.php?b_code=\(code)&uuid=\(User.sharedInstance().uuid)") {
-            (data : Dictionary<String, AnyObject>, error : String?) -> Void in
-            if error != nil {
-                print("\(error) : PostBoardVC")
-            } else {
-                if let _ = data["state"] as? String,
-                    let _ = data["message"] as? String
-                {
-                    print("succece:))")
-                    //                    self.state = stateT
-                    //                    print(self.state)
-                    //                    if self.state == "1" {
-                    //                        //                        print("yet")
-                    //                        //                        self.contentLikeNumTmp = self.contentLikeNumTmp + 1
-                    //                        //                        print(self.contentLikeNumTmp)
-                    //                        //                        self.contentLikeNum.text = "\(self.contentLikeNumTmp)" ////
-                    //                        //
-                    //                    }
-                    
-                } else {
-                    //print("User객체 SimpleJsonParser인스턴스 failed")
-                }
-            }
-        }
+        Alamofire.request(Router.SetLike(uuid: User.sharedInstance().uuid, bCode: code))
+
+//        let jsonParser = SimpleJsonParser()
+//        jsonParser.HTTPGetJson("http://ec2-52-68-50-114.ap-northeast-1.compute.amazonaws.com/bamboo/API/Bamboo_Set_Like.php?b_code=\(code)&uuid=\(User.sharedInstance().uuid)") {
+//            (data : Dictionary<String, AnyObject>, error : String?) -> Void in
+//            if error != nil {
+//                print("\(error) : PostBoardVC")
+//            } else {
+//                if let _ = data["state"] as? String,
+//                    let _ = data["message"] as? String
+//                {
+//                    print("succece:))")
+//                    //                    self.state = stateT
+//                    //                    print(self.state)
+//                    //                    if self.state == "1" {
+//                    //                        //                        print("yet")
+//                    //                        //                        self.contentLikeNumTmp = self.contentLikeNumTmp + 1
+//                    //                        //                        print(self.contentLikeNumTmp)
+//                    //                        //                        self.contentLikeNum.text = "\(self.contentLikeNumTmp)" ////
+//                    //                        //
+//                    //                    }
+//                    
+//                } else {
+//                    //print("User객체 SimpleJsonParser인스턴스 failed")
+//                }
+//            }
+//        }
     }
     
     func keywordClicked(sender :UIButton) {
