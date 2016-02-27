@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class KeywordViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class KeywordViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var keywordView: UICollectionView!
     
@@ -19,10 +19,9 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.keywordView.delegate = self
-        self.keywordView.dataSource = self
         self.btnBest.hidden = true
         self.btnNew.hidden = true
+        
         btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
         btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
         btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
@@ -33,6 +32,8 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
             navigationItem.title = titleName
         }
         
+        self.keywordView.delegate = self
+        self.keywordView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -66,7 +67,6 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
             cell.backgroundImage.alpha = 0.4
             cell.backgroundImage.downloadedFrom(link: keywords[indexPath.row].imgURL, contentMode: .ScaleToFill)
         }
-
         
         if(keywords[indexPath.row].keywordArray.count == 0){
             cell.keywordFirst.hidden = true
@@ -158,7 +158,6 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
         } else if detailOrMega == 2 {
             Alamofire
                 .request(Router.GetList(type: "T05", page: "1", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
-                
                 .responseCollection { (response: Response<[GeneralBoard], NSError>) in
                     if response.result.isSuccess {
                         BBActivityIndicatorView.hide()
@@ -210,8 +209,8 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     @IBAction func backBtnClicked(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
-
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "detail" {
             let DetailVC = segue.destinationViewController as! DetailViewController
@@ -227,14 +226,38 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
             print(DetailVC.code)
         }
     }
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+class CustomLayout: UICollectionViewFlowLayout {
+    var numberOfItemsPerRow: Int = 2 {
+        didSet {
+            invalidateLayout()
+        }
     }
-    */
 
+    override func prepareLayout() {
+        super.prepareLayout()
+        
+        if let collectionView = self.collectionView {
+            var newItemSize = itemSize
+            
+            // Always use an item count of at least 1
+            let itemsPerRow = CGFloat(max(numberOfItemsPerRow, 1))
+            
+            // Calculate the sum of the spacing between cells
+            let totalSpacing = minimumInteritemSpacing * (itemsPerRow - 1.0)
+            
+            // Calculate how wide items should be
+            newItemSize.width = (collectionView.bounds.size.width - totalSpacing) / itemsPerRow
+            
+            // Use the aspect ratio of the current item size to determine how tall the items should be
+            if itemSize.height > 0 {
+                let itemAspectRatio = itemSize.width / itemSize.height
+                newItemSize.height = newItemSize.width / itemAspectRatio + 30.0
+            }
+            
+            // Set the new item size
+            itemSize = newItemSize
+        }
+    }
 }
