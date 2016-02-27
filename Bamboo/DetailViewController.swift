@@ -61,11 +61,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         if commentContent != "" {
         let commentTmp = Comment(commentP: commentContent, regdtP: str)
         //= Comment(commentP: commentContent, regdtP: dateFormatter.stringFromDate(NSDate())
-        print("str")
-        print(str)
-        print("nsdate")
         let olderDate = dateFormatter.dateFromString(str)
-        print(olderDate)
         commentsArr.insert(commentTmp, atIndex: 0)
         //commentsArr.append(commentTmp)
         commentTableView.reloadData()
@@ -95,10 +91,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        initDetailView()
+        initSetting()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     func contentLikeFunc() {
         setLike()
         let image = UIImage(named: "like")
@@ -191,7 +193,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             backgroundImage.alpha = 0.5
             backgroundImage.downloadedFrom(link: imageT, contentMode: .ScaleToFill)
         }
-        
         if(keywordArray.count == 0){
             keyword1.hidden = true
             keyword2.hidden = true
@@ -217,7 +218,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             keyword1.setTitle("#" + keywordArray[0], forState: .Normal)
             keyword2.setTitle("#" + keywordArray[1], forState: .Normal)
             keyword3.setTitle("#" + keywordArray[2], forState: .Normal)
-            keyword3.hidden = true
             keyword4.hidden = true
             keyword5.hidden = true
             keyword6.hidden = true
@@ -267,11 +267,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
         if !commentsArr.isEmpty {
             let olderDate = dateFormatter.dateFromString(commentsArr[indexPath.row].regdt)
-            print("regdt")
-            print(olderDate)
-            print(commentsArr[indexPath.row].regdt)
-            //print(commentsArr[indexPath.row].comment)    
-            print(LibraryAPI.sharedInstance.compareDate(NSDate()))
+            //print(commentsArr[indexPath.row].comment)
             //print(LibraryAPI.sharedInstance.compareDate(olderDate!))
             //cell.time.text = CountTimeManager.compareDate(olderDate!)
             cell.time.text = LibraryAPI.sharedInstance.compareDate(olderDate!)
@@ -296,10 +292,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     func commentLikeFunc(sender: UIButton) {
         let index = sender.tag
         let idx = commentsArr[index].idx
-        print("idx")
-        print(index)
-        print(idx)
-        //print(idx)
         Alamofire
             .request(Router.SetCommentLike(uuid: User.sharedInstance().uuid, idx: "\(idx)"))
             
