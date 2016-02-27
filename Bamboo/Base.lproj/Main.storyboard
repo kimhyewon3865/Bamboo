@@ -1024,19 +1024,19 @@ fdfsf
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1p-AI-bE5">
-                                <rect key="frame" x="235" y="361" width="75" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="2FS-WO-XnX"/>
-                                    <constraint firstAttribute="width" constant="75" id="l7n-kZ-SDJ"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="btn_new_unselected"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3Y-bC-9NW">
                                 <rect key="frame" x="235" y="278" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Xb5-nr-1um"/>
                                     <constraint firstAttribute="width" constant="75" id="kOG-16-h6l"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="btn_new_unselected"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1p-AI-bE5">
+                                <rect key="frame" x="235" y="361" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="2FS-WO-XnX"/>
+                                    <constraint firstAttribute="width" constant="75" id="l7n-kZ-SDJ"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="btn_best_unselected"/>
                             </button>
@@ -1116,8 +1116,8 @@ fdfsf
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="btnBest" destination="q3Y-bC-9NW" id="OED-4F-Pop"/>
-                        <outlet property="btnNew" destination="i1p-AI-bE5" id="X0g-1c-RgK"/>
+                        <outlet property="btnBest" destination="i1p-AI-bE5" id="57a-Gu-9Qk"/>
+                        <outlet property="btnNew" destination="q3Y-bC-9NW" id="1Ae-cu-O45"/>
                         <outlet property="btnWrite" destination="xg1-wp-5aJ" id="Zeo-Ay-ZbD"/>
                         <outlet property="hiddenView" destination="BCT-8W-tre" id="dP4-O1-B8l"/>
                         <outlet property="univListTableView" destination="eMD-Vt-KfT" id="ooE-ij-3AH"/>

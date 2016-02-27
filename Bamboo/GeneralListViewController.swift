@@ -23,6 +23,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     var isAnimating = false
     
     var likeTempN = 0
+    var type = "T01"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,7 +194,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     func initGeneralBoard() {
         BBActivityIndicatorView.show("로딩중입니다><")
         Alamofire
-            .request(Router.GetList(type: "T01", page: "1", university: User.sharedInstance().univ , uuid: User.sharedInstance().uuid))
+            .request(Router.GetList(type: self.type, page: "1", university: User.sharedInstance().univ , uuid: User.sharedInstance().uuid))
             .responseCollection { (response: Response<[GeneralBoard], NSError>) in
                 if response.result.isSuccess {
                     BBActivityIndicatorView.hide()
@@ -207,7 +208,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func plusInitGeneralBoard() {
         Alamofire
-            .request(Router.GetList(type: "T01", page: "\(pageInt)", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
+            .request(Router.GetList(type: self.type, page: "\(pageInt)", university: User.sharedInstance().univ, uuid: User.sharedInstance().uuid))
             .responseCollection { (response: Response<[GeneralBoard], NSError>) in
                 if response.result.isSuccess {
                     self.plusGeneralBoards = response.result.value!
@@ -281,6 +282,10 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         btnWrite.setImage(image, forState: .Normal)
         btnBest.setImage(image, forState: .Normal)
         btnNew.setImage(image2, forState: .Normal)
+        
+        self.type = "T02"
+        self.pageInt = 1
+        initGeneralBoard()
     }
     
     @IBOutlet weak var btnNew: UIButton!
@@ -293,6 +298,10 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         btnWrite.setImage(image, forState: .Normal)
         btnNew.setImage(image, forState: .Normal)
         btnBest.setImage(image2, forState: .Normal)
+        
+        self.type = "T01"
+        self.pageInt = 1
+        initGeneralBoard()
     }
 }
 

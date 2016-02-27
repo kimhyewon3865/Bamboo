@@ -237,6 +237,7 @@ class PostBoardViewController: UIViewController {
     
     @IBAction func toolBoxPostButtonClicked(sender: UIButton) {
         if contentsTextView.text == "" {
+            NSNotificationCenter.defaultCenter().removeObserver(self)
             let description = LibraryAPI.sharedInstance.isEmptyPostContentsTextFiled()
             BBAlertView.alert(description.title, message: description.message)
         } else {

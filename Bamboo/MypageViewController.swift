@@ -66,6 +66,7 @@ class MypageViewController: UIViewController {
             detailVC.contentlikeNumT = myPages[indexPath.row].likeCnt
             detailVC.commentNumT = myPages[indexPath.row].commentCnt
             detailVC.code = myPages[indexPath.row].code
+            detailVC.imageT = myPages[indexPath.row].imgURL
         }
     }
 }
