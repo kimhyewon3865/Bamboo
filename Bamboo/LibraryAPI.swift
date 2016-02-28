@@ -85,4 +85,8 @@ class LibraryAPI: NSObject {
     func isEmptyPostContentsTextFiled() -> (title: String, message: String) {
         return self.alertMessageManager.isEmptyPostContentsTextFiled()
     }
+    
+    func pushNotificationTriggered() -> (title: String, message: String, buttons: [String]) {
+        return self.alertMessageManager.pushNotificationTriggered()
+    }
 }

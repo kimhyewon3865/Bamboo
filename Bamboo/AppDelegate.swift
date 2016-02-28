@@ -18,7 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //기본 탭바 틴트를 흰샛으로 변경
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.whiteColor()], forState: .Normal)
-        
+
+        if launchOptions != nil {
+            NSNotificationCenter.defaultCenter().postNotificationName("myNotif", object: nil, userInfo: nil)
+        }
         //앱 최초실행인지 판단하는 코드
         if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -51,6 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             }
+            if launchOptions != nil {
+                NSNotificationCenter.defaultCenter().postNotificationName("myNotif", object: nil, userInfo: nil)
+            }
             sleep(1)
         }
         
@@ -79,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        
+        NSNotificationCenter.defaultCenter().postNotificationName("myNotif", object: nil, userInfo: userInfo as [NSObject : AnyObject])
     }
     
     func applicationWillResignActive(application: UIApplication) {

@@ -24,6 +24,14 @@ class MypageChangeUniversityViewController: UIViewController {
         self.data = LibraryAPI().getNameFromUniversities()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     func alertSuccessMessage(univName: String) {
         let descriptions = LibraryAPI.sharedInstance.clickCellFromUnivSearchVC(univName)
         BBAlertView.alert(descriptions.title, message: descriptions.message)
