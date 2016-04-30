@@ -22,9 +22,9 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
         self.btnBest.hidden = true
         self.btnNew.hidden = true
         
-        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
-        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
-        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
+        btnBest.addTarget(self, action: #selector(KeywordViewController.btnBestFunc), forControlEvents: .TouchUpInside)
+        btnNew.addTarget(self, action: #selector(KeywordViewController.btnNewFunc), forControlEvents: .TouchUpInside)
+        btnWrite.addTarget(self, action: #selector(KeywordViewController.btnWriteFunc), forControlEvents: .TouchUpInside)
         initUnivBoard()
         if detailOrMega == 1 {
             navigationItem.title = "#" + titleName
@@ -38,7 +38,7 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     override func viewWillAppear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIViewController.catchIt(_:)), name: "myNotif", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -100,11 +100,11 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
             cell.keywordThird.setTitle("#"+self.keywords[indexPath.row].keywordArray[2], forState: .Normal)
         }
         
-        cell.keywordFirst.addTarget(self, action: "keywordClicked:", forControlEvents: .TouchUpInside)
-        cell.keywordSecond.addTarget(self, action: "keywordClicked:", forControlEvents: .TouchUpInside)
-        cell.keywordThird.addTarget(self, action: "keywordClicked:", forControlEvents: .TouchUpInside)
+        cell.keywordFirst.addTarget(self, action: #selector(KeywordViewController.keywordClicked(_:)), forControlEvents: .TouchUpInside)
+        cell.keywordSecond.addTarget(self, action: #selector(KeywordViewController.keywordClicked(_:)), forControlEvents: .TouchUpInside)
+        cell.keywordThird.addTarget(self, action: #selector(KeywordViewController.keywordClicked(_:)), forControlEvents: .TouchUpInside)
         cell.likeImage.tag = indexPath.row
-        cell.likeImage.addTarget(self, action: Selector("setLike:"), forControlEvents: .TouchUpInside)
+        cell.likeImage.addTarget(self, action: #selector(KeywordViewController.setLike(_:)), forControlEvents: .TouchUpInside)
         
         return cell
     }
@@ -232,40 +232,6 @@ class KeywordViewController: UIViewController, UICollectionViewDataSource, UICol
             DetailVC.code = keywords[indexPath!.row].code
             DetailVC.imageT = keywords[indexPath!.row].imgURL
             print(DetailVC.code)
-        }
-    }
-}
-
-class CustomLayout: UICollectionViewFlowLayout {
-    var numberOfItemsPerRow: Int = 2 {
-        didSet {
-            invalidateLayout()
-        }
-    }
-
-    override func prepareLayout() {
-        super.prepareLayout()
-        
-        if let collectionView = self.collectionView {
-            var newItemSize = itemSize
-            
-            // Always use an item count of at least 1
-            let itemsPerRow = CGFloat(max(numberOfItemsPerRow, 1))
-            
-            // Calculate the sum of the spacing between cells
-            let totalSpacing = minimumInteritemSpacing * (itemsPerRow - 1.0)
-            
-            // Calculate how wide items should be
-            newItemSize.width = (collectionView.bounds.size.width - totalSpacing) / itemsPerRow
-            
-            // Use the aspect ratio of the current item size to determine how tall the items should be
-            if itemSize.height > 0 {
-                let itemAspectRatio = itemSize.width / itemSize.height
-                newItemSize.height = newItemSize.width / itemAspectRatio + 30.0
-            }
-            
-            // Set the new item size
-            itemSize = newItemSize
         }
     }
 }

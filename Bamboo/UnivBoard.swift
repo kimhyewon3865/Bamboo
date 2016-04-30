@@ -30,20 +30,15 @@ final class UnivBoard : ResponseObjectSerializable,  ResponseCollectionSerializa
         self.movURL = representation.valueForKeyPath("mov_url") as! String
         self.numberOfComment = Int(representation.valueForKeyPath("comment_cnt") as! String)!
         self.numberOfLike = Int(representation.valueForKeyPath("like_cnt") as! String)!
-        //self.numberOfLike = Int(representation.valueForKeyPath("board_like_cnt") as! String)!
         self.keywords = representation.valueForKeyPath("keyword") as! String
 
         if self.keywords != "" {
             let tmpKeywordArray = keywords.characters.split{$0 == ","}.map(String.init)
             keywordArray = tmpKeywordArray
         }
-        //self.univ = representation.valueForKeyPath("university") as! String
         self.notice_yn = representation.valueForKeyPath("b_notice_yn") as! String
         self.islike = representation.valueForKeyPath("is_like") as! String
-
     }
-    
-    
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [UnivBoard]{
         var univBoards : [UnivBoard] = []

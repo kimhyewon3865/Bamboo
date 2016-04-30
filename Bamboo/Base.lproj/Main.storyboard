@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aAF-GG-H2f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aAF-GG-H2f">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -1887,10 +1887,10 @@ fdfsf
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="content" destination="W4e-Lc-cQi" id="ejA-aT-Qo9"/>
-                                            <outlet property="generalOrUniv" destination="TY2-nR-dyf" id="iRh-Vs-9ts"/>
-                                            <outlet property="megaphone" destination="tgD-Hc-lLT" id="LRt-v3-qFP"/>
-                                            <outlet property="time" destination="qWE-og-F1i" id="cWT-0H-GA7"/>
+                                            <outlet property="contentsLabel" destination="W4e-Lc-cQi" id="SJd-9D-q5T"/>
+                                            <outlet property="megaphoneImaveView" destination="tgD-Hc-lLT" id="ppy-Lw-b1D"/>
+                                            <outlet property="timeLabel" destination="qWE-og-F1i" id="nYA-Lh-voF"/>
+                                            <outlet property="typeLabel" destination="TY2-nR-dyf" id="SrO-6N-fmd"/>
                                             <segue destination="WVB-30-5OG" kind="push" identifier="noticeToDetailSegue" id="gRj-bW-oiv"/>
                                         </connections>
                                     </tableViewCell>
@@ -2709,10 +2709,10 @@ fdfsf
         <image name="write" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4eB-yn-IU1"/>
+        <segue reference="MdN-sA-UFg"/>
+        <segue reference="ajH-RM-cRM"/>
         <segue reference="kQV-gC-Auu"/>
         <segue reference="miI-TN-1nM"/>
-        <segue reference="ajH-RM-cRM"/>
-        <segue reference="MdN-sA-UFg"/>
+        <segue reference="4eB-yn-IU1"/>
     </inferredMetricsTieBreakers>
 </document>

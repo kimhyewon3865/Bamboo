@@ -32,7 +32,7 @@ class GeneralTableViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        likeImage.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+        likeImage.addTarget(self, action: #selector(GeneralTableViewCell.contentLikeFunc), forControlEvents: .TouchUpInside)
         // Configure the view for the selected state
     }
     

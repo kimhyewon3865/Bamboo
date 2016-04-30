@@ -4,3 +4,7 @@ use_frameworks!
 
 pod 'Alamofire', '~> 3.0'
 pod 'RealmSwift'
+pod 'AsyncSwift'
+pod 'SwiftDate'
+pod 'SwiftValidator', '3.0.3'
+pod 'SVProgressHUD'

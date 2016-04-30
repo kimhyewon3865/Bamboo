@@ -9,15 +9,11 @@
 import UIKit
 
 class NoticeTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var generalOrUniv: UILabel!
     
-    @IBOutlet weak var megaphone: UIImageView!
-    
-    @IBOutlet weak var content: UILabel!
-    
-    @IBOutlet weak var time: UILabel!
-    
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var megaphoneImaveView: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var contentsLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

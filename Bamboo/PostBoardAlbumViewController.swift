@@ -26,7 +26,7 @@ class PostBoardAlbumViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIViewController.catchIt(_:)), name: "myNotif", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -39,7 +39,6 @@ class PostBoardAlbumViewController: UIViewController {
     }
     
     func fetchPhotoAtIndexFromEnd(index:Int) {
-        
         let imgManager = PHImageManager.defaultManager()
         
         let requestOptions = PHImageRequestOptions()
@@ -50,8 +49,10 @@ class PostBoardAlbumViewController: UIViewController {
         let fetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions)
         
         if fetchResult.count > 0 {
-            imgManager.requestImageForAsset(fetchResult.objectAtIndex(fetchResult.count - 1 - index) as! PHAsset, targetSize: view.frame.size, contentMode: PHImageContentMode.AspectFill, options: requestOptions, resultHandler: { (image, _) in
-                self.photos.append(image!)
+            imgManager.requestImageForAsset(fetchResult.objectAtIndex(fetchResult.count - 1 - index) as! PHAsset, targetSize: view.frame.size, contentMode: PHImageContentMode.AspectFill, options: requestOptions, resultHandler: { image, _ in
+                if let image = image {
+                    self.photos.append(image)
+                }
                 if index + 1 < fetchResult.count && index < self.totalPhotoCount {
                     self.fetchPhotoAtIndexFromEnd(index + 1)
                 } else {

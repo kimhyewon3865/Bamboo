@@ -1,18 +1,30 @@
 PODS:
-  - Alamofire (3.2.0)
-  - Realm (0.98.1):
-    - Realm/Headers (= 0.98.1)
-  - Realm/Headers (0.98.1)
-  - RealmSwift (0.98.1):
-    - Realm (= 0.98.1)
+  - Alamofire (3.3.1)
+  - AsyncSwift (1.7.2)
+  - Realm (0.100.0):
+    - Realm/Headers (= 0.100.0)
+  - Realm/Headers (0.100.0)
+  - RealmSwift (0.100.0):
+    - Realm (= 0.100.0)
+  - SVProgressHUD (2.0.3)
+  - SwiftDate (3.0.8)
+  - SwiftValidator (3.0.3)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - AsyncSwift
   - RealmSwift
+  - SVProgressHUD
+  - SwiftDate
+  - SwiftValidator (= 3.0.3)
 
 SPEC CHECKSUMS:
-  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
-  Realm: ca4a4122e939e228e10694fc49011386cb2ecb07
-  RealmSwift: 7d3c7033427816a2c3417ba0d004d694987e503a
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
+  Realm: b13b548e712d28a66678970c45cd245ebb94ba3b
+  RealmSwift: 1bb0ba2ceaa06b65d740b4f91bfa06e3fd1b805c
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
+  SwiftValidator: 0b6a48bf10364411b0d64c97f78665ff87ca9f8b
 
 COCOAPODS: 0.39.0

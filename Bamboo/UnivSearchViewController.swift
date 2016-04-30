@@ -105,7 +105,7 @@ extension UnivSearchViewController: UITableViewDataSource {
 extension UnivSearchViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
         isSearching = true
-        return true;
+        return true
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
@@ -122,7 +122,7 @@ extension UnivSearchViewController: UISearchBarDelegate {
             let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
-        if (filtered.count == 0) {
+        if filtered.count == 0 {
             isSearching = false
         } else {
             isSearching = true

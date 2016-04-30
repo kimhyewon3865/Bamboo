@@ -35,7 +35,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         pageInt = 1
         initGeneralBoard()
         initSetting()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIViewController.catchIt(_:)), name: "myNotif", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -68,14 +68,14 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         self.btnBest.hidden = true
         self.btnNew.hidden = true
         
-        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
-        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
-        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
+        btnBest.addTarget(self, action: #selector(GeneralListViewController.btnBestFunc), forControlEvents: .TouchUpInside)
+        btnNew.addTarget(self, action: #selector(GeneralListViewController.btnNewFunc), forControlEvents: .TouchUpInside)
+        btnWrite.addTarget(self, action: #selector(GeneralListViewController.btnWriteFunc), forControlEvents: .TouchUpInside)
         if !isAnimating {
             isAnimating = true
             self.refreshControl = UIRefreshControl()
             self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-            self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+            self.refreshControl.addTarget(self, action: #selector(GeneralListViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
             self.generalListTableView.addSubview(refreshControl)
         }
     }
@@ -180,7 +180,7 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
             cell.likeImage.setImage(image, forState: UIControlState.Normal)
         }
         
-        cell.likeImage.addTarget(self, action: Selector("contentLikeFunc:"), forControlEvents: .TouchUpInside)
+        cell.likeImage.addTarget(self, action: #selector(GeneralListViewController.contentLikeFunc(_:)), forControlEvents: .TouchUpInside)
         
         
         return cell
@@ -307,39 +307,5 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         self.type = "T01"
         self.pageInt = 1
         initGeneralBoard()
-    }
-}
-
-extension UIViewController {
-    func catchIt(userInfo: NSNotification) {
-        let descriptions = LibraryAPI.sharedInstance.pushNotificationTriggered()
-        BBAlertView.alert(descriptions.title, message: descriptions.message, buttons: descriptions.buttons, tapBlock: {(alertAction, position) -> Void in
-            if position == 1 {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let noticeVC = storyboard.instantiateViewControllerWithIdentifier("noticeVC") as! NoticeViewController
-                //self.navigationController?.pushViewController(noticeVC, animated: true)
-                self.presentViewController(noticeVC, animated: true, completion: nil)
-            }
-        })
-    }
-}
-
-extension UIImageView {
-    func downloadedFrom(link link:String, contentMode mode: UIViewContentMode) {
-        guard
-            let url = NSURL(string: link)
-            else {return}
-        contentMode = mode
-        NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
-            guard
-                let httpURLResponse = response as? NSHTTPURLResponse where httpURLResponse.statusCode == 200,
-                let mimeType = response?.MIMEType where mimeType.hasPrefix("image"),
-                let data = data where error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                self.image = image
-            }
-        }).resume()
     }
 }

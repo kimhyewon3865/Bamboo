@@ -61,7 +61,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         if commentContent != "" {
         let commentTmp = Comment(commentP: commentContent, regdtP: str)
         //= Comment(commentP: commentContent, regdtP: dateFormatter.stringFromDate(NSDate())
-        let olderDate = dateFormatter.dateFromString(str)
         commentsArr.insert(commentTmp, atIndex: 0)
         //commentsArr.append(commentTmp)
         commentTableView.reloadData()
@@ -87,14 +86,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         contentCommentNumTmp = Int(commentNumT)!
         contentLikeNumTmp = Int(contentlikeNumT)!
-        contentLike.addTarget(self, action: "contentLikeFunc", forControlEvents: .TouchUpInside)
+        contentLike.addTarget(self, action: #selector(DetailViewController.contentLikeFunc), forControlEvents: .TouchUpInside)
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         initDetailView()
         initSetting()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIViewController.catchIt(_:)), name: "myNotif", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -289,7 +288,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
         cell.likeBtn.tag = indexPath.row
-        cell.likeBtn.addTarget(self, action: "commentLikeFunc:", forControlEvents: .TouchUpInside)
+        cell.likeBtn.addTarget(self, action: #selector(DetailViewController.commentLikeFunc(_:)), forControlEvents: .TouchUpInside)
 
         return cell
     }

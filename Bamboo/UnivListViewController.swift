@@ -36,7 +36,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         pageInt = 1
         initUnivBoard()
         initSetting()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIViewController.catchIt(_:)), name: "myNotif", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -81,7 +81,7 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
             let image: UIImage = UIImage(named: "like")!
             cell.likeImage.setImage(image, forState: UIControlState.Normal)
         }
-        cell.likeImage.addTarget(self, action: "contentLikeFunc:", forControlEvents: .TouchUpInside)
+        cell.likeImage.addTarget(self, action: #selector(UnivListViewController.contentLikeFunc(_:)), forControlEvents: .TouchUpInside)
         if univBoards[indexPath.row].imgURL != "" {
             cell.backgroundImage.hidden = false
             cell.backgroundImage.downloadedFrom(link: univBoards[indexPath.row].imgURL, contentMode: .ScaleToFill)
@@ -170,12 +170,12 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         self.univListTableView.dataSource = self
         self.btnBest.hidden = true
         self.btnNew.hidden = true
-        btnBest.addTarget(self, action: "btnBestFunc", forControlEvents: .TouchUpInside)
-        btnNew.addTarget(self, action: "btnNewFunc", forControlEvents: .TouchUpInside)
-        btnWrite.addTarget(self, action: "btnWriteFunc", forControlEvents: .TouchUpInside)
+        btnBest.addTarget(self, action: #selector(UnivListViewController.btnBestFunc), forControlEvents: .TouchUpInside)
+        btnNew.addTarget(self, action: #selector(UnivListViewController.btnNewFunc), forControlEvents: .TouchUpInside)
+        btnWrite.addTarget(self, action: #selector(UnivListViewController.btnWriteFunc), forControlEvents: .TouchUpInside)
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.addTarget(self, action: #selector(UnivListViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.univListTableView.addSubview(refreshControl)
         self.navigationItem.title = User.sharedInstance().univ
     }
@@ -321,13 +321,4 @@ class UnivListViewController: UIViewController, UITableViewDataSource, UITableVi
         self.pageInt = 1
         initUnivBoard()
     }
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
 }

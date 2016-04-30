@@ -33,7 +33,7 @@ class KeywordCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        likeImage.addTarget(self, action: "aa", forControlEvents: .TouchUpInside)
+        likeImage.addTarget(self, action: #selector(KeywordCollectionViewCell.aa), forControlEvents: .TouchUpInside)
         // Initialization code
     }
 //    override var selected: Bool {

@@ -53,7 +53,7 @@ class PostBoardViewController: UIViewController {
     
     // MARK: - Custom function
     func settingContentsTextView() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyWillShow:"), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PostBoardViewController.keyWillShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
         contentsTextView.becomeFirstResponder()
         contentsTextView.autocorrectionType = .No
     }
@@ -75,7 +75,7 @@ class PostBoardViewController: UIViewController {
             }
         }
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIViewController.catchIt(_:)), name: "myNotif", object: nil)
     }
     
     func setImageToPhotoImageView(image: UIImage) {

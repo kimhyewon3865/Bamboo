@@ -24,7 +24,7 @@ class CommentTableViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        likeBtn.addTarget(self, action: "commentLikeFunc", forControlEvents: .TouchUpInside)
+        likeBtn.addTarget(self, action: #selector(CommentTableViewCell.commentLikeFunc), forControlEvents: .TouchUpInside)
         
         // Configure the view for the selected state
     }

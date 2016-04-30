@@ -43,15 +43,15 @@ class KeywordManager {
                 for modifiedCharacter in newContents.characters {
                     if modifiedCharacter == "#" || modifiedCharacter == " " || modifiedCharacter == newContents[newContents.endIndex.predecessor()] {
                         if modifiedCharacter == newContents[newContents.endIndex.predecessor()] {
-                            endPoint++
+                            endPoint += 1
                         }
                         retKeywords.append(contents.substringWithRange(Range<String.Index>(start: contents.startIndex.advancedBy(characterIndex), end: contents.startIndex.advancedBy(endPoint+1))))
                         break
                     }
-                    endPoint++
+                    endPoint += 1
                 }
             }
-            characterIndex++
+            characterIndex += 1
         }
         
         return retKeywords

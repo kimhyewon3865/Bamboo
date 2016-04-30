@@ -30,7 +30,7 @@ class MypageViewController: UIViewController {
         setMypageVC()
         hiddenView.hidden = true
         setDisplayData()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "catchIt:", name: "myNotif", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIViewController.catchIt(_:)), name: "myNotif", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {

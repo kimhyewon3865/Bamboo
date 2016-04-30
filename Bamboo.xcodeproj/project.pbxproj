@@ -41,6 +41,9 @@
 		E82D44261C760F9B0037D83F /* HotKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44251C760F9B0037D83F /* HotKeyword.swift */; };
 		E82D44281C760FA80037D83F /* UnivKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44271C760FA80037D83F /* UnivKeyword.swift */; };
 		E82D442A1C760FB30037D83F /* SearchKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D44291C760FB30037D83F /* SearchKeyword.swift */; };
+		E83B1C631CD494EC00BEE09B /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83B1C621CD494EC00BEE09B /* UIViewController+.swift */; };
+		E83B1C651CD4951D00BEE09B /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83B1C641CD4951D00BEE09B /* UIImageView+.swift */; };
+		E83B1C6B1CD4BF5D00BEE09B /* KeywordCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83B1C6A1CD4BF5D00BEE09B /* KeywordCollectionLayout.swift */; };
 		E841A6801C250F6400F5450D /* UnivSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */; };
 		E86D7EB71C3F77F30043D3FD /* MypageChangeUniversityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */; };
 		E86D7EB91C40A8FA0043D3FD /* KeywordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */; };
@@ -62,6 +65,7 @@
 		E8937F131C1E7D6C0056C5FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8937F111C1E7D6C0056C5FD /* LaunchScreen.storyboard */; };
 		E8937F1E1C1E7D6C0056C5FD /* BambooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8937F1D1C1E7D6C0056C5FD /* BambooTests.swift */; };
 		E8937F291C1E7D6C0056C5FD /* BambooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8937F281C1E7D6C0056C5FD /* BambooUITests.swift */; };
+		E895A10C1CD0B0450060B18B /* AlbumLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895A10B1CD0B0450060B18B /* AlbumLoader.swift */; };
 		E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C39E531C203C8D0027F3FD /* FirstRunViewController.swift */; };
 		E8CE04C71C31273900983B7A /* PostBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CE04C61C31273900983B7A /* PostBoardViewController.swift */; };
 		E8EC9C241C2E6EA0002A7FA3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9C231C2E6EA0002A7FA3 /* MainTabBarController.swift */; };
@@ -165,6 +169,9 @@
 		E82D44251C760F9B0037D83F /* HotKeyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyword.swift; sourceTree = "<group>"; };
 		E82D44271C760FA80037D83F /* UnivKeyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivKeyword.swift; sourceTree = "<group>"; };
 		E82D44291C760FB30037D83F /* SearchKeyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchKeyword.swift; sourceTree = "<group>"; };
+		E83B1C621CD494EC00BEE09B /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		E83B1C641CD4951D00BEE09B /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		E83B1C6A1CD4BF5D00BEE09B /* KeywordCollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordCollectionLayout.swift; sourceTree = "<group>"; };
 		E841A67F1C250F6400F5450D /* UnivSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnivSearchViewController.swift; sourceTree = "<group>"; };
 		E86D7EB61C3F77F30043D3FD /* MypageChangeUniversityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageChangeUniversityViewController.swift; sourceTree = "<group>"; };
 		E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordManager.swift; sourceTree = "<group>"; };
@@ -192,6 +199,7 @@
 		E8937F241C1E7D6C0056C5FD /* BambooUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BambooUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8937F281C1E7D6C0056C5FD /* BambooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambooUITests.swift; sourceTree = "<group>"; };
 		E8937F2A1C1E7D6C0056C5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E895A10B1CD0B0450060B18B /* AlbumLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumLoader.swift; sourceTree = "<group>"; };
 		E8C39E531C203C8D0027F3FD /* FirstRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRunViewController.swift; sourceTree = "<group>"; };
 		E8CE04C61C31273900983B7A /* PostBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBoardViewController.swift; sourceTree = "<group>"; };
 		E8EC9C231C2E6EA0002A7FA3 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -332,14 +340,16 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
-		E82014FD1C1E9AD600F7DD5D /* Model */ = {
+		E82014FD1C1E9AD600F7DD5D /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				E8F161901C38E33500814311 /* TGCameraViewController */,
+				E83B1C691CD4BEAA00BEE09B /* JsonParser */,
+				E83B1C681CD4BE9900BEE09B /* Keyword */,
+				E83B1C671CD4BE9100BEE09B /* Router */,
+				E83B1C661CD4BE8400BEE09B /* CountTime */,
 				E82015021C2026B000F7DD5D /* DataModel */,
-				E82014FF1C20265300F7DD5D /* Alamofire */,
 			);
-			name = Model;
+			name = Class;
 			sourceTree = "<group>";
 		};
 		E82014FE1C1E9B0E00F7DD5D /* plist */ = {
@@ -380,27 +390,65 @@
 			name = DataModel;
 			sourceTree = "<group>";
 		};
-		E872E4871C29979D00AB69F7 /* View */ = {
+		E83B1C611CD494D300BEE09B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E83B1C621CD494EC00BEE09B /* UIViewController+.swift */,
+				E83B1C641CD4951D00BEE09B /* UIImageView+.swift */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		E83B1C661CD4BE8400BEE09B /* CountTime */ = {
+			isa = PBXGroup;
+			children = (
+				C96BF7771C466EBC0046749F /* CountTimeManager.swift */,
+			);
+			name = CountTime;
+			sourceTree = "<group>";
+		};
+		E83B1C671CD4BE9100BEE09B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E872E49C1C2BFDF800AB69F7 /* Router.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		E83B1C681CD4BE9900BEE09B /* Keyword */ = {
+			isa = PBXGroup;
+			children = (
+				E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */,
+			);
+			name = Keyword;
+			sourceTree = "<group>";
+		};
+		E83B1C691CD4BEAA00BEE09B /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				E874BBDB1C23D3F000E091A4 /* SimpleJsonParser.swift */,
+			);
+			name = JsonParser;
+			sourceTree = "<group>";
+		};
+		E872E4871C29979D00AB69F7 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				E872E4971C2AA34E00AB69F7 /* BBActivityIndicatorView.swift */,
 				E805E4BE1C3B48FB0001134A /* BBAlertView.swift */,
+				E83B1C6A1CD4BF5D00BEE09B /* KeywordCollectionLayout.swift */,
 			);
-			name = View;
+			name = CustomView;
 			sourceTree = "<group>";
 		};
-		E872E4881C29984100AB69F7 /* API */ = {
+		E872E4881C29984100AB69F7 /* Facede */ = {
 			isa = PBXGroup;
 			children = (
-				E874BBDB1C23D3F000E091A4 /* SimpleJsonParser.swift */,
 				E872E48B1C299A0100AB69F7 /* UniversityManager.swift */,
 				E805E4C01C3B5FB40001134A /* AlertMessageManager.swift */,
-				E86D7EB81C40A8FA0043D3FD /* KeywordManager.swift */,
 				E872E48F1C29A32F00AB69F7 /* LibraryAPI.swift */,
-				E872E49C1C2BFDF800AB69F7 /* Router.swift */,
-				C96BF7771C466EBC0046749F /* CountTimeManager.swift */,
 			);
-			name = API;
+			name = Facede;
 			sourceTree = "<group>";
 		};
 		E874BBD11C213A8600E091A4 /* Cell */ = {
@@ -445,11 +493,15 @@
 		E8937F071C1E7D6C0056C5FD /* Bamboo */ = {
 			isa = PBXGroup;
 			children = (
+				E83B1C611CD494D300BEE09B /* Category */,
+				E8F161901C38E33500814311 /* TGCameraViewController */,
+				E82014FF1C20265300F7DD5D /* Alamofire */,
+				E895A10A1CD0AFE20060B18B /* Album */,
 				E8937F271C1E7D6C0056C5FD /* BambooUITests */,
-				E872E4881C29984100AB69F7 /* API */,
+				E872E4881C29984100AB69F7 /* Facede */,
 				E82014FA1C1E9AB600F7DD5D /* Controller */,
-				E82014FD1C1E9AD600F7DD5D /* Model */,
-				E872E4871C29979D00AB69F7 /* View */,
+				E82014FD1C1E9AD600F7DD5D /* Class */,
+				E872E4871C29979D00AB69F7 /* CustomView */,
 				E8937F081C1E7D6C0056C5FD /* AppDelegate.swift */,
 				E80EA30D1C327EAE00B76E9A /* Bamboo-Bridging-Header.h */,
 				E8937F0C1C1E7D6C0056C5FD /* Main.storyboard */,
@@ -477,6 +529,14 @@
 			);
 			path = BambooUITests;
 			sourceTree = SOURCE_ROOT;
+		};
+		E895A10A1CD0AFE20060B18B /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				E895A10B1CD0B0450060B18B /* AlbumLoader.swift */,
+			);
+			name = Album;
+			sourceTree = "<group>";
 		};
 		E8F161901C38E33500814311 /* TGCameraViewController */ = {
 			isa = PBXGroup;
@@ -673,7 +733,7 @@
 				TargetAttributes = {
 					E8937F041C1E7D6C0056C5FD = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = G8322AKRJK;
+						DevelopmentTeam = QWRWRCD882;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -811,7 +871,9 @@
 				E8F161DB1C38E33500814311 /* TGCameraGrid.m in Sources */,
 				E8F161D41C38E33500814311 /* TGPhotoViewController.m in Sources */,
 				E8C39E541C203C8D0027F3FD /* FirstRunViewController.swift in Sources */,
+				E83B1C651CD4951D00BEE09B /* UIImageView+.swift in Sources */,
 				C96BF7781C466EBC0046749F /* CountTimeManager.swift in Sources */,
+				E895A10C1CD0B0450060B18B /* AlbumLoader.swift in Sources */,
 				C9B310831C531C69002E7165 /* HotKeywordCollectionViewCell.swift in Sources */,
 				C90ACF571C3778F90038238E /* Detail.swift in Sources */,
 				E8F161D31C38E33500814311 /* TGCameraViewController.m in Sources */,
@@ -849,6 +911,7 @@
 				E874BBCC1C2120A900E091A4 /* UnivBoard.swift in Sources */,
 				E872E4901C29A32F00AB69F7 /* LibraryAPI.swift in Sources */,
 				E805E4BF1C3B48FB0001134A /* BBAlertView.swift in Sources */,
+				E83B1C6B1CD4BF5D00BEE09B /* KeywordCollectionLayout.swift in Sources */,
 				E8162F571C38CD4900D491D3 /* PostBoardCameraViewController.swift in Sources */,
 				E8F161E41C38E33500814311 /* TGCameraSlideView.m in Sources */,
 				E8F161E51C38E33500814311 /* TGTintedButton.m in Sources */,
@@ -869,6 +932,7 @@
 				E82015011C20267B00F7DD5D /* ResponseObjectSerializable.swift in Sources */,
 				E8F161D01C38E33500814311 /* UIImage+CameraFilters.m in Sources */,
 				E872E48A1C29995A00AB69F7 /* University.swift in Sources */,
+				E83B1C631CD494EC00BEE09B /* UIViewController+.swift in Sources */,
 				E8F161DA1C38E33500814311 /* TGCameraFocus.m in Sources */,
 				E8162F561C38CD4900D491D3 /* PostBoardVideoViewController.swift in Sources */,
 				E8F161E11C38E33500814311 /* TGCameraGridView.m in Sources */,
@@ -1045,7 +1109,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mashup.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";
@@ -1066,7 +1130,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ewha.bamboo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mashup.bamboo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ParkTaeHyun/Desktop/Bamboo/Bamboo-Bridging-Header.h";

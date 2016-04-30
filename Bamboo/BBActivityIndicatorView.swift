@@ -178,7 +178,7 @@ public class BBActivityIndicatorView: UIView {
                 spinner.alpha = 1.0
                 }, completion: nil)
             
-            NSNotificationCenter.defaultCenter().addObserver(spinner, selector: "updateFrame", name: UIApplicationDidChangeStatusBarOrientationNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(spinner, selector: #selector(BBActivityIndicatorView.updateFrame), name: UIApplicationDidChangeStatusBarOrientationNotification, object: nil)
         }
         
         spinner.title = title
@@ -344,32 +344,3 @@ public class BBActivityIndicatorView: UIView {
         tapHandler?()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
